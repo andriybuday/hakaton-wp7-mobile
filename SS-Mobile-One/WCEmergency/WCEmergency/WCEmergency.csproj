@@ -54,8 +54,10 @@
     <Reference Include="Microsoft.Maps.MapControl.Common">
       <HintPath>..\Tools\Microsoft.Maps.MapControl.Common.dll</HintPath>
     </Reference>
+	 <Reference Include="Microsoft.Phone.Controls.Toolkit">
+      <HintPath>..\Tools\Toolkit\Aug11\Bin\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Phone" />
-    <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone.Interop" />
     <Reference Include="System.Device" />
     <Reference Include="System.Runtime.Serialization" />
