@@ -9,13 +9,12 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using Microsoft.Phone.Controls;
 
-namespace WCEmergency.View
+namespace WCEmergency.UserControls
 {
-    public partial class WcStartPage : PhoneApplicationPage 
+    public partial class CustomGridControl : Control
     {
-        public WcStartPage()
+        public CustomGridControl()
         {
             InitializeComponent();
         }

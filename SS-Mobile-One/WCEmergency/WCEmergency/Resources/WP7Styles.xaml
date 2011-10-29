@@ -1,13 +1,12 @@
 ﻿<ResourceDictionary
   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-  xmlns:MVVM="clr-namespace:Allscripts.Homecare.Mobile.Device.CommonUI.ViewModelLocation;assembly=Allscripts.Homecare.Mobile.Device.CommonUI"
   xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
   xmlns:toolkitPrimitives="clr-namespace:Microsoft.Phone.Controls.Primitives;assembly=Microsoft.Phone.Controls.Toolkit">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/Allscripts.Homecare.Mobile.Device.CommonUI;component/Resources/BaseStyles.xaml"/>
-        <!--<ResourceDictionary Source="/Allscripts.Homecare.Mobile.Device.CommonUI;component/Resources/GeneralStyles.xaml" />-->
+        <ResourceDictionary Source="/WCEmergency;component/Resources/BaseStyles.xaml"/>
+        <!--<ResourceDictionary Source="/WCEmergency;component/Resources/GeneralStyles.xaml" />-->
     </ResourceDictionary.MergedDictionaries>
 
     <!--Global View Model Locator-->
@@ -22,13 +21,13 @@
 
 
 
-    <Style TargetType="Grid" x:Key="ListPageMainContentGridStyle">
+    <!--<Style TargetType="Grid" x:Key="ListPageMainContentGridStyle">
         <Setter Property="Background">
             <Setter.Value>
                 <ImageBrush ImageSource="/Allscripts.Homecare.Mobile.Device.CommonUI;component/Resources/Images/PageBackground_Bars.png" Stretch="Fill" />
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 
     <Style x:Key="RoundedButton" TargetType="Button">
         <Setter Property="Background" Value="Transparent"/>

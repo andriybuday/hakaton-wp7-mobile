@@ -1,44 +1,139 @@
-﻿<WCEmergency:PhoneApplicationPageBase 
-    x:Class="WCEmergency.View.WCStartPage"
+﻿<Controls:PhoneApplicationPage 
+    x:Class="WCEmergency.View.WcStartPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:WCEmergency="clr-namespace:WCEmergency" FontFamily="{StaticResource PhoneFontFamilyNormal}"
-    FontSize="{StaticResource PhoneFontSizeNormal}"
-    Foreground="{StaticResource PhoneForegroundBrush}"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:Controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone" xmlns:Controls1="clr-namespace:Allscripts.Homecare.Mobile.Device.WinPhone7UI.Controls" FontSize="{StaticResource PhoneFontSizeNormal}"
     SupportedOrientations="Portrait" Orientation="Portrait"
-    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
-    shell:SystemTray.IsVisible="True">
+    mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="False">
+
+    <Controls:PhoneApplicationPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Resources/GeneralStyles.xaml" />
+                <ResourceDictionary Source="../Resources/BaseStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </Controls:PhoneApplicationPage.Resources>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <!--<Grid.Background>
+            <SolidColorBrush Color="{StaticResource AllscriptsBackgroundColor}"/>
+        </Grid.Background>-->
+
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock x:Name="ApplicationTitle" Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        <StackPanel>
+            <Border Margin="0,30,0,0" Name="TitleBorder" BorderThickness="1"
+                        HorizontalAlignment="Center" VerticalAlignment="Stretch">
+                <Grid Margin="-4,5,0,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock TextWrapping="Wrap" Grid.Column="0" Text="WC Emergency" Style="{StaticResource AllscriptsPageTitleTextStyle}" x:Name="PageTitle" />
+
+                </Grid>
+            </Border>
         </StackPanel>
 
-        <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0"></Grid>
-    </Grid>
- 
-    <!--Sample code showing usage of ApplicationBar-->
-    <!--<phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
-            <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
-                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
-            </shell:ApplicationBar.MenuItems>
-        </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>-->
+       <Grid Grid.Row="1" Margin="12,0,12,0" Style="{StaticResource DurationValidationStyle}" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="400"/>
+            </Grid.RowDefinitions>
 
-</WCEmergency:PhoneApplicationPageBase>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="How much time can you wait? :)" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource AllscriptsTreatmentGroupTitleStyle}" TextWrapping="Wrap" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,0,0,50" ></TextBlock>
+
+            <!-- Hours selector -->
+                <Controls1:TimeSpanLoopingSelector
+                x:Name ="hourSelector"
+                Grid.Column="0"
+                Grid.Row="1"
+                Width="148"
+                ItemSize="148,148"
+                ItemMargin="6" 
+                HorizontalAlignment="Right" 
+                
+				MaxValue="23" 
+                MinValue="0"
+                SelectedItem="{Binding Hours, Mode=TwoWay}">
+                    <Controls1:TimeSpanLoopingSelector.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel
+                            Width="148"
+                            Height="148"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom">
+                                <TextBlock
+                                Text="{Binding BindsDirectlyToSource=True}"
+                                FontSize="54"
+                                FontFamily="{StaticResource PhoneFontFamilySemiBold}"
+                                Margin="6, 55, 0, 0"/>
+                                <TextBlock
+                                Text="{Binding HoursText}"
+                                FontSize="20"
+                                FontFamily="{StaticResource PhoneFontFamilyNormal}"
+                                Foreground="{StaticResource PhoneSubtleExtBrush}"
+                                Margin="6, -10, 6, 0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </Controls1:TimeSpanLoopingSelector.ItemTemplate>
+                </Controls1:TimeSpanLoopingSelector>
+
+                <!-- Minutes selector -->
+                <Controls1:TimeSpanLoopingSelector
+                x:Name ="minuteSelector"
+                Grid.Column="1"
+                Grid.Row="1"
+                Width="148"
+                ItemSize="148,148"
+                ItemMargin="6" 
+                HorizontalAlignment="Left" 
+                
+				MaxValue="59" 
+                MinValue="0"
+                StringFormat="00"
+                SelectedItem="{Binding Minutes, Mode=TwoWay}">
+                    <Controls1:TimeSpanLoopingSelector.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel
+                            Width="148"
+                            Height="148"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom">
+                                <TextBlock
+                                Text="{Binding BindsDirectlyToSource=True}"
+                                FontSize="54"
+                                FontFamily="{StaticResource PhoneFontFamilySemiBold}"
+                                Margin="6, 55, 0, 0"/>
+                                <TextBlock
+                                Text="{Binding MinutesText}"
+                                FontSize="20"
+                                FontFamily="{StaticResource PhoneFontFamilyNormal}"
+                                Foreground="{StaticResource PhoneSubtleExtBrush}"
+                                Margin="6, -10, 6, 0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </Controls1:TimeSpanLoopingSelector.ItemTemplate>
+                </Controls1:TimeSpanLoopingSelector>
+            </Grid>
+        </Grid>
+
+</Controls:PhoneApplicationPage>

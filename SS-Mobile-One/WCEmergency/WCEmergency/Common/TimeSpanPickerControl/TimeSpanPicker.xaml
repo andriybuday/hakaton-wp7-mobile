@@ -1,0 +1,129 @@
+﻿<UserControl 
+    x:Class="WCEmergency.Common.TimeSpanPickerControl.TimeSpanPicker"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Controls="clr-namespace:Allscripts.Homecare.Mobile.Device.WinPhone7UI.Controls" xmlns:SystemControls="clr-namespace:Microsoft.Maps.MapControl.Navigation;assembly=Microsoft.Maps.MapControl" FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundExtBrush}"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="{StaticResource AllscriptsSemiBlackBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Orientation="Vertical">
+            <TextBlock
+            Grid.Row="1"
+            Text="CHOOSE DURATION"
+            FontFamily="{StaticResource PhoneFontFamilySemiBold}"
+            FontSize="{StaticResource PhoneFontSizeMedium}"
+            Foreground="{StaticResource PhoneForegroundExtBrush}"
+            Padding="20,45,0,0"/>
+            <!--<CheckBox x:Name="constantCheckBox" 
+                      Margin="10,-20,0,-20" 
+                      IsChecked="{Binding IsConstant, Mode=TwoWay}"
+                      Visibility="{Binding IsConstantVisible, Converter={StaticResource VisibilityConverter}}">
+                <TextBlock Text="Constant"  Style="{Binding Path=IsChecked, ElementName=constantCheckBox, Converter={StaticResource TreatmentCheckBoxStyleConverter}}"/>
+            </CheckBox>-->
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0" Style="{StaticResource DurationValidationStyle}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Hours selector -->
+            <Controls:TimeSpanLoopingSelector
+                x:Name ="hourSelector"
+                Grid.Column="0"
+                Width="148"
+                ItemSize="148,148"
+                ItemMargin="6" 
+                HorizontalAlignment="Right"  
+				MaxValue="23" 
+                MinValue="0"
+                IsEnabled="{Binding IsHoursDisabled, Converter={StaticResource InvertBooleanConverter}}"
+                SelectedItem="{Binding Hours, Mode=TwoWay}">
+                <Controls:TimeSpanLoopingSelector.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel
+                            Width="148"
+                            Height="148"
+                            Background="{Binding Path=IsEnabled,ElementName=hourSelector,Converter={StaticResource TimeSpanPickerStyleConverter}}" 
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom">
+                            <TextBlock
+                                Text="{Binding BindsDirectlyToSource=True}"
+                                FontSize="54"
+                                FontFamily="{StaticResource PhoneFontFamilySemiBold}"
+                                Margin="6, 55, 0, 0"/>
+                            <TextBlock
+                                Text="{Binding HoursText}"
+                                FontSize="20"
+                                FontFamily="{StaticResource PhoneFontFamilyNormal}"
+                                Foreground="{StaticResource PhoneSubtleExtBrush}"
+                                Margin="6, -10, 6, 0"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </Controls:TimeSpanLoopingSelector.ItemTemplate>
+            </Controls:TimeSpanLoopingSelector>
+
+            <!-- Minutes selector -->
+            <Controls:TimeSpanLoopingSelector
+                x:Name ="minuteSelector"
+                Grid.Column="1"
+                Width="148"
+                ItemSize="148,148"
+                ItemMargin="6" 
+                HorizontalAlignment="Left" 
+				MaxValue="59" 
+                MinValue="0"
+                StringFormat="00"
+                IsEnabled="{Binding IsMinutesDisabled, Converter={StaticResource InvertBooleanConverter}}"
+                SelectedItem="{Binding Minutes, Mode=TwoWay}">
+                <Controls:TimeSpanLoopingSelector.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel
+                            Width="148"
+                            Height="148"
+                            Background="{Binding Path=IsEnabled,ElementName=minuteSelector,Converter={StaticResource TimeSpanPickerStyleConverter}}" 
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom">
+                            <TextBlock
+                                Text="{Binding BindsDirectlyToSource=True}"
+                                FontSize="54"
+                                FontFamily="{StaticResource PhoneFontFamilySemiBold}"
+                                Margin="6, 55, 0, 0"/>
+                            <TextBlock
+                                Text="{Binding MinutesText}"
+                                FontSize="20"
+                                FontFamily="{StaticResource PhoneFontFamilyNormal}"
+                                Foreground="{StaticResource PhoneSubtleExtBrush}"
+                                Margin="6, -10, 6, 0"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </Controls:TimeSpanLoopingSelector.ItemTemplate>
+         </Controls:TimeSpanLoopingSelector>
+        </Grid>
+
+        <StackPanel Orientation="Vertical" Grid.Row="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 0">
+                <SystemControls:CommandButton Name="SaveButton" Style="{StaticResource SaveDialogSystemButton}" 
+                                              Command="{Binding SaveCommand, Converter={StaticResource WeakCommandBindingConverter}}"/>
+                <SystemControls:CommandButton Name="CancelButton" Style="{StaticResource CancelDialogSystemButton}" 
+                                              Command="{Binding CancelCommand, Converter={StaticResource WeakCommandBindingConverter}}"/>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+
+</UserControl>

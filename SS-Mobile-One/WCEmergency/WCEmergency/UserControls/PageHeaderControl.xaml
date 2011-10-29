@@ -1,0 +1,71 @@
+﻿<UserControl 
+    x:Class="WCEmergency.UserControls.PageHeaderControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:UserControls="clr-namespace:WCEmergency.UserControls" mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource AllscriptsForegroundBrush}"
+    d:DesignHeight="95" d:DesignWidth="480"
+    d:DataContext="{d:DesignInstance Type=local:BaseDesignData, IsDesignTimeCreatable=True}"
+             >
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Resources/GeneralStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" >
+            <StackPanel Orientation="Horizontal" Visibility="{Binding ShouldShowDiagnosticsInformation, Converter={StaticResource VisibilityConverter}}" >
+                <TextBlock Text="{Binding DeviceTotalMemory, Converter={StaticResource PrefixedValueConverter}, ConverterParameter='Total:'}" Margin="0,0,10,0" />
+                <TextBlock Text="{Binding DeviceCurrentMemory, Converter={StaticResource PrefixedValueConverter}, ConverterParameter='Current:'}" Margin="0,0,10,0" />
+                <TextBlock Text="{Binding DevicePeakMemory, Converter={StaticResource PrefixedValueConverter}, ConverterParameter='Peak:'}" Margin="0,0,10,0" />
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <StackPanel HorizontalAlignment="Stretch" Margin="0,0,25,0">
+                <Image Name="AllscriptsLogo" Margin="0,5,5,0" Source="/Allscripts.Homecare.Mobile.Device.CommonUI;component/Resources/Images/PageBrandingLogo_NoShadow.png" Height="25" HorizontalAlignment="Left"
+                       Visibility="{Binding AllscriptsLogoVisibility}"
+                       />
+                <UserControls:CustomGridControl Style="{StaticResource PatientHeaderGridControl}"
+												Margin="0,10,0,5"
+                                                x:Name="PatientHeader" MouseLeftButtonUp="PatientHeader_MouseLeftButtonUp" 
+													HorizontalAlignment="Stretch"
+													HorizontalContentAlignment="Stretch" />
+
+                <Border Margin="{Binding AllscriptsTitleMargin}" Name="TitleBorder"
+                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid Margin="-4,5,0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock TextWrapping="Wrap" Grid.Column="0" Text="{Binding PageTitle}" Style="{StaticResource AllscriptsPageTitleTextStyle}"
+                           x:Name="PageTitle" />
+                        <Border  Grid.Column="1" HorizontalAlignment="Right">
+                            <TextBlock TextWrapping="NoWrap" Text="{Binding PageTitle2Level}"
+						Style="{StaticResource AllscriptsPageTitle2LevelTextStyle}"
+                        x:Name="PageTitle2Level" VerticalAlignment="Bottom"
+                               />
+                        </Border>
+
+                    </Grid>
+                </Border>
+
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

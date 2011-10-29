@@ -5,11 +5,11 @@
   xmlns:SystemControls="clr-namespace:Allscripts.Homecare.Mobile.Device.CommonUI.SystemControls;assembly=Allscripts.Homecare.Mobile.Device.CommonUI" 
   xmlns:Controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls" 
   xmlns:Clinical="clr-namespace:Allscripts.Homecare.Mobile.Device.CommonUI.ViewModels.Clinical;assembly=Allscripts.Homecare.Mobile.Device.CommonUI" 
-  xmlns:UserControls="clr-namespace:Allscripts.Homecare.Mobile.Device.CommonUI.UserControls;assembly=Allscripts.Homecare.Mobile.Device.CommonUI">
+  xmlns:UserControls="clr-namespace:Allscripts.Homecare.Mobile.Device.CommonUI.UserControls;assembly=Allscripts.Homecare.Mobile.Device.CommonUI" xmlns:Navigation="clr-namespace:Microsoft.Maps.MapControl.Navigation;assembly=Microsoft.Maps.MapControl" xmlns:UserControls1="clr-namespace:WCEmergency.UserControls" xmlns:Controls1="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/Allscripts.Homecare.Mobile.Device.CommonUI;component/Resources/BaseStyles.xaml"/>
-        <ResourceDictionary Source="/Allscripts.Homecare.Mobile.Device.CommonUI;component/Resources/WP7Styles.xaml"/>
+        <ResourceDictionary Source="/WCEmergency;component/Resources/BaseStyles.xaml"/>
+        <ResourceDictionary Source="/WCEmergency;component/Resources/WP7Styles.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <!--<Converters:WeakCommandBindingConverter x:Key="WeakCommandBindingConverter" />
@@ -863,7 +863,7 @@
         <Setter Property="TextWrapping" Value="Wrap" />
     </Style>
 
-    <Style TargetType="SystemControls:CommandButton" x:Key="DetailedTrandingButtonStyle" >
+    <Style TargetType="Navigation:CommandButton" x:Key="DetailedTrandingButtonStyle" >
         <Setter Property="Height" Value="90" />
         <Setter Property="Width" Value="210" />
         <Setter Property="BorderThickness" Value="0" />
@@ -968,7 +968,7 @@
         <Setter Property="Foreground" Value="{StaticResource AllscriptsHistoryPivotHeaderBrush}"/>
     </Style>
 
-    <Style TargetType="SystemControls:CommandButton" x:Key="PatientChartCommandButtonStyle">
+    <Style TargetType="Navigation:CommandButton" x:Key="PatientChartCommandButtonStyle">
         <Setter Property="BorderThickness" Value="0,0,0,1" />
         <Setter Property="BorderBrush" Value="{StaticResource AllscriptsDividerSecondaryBrush}" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
@@ -980,14 +980,14 @@
 
 
     <!-- patient header styles -->
-    <Style x:Key="PatientHeaderGridControl_Hidden" TargetType="UserControls:CustomGridControl">
+    <Style x:Key="PatientHeaderGridControl_Hidden" TargetType="UserControls1:CustomGridControl">
         <Setter Property="Visibility" Value="Collapsed" />
     </Style>
 
-    <Style x:Key="PatientHeaderGridControl" TargetType="UserControls:CustomGridControl">
+    <Style x:Key="PatientHeaderGridControl" TargetType="UserControls1:CustomGridControl">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="UserControls:CustomGridControl">
+                <ControlTemplate TargetType="UserControls1:CustomGridControl">
                     <Border Name="ControlBorder" Background="{StaticResource AllscriptsOrdersContentHeaderBackgroundBrush}" CornerRadius="3" 
 							Height="60" HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
@@ -1001,10 +1001,10 @@
         </Setter>
     </Style>
 
-    <Style x:Key="PatientHeaderGridControlHorizontal" TargetType="UserControls:CustomGridControl">
+    <Style x:Key="PatientHeaderGridControlHorizontal" TargetType="UserControls1:CustomGridControl">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="UserControls:CustomGridControl">
+                <ControlTemplate TargetType="UserControls1:CustomGridControl">
                     <Border Name="ControlBorder" Background="{StaticResource AllscriptsOrdersContentHeaderBackgroundBrush}" CornerRadius="3" 
 							Height="60" HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
@@ -1018,10 +1018,10 @@
         </Setter>
     </Style>
 
-    <Style x:Key="PatientHeaderGridControl_Orders" TargetType="UserControls:CustomGridControl">
+    <Style x:Key="PatientHeaderGridControl_Orders" TargetType="UserControls1:CustomGridControl">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="UserControls:CustomGridControl">
+                <ControlTemplate TargetType="UserControls1:CustomGridControl">
                     <Border Name="ControlBorder" Background="{StaticResource AllscriptsOrdersContentHeaderBackgroundBrush}" CornerRadius="3" 
 							Height="60" HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
@@ -1035,10 +1035,10 @@
         </Setter>
     </Style>
 
-    <Style x:Key="PatientHeaderGridControl_Contacts" TargetType="UserControls:CustomGridControl">
+    <Style x:Key="PatientHeaderGridControl_Contacts" TargetType="UserControls1:CustomGridControl">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="UserControls:CustomGridControl">
+                <ControlTemplate TargetType="UserControls1:CustomGridControl">
                     <Border Name="ControlBorder" Background="{StaticResource AllscriptsContactsContentHeaderBackgroundBrush}" CornerRadius="3" 
 							Height="60" HorizontalAlignment="Stretch" >
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
@@ -1052,10 +1052,10 @@
         </Setter>
     </Style>
 
-    <Style x:Key="PatientHeaderGridControl_History" TargetType="UserControls:CustomGridControl">
+    <Style x:Key="PatientHeaderGridControl_History" TargetType="UserControls1:CustomGridControl">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="UserControls:CustomGridControl">
+                <ControlTemplate TargetType="UserControls1:CustomGridControl">
                     <Border Name="ControlBorder" Background="{StaticResource AllscriptsHistoryContentHeaderBackgroundBrush}" CornerRadius="3" 
 							Height="60" HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
@@ -1099,37 +1099,37 @@
     </Style>
 
     <!-- begin new page header styles -->
-    <Style x:Key="PageHeaderStyle_Orders" TargetType="UserControls:PageHeaderControl">
+    <Style x:Key="PageHeaderStyle_Orders" TargetType="UserControls1:PageHeaderControl">
         <Setter Property="PatientHeaderStyle" Value="{StaticResource PatientHeaderGridControl_Orders}" />
         <Setter Property="PageTitleStyle" Value="{StaticResource PageTitleStyle_Orders}" />
     </Style>
 
-    <Style x:Key="PageHeaderStyle_Contacts" TargetType="UserControls:PageHeaderControl">
+    <Style x:Key="PageHeaderStyle_Contacts" TargetType="UserControls1:PageHeaderControl">
         <Setter Property="PatientHeaderStyle" Value="{StaticResource PatientHeaderGridControl_Contacts}" />
         <Setter Property="PageTitleStyle" Value="{StaticResource PageTitleStyle_Contacts}" />
     </Style>
 
-    <Style x:Key="PageHeaderStyle_History" TargetType="UserControls:PageHeaderControl">
+    <Style x:Key="PageHeaderStyle_History" TargetType="UserControls1:PageHeaderControl">
         <Setter Property="PatientHeaderStyle" Value="{StaticResource PatientHeaderGridControl_History}" />
         <Setter Property="PageTitleStyle" Value="{StaticResource PageTitleStyle_History}" />
     </Style>
 
-    <Style x:Key="PageHeaderStyle_Default" TargetType="UserControls:PageHeaderControl">
+    <Style x:Key="PageHeaderStyle_Default" TargetType="UserControls1:PageHeaderControl">
         <Setter Property="PatientHeaderStyle" Value="{StaticResource PatientHeaderGridControl_Hidden}" />
         <Setter Property="PageTitleStyle" Value="{StaticResource PageTitleStyle_Default}" />
     </Style>
 
-    <Style x:Key="PageHeaderStyle_GreenWithoutLogo" TargetType="UserControls:PageHeaderControl">
+    <Style x:Key="PageHeaderStyle_GreenWithoutLogo" TargetType="UserControls1:PageHeaderControl">
         <Setter Property="AllscriptsLogoVisibility" Value="Collapsed" />
         <Setter Property="PatientHeaderStyle" Value="{StaticResource PatientHeaderGridControl_Orders}" />
         <Setter Property="PageTitleStyle" Value="{StaticResource PageTitleStyle_Orders}" />
     </Style>
 
-    <Style x:Key="PageHeaderStyle_GreenWithoutLogo_SmallTitleMargin" TargetType="UserControls:PageHeaderControl" BasedOn="{StaticResource PageHeaderStyle_GreenWithoutLogo}">
+    <Style x:Key="PageHeaderStyle_GreenWithoutLogo_SmallTitleMargin" TargetType="UserControls1:PageHeaderControl" BasedOn="{StaticResource PageHeaderStyle_GreenWithoutLogo}">
         <Setter Property="AllscriptsTitleMargin" Value="0,-25,0,0" />
     </Style>
 
-    <Style x:Key="PageHeaderStyle_Green_WithoutPatientbar" TargetType="UserControls:PageHeaderControl">
+    <Style x:Key="PageHeaderStyle_Green_WithoutPatientbar" TargetType="UserControls1:PageHeaderControl">
         <Setter Property="PatientHeaderVisibility" Value="Collapsed" />
         <Setter Property="PageTitleStyle" Value="{StaticResource PageTitleStyle_Orders}" />
         <Setter Property="PageTitle2LevelStyle">
@@ -1144,7 +1144,7 @@
         <Setter Property="Margin" Value="0, 0, 0,-15" />
     </Style>
 
-    <Style x:Key="PageHeaderStyle_Blue_WithoutPatientbar" TargetType="UserControls:PageHeaderControl">
+    <Style x:Key="PageHeaderStyle_Blue_WithoutPatientbar" TargetType="UserControls1:PageHeaderControl">
         <Setter Property="PatientHeaderVisibility" Value="Collapsed" />
         <Setter Property="PageTitleStyle" Value="{StaticResource PageTitleStyle_History}" />
         <Setter Property="PageTitle2LevelStyle">
@@ -1159,18 +1159,18 @@
         <Setter Property="Margin" Value="0, 0, 0,-15" />
     </Style>
 
-    <Style x:Key="PageHeaderStyle_GreenSmall" TargetType="UserControls:PageHeaderControl">
+    <Style x:Key="PageHeaderStyle_GreenSmall" TargetType="UserControls1:PageHeaderControl">
         <Setter Property="PageTitleStyle" Value="{StaticResource PageTitleStyle_GreenSmall}" />
         <Setter Property="Margin" Value="0, 0, 0,-15" />
     </Style>
 
-    <Style x:Key="PageHeaderStyle_GreenSmall_WithoutPatientbar" TargetType="UserControls:PageHeaderControl">
+    <Style x:Key="PageHeaderStyle_GreenSmall_WithoutPatientbar" TargetType="UserControls1:PageHeaderControl">
         <Setter Property="PatientHeaderVisibility" Value="Collapsed" />
         <Setter Property="PageTitleStyle" Value="{StaticResource PageTitleStyle_GreenSmall}" />
         <Setter Property="Margin" Value="0, 0, 0,-15" />
     </Style>
 
-    <Style x:Key="PageHeaderStyle_WhiteSmall_WithoutPatientbar" TargetType="UserControls:PageHeaderControl">
+    <Style x:Key="PageHeaderStyle_WhiteSmall_WithoutPatientbar" TargetType="UserControls1:PageHeaderControl">
         <Setter Property="PatientHeaderVisibility" Value="Collapsed" />
         <Setter Property="PageTitleStyle" Value="{StaticResource PageTitleStyle_WhiteSmall}" />
         <Setter Property="Margin" Value="0, 0, 0,-15" />
@@ -1293,7 +1293,7 @@
         <Setter Property="Foreground" Value="{StaticResource AllscriptsDisabledColor}"/>
     </Style>
 
-    <Style TargetType="SystemControls:CommandButton" x:Key="TreatmentGroupCommandButtonStyle">
+    <Style TargetType="Navigation:CommandButton" x:Key="TreatmentGroupCommandButtonStyle">
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="BorderBrush" Value="{StaticResource AllscriptsDividerSecondaryBrush}" />
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
@@ -1573,7 +1573,7 @@
         <Setter Property="Tag" Value="Required" />
     </Style>
 
-    <Style TargetType="UserControls:TreatmentItem" x:Key="TreatmentItemValidationStyle" >
+    <!--<Style TargetType="UserControls:TreatmentItem" x:Key="TreatmentItemValidationStyle" >
         <Setter Property="RenderTransform">
             <Setter.Value>
                 <CompositeTransform />
@@ -1581,9 +1581,9 @@
         </Setter>
         <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
         <Setter Property="Tag" Value="Required" />
-    </Style>
+    </Style>-->
 
-    <Style TargetType="UserControls:NumericDataEntryBox" x:Key="NumericDataBoxValidationStyle" >
+    <!--<Style TargetType="UserControls:NumericDataEntryBox" x:Key="NumericDataBoxValidationStyle" >
         <Setter Property="RenderTransform">
             <Setter.Value>
                 <CompositeTransform />
@@ -1591,7 +1591,7 @@
         </Setter>
         <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
         <Setter Property="Tag" Value="Required" />
-    </Style>
+    </Style>-->
 
     <Style TargetType="Grid" x:Key="DurationValidationStyle" >
         <Setter Property="RenderTransform">
@@ -1632,7 +1632,7 @@
         <Setter Property="Padding" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="SystemControls:CommandButton">
+                <ControlTemplate TargetType="Navigation:CommandButton">
                     <Grid Background="Transparent">
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
@@ -1696,7 +1696,7 @@
         </Grid>
     </DataTemplate>
 
-    <Style TargetType="UserControls:ListPicker">
+    <Style TargetType="Controls1:ListPicker">
         <Setter Property="Background" Value="{StaticResource PhoneTextBoxExtBrush}"/>
         <Setter Property="Foreground" Value="{StaticResource PhoneTextBoxForegroundExtBrush}"/>
         <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeMediumLarge}"/>
@@ -1712,7 +1712,7 @@
         </Setter>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="UserControls:ListPicker">
+                <ControlTemplate TargetType="Controls1:ListPicker">
                     <StackPanel>
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="PickerStates">
@@ -1801,13 +1801,13 @@
         </Setter>
     </Style>
 
-    <Style TargetType="UserControls:ListPickerItem">
+    <Style TargetType="Controls1:ListPickerItem">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="Padding" Value="8 6"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="UserControls:ListPickerItem">
+                <ControlTemplate TargetType="Controls1:ListPickerItem">
                     <Grid Background="{TemplateBinding Background}">
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="SelectionStates">
@@ -1840,7 +1840,7 @@
         </Setter>
     </Style>
 
-    <Style TargetType="UserControls:ListPicker" x:Key="ListPickerStyle">
+    <Style TargetType="Controls1:ListPicker" x:Key="ListPickerStyle">
         <Setter Property="Background" Value="{StaticResource AllscriptsMedicationTextBoxBackgroundBrush}" />
     </Style>
 
