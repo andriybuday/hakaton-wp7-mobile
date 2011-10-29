@@ -30,6 +30,8 @@ using System.IO.IsolatedStorage;
 using System.Windows.Controls.Primitives;
 using Microsoft.Xna.Framework.Media;
 using sdkSilverlightXNACS;
+using sdkSilverlightXNACS.Models;
+using sdkSilverlightXNACS.Storage;
 
 namespace sdkPhotosCS
 {
@@ -300,13 +302,15 @@ namespace sdkPhotosCS
 
             var userEnteredName = NameTextBox.Text;
 
-            //TODO: 
+            var game = GameState.GetInstance();
+            game.MyTeam.Add(new Hero() { IsInYourTeam = true, MemberPhoto = App.CroppedImage, Name = userEnteredName });
 
             if(App.Face2 == null)
             {
                 App.Face2 = App.CroppedImage;
             }
 
+            NavigationService.Navigate(new Uri(string.Format("/GamePage.xaml"), UriKind.Relative));
         }
 
 

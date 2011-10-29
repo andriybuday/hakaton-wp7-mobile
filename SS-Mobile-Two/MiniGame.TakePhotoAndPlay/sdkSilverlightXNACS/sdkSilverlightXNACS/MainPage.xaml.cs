@@ -44,6 +44,8 @@ namespace sdkSilverlightXNACS
         //The camera chooser used to capture a picture.
         CameraCaptureTask ctask;
 
+        private bool _photoIsCaptured;
+
         // Constructor
         public MainPage()
         {
@@ -76,7 +78,7 @@ namespace sdkSilverlightXNACS
             ApplicationBar.Buttons.Add(btnHelp);
 
             //Disable crop button until photo is taken.
-            btnCrop.IsEnabled = false;
+            _photoIsCaptured = false;
 
             textStatus.Text = "Tap the camera button to take a picture.";
 
@@ -91,10 +93,10 @@ namespace sdkSilverlightXNACS
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
-            if (btnCrop.IsEnabled)
+            if (_photoIsCaptured)
             {
                 NavigationService.Navigate(new Uri("/Crop.xaml", UriKind.Relative));
-                btnCrop.IsEnabled = false;
+                _photoIsCaptured = true;
             }
         }
 
@@ -207,7 +209,6 @@ namespace sdkSilverlightXNACS
         /// <param name="e"></param>
         void ctask_Completed(object sender, PhotoResult e)
         {
-
             if (e.ChosenPhoto != null)
             {
 
@@ -223,7 +224,7 @@ namespace sdkSilverlightXNACS
 
                 //Once writeable bitmap has been rendered, the crop button
                 //is enabled.
-                btnCrop.IsEnabled = true;
+                _photoIsCaptured = true;
             }
             else
             {
