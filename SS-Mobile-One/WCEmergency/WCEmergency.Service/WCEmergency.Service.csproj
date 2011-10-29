@@ -84,11 +84,6 @@
       <Name>WCEmergency.DataLayer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="..\WCEmergency.DataLayer\App.Config">
-      <Link>App.Config</Link>
-    </Content>
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>

@@ -8,7 +8,7 @@ namespace WCEmergency.DataLayer
 {
     public class DataToPocoMapper
     {
-        public IList<Common.Toilet> Map(IList<Toilet> list)
+        public static IList<Common.Toilet> Map(IList<Toilet> list)
         {
             return list.Select(toilet => new Common.Toilet()
                                              {

@@ -17,9 +17,11 @@ namespace WCEmergency.DataLayer
         {
             var emergencyEntities = new WCEmergencyEntities();
             var q = from s in emergencyEntities.Toilets
-                    select s;
+                    orderby Math.Pow(currrentPosition.X - s.CoordinateX, 2) + Math.Pow(currrentPosition.Y - s.CoordinateY, 2) 
+                    select s ;
 
-            return new List<Common.Toilet>();
+
+            return DataToPocoMapper.Map(q.ToList());
         }
     }
 }

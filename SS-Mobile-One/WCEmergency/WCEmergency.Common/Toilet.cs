@@ -5,9 +5,12 @@ namespace WCEmergency.Common
 {
     [DataContract]
     public enum Sex:int
-    { 
+    {
+        [EnumMember]
         Male = 1,
+        [EnumMember]
         Female = 2 ,
+        [EnumMember]
         Unisex = 3
     }
 
