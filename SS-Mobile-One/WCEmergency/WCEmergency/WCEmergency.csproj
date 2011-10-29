@@ -48,22 +48,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
- 
-   <Reference Include="GalaSoft.MvvmLight.Extras.WP7">
+    <Reference Include="GalaSoft.MvvmLight.Extras.WP7">
       <HintPath>..\Tools\GalaSoft\WP7\GalaSoft.MvvmLight.Extras.WP7.dll</HintPath>
     </Reference>
-	
     <Reference Include="GalaSoft.MvvmLight.WP7">
       <HintPath>..\Tools\GalaSoft\WP7\GalaSoft.MvvmLight.WP7.dll</HintPath>
     </Reference>
-
     <Reference Include="Microsoft.Maps.MapControl">
       <HintPath>..\Tools\Microsoft.Maps.MapControl.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Maps.MapControl.Common">
       <HintPath>..\Tools\Microsoft.Maps.MapControl.Common.dll</HintPath>
     </Reference>
-	 <Reference Include="Microsoft.Phone.Controls.Toolkit">
+    <Reference Include="Microsoft.Phone.Controls.Toolkit">
       <HintPath>..\Tools\Toolkit\Aug11\Bin\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Phone" />
@@ -97,6 +94,7 @@
     <Compile Include="PhoneApplicationPageBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModelBase.cs" />
+    <Compile Include="ViewModel\MapViewModel.cs" />
     <Compile Include="View\WCStartPage.xaml.cs">
       <DependentUpon>WCStartPage.xaml</DependentUpon>
     </Compile>
@@ -148,9 +146,7 @@
     </Content>
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
