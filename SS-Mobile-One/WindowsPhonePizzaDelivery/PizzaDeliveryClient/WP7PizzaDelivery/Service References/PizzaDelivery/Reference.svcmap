@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d2139a93-bec8-47a5-b572-372d1b29f9c4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:9777/PizzaDeliveryServices/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="f893930b-79d1-4d6f-8e28-7ed86ab8d5b6" SourceId="1" SourceUrl="http://localhost:9777/PizzaDeliveryServices/?xsd=xsd0" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="f53cd650-03f0-47b3-b6af-599cb105411d" SourceId="1" SourceUrl="http://localhost:9777/PizzaDeliveryServices/?xsd=xsd1" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="e8f5e1ba-bee1-4fd7-aa05-b000984ffa96" SourceId="1" SourceUrl="http://localhost:9777/PizzaDeliveryServices/?xsd=xsd2" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="db694648-80cf-472c-b5b1-1e30be85e7c5" SourceId="1" SourceUrl="http://localhost:9777/PizzaDeliveryServices/?disco" />
+    <MetadataFile FileName="PizzaDelivery.wsdl" MetadataType="Wsdl" ID="ee26c16a-2afa-4645-9182-50cf57ab8b75" SourceId="1" SourceUrl="http://localhost:9777/PizzaDeliveryServices/?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

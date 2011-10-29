@@ -1,0 +1,126 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/d:SampleData/f:MainViewModelSampleData.xaml" caret="0" fromTop="0" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:App.xaml" caret="0" fromTop="0" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/d:ViewModels/f:ItemViewModel.cs" caret="1451" fromTop="24" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/d:ViewModels/f:MainViewModel.cs" caret="2666" fromTop="0" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/d:Service References/d:PizzaDelivery/f:Reference.svcmap" caret="0" fromTop="0" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:DetailsPage.xaml.cs" caret="1023" fromTop="13" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:App.xaml.cs" caret="4419" fromTop="0" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:MainPage.xaml" caret="4750" fromTop="20" />
+      <File id="d:Miscellaneous Files/f:GeoCoordinateWatcher.cs/l:D!?DevSuccess?GpsEmulator?GpsEmulatorClient?GeoCoordinateWatcher.cs" caret="8936" fromTop="7" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:MainPage.xaml.cs" caret="3417" fromTop="43" />
+      <File id="d:Miscellaneous Files/f:Reference.cs/l:D!?DevSuccess?GpsEmulator?GpsEmulatorClient?Service References?ServiceReference1?Reference.cs" caret="7193" fromTop="9" />
+      <File id="A128812A-1249-4562-BDF4-5E17951B8434/f:GeoCoordinateWatcher.cs" caret="5563" fromTop="10" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:CoordinateLocator.cs" caret="184" fromTop="0" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:MainPage.xaml.cs" caret="2016" fromTop="17" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:CoordinateLocator.cs" caret="1190" fromTop="16" />
+      <File id="A128812A-1249-4562-BDF4-5E17951B8434/f:GeoCoordinateWatcher.cs" caret="10220" fromTop="14" />
+      <File id="A128812A-1249-4562-BDF4-5E17951B8434/f:GeoCoordinateWatcher.cs" caret="10338" fromTop="18" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:MainPage.xaml" caret="3033" fromTop="11" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:MainPage.xaml" caret="5190" fromTop="24" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:MainPage.xaml" caret="4750" fromTop="20" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:CoordinateLocator.cs" caret="4758" fromTop="10" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:CoordinateLocator.cs" caret="4852" fromTop="23" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:CoordinateLocator.cs" caret="4818" fromTop="25" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:MainPage.xaml.cs" caret="3609" fromTop="25" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:MainPage.xaml.cs" caret="2498" fromTop="14" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:CoordinateLocator.cs" caret="5333" fromTop="29" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:CoordinateLocator.cs" caret="4744" fromTop="21" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:MainPage.xaml.cs" caret="3609" fromTop="24" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:MainPage.xaml.cs" caret="3609" fromTop="19" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:MainPage.xaml.cs" caret="2890" fromTop="9" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:CoordinateLocator.cs" caret="5141" fromTop="16" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:CoordinateLocator.cs" caret="3735" fromTop="15" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:CoordinateLocator.cs" caret="3478" fromTop="18" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:CoordinateLocator.cs" caret="1473" fromTop="16" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:CoordinateLocator.cs" caret="2714" fromTop="19" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:CoordinateLocator.cs" caret="994" fromTop="11" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:CoordinateLocator.cs" caret="2967" fromTop="22" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:CoordinateLocator.cs" caret="2714" fromTop="6" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:CoordinateLocator.cs" caret="2163" fromTop="4" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:CoordinateLocator.cs" caret="2750" fromTop="18" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:CoordinateLocator.cs" caret="3161" fromTop="32" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:CoordinateLocator.cs" caret="2460" fromTop="9" />
+      <File id="36700B6D-3692-40BB-A95F-68ED696E4909/f:CoordinateLocator.cs" caret="184" fromTop="1" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="public" priority="1" />
+      <Item value="static" priority="0" />
+      <Item value="CoordinateLocator`0" priority="3" />
+      <Item value="if" priority="3" />
+      <Item value="null" priority="4" />
+      <Item value="return" priority="1" />
+      <Item value="new" priority="2" />
+      <Item value="CoordinateLocator" priority="0" />
+      <Item value="Style`0" priority="0" />
+      <Item value="double" priority="0" />
+      <Item value="else" priority="0" />
+      <Item value="string" priority="0" />
+      <Item value="_previousPositionStatus" priority="0" />
+      <Item value="DateTimeOffset`0" priority="1" />
+      <Item value="DateTimeOffset" priority="0" />
+      <Item value="DateTime" priority="0" />
+      <Item value="Watcher" priority="2" />
+      <Item value="intervalInMinutes" priority="0" />
+      <Item value="private" priority="0" />
+      <Item value="int" priority="0" />
+      <Item value="bool" priority="0" />
+      <Item value="false" priority="1" />
+      <Item value="_isStarted" priority="1" />
+      <Item value="true" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@WP7PizzaDelivery.CoordinateLocator">
+      <Item value="Instance" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:WP7PizzaDelivery.CoordinateLocator">
+      <Item value="Start`0" priority="0" />
+      <Item value="Stop`0" priority="0" />
+      <Item value="CoordinatesUpdated" priority="0" />
+      <Item value="StatusUpdated" priority="0" />
+      <Item value="LastLocation" priority="0" />
+      <Item value="LastStatus" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Phone.Shell.ApplicationBarIconButton">
+      <Item value="IconUri" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Device.Location.GeoCoordinate">
+      <Item value="ToString`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.String">
+      <Item value="Format`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.DateTimeOffset">
+      <Item value="Now" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Device.Location.IGeoPositionWatcher`1">
+      <Item value="Start`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Threading.DispatcherTimer">
+      <Item value="Tick" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

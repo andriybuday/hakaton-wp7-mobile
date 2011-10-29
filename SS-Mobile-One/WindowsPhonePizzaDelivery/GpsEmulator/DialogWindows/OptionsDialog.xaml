@@ -1,0 +1,36 @@
+﻿<Window x:Class="GpsEmulator.DialogWindows.OptionsDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Windows Phone 7 GPS Emulator Options" Height="210" Width="500" Icon="/Resources/GpsEmulator.ico" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" WindowStyle="ThreeDBorderWindow">
+    <DockPanel>
+        <Image Source="/Resources/Settings.png"/>
+        <Grid Margin="15,0,10,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="12"/>
+                <ColumnDefinition Width="60"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="4" FontSize="16" FontWeight="Bold" Margin="0,10,0,10">Default Settings</TextBlock>
+            <TextBlock Grid.Row="2" Grid.Column="0">Path Color</TextBlock>
+            <ComboBox Grid.Row="2" Grid.Column="2" Name="cmbPathColor"/>
+            <TextBlock Grid.Row="4" Grid.Column="0">Speed (in m/sec) of Travel to a New Point</TextBlock>
+            <TextBox Grid.Row="4" Grid.Column="2" Name="tbSpeed" Text="60" Background="LightGray"/>
+            <CheckBox Grid.Row="6" Grid.ColumnSpan="2" Name="cbUseRealTimeTrafficData">Use real-time traffic data</CheckBox>
+            <StackPanel Grid.Row="8" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                <Button Name="btnOk" Width="50" Margin="0,0,10,0" Click="btnOk_Click">OK</Button>
+                <Button Name="btnCancel" Width="50" Click="btnCancel_Click">Cancel</Button>
+            </StackPanel>
+        </Grid>
+    </DockPanel>
+</Window>

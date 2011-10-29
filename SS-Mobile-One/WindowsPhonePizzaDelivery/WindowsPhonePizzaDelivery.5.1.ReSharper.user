@@ -1,0 +1,108 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:CalculateMileageRequest.cs" caret="823" fromTop="34" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:CalculateRouteResult.cs" caret="610" fromTop="21" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:CalculateMileageResult.cs" caret="566" fromTop="21" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:IPizzaDelivery.cs" caret="385" fromTop="15" />
+      <File id="ECED3331-1CC6-4E2B-BC09-F5F0D970726C/f:App.config/l:..?Solution Files?App.config" caret="496" fromTop="10" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:BingMapsServices.cs" caret="517" fromTop="5" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:RouteDirectionModel.cs" caret="632" fromTop="23" />
+      <File id="ECED3331-1CC6-4E2B-BC09-F5F0D970726C/f:Program.cs" caret="387" fromTop="14" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:PizzaDelivery.cs" caret="629" fromTop="20" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:CalculateRouteRequest.cs" caret="821" fromTop="34" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:BingMapsServices.cs" caret="682" fromTop="12" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:BingMapsServices.cs" caret="1092" fromTop="22" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:BingMapsServices.cs" caret="682" fromTop="20" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:BingMapsServices.cs" caret="682" fromTop="18" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:BingMapsServices.cs" caret="682" fromTop="15" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:BingMapsServices.cs" caret="682" fromTop="11" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:BingMapsServices.cs" caret="682" fromTop="10" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:BingMapsServices.cs" caret="682" fromTop="10" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:BingMapsServices.cs" caret="682" fromTop="10" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:BingMapsServices.cs" caret="682" fromTop="10" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:BingMapsServices.cs" caret="814" fromTop="10" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:BingMapsServices.cs" caret="682" fromTop="7" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:BingMapsServices.cs" caret="2573" fromTop="26" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:BingMapsServices.cs" caret="8739" fromTop="17" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:CalculateRouteResult.cs" caret="719" fromTop="26" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:CalculateRouteResult.cs" caret="634" fromTop="21" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:CalculateRouteResult.cs" caret="634" fromTop="7" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:CalculateRouteResult.cs" caret="634" fromTop="11" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:CalculateRouteResult.cs" caret="497" fromTop="17" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:CalculateRouteResult.cs" caret="610" fromTop="21" />
+      <File id="ECED3331-1CC6-4E2B-BC09-F5F0D970726C/f:App.config/l:..?Solution Files?App.config" caret="179" fromTop="2" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:PizzaDelivery.cs" caret="451" fromTop="13" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:BingMapsServices.cs" caret="6238" fromTop="14" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:BingMapsServices.cs" caret="7361" fromTop="15" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:BingMapsServices.cs" caret="912" fromTop="8" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:IPizzaDelivery.cs" caret="545" fromTop="15" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:IPizzaDelivery.cs" caret="385" fromTop="15" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:PizzaDelivery.cs" caret="763" fromTop="23" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:PizzaDelivery.cs" caret="273" fromTop="9" />
+      <File id="366E077D-BD44-4396-B585-3090DCEEF488/f:PizzaDelivery.cs" caret="555" fromTop="18" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="typeof" priority="0" />
+      <Item value="using" priority="1" />
+      <Item value="serviceHost" priority="0" />
+      <Item value="System" priority="0" />
+      <Item value="Configuration" priority="0" />
+      <Item value="PizzaDeliveryServices" priority="0" />
+      <Item value="propg" priority="0" />
+      <Item value="bool" priority="0" />
+      <Item value="DataContract" priority="0" />
+      <Item value="Confidence`0" priority="0" />
+      <Item value="Console`0" priority="0" />
+      <Item value="request" priority="5" />
+      <Item value="string" priority="0" />
+      <Item value="Environment`0" priority="0" />
+      <Item value="new" priority="0" />
+      <Item value="BingMapsServices`0" priority="0" />
+      <Item value="bingMapsServices" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.ServiceModel.ServiceHost">
+      <Item value="Open`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Console">
+      <Item value="WriteLine`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.String">
+      <Item value="Format`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Environment">
+      <Item value="NewLine" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:PizzaDeliveryServices.CalculateRouteRequest">
+      <Item value="StartAddress" priority="0" />
+      <Item value="StartLongitude" priority="0" />
+      <Item value="StartLatitude" priority="0" />
+      <Item value="EndAddress" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:PizzaDeliveryServices.BingMapsServices">
+      <Item value="CalculateMileage`0" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

@@ -1,0 +1,17 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_IGpsEmulatorService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:8192/GpsEmulator" binding="basicHttpBinding"
+                bindingConfiguration="BasicHttpBinding_IGpsEmulatorService"
+                contract="ServiceReference1.IGpsEmulatorService" name="BasicHttpBinding_IGpsEmulatorService" />
+        </client>
+    </system.serviceModel>
+</configuration>

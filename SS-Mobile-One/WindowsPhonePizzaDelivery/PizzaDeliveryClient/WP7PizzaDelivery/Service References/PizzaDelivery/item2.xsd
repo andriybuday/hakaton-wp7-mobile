@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PizzaDeliveryServices" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PizzaDeliveryServices" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="CalculateMileageRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EndAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndLatitude" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="EndLongitude" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="StartAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartLatitude" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="StartLongitude" nillable="true" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CalculateMileageRequest" nillable="true" type="tns:CalculateMileageRequest" />
+  <xs:complexType name="CalculateMileageResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mileage" type="xs:double" />
+      <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CalculateMileageResult" nillable="true" type="tns:CalculateMileageResult" />
+  <xs:complexType name="CalculateRouteRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EndAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndLatitude" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="EndLongitude" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="StartAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartLatitude" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="StartLongitude" nillable="true" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CalculateRouteRequest" nillable="true" type="tns:CalculateRouteRequest" />
+  <xs:complexType name="CalculateRouteResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Directions" nillable="true" type="tns:ArrayOfRouteDirectionModel" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CalculateRouteResult" nillable="true" type="tns:CalculateRouteResult" />
+  <xs:complexType name="ArrayOfRouteDirectionModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RouteDirectionModel" nillable="true" type="tns:RouteDirectionModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRouteDirectionModel" nillable="true" type="tns:ArrayOfRouteDirectionModel" />
+  <xs:complexType name="RouteDirectionModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Index" type="xs:int" />
+      <xs:element minOccurs="0" name="Mileage" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RouteDirectionModel" nillable="true" type="tns:RouteDirectionModel" />
+</xs:schema>

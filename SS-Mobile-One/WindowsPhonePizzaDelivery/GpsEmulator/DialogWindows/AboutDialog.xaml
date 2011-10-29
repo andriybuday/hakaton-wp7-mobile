@@ -1,0 +1,20 @@
+﻿<Window x:Class="GpsEmulator.DialogWindows.AboutDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="About Windows Phone GPS Emulator" Icon="/Resources/GpsEmulator.ico" Height="470" Width="320" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" WindowStyle="ThreeDBorderWindow">
+    <DockPanel>
+        <Image DockPanel.Dock="Top" Source="/Resources/GpsEmulator.png" Height="280"/>
+        <Button DockPanel.Dock="Bottom" Width="80" Click="Button_Click" IsDefault="True" Margin="0,0,0,8">Close</Button>
+        <TextBlock DockPanel.Dock="Top" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+            <LineBreak/>
+            <Run FontSize="18">Windows® Phone 7 GPS Emulator</Run>
+            <LineBreak/>
+            <Run FontSize="14" Foreground="Purple" FontWeight="SemiBold">Community Edition</Run>
+            <LineBreak/>
+            <LineBreak/>
+            <Run>Shy Cohen Consulting</Run>
+            <LineBreak/>
+            <Hyperlink NavigateUri="http://www.ShyCohen.com" RequestNavigate="Hyperlink_RequestNavigate">www.ShyCohen.com</Hyperlink>
+        </TextBlock>
+    </DockPanel>
+</Window>
