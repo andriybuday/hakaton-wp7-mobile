@@ -14,6 +14,9 @@ namespace WCEmergency.Service
     {
         [OperationContract]
         IList<Common.Toilet> GetNearestToiltes(Coordinate currrentPosition, double distance);
+
+        [OperationContract]
+        void AddToilet(Toilet newToilet);
     }
 
 }

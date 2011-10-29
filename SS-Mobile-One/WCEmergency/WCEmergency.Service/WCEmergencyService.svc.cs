@@ -19,5 +19,11 @@ namespace WCEmergency.Service
             DataFacade dataFacade = new DataFacade();
             return dataFacade.GetNearestToiltes(currrentPosition, distance);
         }
+
+        public void AddToilet(Toilet newToilet)
+        {
+            DataFacade dataFacade = new DataFacade();
+            dataFacade.AddToilet(newToilet);
+        }
     }
 }

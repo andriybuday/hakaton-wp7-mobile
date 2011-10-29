@@ -6,7 +6,7 @@ using WCEmergency.Common;
 
 namespace WCEmergency.DataLayer
 {
-    public class DataToPocoMapper
+    public class ToiletMapper
     {
         public static IList<Common.Toilet> Map(IList<Toilet> list)
         {
@@ -19,5 +19,20 @@ namespace WCEmergency.DataLayer
                                              }).ToList();
         }
 
+        public static Toilet Map(Common.Toilet toilet)
+        {
+            return new Toilet()
+            {
+                Id = toilet.Id,
+                CoordinateX = toilet.Coordinate.X,
+                CoordinateY = toilet.Coordinate.Y,
+                Description = toilet.Description,
+                Name = toilet.Name,
+                Picture = toilet.Picture,
+                Rate = toilet.Rate,
+                Sex = (int)toilet.Sex,
+                DateAdded = DateTime.Now
+            };
+        }
     }
 }

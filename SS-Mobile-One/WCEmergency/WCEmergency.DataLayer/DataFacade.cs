@@ -8,10 +8,12 @@ namespace WCEmergency.DataLayer
 {
     public interface IDataFacade
     {
-        IList<Toilet> GetNearestToiltes(Coordinate currrentPosition, double distance);
+        IList<Common.Toilet> GetNearestToiltes(Coordinate currrentPosition, double distance);
+
+        void AddToilet(Common.Toilet newToilet);
     }
 
-    public class DataFacade
+    public class DataFacade : IDataFacade
     {
         public IList<Common.Toilet> GetNearestToiltes(Coordinate currrentPosition, double distance)
         {
@@ -21,7 +23,15 @@ namespace WCEmergency.DataLayer
                     select s ;
 
 
-            return DataToPocoMapper.Map(q.ToList());
+            return ToiletMapper.Map(q.ToList());
         }
+
+        public void AddToilet(Common.Toilet newToilet)
+        {
+            var emergencyEntities = new WCEmergencyEntities();
+            emergencyEntities.Toilets.AddObject(ToiletMapper.Map(newToilet));
+            emergencyEntities.SaveChanges();
+        }
+
     }
 }
