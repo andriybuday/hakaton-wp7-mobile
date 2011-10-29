@@ -48,12 +48,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Maps.MapControl">
+      <HintPath>C:\Program Files (x86)\Bing Maps Silverlight Control\V1\Libraries\Microsoft.Maps.MapControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Maps.MapControl.Common">
+      <HintPath>C:\Program Files (x86)\Bing Maps Silverlight Control\V1\Libraries\Microsoft.Maps.MapControl.Common.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="System.Device" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser">
+      <HintPath>C:\Program Files (x86)\Microsoft Silverlight\4.0.60831.0\System.Windows.Browser.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="mscorlib.extensions" />
   </ItemGroup>
@@ -65,6 +78,10 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Constants.cs" />
+    <Compile Include="View\MapView.xaml.cs">
+      <DependentUpon>MapView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -72,6 +89,10 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MapView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -88,6 +109,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="SplashScreenImage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModel\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
