@@ -51,14 +51,14 @@
     <Reference Include="FarseerPhysics">
       <HintPath>..\..\Library\FarseerPhysics.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Phone" >
-	<HintPath>..\..\Library\Toolkit\Aug11\Bin\Microsoft.Phone.dll</HintPath>
+    <Reference Include="Microsoft.Phone">
+      <HintPath>..\..\Library\Toolkit\Aug11\Bin\Microsoft.Phone.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Phone.Controls" >
-	<HintPath>..\..\Library\Toolkit\Aug11\Bin\Microsoft.Phone.Controlsdll</HintPath>
+    <Reference Include="Microsoft.Phone.Controls">
+      <HintPath>..\..\Library\Toolkit\Aug11\Bin\Microsoft.Phone.Controlsdll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Phone.Controls.Toolkit" >
-	<HintPath>..\..\Library\Toolkit\Aug11\Bin\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    <Reference Include="Microsoft.Phone.Controls.Toolkit">
+      <HintPath>..\..\Library\Toolkit\Aug11\Bin\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Phone.Interop" />
     <Reference Include="Microsoft.Xna.Framework" />
@@ -184,6 +184,7 @@
     <Content Include="Icons\AppBarSave.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="sounds\hitPuck.wav" />
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup>

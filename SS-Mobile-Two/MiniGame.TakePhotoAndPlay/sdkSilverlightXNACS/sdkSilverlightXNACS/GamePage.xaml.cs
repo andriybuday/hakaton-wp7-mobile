@@ -25,6 +25,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input.Touch;
+using Spritehand.FarseerHelper;
 using sdkSilverlightXNACS.Storage;
 using Color = Microsoft.Xna.Framework.Color;
 
@@ -59,6 +60,7 @@ namespace sdkSilverlightXNACS
 
         // For rendering the XAML onto a texture
         UIElementRenderer elementRenderer;
+        private SoundMain _soundPuckHit;
 
         public GamePage()
         {
@@ -103,6 +105,7 @@ namespace sdkSilverlightXNACS
         {
             // Set the sharing mode of the graphics device to turn on XNA rendering
             SharedGraphicsDeviceManager.Current.GraphicsDevice.SetSharingMode(true);
+            _soundPuckHit = new SoundMain(new Canvas(), "sounds/hitPuck.wav", 2, 0);
 
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(SharedGraphicsDeviceManager.Current.GraphicsDevice);
@@ -248,6 +251,7 @@ namespace sdkSilverlightXNACS
                       //catchedOne.Power = yVal;
 
                         balls.Remove(catchedOne);
+                        _soundPuckHit.Play();
                     }
 
                 }
