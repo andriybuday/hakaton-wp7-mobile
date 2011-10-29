@@ -99,7 +99,6 @@
       <DependentUpon>Team.xaml</DependentUpon>
     </Compile>
     <Compile Include="Game1.cs" />
-    <Compile Include="Models\Hero.cs" />
     <Compile Include="SearchingForOpponent.xaml.cs">
       <DependentUpon>SearchingForOpponent.xaml</DependentUpon>
     </Compile>
@@ -210,6 +209,10 @@
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\MiniGame.DataModel\MiniGame.DataModel.csproj">
+      <Project>{9C23B59D-D750-40A6-99BA-0C7E7B122854}</Project>
+      <Name>MiniGame.DataModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\sdkSilverlightXNACSLib\sdkSilverlightXNACSLib.csproj">
       <Project>{B02D0431-3798-4B33-B7EA-BFB630AD3D92}</Project>
       <Name>sdkSilverlightXNACSLib</Name>

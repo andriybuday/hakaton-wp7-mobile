@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sdkSilverlightXNACSLibConte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiGameService.Service", "MiniGame.Service\MiGameService.Service.csproj", "{13CF7C21-230A-4470-B19A-72C8F5C319DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniGame.DataModel", "MiniGame.DataModel\MiniGame.DataModel.csproj", "{9C23B59D-D750-40A6-99BA-0C7E7B122854}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,16 @@ Global
 		{13CF7C21-230A-4470-B19A-72C8F5C319DE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{13CF7C21-230A-4470-B19A-72C8F5C319DE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{13CF7C21-230A-4470-B19A-72C8F5C319DE}.Release|Windows Phone.ActiveCfg = Release|Any CPU
+		{9C23B59D-D750-40A6-99BA-0C7E7B122854}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C23B59D-D750-40A6-99BA-0C7E7B122854}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C23B59D-D750-40A6-99BA-0C7E7B122854}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9C23B59D-D750-40A6-99BA-0C7E7B122854}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9C23B59D-D750-40A6-99BA-0C7E7B122854}.Debug|Windows Phone.ActiveCfg = Debug|Any CPU
+		{9C23B59D-D750-40A6-99BA-0C7E7B122854}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C23B59D-D750-40A6-99BA-0C7E7B122854}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C23B59D-D750-40A6-99BA-0C7E7B122854}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9C23B59D-D750-40A6-99BA-0C7E7B122854}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9C23B59D-D750-40A6-99BA-0C7E7B122854}.Release|Windows Phone.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

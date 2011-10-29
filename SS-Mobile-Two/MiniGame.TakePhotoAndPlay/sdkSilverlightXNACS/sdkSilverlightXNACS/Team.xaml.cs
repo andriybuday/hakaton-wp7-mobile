@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using sdkSilverlightXNACS.Models;
+using MiniGame.DataModel;
 using sdkSilverlightXNACS.Storage;
 
 namespace sdkSilverlightXNACS

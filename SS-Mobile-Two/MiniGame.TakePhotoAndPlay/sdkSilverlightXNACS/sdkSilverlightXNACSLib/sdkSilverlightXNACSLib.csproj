@@ -83,8 +83,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\sdkSilverlightXNACSLibContent\sdkSilverlightXNACSLibContent.contentproj">
-      <Name>sdkSilverlightXNACSLibContent</Name>
+      <Name>sdkSilverlightXNACSLibContent %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>
+      <Project>{C0FD08A2-51EC-44DA-8341-F1486147E80A}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

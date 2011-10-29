@@ -6,8 +6,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using MiniGame.DataModel;
 using sdkSilverlightXNACS;
-using sdkSilverlightXNACS.Models;
 using sdkSilverlightXNACS.Storage;
 
 namespace sdkPhotosCS

@@ -1,19 +1,22 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Media.Imaging;
-using MiniGame.DataModel;
 
-namespace sdkSilverlightXNACS.Storage
+namespace MiniGame.DataModel
 {
-    public class GameState
+    public class MultiplayerGameState
     {
-        private static GameState _instance;
-        private GameState()
+        private static MultiplayerGameState _instance;
+        private MultiplayerGameState()
         {
         }
 
-        public static GameState GetInstance()
+        public static MultiplayerGameState GetInstance()
         {
-            return _instance ?? (_instance = new GameState() { FriendsTeam = new List<Hero>(), EnemyTeam = new List<Hero>() });
+            return _instance ?? (_instance = new MultiplayerGameState()
+                                                 {
+                                                     FriendsTeam = new List<Hero>(), 
+                                                     EnemyTeam = new List<Hero>()
+                                                 });
         }
 
         public bool IsGameStarted { get; set; }
