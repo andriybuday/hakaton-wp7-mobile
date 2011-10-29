@@ -48,8 +48,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GalaSoft.MvvmLight.Extras.WP7, Version=3.0.0.27837, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="GalaSoft.MvvmLight.WP7, Version=3.0.0.27833, Culture=neutral, processorArchitecture=MSIL" />
+ 
+   <Reference Include="GalaSoft.MvvmLight.Extras.WP7">
+      <HintPath>..\Tools\GalaSoft\WP7\GalaSoft.MvvmLight.Extras.WP7.dll</HintPath>
+    </Reference>
+	
+    <Reference Include="GalaSoft.MvvmLight.WP7">
+      <HintPath>..\Tools\GalaSoft\WP7\GalaSoft.MvvmLight.WP7.dll</HintPath>
+    </Reference>
+
     <Reference Include="Microsoft.Maps.MapControl">
       <HintPath>..\Tools\Microsoft.Maps.MapControl.dll</HintPath>
     </Reference>
