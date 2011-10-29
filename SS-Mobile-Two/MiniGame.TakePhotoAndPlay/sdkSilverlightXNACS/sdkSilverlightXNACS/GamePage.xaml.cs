@@ -159,7 +159,7 @@ namespace sdkSilverlightXNACS
                     if (teamMembers.Count > 0)
                     {
                         faceToUse = teamMembers[0].MemberPhoto;
-                        SetTexture(ref textureFace2, faceToUse);
+                        SetTexture(ref texture, faceToUse);
                     }
                     break;
                 case Faces.Face2:
@@ -167,7 +167,7 @@ namespace sdkSilverlightXNACS
                     if (teamMembers.Count > 1)
                     {
                         faceToUse = teamMembers[1].MemberPhoto;
-                        SetTexture(ref textureFace2, faceToUse);
+                        SetTexture(ref texture, faceToUse);
                     }
                     break;
             }
