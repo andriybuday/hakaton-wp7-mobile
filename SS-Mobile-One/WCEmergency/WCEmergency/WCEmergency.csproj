@@ -79,9 +79,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\NotifyPropertyChanged.cs" />
     <Compile Include="Common\ThreadDispatcher.cs" />
     <Compile Include="Common\TimeSpanPickerControl\TimeSpanDataSource.cs" />
     <Compile Include="Common\TimeSpanPickerControl\TimeSpanLoopingSelector.cs" />
+    <Compile Include="Common\UserContext.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="EventArgs\NavigateToEventArgs.cs" />
     <Compile Include="Extentions\ApplicationBarBuilder.cs" />
@@ -101,6 +103,15 @@
     </Compile>
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="ViewModel\MapViewModel.cs" />
+    <Compile Include="ViewModel\SpeedViewModel.cs" />
+    <Compile Include="ViewModel\ToiletViewModel.cs" />
+    <Compile Include="ViewModel\WcStartPageViewModel.cs" />
+    <Compile Include="View\SpeedView.xaml.cs">
+      <DependentUpon>SpeedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ToiletView.xaml.cs">
+      <DependentUpon>ToiletView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\WCStartPage.xaml.cs">
       <DependentUpon>WCStartPage.xaml</DependentUpon>
     </Compile>
@@ -130,6 +141,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\SpeedView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ToiletView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\WCStartPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -155,15 +174,24 @@
     <None Include="Service References\WCServiceReference\WCEmergencyService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Resources\Images\AppBarSave.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Resources\Images\AppBarCheck.png" />
-    <Resource Include="Resources\Images\icon_wc.png" />
-    <Resource Include="Resources\Images\wc.png" />
+    <Content Include="Resources\Images\AppBarCheck.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\icon_wc.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\wc.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="ApplicationIcon.png" />
     <None Include="Service References\WCServiceReference\WCEmergencyService.disco" />
     <None Include="Service References\WCServiceReference\configuration91.svcinfo" />

@@ -2,10 +2,10 @@
   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:System="clr-namespace:System;assembly=mscorlib"
-  xmlns:SystemControls="clr-namespace:Allscripts.Homecare.Mobile.Device.CommonUI.SystemControls;assembly=Allscripts.Homecare.Mobile.Device.CommonUI" 
+   
   xmlns:Controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls" 
-  xmlns:Clinical="clr-namespace:Allscripts.Homecare.Mobile.Device.CommonUI.ViewModels.Clinical;assembly=Allscripts.Homecare.Mobile.Device.CommonUI" 
-  xmlns:UserControls="clr-namespace:Allscripts.Homecare.Mobile.Device.CommonUI.UserControls;assembly=Allscripts.Homecare.Mobile.Device.CommonUI" xmlns:Navigation="clr-namespace:Microsoft.Maps.MapControl.Navigation;assembly=Microsoft.Maps.MapControl" xmlns:UserControls1="clr-namespace:WCEmergency.UserControls" xmlns:Controls1="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit">
+ xmlns:Navigation="clr-namespace:Microsoft.Maps.MapControl.Navigation;assembly=Microsoft.Maps.MapControl" 
+    xmlns:Controls1="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/WCEmergency;component/Resources/BaseStyles.xaml"/>

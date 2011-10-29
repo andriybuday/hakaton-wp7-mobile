@@ -6,7 +6,7 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-    xmlns:Controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone" xmlns:Controls1="clr-namespace:Allscripts.Homecare.Mobile.Device.WinPhone7UI.Controls" xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" FontSize="{StaticResource PhoneFontSizeNormal}"
+    xmlns:Controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone" xmlns:Controls1="clr-namespace:Allscripts.Homecare.Mobile.Device.WinPhone7UI.Controls" xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" xmlns:model="clr-namespace:WCEmergency.ViewModel" FontSize="{StaticResource PhoneFontSizeNormal}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480"
     shell:SystemTray.IsVisible="False">
@@ -18,19 +18,15 @@
                 <ResourceDictionary Source="../Resources/BaseStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-
+        <model:WcStartPageViewModel x:Key="ViewModel"/>
     </Controls:PhoneApplicationPage.Resources>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="Transparent" DataContext="{StaticResource ViewModel}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
-        <!--<Grid.Background>
-            <SolidColorBrush Color="{StaticResource AllscriptsBackgroundColor}"/>
-        </Grid.Background>-->
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel>

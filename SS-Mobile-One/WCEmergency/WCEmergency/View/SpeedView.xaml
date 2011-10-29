@@ -1,0 +1,92 @@
+﻿<Controls:PhoneApplicationPage 
+    x:Class="WCEmergency.View.SpeedView"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:Controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone" xmlns:Controls1="clr-namespace:Allscripts.Homecare.Mobile.Device.WinPhone7UI.Controls" xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" xmlns:model="clr-namespace:WCEmergency.ViewModel" FontSize="{StaticResource PhoneFontSizeNormal}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="False">
+
+    <Controls:PhoneApplicationPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Resources/GeneralStyles.xaml" />
+                <ResourceDictionary Source="../Resources/BaseStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        <model:SpeedViewModel x:Key="ViewModel"/>
+    </Controls:PhoneApplicationPage.Resources>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent" DataContext="{StaticResource ViewModel}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel>
+            <Border Margin="0,30,0,0" Name="TitleBorder" BorderThickness="1"
+                        HorizontalAlignment="Center" VerticalAlignment="Stretch">
+                <Grid Margin="-4,5,0,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock TextWrapping="Wrap" Grid.Column="0" Text="WC Emergency" Style="{StaticResource AllscriptsPageTitleTextStyle}" x:Name="PageTitle" />
+
+                </Grid>
+            </Border>
+        </StackPanel>
+
+        <Grid Grid.Row="1" Margin="12,0,12,0" Style="{StaticResource DurationValidationStyle}" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="400"/>
+            </Grid.RowDefinitions>
+
+
+            <TextBlock Text="How fast you can run? :):)" Grid.Row="0"  Style="{StaticResource AllscriptsTreatmentGroupTitleStyle}" TextWrapping="Wrap" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,0,0,20" ></TextBlock>
+
+            <!-- speed selector -->
+            <Controls1:TimeSpanLoopingSelector
+                x:Name ="speedSelector"
+                Grid.Row="1"
+                Width="148"
+                ItemSize="148,148"
+                ItemMargin="6" 
+                HorizontalAlignment="Center"
+				MaxValue="120" 
+                MinValue="0"
+                SelectedItem="{Binding Speed, Mode=TwoWay}">
+                <Controls1:TimeSpanLoopingSelector.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel
+                            Width="148"
+                            Height="148"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom">
+                            <TextBlock
+                                Text="{Binding BindsDirectlyToSource=True}"
+                                FontSize="54"
+                                FontFamily="{StaticResource PhoneFontFamilySemiBold}"
+                                Margin="6, 55, 0, 0"/>
+                            <TextBlock
+                                Text="km/h"
+                                FontSize="20"
+                                FontFamily="{StaticResource PhoneFontFamilyNormal}"
+                                Foreground="{StaticResource PhoneSubtleExtBrush}"
+                                Margin="6, -10, 6, 0"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </Controls1:TimeSpanLoopingSelector.ItemTemplate>
+            </Controls1:TimeSpanLoopingSelector>            
+        </Grid>
+    </Grid>
+
+    </Controls:PhoneApplicationPage>

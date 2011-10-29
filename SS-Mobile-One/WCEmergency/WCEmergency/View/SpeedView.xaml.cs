@@ -4,44 +4,28 @@ using System.Linq;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+using Microsoft.Phone.Shell;
 using WCEmergency.Common;
 using WCEmergency.Extentions;
 using WCEmergency.UserControls;
 using WCEmergency.ViewModel;
 
-namespace WCEmergency.View 
+namespace WCEmergency.View
 {
-    public partial class WcStartPage : PhoneApplicationPage
+    public partial class SpeedView : PhoneApplicationPage
     {
-        public WcStartPage()
+        public SpeedView()
         {
             InitializeComponent();
             CreateAppBar();
         }
         
-
-        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
-        {
-            var viewModel = LayoutRoot.DataContext as WcStartPageViewModel;
-            if (viewModel != null)
-            {
-                viewModel.Hours = CurrentUserContext.Instance.CanWait.Hours;
-                viewModel.Minutes = CurrentUserContext.Instance.CanWait.Minutes;
-            }
-        }
-
-        private void OnMapClicked(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Uri(Constants.MapView, UriKind.Relative));
-        }
-
         protected void CreateAppBar()
         {
             if (ApplicationBar != null)
@@ -61,13 +45,13 @@ namespace WCEmergency.View
 
         private void OnAccept(object arg1, System.EventArgs arg2)
         {
-            var viewModel = LayoutRoot.DataContext as WcStartPageViewModel;
+            var viewModel = LayoutRoot.DataContext as SpeedViewModel;
             if (viewModel != null)
             {
-                CurrentUserContext.Instance.CanWait = new TimeSpan(viewModel.Hours, viewModel.Minutes, 0);
+                CurrentUserContext.Instance.Speed = viewModel.Speed;
             }
 
-            NavigationService.Navigate(new Uri(Constants.SpeedView, UriKind.Relative));
+            NavigationService.Navigate(new Uri(Constants.ToiletView, UriKind.Relative)); 
         }
     }
 }
