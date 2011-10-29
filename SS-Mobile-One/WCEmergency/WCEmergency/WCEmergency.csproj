@@ -104,12 +104,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\CustomGridControl.xaml.cs">
-      <DependentUpon>CustomGridControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\PageHeaderControl.xaml.cs">
-      <DependentUpon>PageHeaderControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="ViewModel\MapViewModel.cs" />
     <Compile Include="View\WCStartPage.xaml.cs">
