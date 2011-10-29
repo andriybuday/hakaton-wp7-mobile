@@ -53,14 +53,16 @@ namespace sdkSilverlightXNACS
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
             TeamMembers = GameState.GetInstance().FriendsTeam;
+            EnemyMembers = GameState.GetInstance().EnemyTeam;
  	        base.OnNavigatedTo(e);
         }
 
         public IList<Hero> TeamMembers { get; set; }
+        public IList<Hero> EnemyMembers { get; set; }
 
         private void AddNewTeamMember(object sender, EventArgs args)
         {
-            NavigationService.Navigate(new Uri("/AddMemberPhoto.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri(string.Format("/AddMemberPhoto.xaml?teamNumber={0}",TeamsPivot.SelectedIndex), UriKind.Relative));
         }
 
         private void AddBackground(object sender, EventArgs args)

@@ -45,7 +45,7 @@
             <TextBlock x:Name="PageTitle" Text="Choose team" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
         <!--ContentPanel - place additional content here-->
-        <Controls:Pivot Grid.Row="2">
+        <Controls:Pivot Grid.Row="2" x:Name="TeamsPivot">
             <Controls:PivotItem x:Name="Team1PivotItem" Margin="0">
                 <Controls:PivotItem.Tag>MyTeam</Controls:PivotItem.Tag>
                 <Controls:PivotItem.Header>
@@ -65,7 +65,7 @@
                     </StackPanel>
                 </Controls:PivotItem.Header>
 
-                <ListBox x:Name="Content2Panel" Margin="12,0,12,0" ItemsSource="{Binding TeamMembers}" Style="{StaticResource TeamMembersListBoxStyle}">
+                <ListBox x:Name="Content2Panel" Margin="12,0,12,0" ItemsSource="{Binding EnemyMembers}" Style="{StaticResource TeamMembersListBoxStyle}">
                 </ListBox>
             </Controls:PivotItem>
         </Controls:Pivot>                      

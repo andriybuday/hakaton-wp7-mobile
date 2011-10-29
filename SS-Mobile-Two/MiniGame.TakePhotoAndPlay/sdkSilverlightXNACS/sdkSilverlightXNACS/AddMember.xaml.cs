@@ -14,32 +14,33 @@ namespace sdkPhotosCS
 {
     public partial class AddMember : PhoneApplicationPage
     {
-
-        ApplicationBarIconButton btnAccept;
+        ApplicationBarIconButton _btnAccept;
 
         //Variables for the crop feature
         Point p1, p2;
         bool cropping = false;
+        private string _queryString = string.Empty;
+        private string QUERY_PARAMETER_TEAMNUMBER = "teamNumber";
+        private string QUERY_PARAMETER_CAPTURE_TYPE = "capture";
+        private string QUERY_PARAMETER_CAPTURE_TYPE_BACKGROUND = "background";
 
 
         public AddMember()
         {
             InitializeComponent();
 
-            textStatus.Text = "Select face of you hero with your finger.";
+            textStatus.Text = "Select face of your hero with your finger.";
 
             //Sets the source to the Image control on the crop page to the WriteableBitmap object created previously.
             DisplayedImageElement.Source = App.CapturedImage;
-
 
             //Create event handlers for cropping selection on the picture.
             DisplayedImageElement.MouseLeftButtonDown += CropImage_MouseLeftButtonDown;
             DisplayedImageElement.MouseLeftButtonUp += CropImage_MouseLeftButtonUp;
             DisplayedImageElement.MouseMove += CropImage_MouseMove;
 
-
             //Used for rendering the cropping rectangle on the image.
-            CompositionTarget.Rendering += CompositionTarget_Rendering;
+            CompositionTarget.Rendering += CompositionTargetRendering;
 
             //Creating an application bar and then setting visibility and menu properties.
             ApplicationBar = new ApplicationBar();
@@ -47,21 +48,26 @@ namespace sdkPhotosCS
             ApplicationBar.IsMenuEnabled = true;
 
             //This code creates the application bar icon buttons.
-            btnAccept = new ApplicationBarIconButton(new Uri("/Icons/appbar.check.rest.png", UriKind.Relative));
-
-            //Labels for the application bar buttons.
-            btnAccept.Text = "Accept";
+            _btnAccept = new ApplicationBarIconButton(new Uri("/Icons/appbar.check.rest.png", UriKind.Relative));
+            _btnAccept.Text = "Accept";
 
             //This code adds buttons to application bar.
 
-            ApplicationBar.Buttons.Add(btnAccept);
-
-            btnAccept.Click += btnAccept_Click;
-           
-            btnAccept.IsEnabled = false;
+            ApplicationBar.Buttons.Add(_btnAccept);
+            _btnAccept.Click += btnAccept_Click;           
+            _btnAccept.IsEnabled = false;
 
             //Begin storyboard for rectangle color effect.
             Rectangle.Begin();
+        }
+
+        protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            if (!string.IsNullOrEmpty(e.Uri.OriginalString))
+            {
+                _queryString = e.Uri.OriginalString;
+            }
         }
 
         /// <summary>
@@ -69,11 +75,10 @@ namespace sdkPhotosCS
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void CompositionTarget_Rendering(object sender, EventArgs e)
+        void CompositionTargetRendering(object sender, EventArgs e)
         {
             if (cropping)
             {
-
                 rect.SetValue(Canvas.LeftProperty, (p1.X < p2.X) ? p1.X : p2.X);
                 rect.SetValue(Canvas.TopProperty, (p1.Y < p2.Y) ? p1.Y : p2.Y);
                 rect.Width = (int)Math.Abs(p2.X - p1.X);
@@ -111,7 +116,7 @@ namespace sdkPhotosCS
 
         void CropImage_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            btnAccept.IsEnabled = true;
+            _btnAccept.IsEnabled = true;
             p1 = e.GetPosition(DisplayedImageElement);
             p2 = p1;
             rect.Visibility = Visibility.Visible;
@@ -173,12 +178,31 @@ namespace sdkPhotosCS
             var userEnteredName = NameTextBox.Text;
 
             var game = GameState.GetInstance();
-            game.FriendsTeam.Add(new Hero() { IsInYourTeam = true, MemberPhoto = App.CroppedImage, Name = userEnteredName });
+
+            int teamNumber = 0;
+            if (_queryString.Contains(QUERY_PARAMETER_TEAMNUMBER))
+            {
+                int teamNumberIndex = _queryString.IndexOf(QUERY_PARAMETER_TEAMNUMBER) +
+                                      QUERY_PARAMETER_TEAMNUMBER.Length + 1;
+
+                teamNumber = int.Parse(_queryString[teamNumberIndex].ToString());
+            }
+
+            if (_queryString.Contains(QUERY_PARAMETER_CAPTURE_TYPE) && _queryString.Contains(QUERY_PARAMETER_CAPTURE_TYPE_BACKGROUND))
+            {
+                game.Background = App.CroppedImage;
+            }
+
+            if (teamNumber == 0)
+            {
+                game.FriendsTeam.Add(new Hero(){IsInYourTeam = true, MemberPhoto = App.CroppedImage, Name = userEnteredName});
+            }
+            else
+            {
+                game.EnemyTeam.Add(new Hero() { IsInYourTeam = false, MemberPhoto = App.CroppedImage, Name = userEnteredName });
+            }
 
             NavigationService.Navigate(new Uri("/Team.xaml", UriKind.Relative));
         }
-
-
-
     }
 }
