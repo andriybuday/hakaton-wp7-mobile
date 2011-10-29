@@ -54,17 +54,16 @@
     <Reference Include="GalaSoft.MvvmLight.WP7">
       <HintPath>..\Tools\GalaSoft\WP7\GalaSoft.MvvmLight.WP7.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Maps.MapControl">
-      <HintPath>..\Tools\Microsoft.Maps.MapControl.dll</HintPath>
+    <Reference Include="Microsoft.Phone.Controls.Maps">
+      <HintPath>..\Tools\PhoneMap\Microsoft.Phone.Controls.Maps.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Maps.MapControl.Common">
-      <HintPath>..\Tools\Microsoft.Maps.MapControl.Common.dll</HintPath>
+	<Reference Include="Microsoft.Phone.Controls.dll">
+      <HintPath>..\Tools\PhoneMap\Microsoft.Phone.Controls.dll.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
       <HintPath>..\Tools\Toolkit\Aug11\Bin\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Phone" />
-    <Reference Include="Microsoft.Phone.Interop" />
     <Reference Include="System.Device" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -73,7 +72,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
     <Reference Include="System.Windows.Browser, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e, processorArchitecture=MSIL" />
-    <Reference Include="System.Windows.Interactivity, Version=3.7.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="mscorlib.extensions" />
   </ItemGroup>
@@ -84,9 +82,6 @@
     <Compile Include="Common\ThreadDispatcher.cs" />
     <Compile Include="Common\TimeSpanPickerControl\TimeSpanDataSource.cs" />
     <Compile Include="Common\TimeSpanPickerControl\TimeSpanLoopingSelector.cs" />
-    <Compile Include="Common\TimeSpanPickerControl\TimeSpanPicker.xaml.cs">
-      <DependentUpon>TimeSpanPicker.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Enums.cs" />
     <Compile Include="EventArgs\NavigateToEventArgs.cs" />
     <Compile Include="Extentions\ApplicationBarBuilder.cs" />
@@ -119,10 +114,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="Common\TimeSpanPickerControl\TimeSpanPicker.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

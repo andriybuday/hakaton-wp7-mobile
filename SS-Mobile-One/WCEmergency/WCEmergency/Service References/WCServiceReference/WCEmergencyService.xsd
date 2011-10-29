@@ -5,6 +5,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="X" type="xs:double" />
       <xs:element minOccurs="0" name="Y" type="xs:double" />
+      <xs:element minOccurs="0" name="Z" type="xs:double" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Coordinate" nillable="true" type="tns:Coordinate" />

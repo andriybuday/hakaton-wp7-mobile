@@ -24,6 +24,8 @@ namespace WCEmergency.WCServiceReference {
         
         private double YField;
         
+        private double ZField;
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double X {
             get {
@@ -46,6 +48,19 @@ namespace WCEmergency.WCServiceReference {
                 if ((this.YField.Equals(value) != true)) {
                     this.YField = value;
                     this.RaisePropertyChanged("Y");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Z {
+            get {
+                return this.ZField;
+            }
+            set {
+                if ((this.ZField.Equals(value) != true)) {
+                    this.ZField = value;
+                    this.RaisePropertyChanged("Z");
                 }
             }
         }

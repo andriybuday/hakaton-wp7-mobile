@@ -863,13 +863,13 @@
         <Setter Property="TextWrapping" Value="Wrap" />
     </Style>
 
-    <Style TargetType="Navigation:CommandButton" x:Key="DetailedTrandingButtonStyle" >
+    <!--<Style TargetType="Navigation:CommandButton" x:Key="DetailedTrandingButtonStyle" >
         <Setter Property="Height" Value="90" />
         <Setter Property="Width" Value="210" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="Margin" Value="0" />
-    </Style>
+    </Style>-->
 
 
     <Style TargetType="Border" x:Key="ClincalReadingDataDivider">
@@ -968,7 +968,7 @@
         <Setter Property="Foreground" Value="{StaticResource AllscriptsHistoryPivotHeaderBrush}"/>
     </Style>
 
-    <Style TargetType="Navigation:CommandButton" x:Key="PatientChartCommandButtonStyle">
+    <!--<Style TargetType="Navigation:CommandButton" x:Key="PatientChartCommandButtonStyle">
         <Setter Property="BorderThickness" Value="0,0,0,1" />
         <Setter Property="BorderBrush" Value="{StaticResource AllscriptsDividerSecondaryBrush}" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
@@ -976,7 +976,7 @@
         <Setter Property="Width" Value="460" />
         <Setter Property="Padding" Value="0"/>
         <Setter Property="Margin" Value="0, -4, 0, -4" />
-    </Style>
+    </Style>-->
 
 
     <!-- patient header styles -->
@@ -1293,7 +1293,7 @@
         <Setter Property="Foreground" Value="{StaticResource AllscriptsDisabledColor}"/>
     </Style>
 
-    <Style TargetType="Navigation:CommandButton" x:Key="TreatmentGroupCommandButtonStyle">
+    <!--<Style TargetType="Navigation:CommandButton" x:Key="TreatmentGroupCommandButtonStyle">
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="BorderBrush" Value="{StaticResource AllscriptsDividerSecondaryBrush}" />
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
@@ -1320,7 +1320,7 @@
 
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 
     <DataTemplate x:Key="TherapyItemDataTemplate">
         <!--<SystemControls:CommandButton x:Name = "TreatmentButton" Style="{Binding ., Converter={StaticResource TreatmentCommandButtonConverter}}"
@@ -1626,7 +1626,7 @@
         <TextBlock Text="{Binding .}" Style="{StaticResource PickerItemStyle}" TextWrapping="Wrap"/>
     </DataTemplate>
 
-    <Style x:Key="NoBorderButton" TargetType="Button">
+    <!--<Style x:Key="NoBorderButton" TargetType="Button">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Padding" Value="0"/>
@@ -1665,7 +1665,7 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 
     <DataTemplate x:Key="CheckedItemTemplate">
         <Grid Height="80">

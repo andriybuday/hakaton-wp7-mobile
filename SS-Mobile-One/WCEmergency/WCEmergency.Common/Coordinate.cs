@@ -15,5 +15,8 @@ namespace WCEmergency.Common
 
         [DataMember]
         public double Y { get; set; }
+
+        [DataMember]
+        public double Z { get; set; }
     }
 }
