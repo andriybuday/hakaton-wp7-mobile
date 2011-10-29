@@ -1,4 +1,16 @@
+/* 
+    Copyright (c) 2011 Microsoft Corporation.  All rights reserved.
+    Use of this sample source code is subject to the terms of the Microsoft license 
+    agreement under which you licensed this sample source code and is provided AS-IS.
+    If you did not accept the terms of the license agreement, you are not authorized 
+    to use this sample source code.  For the terms of the license, please see the 
+    license agreement between you and Microsoft.
+  
+    To see all Code Samples for Windows Phone, visit http://go.microsoft.com/fwlink/?LinkID=219604 
+  
+*/
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.IO.IsolatedStorage;
 using System.Runtime.InteropServices;
@@ -7,10 +19,12 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
+using BouncingBalls;
 using Microsoft.Phone.Controls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input.Touch;
 using Color = Microsoft.Xna.Framework.Color;
 
 namespace sdkSilverlightXNACS
@@ -21,10 +35,21 @@ namespace sdkSilverlightXNACS
         GameTimer timer;
         SpriteBatch spriteBatch;
 
+        #region balls stuff
+        IList<Ball> balls = new List<Ball>();
+        SpriteBatch spriteBatchBall;
+        Texture2D ballTexture;
+        bool touching = false;
+        #endregion balls stuff
+
+        List<Texture2D> faces = new List<Texture2D>();
+        List<Vector2> facePositions = new List<Vector2>();
+        List<Vector2> faceSpeeds = new List<Vector2>();
+
         Texture2D texture;
         Texture2D textureFace2;
         Vector2 spritePosition;
-        Vector2 spriteSpeed = new Vector2(100.0f, 100.0f);
+        Vector2 spriteSpeed = new Vector2(200.0f, 200.0f);
 
         // A variety of rectangle colors
         Texture2D redTexture;
@@ -81,6 +106,9 @@ namespace sdkSilverlightXNACS
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(SharedGraphicsDeviceManager.Current.GraphicsDevice);
 
+
+            ballTexture = contentManager.Load<Texture2D>("Ball");
+
             // If texture is null, we've never loaded our content.
             if (null == texture)
             {
@@ -105,6 +133,14 @@ namespace sdkSilverlightXNACS
 
             // Start the timer
             timer.Start();
+
+            //
+            Random random = new Random(DateTime.Now.Millisecond);
+            Color ballColor = new Color(random.Next(255), random.Next(255), random.Next(255));
+            Vector2 velocity = new Vector2((random.NextDouble() > .5 ? -1 : 1) * random.Next(9), (random.NextDouble() > .5 ? -1 : 1) * random.Next(9)) + Vector2.UnitX + Vector2.UnitY;
+            Vector2 center = new Vector2((float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width / 2, (float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height / 2);
+            float radius = 25f * (float)random.NextDouble() + 5f;
+            balls.Add(new Ball(ballColor, ballTexture, center, velocity, radius));
 
             base.OnNavigatedTo(e);
         }
@@ -167,6 +203,36 @@ namespace sdkSilverlightXNACS
         {
             // Move the sprite around.
             UpdateSprite(e);
+            UpdateBalls();
+            HandleTouches();
+        }
+
+        private void UpdateBalls()
+        {
+            foreach (Ball ball in balls)
+            {
+                ball.Update();
+            }
+        }
+
+        private void HandleTouches()
+        {
+            TouchCollection touches = TouchPanel.GetState();
+            if (!touching && touches.Count > 0)
+            {
+                touching = true;
+
+                Random random = new Random(DateTime.Now.Millisecond);
+                Color ballColor = new Color(random.Next(255), random.Next(255), random.Next(255));
+                Vector2 velocity = new Vector2((random.NextDouble() > .5 ? -1 : 1) * random.Next(9), (random.NextDouble() > .5 ? -1 : 1) * random.Next(9)) + Vector2.UnitX + Vector2.UnitY;
+                Vector2 center = new Vector2((float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width / 2, (float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height / 2);
+                float radius = 25f * (float)random.NextDouble() + 5f;
+                balls.Add(new Ball(ballColor, ballTexture, center, velocity, radius));
+            }
+            else if (touches.Count == 0)
+            {
+                touching = false;
+            }
         }
 
         /// <summary>
@@ -225,6 +291,13 @@ namespace sdkSilverlightXNACS
 
             // Draw the rectangle in its new position
             spriteBatch.Draw(texture, spritePosition, Color.White);
+            
+            foreach (Ball ball in balls)
+            {
+                ball.Draw(spriteBatch);
+            }
+
+            //base.Draw(gameTime);
 
             // Using the texture from the UIElementRenderer, 
             // draw the Silverlight controls to the screen

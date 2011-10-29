@@ -48,6 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FarseerPhysics">
+      <HintPath>..\..\Library\FarseerPhysics.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Interop" />
     <Reference Include="Microsoft.Xna.Framework" />
@@ -55,10 +58,17 @@
     <Reference Include="Microsoft.Xna.Framework.Graphics" />
     <Reference Include="Microsoft.Xna.Framework.Input.Touch" />
     <Reference Include="microsoft.xna.framework.interop" />
+    <Reference Include="Spritehand.FarseerHelper">
+      <HintPath>..\..\Library\Spritehand.FarseerHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Spritehand.PhysicsBehaviors">
+      <HintPath>..\..\Library\Spritehand.PhysicsBehaviors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Interactivity, Version=3.8.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="mscorlib.extensions" />
   </ItemGroup>
@@ -66,9 +76,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ball.cs" />
     <Compile Include="ChooseOpponent.xaml.cs">
       <DependentUpon>ChooseOpponent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Game1.cs" />
     <Compile Include="Models\Hero.cs" />
     <Compile Include="SearchingForOpponent.xaml.cs">
       <DependentUpon>SearchingForOpponent.xaml</DependentUpon>

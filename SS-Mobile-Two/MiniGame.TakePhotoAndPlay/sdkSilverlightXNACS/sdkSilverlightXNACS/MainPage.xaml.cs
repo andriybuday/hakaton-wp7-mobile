@@ -95,7 +95,8 @@ namespace sdkSilverlightXNACS
         {
             if (_photoIsCaptured)
             {
-                NavigationService.Navigate(new Uri("/Crop.xaml", UriKind.Relative));
+                NavigationService.Navigate(new Uri("/GamePage.xaml", UriKind.Relative));
+                //NavigationService.Navigate(new Uri("/Crop.xaml", UriKind.Relative));
                 _photoIsCaptured = true;
             }
         }
