@@ -1,0 +1,223 @@
+﻿<ResourceDictionary
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:System="clr-namespace:System;assembly=mscorlib">
+    
+    <!-- Margins -->
+    <Thickness x:Key="HorizontalMargin" >0 0 0 0</Thickness>
+
+    <Thickness x:Key="TableDataTextMargin">20 0 0 0</Thickness>
+
+    <Thickness x:Key="SimpleTextMargin">10 0 0 0</Thickness>
+
+    <Thickness x:Key="ListItemTextMargin">0 15 0 15</Thickness>
+
+    <!-- Font sizes -->
+
+    <!--10pt-->
+    <System:Double x:Key="FontSizeVerySmall">13.333</System:Double>
+    <!--14pt-->
+    <System:Double x:Key="FontSizeSmall">18.667</System:Double>
+    <!--15pt-->
+    <System:Double x:Key="FontSizeNormal">20</System:Double>
+    <!--17pt-->
+    <System:Double x:Key="FontSizeMedium">22.667</System:Double>
+    <!--19pt-->
+    <System:Double x:Key="FontSizeMediumLarge">25.333</System:Double>
+    <!--24pt-->
+    <System:Double x:Key="FontSizeLarge">32</System:Double>
+    <!--28pt-->
+    <System:Double x:Key="FontSizeLargeMedium">37.333</System:Double>
+    <!--32pt-->
+    <System:Double x:Key="FontSizeExtraLarge">42.667</System:Double>
+    <!--40pt-->
+    <System:Double x:Key="FontSizeExtraSemiLarge">53.333</System:Double>
+    <!--48pt-->
+    <System:Double x:Key="FontSizeExtraMediumLarge">64</System:Double>
+    <!--54pt-->
+    <System:Double x:Key="FontSizeExtraExtraLarge">72</System:Double>
+
+    
+    <LinearGradientBrush x:Key="OrdersPivotHeaderBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="{StaticResource  OrdersContentHeaderTextGradientStartColor}" Offset="0.0" />
+        <GradientStop Color="{StaticResource  OrdersContentHeaderTextGradientEndColor}" Offset="1.0" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="ContactsPivotHeaderBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="{StaticResource  ContactsContentHeaderTextGradientStartColor}" Offset="0.0" />
+        <GradientStop Color="{StaticResource  ContactsContentHeaderTextGradientEndColor}" Offset="1.0" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="HistoryPivotHeaderBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="{StaticResource  HistoryContentHeaderTextGradientStartColor}" Offset="0.0" />
+        <GradientStop Color="{StaticResource  HistoryContentHeaderTextGradientEndColor}" Offset="1.0" />
+    </LinearGradientBrush>
+
+    <!-- End-->
+
+
+    <Style x:Key=" ListItemTitleTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource  FontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource  FontSizeLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptTitleBrush}"/>
+    </Style>
+
+    <Style x:Key=" ListItemHighlightTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource  FontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource  FontSizeMediumLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource  OrangeColor}"/>
+    </Style>
+
+    <Style x:Key=" ListItemHighlightSmallTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource  FontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource  FontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource  OrangeColor}"/>
+    </Style>
+
+    <Style x:Key=" BlackTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource  FontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource  FontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptBlackBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource  HorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key=" BlackWrapeppedTextStyle" TargetType="TextBlock" BasedOn="{StaticResource  BlackTextStyle}">
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+
+    <Style x:Key=" ListItemInactiveGreyTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource  FontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource  FontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource  InactiveTextBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource  HorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key=" GreySmallTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource  FontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource  FontSizeSmall}"/>
+        <Setter Property="Foreground" Value="{StaticResource  InactiveTextBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource  HorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key=" SemiWhiteSmallTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource  FontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource  FontSizeVerySmall}"/>
+        <Setter Property="Foreground" Value="{StaticResource  SemiWhiteColor}"/>
+        <Setter Property="Margin" Value="{StaticResource  HorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key=" SmallTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource  FontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource  FontSizeSmall}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptGrayBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource  HorizontalMargin}"/>
+    </Style>
+
+
+    <Style x:Key=" ListItemSmallTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource  FontFamilySemiLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource  FontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptWhiteBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource  HorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key=" ListItemSubItemHighlightTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource  FontFamilySemiLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource  FontSizeNormal}"/>
+        <Setter Property="Foreground" Value="{StaticResource  OrangeColor}"/>
+    </Style>
+
+    <Style x:Key=" ApplicationTitleTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource  FontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource  FontSizeSmall}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptTitleBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource  HorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key=" PageTitleTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource  FontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource  FontSizeExtraLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource  HighlightPrimaryBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource  HorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key=" PageTitle2LevelTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource  FontFamilySemiBold}"/>
+        <Setter Property="FontSize" Value="{StaticResource  FontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptWhiteBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource  HorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key=" PageSubTitleTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource  FontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource  FontSizeNormal}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptGrayBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource  HorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key=" AsyncMessageTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource  FontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource  FontSizeSmall}"/>
+        <Setter Property="Foreground" Value="{StaticResource  HighlightPrimaryBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource  HorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key=" HighlightedItemTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource  FontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource  FontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource  HighlightSecondaryBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource  HorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key=" DialogMessageTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource  FontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource  FontSizeMediumLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptWhiteBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource  HorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key=" PivotHeaderTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource  FontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource  FontSizeExtraLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptWhiteBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource  HorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key=" HeaderBorderStyle" TargetType="Border">
+        <Setter Property="BorderThickness" Value="0,0,0,3" />
+        <Setter Property="BorderBrush" Value="{StaticResource  DividerPrimaryBrush}" />
+        <Setter Property="Margin" Value="10,0,10,5" />
+    </Style>
+
+    <Style x:Key=" GridBorderStyle" TargetType="Border">
+        <Setter Property="BorderThickness" Value="0,0,0,1" />
+        <Setter Property="BorderBrush" Value="{StaticResource  DividerSecondaryBrush}" />
+        <Setter Property="Margin" Value="15,0,15,5" />
+        <Setter Property="Padding" Value="0,0,0,10"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+    </Style>
+
+    <Style x:Key=" ListItemSecondaryItemTextStyle_Inactive" TargetType="TextBlock" >
+        <Setter Property="FontFamily" Value="{StaticResource  FontFamilySemiLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource  FontSizeLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource  InactiveTextBrush}"/>
+    </Style>
+
+    <!-- base pivot styles -->
+
+    <Style TargetType="Controls:Pivot" x:Key="BasePivotStyle">
+        <Setter Property="FontFamily" Value="{StaticResource  FontFamilyLight}"/>
+        <Setter Property="Margin" Value="0,-30,0,0" />
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="BasePivotHeaderStyle">
+        <Setter Property="FontFamily" Value="{StaticResource  FontFamilyLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource  FontSizeExtraMediumLarge}"/>
+        <Setter Property="Margin" Value="{StaticResource  HorizontalMargin}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptWhiteBrush}"/>
+    </Style>
+
+    <!-- end base pivot styles -->
+
+    
+    <!-- End ToolKit controls -->
+</ResourceDictionary>
