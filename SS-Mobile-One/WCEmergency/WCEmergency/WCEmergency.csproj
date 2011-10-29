@@ -98,12 +98,7 @@
     <Compile Include="Navigation\BackchainingManager.cs" />
     <Compile Include="PhoneApplicationPageBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserControls\CustomGridControl.xaml.cs">
-      <DependentUpon>CustomGridControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\PageHeaderControl.xaml.cs">
-      <DependentUpon>PageHeaderControl.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="UserControls\BindableApplicationBar.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="ViewModel\MapViewModel.cs" />
     <Compile Include="View\WCStartPage.xaml.cs">
@@ -139,14 +134,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\CustomGridControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\PageHeaderControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\WCStartPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -164,6 +151,7 @@
     <Content Include="Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\Images\AppBarCheck.png" />
     <Resource Include="Resources\Images\icon_wc.png" />
     <Resource Include="Resources\Images\wc.png" />
     <Resource Include="ApplicationIcon.png" />

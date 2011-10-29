@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Navigation;
@@ -17,6 +18,11 @@ namespace WCEmergency
 {
     public partial class App : Application
     {
+        public enum AppStyleSet
+        {
+            Dark,
+            Light
+        }
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>
@@ -36,6 +42,8 @@ namespace WCEmergency
 
             // Phone-specific initialization
             InitializePhoneApplication();
+
+            StyleSet = AppStyleSet.Dark;
 
             // Show graphics profiling information while debugging.
             if (System.Diagnostics.Debugger.IsAttached)
@@ -57,6 +65,46 @@ namespace WCEmergency
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
 
+        }
+
+        private static ResourceDictionary LoadDictionary(Uri uri, string replaceMask = null)
+        {
+            var stream = GetResourceStream(uri).Stream;
+            var buffer = new byte[stream.Length];
+            stream.Read(buffer, 0, buffer.Length);
+            var content = System.Text.Encoding.UTF8.GetString(buffer, 0, buffer.Length);
+            if (replaceMask != null)
+            {
+                var strings = replaceMask.Split('|');
+                content = content.Replace(strings[0], strings[1]);
+            }
+            return XamlReader.Load(content) as ResourceDictionary;
+        }
+
+        private AppStyleSet _styleSet = AppStyleSet.Dark;
+
+        public AppStyleSet StyleSet
+        {
+            get
+            {
+                return _styleSet;
+            }
+            set
+            {
+                _styleSet = value;
+                //load the corresponding resource dictionary
+                var dictionaries = Current.Resources.MergedDictionaries;
+                dictionaries.Clear();
+                //this is looking ugly, but I found this was the only way to include general style so that the RD would see the base styles
+                var generalStyles = LoadDictionary(new Uri("/WCEmergency;component/Resources/GeneralStyles.xaml", UriKind.Relative),
+                                                       String.Format("ThemePlaceHolder.xaml|{0}.xaml", value == AppStyleSet.Light ? "WP7Style_Light" : "WP7Style_Dark"));
+                dictionaries.Add(generalStyles);
+                dictionaries.Add(
+                    LoadDictionary(
+                        new Uri("/WCEmergency;component/Resources/WP7Styles.xaml",
+                                UriKind.Relative)));
+
+            }
         }
 
         // Code to execute when the application is launching (eg, from Start)

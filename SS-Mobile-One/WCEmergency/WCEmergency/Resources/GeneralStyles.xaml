@@ -980,11 +980,11 @@
 
 
     <!-- patient header styles -->
-    <Style x:Key="PatientHeaderGridControl_Hidden" TargetType="UserControls1:CustomGridControl">
+    <!--<Style x:Key="PatientHeaderGridControl_Hidden" TargetType="UserControls1:CustomGridControl">
         <Setter Property="Visibility" Value="Collapsed" />
-    </Style>
+    </Style>-->
 
-    <Style x:Key="PatientHeaderGridControl" TargetType="UserControls1:CustomGridControl">
+    <!--<Style x:Key="PatientHeaderGridControl" TargetType="UserControls1:CustomGridControl">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="UserControls1:CustomGridControl">
@@ -999,9 +999,9 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 
-    <Style x:Key="PatientHeaderGridControlHorizontal" TargetType="UserControls1:CustomGridControl">
+    <!--<Style x:Key="PatientHeaderGridControlHorizontal" TargetType="UserControls1:CustomGridControl">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="UserControls1:CustomGridControl">
@@ -1016,9 +1016,9 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 
-    <Style x:Key="PatientHeaderGridControl_Orders" TargetType="UserControls1:CustomGridControl">
+    <!--<Style x:Key="PatientHeaderGridControl_Orders" TargetType="UserControls1:CustomGridControl">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="UserControls1:CustomGridControl">
@@ -1033,9 +1033,9 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 
-    <Style x:Key="PatientHeaderGridControl_Contacts" TargetType="UserControls1:CustomGridControl">
+    <!--<Style x:Key="PatientHeaderGridControl_Contacts" TargetType="UserControls1:CustomGridControl">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="UserControls1:CustomGridControl">
@@ -1050,9 +1050,9 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 
-    <Style x:Key="PatientHeaderGridControl_History" TargetType="UserControls1:CustomGridControl">
+    <!--<Style x:Key="PatientHeaderGridControl_History" TargetType="UserControls1:CustomGridControl">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="UserControls1:CustomGridControl">
@@ -1067,7 +1067,7 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 
     <!-- page title styles -->
     <Style x:Key="PageTitleStyle_Default" TargetType="TextBlock">
@@ -1099,7 +1099,7 @@
     </Style>
 
     <!-- begin new page header styles -->
-    <Style x:Key="PageHeaderStyle_Orders" TargetType="UserControls1:PageHeaderControl">
+    <!--<Style x:Key="PageHeaderStyle_Orders" TargetType="UserControls1:PageHeaderControl">
         <Setter Property="PatientHeaderStyle" Value="{StaticResource PatientHeaderGridControl_Orders}" />
         <Setter Property="PageTitleStyle" Value="{StaticResource PageTitleStyle_Orders}" />
     </Style>
@@ -1123,9 +1123,9 @@
         <Setter Property="AllscriptsLogoVisibility" Value="Collapsed" />
         <Setter Property="PatientHeaderStyle" Value="{StaticResource PatientHeaderGridControl_Orders}" />
         <Setter Property="PageTitleStyle" Value="{StaticResource PageTitleStyle_Orders}" />
-    </Style>
+    </Style>-->
 
-    <Style x:Key="PageHeaderStyle_GreenWithoutLogo_SmallTitleMargin" TargetType="UserControls1:PageHeaderControl" BasedOn="{StaticResource PageHeaderStyle_GreenWithoutLogo}">
+    <!--<Style x:Key="PageHeaderStyle_GreenWithoutLogo_SmallTitleMargin" TargetType="UserControls1:PageHeaderControl" BasedOn="{StaticResource PageHeaderStyle_GreenWithoutLogo}">
         <Setter Property="AllscriptsTitleMargin" Value="0,-25,0,0" />
     </Style>
 
@@ -1174,7 +1174,7 @@
         <Setter Property="PatientHeaderVisibility" Value="Collapsed" />
         <Setter Property="PageTitleStyle" Value="{StaticResource PageTitleStyle_WhiteSmall}" />
         <Setter Property="Margin" Value="0, 0, 0,-15" />
-    </Style>
+    </Style>-->
 
     <!-- end new page header styles -->
 
