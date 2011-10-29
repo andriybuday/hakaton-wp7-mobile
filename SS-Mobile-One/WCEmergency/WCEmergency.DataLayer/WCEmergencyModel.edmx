@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WCEmergencyModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="WCEmergencyModelStoreContainer">
+          <EntitySet Name="Toilet" EntityType="WCEmergencyModel.Store.Toilet" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Toilet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Rate" Type="int" />
+          <Property Name="Sex" Type="int" Nullable="false" />
+          <Property Name="CoordinateX" Type="float" Nullable="false" />
+          <Property Name="CoordinateY" Type="float" Nullable="false" />
+          <Property Name="Picture" Type="image" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WCEmergencyModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="WCEmergencyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Toilets" EntityType="WCEmergencyModel.Toilet" />
+        </EntityContainer>
+        <EntityType Name="Toilet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="2000" Unicode="true" FixedLength="false" />
+          <Property Name="Rate" Type="Int32" />
+          <Property Name="Sex" Type="Int32" Nullable="false" />
+          <Property Name="CoordinateX" Type="Double" Nullable="false" />
+          <Property Name="CoordinateY" Type="Double" Nullable="false" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WCEmergencyModelStoreContainer" CdmEntityContainer="WCEmergencyEntities">
+          <EntitySetMapping Name="Toilets"><EntityTypeMapping TypeName="WCEmergencyModel.Toilet"><MappingFragment StoreEntitySet="Toilet">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Rate" ColumnName="Rate" />
+            <ScalarProperty Name="Sex" ColumnName="Sex" />
+            <ScalarProperty Name="CoordinateX" ColumnName="CoordinateX" />
+            <ScalarProperty Name="CoordinateY" ColumnName="CoordinateY" />
+            <ScalarProperty Name="Picture" ColumnName="Picture" />
+            <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="WCEmergencyModel">
+        <EntityTypeShape EntityType="WCEmergencyModel.Toilet" Width="1.5" PointX="0.75" PointY="0.75" Height="2.7494921874999996" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
