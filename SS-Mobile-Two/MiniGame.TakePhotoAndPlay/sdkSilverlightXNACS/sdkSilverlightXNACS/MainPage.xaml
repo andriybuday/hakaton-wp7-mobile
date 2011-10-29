@@ -34,9 +34,8 @@
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
             <TextBlock x:Name="ApplicationTitle" Text="PHOTOS APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Text="photos" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock x:Name="PageTitle" Text="add photo" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
-        <Button Grid.Row="1" Height="100" Content="Play Game" Click="Button_Click" />
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="2" Margin="12,0,12,0">
             <Canvas x:Name="canvas" Width="480">
@@ -48,10 +47,8 @@
             </Canvas>
 
             <!--Application progress bar.-->
-            <ProgressBar Height="10" Name="progressBar1" Width="460" Visibility="Collapsed" Margin="12,365,8,286" Grid.Row="1" IsIndeterminate="True" />
-
-            
-            
+            <ProgressBar Height="10" Name="progressBar1" Width="460" Visibility="Collapsed" Margin="12,365,8,286" Grid.Row="1" IsIndeterminate="True" />            
+           
         </Grid>
         
             

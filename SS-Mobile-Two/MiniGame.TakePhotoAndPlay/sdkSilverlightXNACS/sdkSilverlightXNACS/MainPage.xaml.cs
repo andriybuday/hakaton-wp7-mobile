@@ -215,9 +215,7 @@ namespace sdkSilverlightXNACS
 
                 //Once writeable bitmap has been rendered, the crop button
                 //is enabled.
-                btnCrop.IsEnabled = true;
-
-                textStatus.Text = "Tap the crop button to proceed";
+                NavigationService.Navigate(new Uri("/Crop.xaml", UriKind.Relative));
             }
             else
             {

@@ -52,22 +52,32 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock x:Name="ApplicationTitle" Text="PHOTO APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Text="crop" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock x:Name="ApplicationTitle" Text="" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="choose hero" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Canvas x:Name="canvas" Width="480">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="500"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Canvas x:Name="canvas" Width="480" Grid.ColumnSpan="2" Grid.Row="0">
                 <!--Image for the WriteableBitmap object destined for cropping.-->
                 <Image x:Name="DisplayedImageElement" Width="480" Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Top" />
                 <!--Rectangle defines cropping region.-->
-                <Rectangle x:Name="rect" Visibility="Collapsed" Stroke="Aqua"></Rectangle>
+                <Rectangle x:Name="rect" Visibility="Collapsed" Stroke="Red"></Rectangle>
                 <!--TextBlock for status messages. -->
                 <TextBlock Height="70" x:Name="textStatus" Text="" Foreground="White" TextWrapping="Wrap" Canvas.Left="8" Canvas.Top="450" Width="400" />
             </Canvas>
             <!--Application progress bar.-->
-            <ProgressBar Height="10" x:Name="progressBar2" Visibility="Collapsed" Margin="12,0,8,255" IsIndeterminate="True"  VerticalAlignment="Bottom"  />
+            <TextBlock Text="Name" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <TextBox Name="NameTextBox" Text="Default Hero" Height="75" Grid.Row="1" Grid.Column="1"></TextBox>
+                <ProgressBar Height="10" x:Name="progressBar2" Visibility="Collapsed" Margin="12,0,8,255" IsIndeterminate="True"  VerticalAlignment="Bottom"  />
 
         </Grid>
     </Grid>

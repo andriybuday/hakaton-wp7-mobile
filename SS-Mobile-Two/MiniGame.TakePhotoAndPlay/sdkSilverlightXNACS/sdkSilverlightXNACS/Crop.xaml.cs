@@ -279,8 +279,6 @@ namespace sdkPhotosCS
             }
             IsolatedStorageFileStream myFileStream = myStore.CreateFile(tempJPEG);
 
-
-
             //Encode the WriteableBitmap into JPEG stream and place into isolated storage.
             
             //Extensions.SaveJpeg(App.CroppedImage, myFileStream, App.CroppedImage.PixelWidth, App.CroppedImage.PixelHeight, 0, 85);
@@ -300,7 +298,9 @@ namespace sdkPhotosCS
             textStatus.Text = "Picture saved to photos library on the device.";
 
 
+            var userEnteredName = NameTextBox.Text;
 
+            //TODO: 
 
             if(App.Face2 == null)
             {
