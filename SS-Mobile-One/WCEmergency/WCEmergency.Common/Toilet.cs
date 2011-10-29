@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Device.Location;
+using System.Runtime.Serialization;
 using System.ServiceModel;
 
 namespace WCEmergency.Common
@@ -30,7 +31,7 @@ namespace WCEmergency.Common
         public int? Rate { get; set; }
 
         [DataMember]
-        public Coordinate Coordinate { get; set; }
+        public GeoCoordinate Coordinate { get; set; }
 
         [DataMember]
         public byte[] Picture { get; set; }

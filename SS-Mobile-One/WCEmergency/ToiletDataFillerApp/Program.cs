@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Device.Location;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -43,7 +44,7 @@ namespace ToiletDataFillerApp
             
             DataFacade facade = new DataFacade();
             facade.AddToilet(new WCEmergency.Common.Toilet() {
-                Coordinate = new Coordinate() { X = 49.839683, Y = 24.029717 },
+                Coordinate = new GeoCoordinate() { Latitude = 49.839683, Longitude = 24.029717 },
                 Description = "МакДональдс / швидка їжа з усіма вигодами і наслідками:)",
                 Name = "пр. Чорновола, 12.",
                 Rate = 10,

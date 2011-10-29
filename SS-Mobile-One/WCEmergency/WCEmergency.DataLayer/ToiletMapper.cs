@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Device.Location;
 using System.Linq;
 using System.Text;
 using WCEmergency.Common;
@@ -12,9 +13,10 @@ namespace WCEmergency.DataLayer
         {
             return list.Select(toilet => new Common.Toilet()
                                              {
-                                                 Id = toilet.Id, Coordinate = new Coordinate()
+                                                 Id = toilet.Id, Coordinate = new GeoCoordinate()
                                                                                   {
-                                                                                      X = toilet.CoordinateX, Y = toilet.CoordinateY
+                                                                                      Latitude = toilet.CoordinateX,
+                                                                                      Longitude = toilet.CoordinateY
                                                                                   }, Description = toilet.Description, Name = toilet.Name, Picture = toilet.Picture, Rate = toilet.Rate, Sex = (Sex) toilet.Sex
                                              }).ToList();
         }
@@ -24,8 +26,8 @@ namespace WCEmergency.DataLayer
             return new Toilet()
             {
                 Id = toilet.Id,
-                CoordinateX = toilet.Coordinate.X,
-                CoordinateY = toilet.Coordinate.Y,
+                CoordinateX = toilet.Coordinate.Latitude ,
+                CoordinateY = toilet.Coordinate.Longitude,
                 Description = toilet.Description,
                 Name = toilet.Name,
                 Picture = toilet.Picture,
