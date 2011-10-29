@@ -274,7 +274,7 @@ namespace sdkPhotosCS
             var userEnteredName = NameTextBox.Text;
 
             var game = GameState.GetInstance();
-            game.MyTeam.Add(new Hero() { IsInYourTeam = true, MemberPhoto = App.CroppedImage, Name = userEnteredName });
+            game.FriendsTeam.Add(new Hero() { IsInYourTeam = true, MemberPhoto = App.CroppedImage, Name = userEnteredName });
 
             if(App.Face2 == null)
             {

@@ -50,7 +50,7 @@ namespace sdkSilverlightXNACS
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
-            TeamMembers = GameState.GetInstance().MyTeam;
+            TeamMembers = GameState.GetInstance().FriendsTeam;
  	        base.OnNavigatedTo(e);
         }
 

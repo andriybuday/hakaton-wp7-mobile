@@ -148,7 +148,7 @@ namespace sdkSilverlightXNACS
 
         private void SetFaceTexture(Faces faces)
         {
-            var teamMembers = GameState.GetInstance().MyTeam;
+            var teamMembers = GameState.GetInstance().FriendsTeam;
 
             WriteableBitmap faceToUse = teamMembers.Count > 0 ? teamMembers[0].MemberPhoto : App.CroppedImage;
 
