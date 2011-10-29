@@ -27,9 +27,9 @@ namespace sdkSilverlightXNACS
             ApplicationBar.IsMenuEnabled = true;
 
             //This code creates the application bar icon buttons.
-            btnAddTeamMember = new ApplicationBarIconButton(new Uri("/Icons/appbar.edit.rest.png", UriKind.Relative));
-            btnAddBackground = new ApplicationBarIconButton(new Uri("/Icons/appbar.check.rest.png", UriKind.Relative));
-            btnStart = new ApplicationBarIconButton(new Uri("/Icons/appbar.save.rest.png", UriKind.Relative));
+            btnAddTeamMember = new ApplicationBarIconButton(new Uri("/Icons/AppBarAdd.png", UriKind.Relative));
+            btnAddBackground = new ApplicationBarIconButton(new Uri("/Icons/AppBarAdd.png", UriKind.Relative));
+            btnStart = new ApplicationBarIconButton(new Uri("/Icons/AppBarStart.png", UriKind.Relative));
             
 
             //Labels for the application bar buttons.
@@ -41,6 +41,8 @@ namespace sdkSilverlightXNACS
             ApplicationBar.Buttons.Add(btnAddTeamMember);
             ApplicationBar.Buttons.Add(btnAddBackground);
             ApplicationBar.Buttons.Add(btnStart);
+
+            btnAddBackground.IsEnabled = false;
 
             //This code will create event handlers for buttons.
             btnAddTeamMember.Click += AddNewTeamMember;
@@ -58,12 +60,12 @@ namespace sdkSilverlightXNACS
 
         private void AddNewTeamMember(object sender, EventArgs args)
         {
-            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/AddMemberPhoto.xaml", UriKind.Relative));
         }
 
         private void AddBackground(object sender, EventArgs args)
         {
-            NavigationService.Navigate(new Uri("/MainPage.xaml?capture=Background", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/AddMemberPhoto.xaml?capture=Background", UriKind.Relative));
         }
 
         private void StartGame(object sender, EventArgs args)

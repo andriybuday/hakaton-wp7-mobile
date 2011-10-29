@@ -6,6 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -17,13 +18,13 @@
         <Style TargetType="ListBox" x:Key="TeamMembersListBoxStyle">
             <Setter Property="Padding" Value="0" />
             <Setter Property="Margin" Value="0" />
-            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Background" Value="Gray"/>
             <Setter Property="ItemTemplate">
                 <Setter.Value>
                     <DataTemplate>
-                        <StackPanel Orientation="Vertical" Margin="0" Height="40">
-                            <TextBlock Text="{Binding Name}"></TextBlock>
-                            <Image Source="{Binding MemberPhoto}" Stretch="Uniform"/>
+                        <StackPanel Orientation="Vertical" Margin="10 20 0 0" HorizontalAlignment="Stretch">
+                            <TextBlock Text="{Binding Name}" Height="40"></TextBlock>
+                            <Image Source="{Binding MemberPhoto}" Height="200"/>
                         </StackPanel>
                     </DataTemplate>
                 </Setter.Value>
@@ -31,7 +32,7 @@
         </Style>
     </phone:PhoneApplicationPage.Resources>
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Margin="12" Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -39,14 +40,34 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock x:Name="ApplicationTitle" Text="" Style="{StaticResource PhoneTextNormalStyle}"/>
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,0">
+            <TextBlock x:Name="ApplicationTitle" Text="WELCOME TO THE PHOTO BATTLE!" Style="{StaticResource PhoneTextNormalStyle}"/>
             <TextBlock x:Name="PageTitle" Text="Choose team" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
         <!--ContentPanel - place additional content here-->
-        <ListBox x:Name="ContentPanel" Grid.Row="2" Margin="12,0,12,0" ItemsSource="{Binding TeamMembers}" Style="{StaticResource TeamMembersListBoxStyle}">
-        </ListBox>
-        
-            
+        <Controls:Pivot Grid.Row="2">
+            <Controls:PivotItem x:Name="Team1PivotItem" Margin="0">
+                <Controls:PivotItem.Tag>MyTeam</Controls:PivotItem.Tag>
+                <Controls:PivotItem.Header>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="my team" />
+                    </StackPanel>
+                </Controls:PivotItem.Header>
+
+                <ListBox x:Name="ContentPanel" Margin="22,0,12,0" ItemsSource="{Binding TeamMembers}" Style="{StaticResource TeamMembersListBoxStyle}">
+                </ListBox>
+            </Controls:PivotItem>
+            <Controls:PivotItem x:Name="Team2PivotItem" Margin="0">
+                <Controls:PivotItem.Tag>EnemyTeam</Controls:PivotItem.Tag>
+                <Controls:PivotItem.Header>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="enemy team" />
+                    </StackPanel>
+                </Controls:PivotItem.Header>
+
+                <ListBox x:Name="Content2Panel" Margin="12,0,12,0" ItemsSource="{Binding TeamMembers}" Style="{StaticResource TeamMembersListBoxStyle}">
+                </ListBox>
+            </Controls:PivotItem>
+        </Controls:Pivot>                      
     </Grid>
 </phone:PhoneApplicationPage>

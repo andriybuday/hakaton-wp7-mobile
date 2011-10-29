@@ -51,7 +51,15 @@
     <Reference Include="FarseerPhysics">
       <HintPath>..\..\Library\FarseerPhysics.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone" >
+	<HintPath>..\..\Library\Toolkit\Aug11\Bin\Microsoft.Phone.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Phone.Controls" >
+	<HintPath>..\..\Library\Toolkit\Aug11\Bin\Microsoft.Phone.Controlsdll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Phone.Controls.Toolkit" >
+	<HintPath>..\..\Library\Toolkit\Aug11\Bin\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Phone.Interop" />
     <Reference Include="Microsoft.Xna.Framework" />
     <Reference Include="Microsoft.Xna.Framework.Game" />
@@ -88,14 +96,14 @@
     <Compile Include="SearchingForOpponent.xaml.cs">
       <DependentUpon>SearchingForOpponent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Crop.xaml.cs">
-      <DependentUpon>Crop.xaml</DependentUpon>
+    <Compile Include="AddMember.xaml.cs">
+      <DependentUpon>AddMember.xaml</DependentUpon>
     </Compile>
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="AddMemberPhoto.xaml.cs">
+      <DependentUpon>AddMemberPhoto.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AppServiceProvider.cs" />
@@ -118,7 +126,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Crop.xaml">
+    <Page Include="AddMember.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -126,7 +134,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainPage.xaml">
+    <Page Include="AddMemberPhoto.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -162,6 +170,18 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Icons\appbar.save.rest.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\AppBarAdd.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\AppBarCancel.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\AppBarStart.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\AppBarSave.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SplashScreenImage.jpg" />
