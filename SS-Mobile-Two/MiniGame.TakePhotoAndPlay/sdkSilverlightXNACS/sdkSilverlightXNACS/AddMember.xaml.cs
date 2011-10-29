@@ -61,13 +61,13 @@ namespace sdkPhotosCS
             Rectangle.Begin();
         }
 
-        protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
-        {
-            base.OnNavigatedFrom(e);
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        {            
             if (!string.IsNullOrEmpty(e.Uri.OriginalString))
             {
                 _queryString = e.Uri.OriginalString;
             }
+            base.OnNavigatedFrom(e);
         }
 
         /// <summary>
