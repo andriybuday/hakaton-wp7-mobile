@@ -1,0 +1,376 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:System="clr-namespace:System;assembly=mscorlib">
+
+
+    <Color x:Key="AllscriptsForegroundColor">#FFFFFFFF</Color>
+    <!-- 100 percent White -->
+    <Color x:Key="AllscriptsBackgroundColor">#FF000000</Color>
+    <!-- 100 percent Black -->
+    <Color x:Key="AllscriptsContrastForegroundColor">#FF000000</Color>
+    <!-- 100 percent Black -->
+    <Color x:Key="AllscriptsContrastBackgroundColor">#FFFFFFFF</Color>
+    <!-- 100 percent White -->
+    <Color x:Key="AllscriptsDisabledColor">#66FFFFFF</Color>
+    <!-- 40 percent White -->
+    <Color x:Key="AllscriptsSubtleColor">#99FFFFFF</Color>
+    <!-- 60 percent White -->
+
+    <Color x:Key="AllscriptsWhiteGrayColor">#bfbfbf</Color>
+    <Color x:Key="AllscriptsBlackColor">#000000</Color>
+    <Color x:Key="AllscriptsOrangeColor">#FF5800</Color>
+    <Color x:Key="AllscriptsWhiteColor">#FFFFFF</Color>
+    <Color x:Key="AllscriptsGreenColor">#FFAFD466</Color>
+    <Color x:Key="AllscriptsBlueColor">#FF64B6DB</Color>
+    <!--#FFCFF0FF-->
+    <Color x:Key="AllscriptsHighlightPrimaryColor">#FFCAE399</Color>
+    <Color x:Key="AllscriptsHighlightSecondaryColor">#FF7A8D58</Color>
+    <Color x:Key="AllscriptsDividerPrimaryColor">#FFFFFFFF</Color>
+    <Color x:Key="AllscriptsDividerSecondaryColor">#FF606164</Color>
+    <Color x:Key="AllscriptsRoundedBoxBackgroundColor">#FF3C3D3F</Color>
+    <Color x:Key="AllscriptsOrdersContentHeaderBackgroundColor">#FFE4F1CC</Color>
+    <Color x:Key="AllscriptsOrdersContentHeadingColor">#FFE4F1CC</Color>
+    <Color x:Key="AllscriptsOrdersContentPrimaryColor">#FFCAE399</Color>
+    <Color x:Key="AllscriptsOrdersContentSecondaryColor">#FFE4F1CC</Color>
+    <Color x:Key="AllscriptsOrdersContentHeaderTextGradientStartColor">#FF7A8800</Color>
+    <Color x:Key="AllscriptsOrdersContentHeaderTextGradientEndColor">#FF95C633</Color>
+    <Color x:Key="AllscriptsContactsContentHeaderBackgroundColor">#FFFFDBFF</Color>
+    <Color x:Key="AllscriptsContactsContentHeadingColor">#FFFFDBFF</Color>
+    <Color x:Key="AllscriptsContactsContentPrimaryColor">#FFCAE399</Color>
+    <Color x:Key="AllscriptsContactsContentSecondaryColor">#FFFFDBFF</Color>
+    <Color x:Key="AllscriptsContactsContentHeaderTextGradientStartColor">#FFE670E8</Color>
+    <Color x:Key="AllscriptsContactsContentHeaderTextGradientEndColor">#FFA849A3</Color>
+    <Color x:Key="AllscriptsHistoryContentHeaderBackgroundColor">#FFCFF0FF</Color>
+    <Color x:Key="AllscriptsHistoryContentHeadingColor">#FFCFF0FF</Color>
+    <Color x:Key="AllscriptsHistoryContentPrimaryColor">#FFCAE399</Color>
+    <Color x:Key="AllscriptsHistoryContentSecondaryColor">#FFCFF0FF</Color>
+    <Color x:Key="AllscriptsHistoryContentHeaderTextGradientStartColor">#FF64B6DB</Color>
+    <Color x:Key="AllscriptsHistoryContentHeaderTextGradientEndColor">#FF309DCF</Color>
+    <Color x:Key="AllscriptsInactiveGreyTextColor">#FF9B9B9B</Color>
+    <Color x:Key="AllscriptsMedicationTextBoxBackgroundColor">#FFE5F1CD</Color>
+    <Color x:Key="AllscriptsScheduledAppointmentIndicatorColor">#FF5800</Color>
+    <Color x:Key="AllscriptsActivedAppointmentIndicatorColor">#bfbfbf</Color>
+    <Color x:Key="AllscriptsCompletedAppointmentIndicatorColor">#0237ff</Color>
+    <Color x:Key="AllscriptsMissedAppointmentIndicatorColor">#ff0202</Color>
+    <Color x:Key="AllscriptsNonPatientAppointmentIndicatorColor">#018b18</Color>
+    <Color x:Key="AllscriptsLowPriorityTaskIndicatorColor">#bfbfbf</Color>
+    <Color x:Key="AllscriptsNormalPriorityTaskIndicatorColor">#FF5800</Color>
+    <Color x:Key="AllscriptsHighPriorityTaskIndicatorColor">#018b18</Color>
+    <Color x:Key="AllscriptsUrgentPriorityTaskIndicatorColor">#ff0000</Color>
+    <Color x:Key="AllscriptsSemiWhiteColor">#D8D9D9</Color>
+    <Color x:Key="AllscriptsPaleYellowColor">#E4F1CC</Color>
+    <Color x:Key="AllscriptsSemiGrayColor">#6E726B</Color>
+    <Color x:Key="AllscriptsDarkGrayColor">#2C2D2F</Color>
+
+    <SolidColorBrush x:Key="AllscriptsForegroundBrush" Color="{StaticResource AllscriptsForegroundColor}"/>
+
+    <Color x:Key="PhoneForegroundColor">#FFFFFFFF</Color>
+    <!-- 100 percent White -->
+    <Color x:Key="PhoneBackgroundColor">#FF000000</Color>
+    <!-- 100 percent Black -->
+    <Color x:Key="PhoneContrastForegroundColor">#FF000000</Color>
+    <!-- 100 percent Black -->
+    <Color x:Key="PhoneContrastBackgroundColor">#FFFFFFFF</Color>
+    <!-- 100 percent White -->
+    <Color x:Key="PhoneDisabledColor">#66FFFFFF</Color>
+    <!-- 40 percent White -->
+
+    <!-- TextBox colors -->
+    <Color x:Key="PhoneTextCaretColor">#FF000000</Color>
+    <!-- 100 percent Black -->
+    <Color x:Key="PhoneTextBoxColor">#BFFFFFFF</Color>
+    <!-- 75 percent White -->
+    <Color x:Key="PhoneTextBoxForegroundColor">#FF000000</Color>
+    <!-- 100 percent Black -->
+    <Color x:Key="PhoneTextBoxEditBackgroundColor">#FFFFFFFF</Color>
+    <!-- 100 percent White -->
+    <Color x:Key="PhoneTextBoxEditBorderColor">#FFFFFFFF</Color>
+    <!-- 100 percent White -->
+    <Color x:Key="PhoneTextBoxReadOnlyColor">#77000000</Color>
+    <!-- 47 percent percent Black -->
+    <Color x:Key="PhoneSubtleColor">#99FFFFFF</Color>
+    <!-- 60 percent White -->
+    <Color x:Key="PhoneTextBoxSelectionForegroundColor">#FFFFFFFF</Color>
+    <!-- 100 percent White -->
+
+    <!-- RadioButton and CheckBox colors -->
+    <Color x:Key="PhoneRadioCheckBoxColor">#BFFFFFFF</Color>
+    <!-- 75 percent White -->
+    <Color x:Key="PhoneRadioCheckBoxDisabledColor">#66FFFFFF</Color>
+    <!-- 40 percent White -->
+    <Color x:Key="PhoneRadioCheckBoxCheckColor">#FF000000</Color>
+    <!-- 100 percent Black -->
+    <Color x:Key="PhoneRadioCheckBoxCheckDisabledColor">#66000000</Color>
+    <!-- 40 percent Black -->
+    <Color x:Key="PhoneRadioCheckBoxPressedColor">#FFFFFFFF</Color>
+    <!-- 100 percent White -->
+    <Color x:Key="PhoneRadioCheckBoxPressedBorderColor">#FFFFFFFF</Color>
+    <!-- 100 percent White -->
+
+    <!-- Special colors -->
+    <Color x:Key="PhoneSemitransparentColor">#AA000000</Color>
+    <!-- 66 percent transparent -->
+
+    <Color x:Key="PhoneTransparentAlpha80Color">#CC000000</Color>
+    <!-- 80 percent transparent -->
+
+    <!-- System chrome color -->
+    <Color x:Key="PhoneChromeColor">#FF1F1F1F</Color>
+
+    <!-- Deprecated colors -->
+    <Color x:Key="PhoneInactiveColor">#33FFFFFF</Color>
+    <!-- 20 percent White -->
+    <Color x:Key="PhoneInverseInactiveColor">#FFCCCCCC</Color>
+    <!-- Inverse inactive background color -->
+    <Color x:Key="PhoneInverseBackgroundColor">#FFFFFFFF</Color>
+    <!-- Inverse background color -->
+    <Color x:Key="PhoneBorderColor">#BFFFFFFF</Color>
+    <!-- 75 percent White -->
+
+    <Color x:Key="PhoneAccentColor">#FF1BA1E2</Color>
+    <SolidColorBrush x:Key="PhoneForegroundExtBrush" Color="{StaticResource PhoneForegroundColor}"/>
+    <SolidColorBrush x:Key="PhoneBackgroundExtBrush" Color="{StaticResource PhoneBackgroundColor}"/>
+    <SolidColorBrush x:Key="PhoneContrastForegroundBrush" Color="{StaticResource PhoneContrastForegroundColor}"/>
+    <SolidColorBrush x:Key="PhoneContrastBackgroundBrush" Color="{StaticResource PhoneContrastBackgroundColor}"/>
+    <SolidColorBrush x:Key="PhoneTextCaretBrush" Color="{StaticResource PhoneTextCaretColor}"/>
+    <SolidColorBrush x:Key="PhoneTextBoxExtBrush" Color="{StaticResource PhoneTextBoxColor}"/>
+    <SolidColorBrush x:Key="PhoneTextBoxForegroundExtBrush" Color="{StaticResource PhoneTextBoxForegroundColor}"/>
+    <SolidColorBrush x:Key="PhoneTextBoxEditBackgroundExtBrush" Color="{StaticResource PhoneTextBoxEditBackgroundColor}"/>
+    <SolidColorBrush x:Key="PhoneTextBoxEditBorderExtBrush" Color="{StaticResource PhoneTextBoxEditBorderColor}"/>
+    <SolidColorBrush x:Key="PhoneTextBoxReadOnlyExtBrush" Color="{StaticResource PhoneTextBoxReadOnlyColor}"/>
+    <SolidColorBrush x:Key="PhoneTextBoxSelectionForegroundBrush" Color="{StaticResource PhoneTextBoxSelectionForegroundColor}"/>
+    <SolidColorBrush x:Key="PhoneSubtleExtBrush" Color="{StaticResource PhoneSubtleColor}"/>
+    <SolidColorBrush x:Key="PhoneRadioCheckBoxExtBrush" Color="{StaticResource PhoneRadioCheckBoxColor}"/>
+    <SolidColorBrush x:Key="PhoneRadioCheckBoxDisabledExtBrush" Color="{StaticResource PhoneRadioCheckBoxDisabledColor}"/>
+    <SolidColorBrush x:Key="PhoneRadioCheckBoxCheckExtBrush" Color="{StaticResource PhoneRadioCheckBoxCheckColor}"/>
+    <SolidColorBrush x:Key="PhoneRadioCheckBoxCheckDisabledExtBrush" Color="{StaticResource PhoneRadioCheckBoxCheckDisabledColor}"/>
+    <SolidColorBrush x:Key="PhoneRadioCheckBoxPressedExtBrush" Color="{StaticResource PhoneRadioCheckBoxPressedColor}"/>
+    <SolidColorBrush x:Key="PhoneRadioCheckBoxPressedBorderExtBrush" Color="{StaticResource PhoneRadioCheckBoxPressedBorderColor}"/>
+    <SolidColorBrush x:Key="PhoneDisabledExtBrush" Color="{StaticResource PhoneDisabledColor}"/>
+    <SolidColorBrush x:Key="TransparentBrush" Color="Transparent"/>
+    <SolidColorBrush x:Key="PhoneSemitransparentBrush" Color="{StaticResource PhoneSemitransparentColor}"/>
+    <SolidColorBrush x:Key="PhoneChromeExtBrush" Color="{StaticResource PhoneChromeColor}"/>
+    <SolidColorBrush x:Key="PhoneAccentBrush" Color="{StaticResource PhoneAccentColor}"/>
+    <!-- Deprecated brushes -->
+    <SolidColorBrush x:Key="PhoneInactiveExtBrush" Color="{StaticResource PhoneInactiveColor}"/>
+    <SolidColorBrush x:Key="PhoneInverseInactiveExtBrush" Color="{StaticResource PhoneInverseInactiveColor}"/>
+    <SolidColorBrush x:Key="PhoneInverseBackgroundExtBrush" Color="{StaticResource PhoneInverseBackgroundColor}"/>
+    <SolidColorBrush x:Key="PhoneBorderExtBrush" Color="{StaticResource PhoneBorderColor}"/>
+
+    <!-- Based on PhoneSubtleBrush in ThemeResources.xaml -->
+    <SolidColorBrush x:Key="AllscriptsSubtleBrush" Color="{StaticResource AllscriptsSubtleColor}"/>
+
+    <SolidColorBrush x:Key="AllscriptsHighlightPrimaryBrush" Color="{StaticResource AllscriptsOrdersContentPrimaryColor}"/>
+    <SolidColorBrush x:Key="AllscriptsHighlightSecondaryBrush" Color="{StaticResource AllscriptsHighlightSecondaryColor}"/>
+    <SolidColorBrush x:Key="AllscriptsDividerPrimaryBrush" Color="{StaticResource AllscriptsDividerPrimaryColor}"/>
+    <SolidColorBrush x:Key="AllscriptsDividerSecondaryBrush" Color="{StaticResource AllscriptsDividerSecondaryColor}"/>
+    <SolidColorBrush x:Key="AllscriptsRoundedBoxBrush" Color="{StaticResource AllscriptsRoundedBoxBackgroundColor}"/>
+    <SolidColorBrush x:Key="AllscriptsInactiveTextBrush" Color="{StaticResource AllscriptsInactiveGreyTextColor}"/>
+
+    <SolidColorBrush x:Key="AllscriptsOrdersContentHeaderBackgroundBrush" Color="{StaticResource AllscriptsOrdersContentHeaderBackgroundColor}"/>
+    <SolidColorBrush x:Key="AllscriptsOrdersContentHeadingBrush" Color="{StaticResource AllscriptsOrdersContentHeadingColor}"/>
+    <SolidColorBrush x:Key="AllscriptsOrdersContentPrimaryBrush" Color="{StaticResource AllscriptsHighlightPrimaryColor}"/>
+    <SolidColorBrush x:Key="AllscriptsOrdersContentSecondaryBrush" Color="{StaticResource AllscriptsOrdersContentSecondaryColor}"/>
+
+
+    <SolidColorBrush x:Key="AllscriptsContactsContentHeaderBackgroundBrush" Color="{StaticResource AllscriptsContactsContentHeaderBackgroundColor}"/>
+    <SolidColorBrush x:Key="AllscriptsContactsContentHeadingBrush" Color="{StaticResource AllscriptsContactsContentHeadingColor}"/>
+    <SolidColorBrush x:Key="AllscriptsContactsContentPrimaryBrush" Color="{StaticResource AllscriptsContactsContentPrimaryColor}"/>
+    <SolidColorBrush x:Key="AllscriptsContactsContentSecondaryBrush" Color="{StaticResource AllscriptsContactsContentSecondaryColor}"/>
+
+    <SolidColorBrush x:Key="AllscriptsHistoryContentHeaderBackgroundBrush" Color="{StaticResource AllscriptsHistoryContentHeaderBackgroundColor}"/>
+    <SolidColorBrush x:Key="AllscriptsHistoryContentHeadingBrush" Color="{StaticResource AllscriptsHistoryContentHeadingColor}"/>
+    <SolidColorBrush x:Key="AllscriptsHistoryContentPrimaryBrush" Color="{StaticResource AllscriptsHistoryContentPrimaryColor}"/>
+    <SolidColorBrush x:Key="AllscriptsHistoryContentSecondaryBrush" Color="{StaticResource AllscriptsHistoryContentSecondaryColor}"/>
+
+    <SolidColorBrush x:Key="AllscriptsMedicationTextBoxBackgroundBrush" Color="{StaticResource AllscriptsMedicationTextBoxBackgroundColor}"/>
+
+    <SolidColorBrush x:Key="AllscriptTitleBrush" Color="{StaticResource AllscriptsWhiteColor}"/>
+    <SolidColorBrush x:Key="AllscriptBlackBrush" Color="{StaticResource AllscriptsBlackColor}"/>
+    <SolidColorBrush x:Key="AllscriptOrangeBrush" Color="{StaticResource AllscriptsOrangeColor}"/>
+    <SolidColorBrush x:Key="AllscriptGreenBrush" Color="{StaticResource AllscriptsGreenColor}"/>
+    <SolidColorBrush x:Key="AllscriptWhiteBrush" Color="{StaticResource AllscriptsWhiteColor}"/>
+    <SolidColorBrush x:Key="AllscriptGrayBrush" Color="{StaticResource AllscriptsWhiteGrayColor}"/>
+    <SolidColorBrush x:Key="AllscriptBlueBrush" Color="{StaticResource AllscriptsBlueColor}"/>
+
+    <SolidColorBrush x:Key="AllscriptsScheduledAppointmentBrush" Color="{StaticResource AllscriptsScheduledAppointmentIndicatorColor}"/>
+    <SolidColorBrush x:Key="AllscriptsCompletedAppointmentBrush" Color="{StaticResource AllscriptsCompletedAppointmentIndicatorColor}"/>
+    <SolidColorBrush x:Key="AllscriptsActiveAppointmentBrush" Color="{StaticResource AllscriptsActivedAppointmentIndicatorColor}"/>
+    <SolidColorBrush x:Key="AllscriptsMissedAppointmentBrush" Color="{StaticResource AllscriptsMissedAppointmentIndicatorColor}"/>
+    <SolidColorBrush x:Key="AllscriptsNonPatientAppointmentBrush" Color="{StaticResource AllscriptsNonPatientAppointmentIndicatorColor}"/>
+
+    <SolidColorBrush x:Key="AllscriptsLowPriorityTaskBrush" Color="{StaticResource AllscriptsLowPriorityTaskIndicatorColor}"/>
+    <SolidColorBrush x:Key="AllscriptsNormalPriorityTaskBrush" Color="{StaticResource AllscriptsNormalPriorityTaskIndicatorColor}"/>
+    <SolidColorBrush x:Key="AllscriptsMediumPriorityTaskBrush" Color="{StaticResource AllscriptsNormalPriorityTaskIndicatorColor}"/>
+    <SolidColorBrush x:Key="AllscriptsHighPriorityTaskBrush" Color="{StaticResource AllscriptsHighPriorityTaskIndicatorColor}"/>
+    <SolidColorBrush x:Key="AllscriptsUrgentPriorityTaskBrush" Color="{StaticResource AllscriptsUrgentPriorityTaskIndicatorColor}"/>
+
+    <SolidColorBrush x:Key="AllscriptsPickedItemBrush" Color="{StaticResource AllscriptsOrdersContentPrimaryColor}"/>
+    <SolidColorBrush x:Key="AllscriptsGlossaryPrimaryBrush" Color="{StaticResource AllscriptsPaleYellowColor}"/>
+    <SolidColorBrush x:Key="AllscriptsGroupTextBrush" Color="{StaticResource AllscriptsPaleYellowColor}"/>
+
+    <SolidColorBrush x:Key="AllscriptsSemiGrayBrush" Color="{StaticResource AllscriptsSemiGrayColor}"/>
+    <SolidColorBrush x:Key="AllscriptsSemiBlackBrush" Color="{StaticResource PhoneTransparentAlpha80Color}"/>
+
+
+
+    <!-- Based on PhoneFontFamilyNormal in ThemeResources.xaml-->
+    <FontFamily x:Key="AllscriptsFontFamilyNormal">Segoe WP</FontFamily>
+    <FontFamily x:Key="AllscriptsFontFamilyLight">Segoe WP Light</FontFamily>
+    <FontFamily x:Key="AllscriptsFontFamilySemiLight">Segoe WP SemiLight</FontFamily>
+    <FontFamily x:Key="AllscriptsFontFamilySemiBold">Segoe WP Semibold</FontFamily>
+
+    <!--Touch Target area-->
+    <Thickness x:Key="AllscriptsTouchTargetOverhang">12</Thickness>
+
+    <!-- Touch Target area for CheckBox / RadioButton -->
+    <Thickness x:Key="AllscriptsTouchTargetLargeOverhang">12,20</Thickness>
+
+    <!-- Default margins for non-touch items -->
+    <Thickness x:Key="AllscriptsHorizontalMargin">0,0</Thickness>
+    <Thickness x:Key="AllscriptsVerticalMargin">0,12</Thickness>
+    <Thickness x:Key="AllscriptsMargin">12</Thickness>
+
+    <!--10pt-->
+    <System:Double x:Key="AllscriptsFontSizeVerySmall">13.333</System:Double>
+    <!--14pt-->
+    <System:Double x:Key="AllscriptsFontSizeSmall">18.667</System:Double>
+    <!--15pt-->
+    <System:Double x:Key="AllscriptsFontSizeNormal">20</System:Double>
+    <!--17pt-->
+    <System:Double x:Key="AllscriptsFontSizeMedium">22.667</System:Double>
+    <!--19pt-->
+    <System:Double x:Key="AllscriptsFontSizeMediumLarge">25.333</System:Double>
+    <!--24pt-->
+    <System:Double x:Key="AllscriptsFontSizeLarge">32</System:Double>
+    <!--32pt-->
+    <System:Double x:Key="AllscriptsFontSizeExtraLarge">42.667</System:Double>
+    <!--54pt-->
+    <System:Double x:Key="AllscriptsFontSizeExtraExtraLarge">72</System:Double>
+
+    <!-- Ported Styles from the WP7 ThemeResources.xaml file.  These are renamed to match our convention -->
+    <!-- Based on PhoneTextBlockBase in ThemeResources.xaml -->
+    <Style x:Key="AllscriptsTextBlockBase" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeNormal}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsForegroundBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+    </Style>
+
+    <!-- Based on PhoneTextExtraLargeStyle in the ThemeResources.xaml -->
+    <Style x:Key="AllscriptsTextExtraLargeStyle" TargetType="TextBlock" BasedOn="{StaticResource AllscriptsTextBlockBase}">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilySemiLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeExtraLarge}"/>
+    </Style>
+
+    <!-- Based on PhoneTextLargeStyle in the ThemeResources.xaml -->
+    <Style x:Key="AllscriptsTextLargeStyle" TargetType="TextBlock" BasedOn="{StaticResource AllscriptsTextBlockBase}">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilySemiLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeLarge}"/>
+    </Style>
+
+    <!-- Based on PhoneTextSmallStyle in the ThemeResources.xaml -->
+    <Style x:Key="AllscriptsTextSmallStyle" TargetType="TextBlock" BasedOn="{StaticResource AllscriptsTextBlockBase}">
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeSmall}"/>
+        <Setter Property="Foreground" Value="{StaticResource PhoneSubtleExtBrush}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsContextMenuItemTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMediumLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptBlackBrush}"/>
+        <!--<Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>-->
+        <Setter Property="Opacity" Value="0.80" />
+    </Style>
+
+    <Style x:Key="AllscriptsAppointmentBorderStyle" TargetType="Border">
+        <Setter Property="BorderThickness" Value="0,0,0,1" />
+        <Setter Property="BorderBrush" Value="{StaticResource AllscriptsDividerSecondaryBrush}" />
+        <Setter Property="Padding" Value="0,0,0,10" />
+    </Style>
+
+    <!-- AppointmentItem -->
+
+    <Style x:Key="AllscriptsAppointmentItemTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptGrayBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+        <Setter Property="Opacity" Value="0.75" />
+    </Style>
+
+    <Style x:Key="AllscriptsAppointmentItemTextActiveStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptGreenBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+        <Setter Property="Opacity" Value="1.0" />
+    </Style>
+
+    <Style x:Key="AllscriptsAppointmentItemTextScheduledStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptTitleBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+        <Setter Property="Opacity" Value="0.75" />
+    </Style>
+
+    <Style x:Key="AllscriptsAppointmentItemTextInactiveStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptTitleBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+        <Setter Property="Opacity" Value="0.5" />
+    </Style>
+
+    <Style x:Key="AllscriptsAppointmentItemTextCompleteStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptBlueBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+        <Setter Property="Opacity" Value="1.0" />
+    </Style>
+
+    <!-- AppointmentTitle -->
+
+    <Style x:Key="AllscriptsAppointmentTitleActiveStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptGreenBrush}"/>
+        <Setter Property="Opacity" Value="1.0" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+    </Style>
+
+    <Style x:Key="AllscriptsAppointmentTitleScheduledStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptTitleBrush}"/>
+        <Setter Property="Opacity" Value="1.0" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+    </Style>
+
+    <Style x:Key="AllscriptsAppointmentTitleInactiveStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptTitleBrush}"/>
+        <Setter Property="Opacity" Value="0.5" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+    </Style>
+
+    <Style x:Key="AllscriptsAppointmentTitleCompleteStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptBlueBrush}"/>
+        <Setter Property="TextWrapping" Value="Wrap" />
+    </Style>
+
+    <!-- AppointmentSecondLevel -->
+
+    <Style x:Key="AllscriptsListItemNormalTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptGrayBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+    </Style>
+
+</ResourceDictionary>

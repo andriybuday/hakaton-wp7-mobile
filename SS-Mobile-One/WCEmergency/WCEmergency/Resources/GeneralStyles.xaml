@@ -1,0 +1,1854 @@
+﻿<ResourceDictionary
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:System="clr-namespace:System;assembly=mscorlib"
+  xmlns:SystemControls="clr-namespace:Allscripts.Homecare.Mobile.Device.CommonUI.SystemControls;assembly=Allscripts.Homecare.Mobile.Device.CommonUI" 
+  xmlns:Controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls" 
+  xmlns:Clinical="clr-namespace:Allscripts.Homecare.Mobile.Device.CommonUI.ViewModels.Clinical;assembly=Allscripts.Homecare.Mobile.Device.CommonUI" 
+  xmlns:UserControls="clr-namespace:Allscripts.Homecare.Mobile.Device.CommonUI.UserControls;assembly=Allscripts.Homecare.Mobile.Device.CommonUI">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Allscripts.Homecare.Mobile.Device.CommonUI;component/Resources/BaseStyles.xaml"/>
+        <ResourceDictionary Source="/Allscripts.Homecare.Mobile.Device.CommonUI;component/Resources/WP7Styles.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--<Converters:WeakCommandBindingConverter x:Key="WeakCommandBindingConverter" />
+    <Converters:StringFormatConverter x:Key="StringFormatConverter" />
+    <Converters:StringFormatConverter x:Key="ShowStringConverter" />
+    <Converters:MedicationStyleConverter x:Key="MedicationStyleConverter"/>
+    <Converters:AppointmentStatusIndicatorConverter x:Key="AppointmentStatusIndicatorConverter"/>
+    <Converters1:VisibilityConverter x:Key="VisibilityConverter"/>
+    <Converters1:SimpleVisibilityConverter x:Key="SimpleVisibilityConverter" />
+    <Converters1:SimpleInvertedVisibilityConverter x:Key="SimpleInvertedVisibilityConverter" />
+    <Converters:PatientChartCommandConverter x:Key="PatientChartCommandConverter" />
+    <Converters1:VisibilityInvertedConverter x:Key="VisibilityInvertedConverter" />
+    <Converters:BoolYesNoConverter x:Key="BoolYesNoConverter"/>
+    <Converters1:ListVisibilityConverter x:Key="ListVisibilityConverter"/>
+    <Converters1:ListVisibilityInvertedConverter x:Key="ListVisibilityInvertedConverter"/>
+    <Converters1:PluralVisibilityConverter x:Key="PluralVisibilityConverter"/>
+    <Converters:DateConverter x:Key="DateConverter"/>
+    <Converters:MonthDayDateConverter x:Key="MonthDayDateConverter"/>
+    <Converters:DayOfWeekConverter x:Key="DayOfWeekConverter"/>
+    <Converters:DateOnlyConverter x:Key="DateOnlyConverter"/>
+    <Converters:ScheduledTimeConverter x:Key="ScheduledTimeConverter"/>
+    <Converters:TimeEmptyConverter x:Key="TimeEmptyConverter"/>
+    <Converters:DateTimeEmptyConverter x:Key="DateTimeEmptyConverter"/>
+    <Converters:DateTime00Converter x:Key="DateTime00Converter" />
+    <Converters:Time00Converter x:Key="Time00Converter" />
+    <Converters:DateTimeConverter x:Key="DateTimeConverter"/>
+    <Converters:LightDateTimeConverter x:Key="LightDateTimeConverter"/>
+    <Converters:DoubleConverter x:Key="DoubleConverter"/>
+    <Converters:UnitOfMeasureConverter x:Key="UnitOfMeasureConverter"/>
+    <Converters:TaskTitleTextLenghConverter x:Key="TaskTitleTextLenghConverter"/>
+    <Converters:ClinicalNoteTextLenghConverter x:Key="ClinicalNoteTextLengthConverter"/>
+    <Converters:PeriodConverter x:Key="PeriodConverter" />
+    <Converters:PeriodPrefixEveryVisibilityConverter x:Key="PeriodPrefixEveryVisibilityConverter" />
+    <Converters:PeriodPrefixEveryInvertedVisibilityConverter x:Key="PeriodPrefixEveryInvertedVisibilityConverter" />
+    <Converters:PeriodPrefixETextVisibilityConverter x:Key="PeriodPrefixETextVisibilityConverter" />
+    <Converters:PeriodPrefixETextInvertedVisibilityConverter x:Key="PeriodPrefixETextInvertedVisibilityConverter" />
+    <Converters:PeriodPrefixETextConverter x:Key="PeriodPrefixETextConverter" />
+    <Converters:DurationFromMinutesTextConverter x:Key="DurationFromMinutesTextConverter" />
+    <Converters:CareTeamSOIconConverter x:Key="CareTeamSOIconConverter" />
+    <Converters:ProblemStatusIconConverter x:Name="ProblemStatusIconConverter" />
+    <Converters:AppointmentStatusCodeTextConverter x:Key="AppointmentStatusCodeTextConverter" />
+    <Converters:MedicationNameTextLengthConverter x:Key="MedicationNameConverter" />
+    <Converters:MedicationNameListBoxItemLengthConverter x:Key="MedicationNameListBoxItemLengthConverter"/>
+    <Converters:TrendingImageConverter x:Key="TrendingImageConverter" />
+    <Converters:TrendingBPVisibilityConverter x:Key="TrendingBPVisibilityConverter"/>
+    <Converters:TrendingBPVisibilityInvertedConverter x:Key="TrendingBPVisibilityInvertedConverter"/>
+    <Converters:TrendingTitleUOMConverter x:Key="TrendingTitleUOMConverter"/>
+    <Converters:ClinicalReadingTrendingDataConverter x:Key="ClinicalReadingTrendingDataConverter"/>
+    <Converters:ClinicalReadingTitleConverter x:Key="ClinicalReadingTitleConverter"/>
+    <Converters:ClinicalReadingUnitsOfMeasureConverter x:Key="ClinicalReadingUnitsOfMeasureConverter"/>
+    <Converters:ClinicalReadingAbbreviationVisibilityConverter x:Key="ClinicalReadingAbbreviationVisibilityConverter"/>
+    <Converters:ClinicalReadingClinicalDataConverter x:Key="ClinicalReadingClinicalDataConverter"/>
+    <Converters:ClinicalReadingOrientationConverter x:Key="ClinicalReadingOrientationConverter"/>
+    <Converters:ClinicalReadingDataAttributesToStringConverter x:Key="ClinicalReadingDataAttributesToStringConverter"/>
+    <Converters:ClinicalReadingSeparatorVisibilityConverter x:Key="ClinicalReadingSeparatorVisibilityConverter"/>
+    <Converters:AppointmentTitleTextLengthConverter x:Key="AppointmentTitleTextLengthConverter" />
+    <Converters:VitalsPivitHeaderConverter x:Key="VitalsPivitHeaderConverter" />
+
+    <Converters:TreatmentItemViewDataButtonTextStyleConverter x:Key="TreatmentItemViewDataButtonTextStyleConverter" />
+    <Converters:TreatmentItemsValueRepresentationConverter x:Key="TreatmentItemsValueRepresentationConverter" />
+    <Converters:TreatmentCommandButtonConverter x:Key="TreatmentCommandButtonConverter"/>
+    <Converters:TreatmentOtherNoteVisibilityConverter x:Key="TreatmentOtherNoteVisibilityConverter"/>
+    <Converters:NoTreatmentsCheckBoxStyleConverter x:Key="NoTreatmentsCheckBoxStyleConverter"/>
+    <Converters:ColouredCheckBoxStyleConverter x:Key="ColouredCheckBoxStyleConverter" />
+    <Converters:TreatmentsSetsRepsVisibilityConverter x:Key="TreatmentsSetsRepsVisibilityConverter"/>
+    <Converters:TreatmentsExerciseNoteVisibilityConverter x:Key="TreatmentsExerciseNoteVisibilityConverter"/>
+    <Converters:AllscriptsTreatmentTextBoxRequiredConverter x:Key="AllscriptsTreatmentTextBoxRequiredConverter"/>
+    <Converters:TreatmentCheckBoxStyleConverter x:Key="TreatmentCheckBoxStyleConverter"/>
+
+    <Converters:BoolUseDontUseConverter x:Key="BoolUseDontUseConverter"/>
+    <Converters1:InvertBooleanConverter x:Key="InvertBooleanConverter"/>
+
+    <Converters:AppointmentIconConverter x:Key="AppointmentIconConverter" />
+    <Converters:PhoneNumberConverter x:Key="PhoneNumberConverter" />
+    <Converters:AppointmentTitleStyleConverter x:Key="AppointmentTitleStyleConverter" />
+    <Converters:AppointmentItemTextStyleConverter x:Key="AppointmentItemTextStyleConverter" />
+    <Converters:AppointmentTimeBorderStyleConverter x:Key="AppointmentTimeBorderStyleConverter" />
+    <Converters:AppointmentTimeTextStyleConverter x:Key="AppointmentTimeTextStyleConverter" />
+    <Converters:TaskPriorityIconConverter x:Key="TaskPriorityIconConverter" />
+    <Converters:TaskStatusIconConverter x:Key="TaskStatusIconConverter" />
+    <Converters:TaskTitleStyleConverter x:Key="TaskTitleStyleConverter" />
+    <Converters:TaskFlagIconConverter x:Key="TaskFlagIconConverter" />
+    <Converters:PrefixedValueConverter x:Key="PrefixedValueConverter" />
+    <Converters:SuffixValueConverter x:Key="SuffixValueConverter" />
+
+    <Converters:DiagnosisNonSurgicalSpecialConverter x:Key="DiagnosisNonSurgicalSpecialConverter"/>
+    <Converters:DiagnosisNonSurgicalVisibilityConverter x:Key="DiagnosisNonSurgicalVisibilityConverter"/>
+    <Converters:DiagnosisEndDateVisibilityConverter x:Key="DiagnosisEndDateVisibilityConverter"/>
+    <Converters:FamilyFriendFlagsConverter x:Key="FamilyFriendFlagsConverter" />
+    <Converters:TimeSpanPickerStyleConverter x:Key="TimeSpanPickerStyleConverter" />-->
+
+
+    <System:String x:Key="IconAddItem">/Allscripts.Homecare.Mobile.Device.CommonUI;component/Resources/Images/IconAddItem.png</System:String>
+
+    <!-- Margins -->
+    <Thickness x:Key="AllscriptsHorizontalMargin" >0 0 0 0</Thickness>
+
+    <Thickness x:Key="TableDataTextMargin">20 0 0 0</Thickness>
+
+    <Thickness x:Key="SimpleTextMargin">10 0 0 0</Thickness>
+
+    <Thickness x:Key="ListItemTextMargin">0 15 0 15</Thickness>
+
+    <!-- Font sizes -->
+
+    <!--10pt-->
+    <System:Double x:Key="AllscriptsFontSizeVerySmall">13.333</System:Double>
+    <!--14pt-->
+    <System:Double x:Key="AllscriptsFontSizeSmall">18.667</System:Double>
+    <!--15pt-->
+    <System:Double x:Key="AllscriptsFontSizeNormal">20</System:Double>
+    <!--17pt-->
+    <System:Double x:Key="AllscriptsFontSizeMedium">22.667</System:Double>
+    <!--19pt-->
+    <System:Double x:Key="AllscriptsFontSizeMediumLarge">25.333</System:Double>
+    <!--24pt-->
+    <System:Double x:Key="AllscriptsFontSizeLarge">32</System:Double>
+    <!--28pt-->
+    <System:Double x:Key="AllscriptsFontSizeLargeMedium">37.333</System:Double>
+    <!--32pt-->
+    <System:Double x:Key="AllscriptsFontSizeExtraLarge">42.667</System:Double>
+    <!--40pt-->
+    <System:Double x:Key="AllscriptsFontSizeExtraSemiLarge">53.333</System:Double>
+    <!--48pt-->
+    <System:Double x:Key="AllscriptsFontSizeExtraMediumLarge">64</System:Double>
+    <!--54pt-->
+    <System:Double x:Key="AllscriptsFontSizeExtraExtraLarge">72</System:Double>
+
+    <!-- The brushes below follow our new colors -->
+    <!--These all NEED to move to BaseStyles.xaml-->
+    <!--<SolidColorBrush x:Key="AllscriptsHighlightPrimaryBrush" Color="{StaticResource AllscriptsOrdersContentPrimaryColor}"/>
+	<SolidColorBrush x:Key="AllscriptsHighlightSecondaryBrush" Color="{StaticResource AllscriptsHighlightSecondaryColor}"/>
+	<SolidColorBrush x:Key="AllscriptsDividerPrimaryBrush" Color="{StaticResource AllscriptsDividerPrimaryColor}"/>
+	<SolidColorBrush x:Key="AllscriptsDividerSecondaryBrush" Color="{StaticResource AllscriptsDividerSecondaryColor}"/>
+	<SolidColorBrush x:Key="AllscriptsRoundedBoxBrush" Color="{StaticResource AllscriptsRoundedBoxBackgroundColor}"/>
+    <SolidColorBrush x:Key="AllscriptsInactiveTextBrush" Color="{StaticResource AllscriptsInactiveGreyTextColor}"/>
+    
+    <SolidColorBrush x:Key="AllscriptsOrdersContentHeaderBackgroundBrush" Color="{StaticResource AllscriptsOrdersContentHeaderBackgroundColor}"/>
+    <SolidColorBrush x:Key="AllscriptsOrdersContentHeadingBrush" Color="{StaticResource AllscriptsOrdersContentHeadingColor}"/>
+    <SolidColorBrush x:Key="AllscriptsOrdersContentPrimaryBrush" Color="{StaticResource AllscriptsHighlightPrimaryColor}"/>
+    <SolidColorBrush x:Key="AllscriptsOrdersContentSecondaryBrush" Color="{StaticResource AllscriptsOrdersContentSecondaryColor}"/>
+    
+    
+    <SolidColorBrush x:Key="AllscriptsContactsContentHeaderBackgroundBrush" Color="{StaticResource AllscriptsContactsContentHeaderBackgroundColor}"/>
+    <SolidColorBrush x:Key="AllscriptsContactsContentHeadingBrush" Color="{StaticResource AllscriptsContactsContentHeadingColor}"/>
+    <SolidColorBrush x:Key="AllscriptsContactsContentPrimaryBrush" Color="{StaticResource AllscriptsContactsContentPrimaryColor}"/>
+    <SolidColorBrush x:Key="AllscriptsContactsContentSecondaryBrush" Color="{StaticResource AllscriptsContactsContentSecondaryColor}"/>
+
+    <SolidColorBrush x:Key="AllscriptsHistoryContentHeaderBackgroundBrush" Color="{StaticResource AllscriptsHistoryContentHeaderBackgroundColor}"/>
+    <SolidColorBrush x:Key="AllscriptsHistoryContentHeadingBrush" Color="{StaticResource AllscriptsHistoryContentHeadingColor}"/>
+    <SolidColorBrush x:Key="AllscriptsHistoryContentPrimaryBrush" Color="{StaticResource AllscriptsHistoryContentPrimaryColor}"/>
+    <SolidColorBrush x:Key="AllscriptsHistoryContentSecondaryBrush" Color="{StaticResource AllscriptsHistoryContentSecondaryColor}"/>
+
+    <SolidColorBrush x:Key="AllscriptsMedicationTextBoxBackgroundBrush" Color="{StaticResource AllscriptsMedicationTextBoxBackgroundColor}"/>
+-->
+
+    <LinearGradientBrush x:Key="AllscriptsOrdersPivotHeaderBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="{StaticResource AllscriptsOrdersContentHeaderTextGradientStartColor}" Offset="0.0" />
+        <GradientStop Color="{StaticResource AllscriptsOrdersContentHeaderTextGradientEndColor}" Offset="1.0" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="AllscriptsContactsPivotHeaderBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="{StaticResource AllscriptsContactsContentHeaderTextGradientStartColor}" Offset="0.0" />
+        <GradientStop Color="{StaticResource AllscriptsContactsContentHeaderTextGradientEndColor}" Offset="1.0" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="AllscriptsHistoryPivotHeaderBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="{StaticResource AllscriptsHistoryContentHeaderTextGradientStartColor}" Offset="0.0" />
+        <GradientStop Color="{StaticResource AllscriptsHistoryContentHeaderTextGradientEndColor}" Offset="1.0" />
+    </LinearGradientBrush>
+
+    <!-- End-->
+
+    <!--<SolidColorBrush x:Key="AllscriptTitleBrush" Color="{StaticResource AllscriptsWhiteColor}"/>
+	<SolidColorBrush x:Key="AllscriptBlackBrush" Color="{StaticResource AllscriptsBlackColor}"/>
+	<SolidColorBrush x:Key="AllscriptOrangeBrush" Color="{StaticResource AllscriptsOrangeColor}"/>
+	<SolidColorBrush x:Key="AllscriptGreenBrush" Color="{StaticResource AllscriptsGreenColor}"/>
+	<SolidColorBrush x:Key="AllscriptWhiteBrush" Color="{StaticResource AllscriptsWhiteColor}"/>
+	<SolidColorBrush x:Key="AllscriptGrayBrush" Color="{StaticResource AllscriptsWhiteGrayColor}"/>
+	
+	<SolidColorBrush x:Key="AllscriptsScheduledAppointmentBrush" Color="{StaticResource AllscriptsScheduledAppointmentIndicatorColor}"/>
+	<SolidColorBrush x:Key="AllscriptsCompletedAppointmentBrush" Color="{StaticResource AllscriptsCompletedAppointmentIndicatorColor}"/>
+	<SolidColorBrush x:Key="AllscriptsActiveAppointmentBrush" Color="{StaticResource AllscriptsActivedAppointmentIndicatorColor}"/>
+	<SolidColorBrush x:Key="AllscriptsMissedAppointmentBrush" Color="{StaticResource AllscriptsMissedAppointmentIndicatorColor}"/>
+	<SolidColorBrush x:Key="AllscriptsNonPatientAppointmentBrush" Color="{StaticResource AllscriptsNonPatientAppointmentIndicatorColor}"/>
+
+	<SolidColorBrush x:Key="AllscriptsLowPriorityTaskBrush" Color="{StaticResource AllscriptsLowPriorityTaskIndicatorColor}"/>
+	<SolidColorBrush x:Key="AllscriptsNormalPriorityTaskBrush" Color="{StaticResource AllscriptsNormalPriorityTaskIndicatorColor}"/>
+	<SolidColorBrush x:Key="AllscriptsMediumPriorityTaskBrush" Color="{StaticResource AllscriptsNormalPriorityTaskIndicatorColor}"/>
+	<SolidColorBrush x:Key="AllscriptsHighPriorityTaskBrush" Color="{StaticResource AllscriptsHighPriorityTaskIndicatorColor}"/>
+	<SolidColorBrush x:Key="AllscriptsUrgentPriorityTaskBrush" Color="{StaticResource AllscriptsUrgentPriorityTaskIndicatorColor}"/>-->
+
+    <Style x:Key="AllscriptsListItemTitleTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptTitleBrush}"/>
+
+    </Style>
+
+    <Style x:Key="AllscriptsListItemHighlightTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMediumLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsOrangeColor}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsListItemHighlightSmallTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsOrangeColor}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsBlackTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptBlackBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsBlackWrapeppedTextStyle" TargetType="TextBlock" BasedOn="{StaticResource AllscriptsBlackTextStyle}">
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+
+    <!--<Style x:Key="AllscriptsListItemNormalTextStyle" TargetType="TextBlock">
+		<Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+		<Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+		<Setter Property="Foreground" Value="{StaticResource AllscriptGrayBrush}"/>
+		<Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+	</Style>-->
+
+    <Style x:Key="AllscriptsListItemInactiveGreyTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsInactiveTextBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsGreySmallTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeSmall}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsInactiveTextBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsSemiWhiteSmallTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeVerySmall}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsSemiWhiteColor}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsSmallTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeSmall}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptGrayBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+    </Style>
+
+
+    <Style x:Key="AllscriptsListItemSmallTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilySemiLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptWhiteBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsListItemSubItemHighlightTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilySemiLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeNormal}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsOrangeColor}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsApplicationTitleTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeSmall}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptTitleBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsPageTitleTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeExtraLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsHighlightPrimaryBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsPageTitle2LevelTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilySemiBold}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptWhiteBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsPageSubTitleTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeNormal}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptGrayBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsAsyncMessageTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeSmall}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsHighlightPrimaryBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsHighlightedItemTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsHighlightSecondaryBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsDialogMessageTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMediumLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptWhiteBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsPivotHeaderTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeExtraLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptWhiteBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsHeaderBorderStyle" TargetType="Border">
+        <Setter Property="BorderThickness" Value="0,0,0,3" />
+        <Setter Property="BorderBrush" Value="{StaticResource AllscriptsDividerPrimaryBrush}" />
+        <Setter Property="Margin" Value="10,0,10,5" />
+    </Style>
+
+    <Style x:Key="AllscriptsGridBorderStyle" TargetType="Border">
+        <Setter Property="BorderThickness" Value="0,0,0,1" />
+        <Setter Property="BorderBrush" Value="{StaticResource AllscriptsDividerSecondaryBrush}" />
+        <Setter Property="Margin" Value="15,0,15,5" />
+        <Setter Property="Padding" Value="0,0,0,10"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+    </Style>
+
+    <Style x:Key="AllscriptsListItemSecondaryItemTextStyle_Inactive" TargetType="TextBlock" >
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilySemiLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsInactiveTextBrush}"/>
+    </Style>
+
+    <!-- base pivot styles -->
+
+    <Style TargetType="Controls:Pivot" x:Key="BasePivotStyle">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyLight}"/>
+        <Setter Property="Margin" Value="0,-30,0,0" />
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="BasePivotHeaderStyle">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeExtraMediumLarge}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptWhiteBrush}"/>
+    </Style>
+
+    <!-- end base pivot styles -->
+
+    <!-- Contacts Module Style  -->
+
+    <Style x:Key="AllscriptsListItemSecondaryItemTextStyle_Contacts" TargetType="TextBlock" >
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilySemiLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsContactsContentSecondaryBrush}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsContactsPivotItemStyle" TargetType="Controls:Pivot" BasedOn="{StaticResource BasePivotStyle}">
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsContactsPivotHeaderBrush}" />
+    </Style>
+
+    <Style x:Key="AllscriptsContactsPivotSubtitleStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeSmall}" />
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilySemiLight}" />
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsContactsPivotHeaderBrush}" />
+    </Style>
+
+    <Style x:Key="AllscriptsListItemNormalText_Contacts_Style" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilySemiLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsContactsContentSecondaryBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsListItemNormalText_Contacts_Phone_Style" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilySemiLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsContactsContentSecondaryBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+        <Setter Property="Padding" Value="0, 5, 0, 5"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
+    <Style x:Key="AllscriptsListItemNormalText_FriendsFamily_Style" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilySemiLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsContactsContentSecondaryBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource TableDataTextMargin}"/>
+    </Style>
+
+    <!-- End Contacts Module Style  -->
+    <!--Orders Module style -->
+    <Style x:Key="AllscriptsListItemSecondaryItemTextStyle_Orders" TargetType="TextBlock" >
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilySemiLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsOrdersContentSecondaryBrush}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsMediumTitleStyle_Orders" TargetType="TextBlock" >
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilySemiLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMediumLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsOrdersContentSecondaryBrush}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsListItemNormalText_Orders_Style" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilySemiLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsOrdersContentSecondaryBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsListItemShiftedText_Orders_Style" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilySemiLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsOrdersContentSecondaryBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource SimpleTextMargin}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsOrdersPivotItemStyle" TargetType="Controls:Pivot"  BasedOn="{StaticResource BasePivotStyle}">
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsOrdersPivotHeaderBrush}" />
+    </Style>
+
+    <Style x:Key="AllscriptsOrdersPivotSubtitleStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeSmall}" />
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyLight}" />
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsOrdersPivotHeaderBrush}" />
+    </Style>
+
+    <Style x:Key="AllscriptsOrdersBorderStyle" TargetType="Border">
+        <Setter Property="BorderThickness" Value="0,0,0,1" />
+        <Setter Property="BorderBrush" Value="{StaticResource AllscriptsDividerSecondaryBrush}" />
+        <Setter Property="Margin" Value="0,10,10,10" />
+    </Style>
+
+    <Style x:Key="AllscriptsTextBoxStyle_Orders" TargetType="TextBox" >
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+        <Setter Property="Background" Value="{StaticResource AllscriptsOrdersContentHeaderBackgroundBrush}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsOrdersTextTitleStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeExtraExtraLarge}" />
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilySemiLight}" />
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsOrdersPivotHeaderBrush}" />
+        <Setter Property="Margin" Value="0,0,10,0" />
+    </Style>
+    <!-- End Orders Module Style-->
+    <!--History Module style -->
+    <Style x:Key="AllscriptsMediumTitleStyle_History" TargetType="TextBlock" >
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilySemiLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsHistoryContentSecondaryBrush}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsMediumSubTitleStyle_History" TargetType="TextBlock" >
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilySemiLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMediumLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsHistoryContentSecondaryBrush}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsListItemSecondaryItemTextStyle_History" TargetType="TextBlock" >
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilySemiLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsHistoryContentSecondaryBrush}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsListItemSecondaryItemSmallTextStyle_History" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsHistoryContentSecondaryBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsListItemShiftedTextStyle_History" TargetType="TextBlock">
+
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilySemiLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsHistoryContentSecondaryBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource SimpleTextMargin}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsHistoryPivotItemStyle" TargetType="Controls:Pivot"  BasedOn="{StaticResource BasePivotStyle}">
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsHistoryPivotHeaderBrush}" />
+    </Style>
+
+    <Style x:Key="AllscriptsHistoryPivotSubtitleStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeSmall}" />
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilySemiLight}" />
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsHistoryPivotHeaderBrush}" />
+    </Style>
+
+    <Style x:Key="AllscriptsTextBoxStyle_History" TargetType="TextBox" >
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+        <Setter Property="Background" Value="{StaticResource AllscriptsHistoryContentHeaderBackgroundBrush}"/>
+    </Style>
+
+    <Style x:Key="ClinicalNoteAreaBottomTriangle" TargetType="Path">
+        <Setter Property="Stretch" Value="Fill"/>
+        <Setter Property="Fill" Value="{StaticResource AllscriptsHistoryContentHeaderBackgroundBrush}"/>
+        <Setter Property="StrokeThickness" Value="0"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Width" Value="25"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Margin" Value="0,-1,-100,0"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
+    </Style>
+
+    <!-- End History Module Style-->
+
+
+    <!-- new dashboard styles -->
+    <Style x:Key="AllscriptsDashboardPanoramaItemTitleStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeExtraExtraLarge}" />
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyLight}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptWhiteBrush}" />
+        <Setter Property="Margin" Value="0,0,10,0" />
+    </Style>
+
+    <Style x:Key="AllscriptsDashboardPanoramaItemSubTitle2Style" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeNormal}" />
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}" />
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsHighlightPrimaryBrush}" />
+    </Style>
+
+    <Style x:Key="AllscriptsDashboardPanoramaItemSubTitle2StackPanelStyle" TargetType="StackPanel">
+        <Setter Property="Orientation" Value="Horizontal" />
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+        <Setter Property="Margin" Value="0,0,0,12" />
+    </Style>
+
+    <Style x:Key="AllscriptsDashboardPanoramaItemSubTitle1Style" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeNormal}" />
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}" />
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsHighlightSecondaryBrush}" />
+    </Style>
+
+    <Thickness x:Key="AllscriptsAppointmentTitleBackgroundPadding">33,0,0,4</Thickness>
+
+    <!-- appointment title images -->
+    <Style x:Key="AllscriptsAppointmentTitlePatientInactiveBackgroundStyle" TargetType="Border">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="/Allscripts.Homecare.Mobile.Device.CommonUI;component/Resources/Images/IconPatientInactive.png"
+				 Stretch="None" AlignmentX="Left" AlignmentY="Center" Opacity="0.5"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Padding" Value="{StaticResource AllscriptsAppointmentTitleBackgroundPadding}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsAppointmentTitlePatientScheduledBackgroundStyle" TargetType="Border">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="/Allscripts.Homecare.Mobile.Device.CommonUI;component/Resources/Images/IconPatientInactive.png"
+				 Stretch="None" AlignmentX="Left" AlignmentY="Center" Opacity="1.0"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Padding" Value="{StaticResource AllscriptsAppointmentTitleBackgroundPadding}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsAppointmentTitlePatientActiveBackgroundStyle" TargetType="Border">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="/Allscripts.Homecare.Mobile.Device.CommonUI;component/Resources/Images/IconPatientActive.png"
+				 Stretch="None" AlignmentX="Left" AlignmentY="Center" Opacity="1.0"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Padding" Value="{StaticResource AllscriptsAppointmentTitleBackgroundPadding}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsAppointmentTitlePatientCompleteBackgroundStyle" TargetType="Border">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="/Allscripts.Homecare.Mobile.Device.CommonUI;component/Resources/Images/IconPatientComplete.png"
+				 Stretch="None" AlignmentX="Left" AlignmentY="Center" Opacity="1.0"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Padding" Value="{StaticResource AllscriptsAppointmentTitleBackgroundPadding}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsAppointmentTitleTeamMeetingInactiveBackgroundStyle" TargetType="Border">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="/Allscripts.Homecare.Mobile.Device.CommonUI;component/Resources/Images/IconTeamMeetingInactive.png"
+				 Stretch="None" AlignmentX="Left" AlignmentY="Center" Opacity="0.5"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Padding" Value="{StaticResource AllscriptsAppointmentTitleBackgroundPadding}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsAppointmentTitleTeamMeetingScheduledBackgroundStyle" TargetType="Border">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="/Allscripts.Homecare.Mobile.Device.CommonUI;component/Resources/Images/IconTeamMeetingInactive.png"
+				 Stretch="None" AlignmentX="Left" AlignmentY="Center" Opacity="1.0"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Padding" Value="{StaticResource AllscriptsAppointmentTitleBackgroundPadding}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsAppointmentTitleTeamMeetingActiveBackgroundStyle" TargetType="Border">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="/Allscripts.Homecare.Mobile.Device.CommonUI;component/Resources/Images/IconTeamMeetingActive.png"
+				 Stretch="None" AlignmentX="Left" AlignmentY="Center" Opacity="1.0"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Padding" Value="{StaticResource AllscriptsAppointmentTitleBackgroundPadding}"/>
+    </Style>
+
+    <!--AppointmentTimeBorder-->
+
+    <Style x:Key="AllscriptsAppointmentTimeBorderActiveStyle" TargetType="Border">
+        <Setter Property="CornerRadius" Value="5,5,5,5" />
+        <Setter Property="Background" Value="{StaticResource AllscriptGreenBrush}" />
+        <Setter Property="Width" Value="104" />
+    </Style>
+
+    <Style x:Key="AllscriptsAppointmentTimeBorderScheduledStyle" TargetType="Border">
+        <Setter Property="CornerRadius" Value="5,5,5,5" />
+        <Setter Property="Background" Value="{StaticResource AllscriptsRoundedBoxBrush}" />
+        <Setter Property="Width" Value="104" />
+    </Style>
+
+    <Style x:Key="AllscriptsAppointmentTimeBorderCompleteStyle" TargetType="Border">
+        <Setter Property="CornerRadius" Value="5,5,5,5" />
+        <Setter Property="Background" Value="{StaticResource AllscriptBlueBrush}" />
+        <Setter Property="Width" Value="104" />
+    </Style>
+
+    <Style x:Key="AllscriptsAppointmentTimeBorderInactiveStyle" TargetType="Border">
+        <Setter Property="CornerRadius" Value="5,5,5,5" />
+        <Setter Property="Background" Value="{StaticResource AllscriptsRoundedBoxBrush}" />
+        <Setter Property="Opacity" Value="0.5" />
+        <Setter Property="Width" Value="104" />
+    </Style>
+
+    <Style x:Key="AllscriptsTasksDateBorderStyle" TargetType="Border">
+        <Setter Property="CornerRadius" Value="5,5,5,5" />
+        <Setter Property="Background" Value="{StaticResource AllscriptsRoundedBoxBrush}" />
+        <Setter Property="Width" Value="190" />
+    </Style>
+
+    <!--AppointmentTimeText-->
+
+    <Style x:Key="AllscriptsAppointmentTimeTextActiveCompleteStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptBlackBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsAppointmentTimeTextScheduledStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptWhiteBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsAppointmentTimeTextInactiveStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptGrayBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsTaskItemTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptWhiteBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+    </Style>
+
+    <!--<Style x:Key="AllscriptsAppointmentItemTextStyle" TargetType="TextBlock">
+		<Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+		<Setter Property="Foreground" Value="{StaticResource AllscriptGrayBrush}"/>
+		<Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+		<Setter Property="Opacity" Value="0.75" />
+	</Style>
+
+	<Style x:Key="AllscriptsAppointmentTitleActiveStyle" TargetType="TextBlock">
+		<Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+		<Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeLarge}"/>
+		<Setter Property="Foreground" Value="{StaticResource AllscriptGreenBrush}"/>
+		<Setter Property="Opacity" Value="1.0" />
+	</Style>
+
+	<Style x:Key="AllscriptsAppointmentTitleScheduledStyle" TargetType="TextBlock">
+		<Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+		<Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeLarge}"/>
+		<Setter Property="Foreground" Value="{StaticResource AllscriptTitleBrush}"/>
+		<Setter Property="Opacity" Value="1.0" />
+	</Style>
+
+	<Style x:Key="AllscriptsAppointmentTitleInactiveStyle" TargetType="TextBlock">
+		<Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+		<Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeLarge}"/>
+		<Setter Property="Foreground" Value="{StaticResource AllscriptTitleBrush}"/>
+		<Setter Property="Opacity" Value="0.5" />
+	</Style>-->
+
+    <Style x:Key="AllscriptsTaskImageBorderStyle" TargetType="Border">
+        <Setter Property="BorderThickness" Value="0,0,1,0" />
+        <Setter Property="BorderBrush" Value="{StaticResource AllscriptsDividerSecondaryBrush}" />
+        <Setter Property="Padding" Value="5,5,5,5" />
+    </Style>
+
+    <!--<Style x:Key="AllscriptsAppointmentBorderStyle" TargetType="Border">
+        <Setter Property="BorderThickness" Value="0,0,0,1" />
+        <Setter Property="BorderBrush" Value="{StaticResource AllscriptsDividerSecondaryBrush}" />
+        <Setter Property="Margin" Value="0,10,0,10" />
+    </Style>-->
+
+    <Style TargetType="Border" x:Key="TaskStatusInProgressBorderStyle">
+        <Setter Property="BorderThickness" Value="0,0,1,0" />
+        <Setter Property="BorderBrush" Value="{StaticResource AllscriptsDividerSecondaryBrush}" />
+    </Style>
+
+    <Style x:Key="ListBoxContainerItemStyle" TargetType="ListBoxItem">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+    </Style>
+
+    <Style TargetType="ListBox" x:Key="NewTasksListBoxStyle">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxContainerItemStyle}"/>
+        <Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Border Style="{StaticResource AllscriptsAppointmentBorderStyle}" Padding="0,0,0,10">
+                        <Grid HorizontalAlignment="Stretch" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition MinHeight="65"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Row="0" Grid.Column="0" Padding="0,12,6,12" Width="30" VerticalAlignment="Top">
+                                <Image Source="{Binding ., Converter={StaticResource TaskFlagIconConverter}}" HorizontalAlignment="Center" />
+                            </Border>
+                            <TextBlock Text="{Binding TaskCodeDetails.Description}" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" TextWrapping="Wrap"  Style="{Binding StatusCode, Converter={StaticResource TaskTitleStyleConverter}}"/>
+
+                            <TextBlock Text="{Binding Patient.FullName}" Grid.Row="1" Grid.Column="1" 
+									TextWrapping="Wrap" Style="{StaticResource AllscriptsAppointmentItemTextStyle}" VerticalAlignment="Center" Margin="0,0,0,0" />
+                            <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Center">
+                                <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <Border Style="{StaticResource AllscriptsTasksDateBorderStyle}" />
+                                    <StackPanel Orientation="Horizontal">
+                                        <Border Style="{StaticResource AllscriptsTaskImageBorderStyle}" >
+                                            <Image Source="{Binding StatusCode, Converter={StaticResource TaskStatusIconConverter}}" 
+                                                  HorizontalAlignment="Center" />
+                                        </Border>
+                                        <Border Style="{StaticResource AllscriptsTaskImageBorderStyle}" >
+                                            <Image Source="{Binding PriorityCode, Converter={StaticResource TaskPriorityIconConverter}}" 
+                                                   HorizontalAlignment="Center" Margin="2,0"/>
+                                        </Border>
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBlock Text="{Binding DueDate, Converter={StaticResource DateConverter}}" 
+										        Style="{StaticResource AllscriptsTaskItemTextStyle}" FontSize="21.333" Margin="5,0,0,0"
+										        />
+                                            <TextBlock Text="{Binding DueDate, Converter={StaticResource Time00Converter}}" 
+										        Style="{StaticResource AllscriptsTaskItemTextStyle}" FontSize="21.333" Margin="5,0,0,0"
+										        />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Glossary -->
+
+    <Style x:Key="AllscriptsGlossaryTitleTextStyle" TargetType="TextBlock" BasedOn="{StaticResource AllscriptsTextBlockBase}">
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMedium}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsGlossaryItemTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilySemiLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeExtraLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsGlossaryPrimaryBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsGlossaryDescriptionTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeNormal}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptGrayBrush}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+        <Setter Property="Opacity" Value="0.75" />
+    </Style>
+
+    <!-- CLinical Monitoring -->
+
+    <Style TargetType="TextBlock" x:Key="ClinicalReadingEditDefTextStyle">
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeLarge}" />
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsOrdersContentPrimaryColor}" />
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="Margin" Value="{StaticResource ListItemTextMargin}" />
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="ClinicalReadingViewDefTextStyle">
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeLarge}" />
+        <Setter Property="Foreground" Value="{StaticResource AllscriptBlueBrush}" />
+        <Setter Property="FontFamily" Value="Segoe WP" />
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="ClinicalReadingDataValueTextBlockStyle">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="54" />
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsWhiteColor}" />
+        <Setter Property="FontFamily" Value="Segoe WP" />
+    </Style>
+
+
+    <Style TargetType="TextBlock" x:Key="ClinicalReadingUnitOfMeasurementTextBlockStyle">
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+        <Setter Property="FontSize" Value="30" />
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsWhiteColor}" />
+        <Setter Property="FontFamily" Value="Segoe WP" />
+        <Setter Property="Opacity" Value="0.5" />
+        <Setter Property="Margin" Value="5 0 0 6" />
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="ClinicalReadingDataAttributeTextBlockStyle">
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsWhiteColor}" />
+        <Setter Property="FontFamily" Value="Segoe WP" />
+        <Setter Property="Opacity" Value="0.5" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+    </Style>
+
+    <Style TargetType="SystemControls:CommandButton" x:Key="DetailedTrandingButtonStyle" >
+        <Setter Property="Height" Value="90" />
+        <Setter Property="Width" Value="210" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="0" />
+    </Style>
+
+
+    <Style TargetType="Border" x:Key="ClincalReadingDataDivider">
+        <Setter Property="Background" Value="{StaticResource AllscriptsDividerSecondaryColor}" />
+        <Setter Property="Height" Value="1" />
+        <Setter Property="Width" Value="400" />
+    </Style>
+
+
+    <!--<Clinical:DetailTrendingListener x:Key="DetailTrendingListener"/>
+    <Clinical:ExpandClinicalReadingListener x:Key="ExpandClinicalReadingListener"/>-->
+
+    <ImageBrush x:Key="ClinicalMonitoringBPBrush" ImageSource="/Allscripts.Homecare.Mobile.Device.CommonUI;component/Resources/Images/bp_small.png" Stretch="Fill"/>
+    <ImageBrush x:Key="ClinicalMonitoringDefaultBrush" ImageSource="/Allscripts.Homecare.Mobile.Device.CommonUI;component/Resources/Images/Trending_small.png" Stretch="Fill"/>
+
+
+
+    <Style TargetType="Button" x:Key="ClinicalReadingDataValueChangeBtn">
+        <Setter Property="Height" Value="75"/>
+        <Setter Property="Width" Value="90"/>
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="BorderThickness" Value="1 0 1 0"/>
+        <Setter Property="BorderBrush" Value="White"/>
+    </Style>
+
+    <Style TargetType="Border" x:Key="ClinicalReadingExpanderBorder">
+        <!--<Setter Property="Height" Value="60"/>
+        <Setter Property="Width" Value="60"/>
+        <Setter Property="CornerRadius" Value="30,30,30,30" />
+        <Setter Property="Background" Value="{StaticResource AllscriptsRoundedBoxBrush}" />-->
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <!--<Setter Property="BorderBrush" Value="White"/>-->
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+
+    <Style TargetType="Button" x:Key="ClinicalReadingExpanderButton">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Top" />
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+
+    <Style TargetType="TextBox" x:Key="ClinicalReadingDataValueTextBoxStyle">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Height" Value="75"/>
+        <Setter Property="Width" Value="87"/>
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="BorderBrush" Value="#222222"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsWhiteColor}"/>
+        <Setter Property="FontFamily" Value="#Segoe WP"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="Background" Value="#666666"/>
+    </Style>
+
+    <Style TargetType="Border" x:Key="ClincalReadingDataEditBorder">
+        <Setter Property="Background" Value="#AAAAAA" />
+        <Setter Property="Height" Value="95" />
+        <Setter Property="BorderBrush" Value="{StaticResource AllscriptsWhiteColor}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="2" />
+        <Setter Property="Margin" Value="2 5 10 2" />
+    </Style>
+
+
+    <Style TargetType="TextBlock" x:Key="PivotHeaderText_NotCompleted" BasedOn="{StaticResource BasePivotHeaderStyle}">
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsOrdersPivotHeaderBrush}" />
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="PivotHeaderText_Completed" BasedOn="{StaticResource BasePivotHeaderStyle}">
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsHistoryPivotHeaderBrush}" />
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="PivotSubHeaderText" BasedOn="{StaticResource PivotHeaderText_Completed}">
+        <Setter Property="FontSize" Value="24" />
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="PivotSubHeaderText_UOM" BasedOn="{StaticResource PivotSubHeaderText}">
+        <Setter Property="FontSize" Value="30" />
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="PivotSubHeaderText_Vitals" BasedOn="{StaticResource PivotHeaderText_NotCompleted}">
+        <Setter Property="FontSize" Value="24" />
+    </Style>
+
+    <!-- new patient chart styles -->
+    <Style TargetType="TextBlock" x:Key="PivotHeaderStyle_Orders" BasedOn="{StaticResource BasePivotHeaderStyle}">
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsOrdersPivotHeaderBrush}"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="PivotHeaderStyle_Contacts" BasedOn="{StaticResource BasePivotHeaderStyle}">
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsContactsPivotHeaderBrush}"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="PivotHeaderStyle_History" BasedOn="{StaticResource BasePivotHeaderStyle}">
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsHistoryPivotHeaderBrush}"/>
+    </Style>
+
+    <Style TargetType="SystemControls:CommandButton" x:Key="PatientChartCommandButtonStyle">
+        <Setter Property="BorderThickness" Value="0,0,0,1" />
+        <Setter Property="BorderBrush" Value="{StaticResource AllscriptsDividerSecondaryBrush}" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Width" Value="460" />
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Margin" Value="0, -4, 0, -4" />
+    </Style>
+
+
+    <!-- patient header styles -->
+    <Style x:Key="PatientHeaderGridControl_Hidden" TargetType="UserControls:CustomGridControl">
+        <Setter Property="Visibility" Value="Collapsed" />
+    </Style>
+
+    <Style x:Key="PatientHeaderGridControl" TargetType="UserControls:CustomGridControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="UserControls:CustomGridControl">
+                    <Border Name="ControlBorder" Background="{StaticResource AllscriptsOrdersContentHeaderBackgroundBrush}" CornerRadius="3" 
+							Height="60" HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <TextBlock x:Name="PatientFullName" Text="{Binding Patient.FullName}" VerticalAlignment="Center"
+                                       Foreground="Black" FontSize="30" HorizontalAlignment="Center" Margin="20 0 0 0"
+									   FontFamily="{StaticResource AllscriptsFontFamilySemiLight}"/>
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="PatientHeaderGridControlHorizontal" TargetType="UserControls:CustomGridControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="UserControls:CustomGridControl">
+                    <Border Name="ControlBorder" Background="{StaticResource AllscriptsOrdersContentHeaderBackgroundBrush}" CornerRadius="3" 
+							Height="60" HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <TextBlock x:Name="PatientFullName" Text="{Binding Patient.FullName}" VerticalAlignment="Center"
+                                       Foreground="Black" FontSize="30" HorizontalAlignment="Center" Margin="20 0 0 0"
+									   FontFamily="{StaticResource AllscriptsFontFamilySemiLight}"/>
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="PatientHeaderGridControl_Orders" TargetType="UserControls:CustomGridControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="UserControls:CustomGridControl">
+                    <Border Name="ControlBorder" Background="{StaticResource AllscriptsOrdersContentHeaderBackgroundBrush}" CornerRadius="3" 
+							Height="60" HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <TextBlock x:Name="PatientFullName" Text="{Binding Patient.FullName}" VerticalAlignment="Center"
+                                       Foreground="Black" FontSize="30" HorizontalAlignment="Center" Margin="20 0 0 0"
+									   FontFamily="{StaticResource AllscriptsFontFamilySemiLight}"/>
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="PatientHeaderGridControl_Contacts" TargetType="UserControls:CustomGridControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="UserControls:CustomGridControl">
+                    <Border Name="ControlBorder" Background="{StaticResource AllscriptsContactsContentHeaderBackgroundBrush}" CornerRadius="3" 
+							Height="60" HorizontalAlignment="Stretch" >
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <TextBlock x:Name="PatientFullName" Text="{Binding Patient.FullName}" VerticalAlignment="Center"
+                                       Foreground="Black" FontSize="30" HorizontalAlignment="Center" Margin="20 0 0 0"
+									   FontFamily="{StaticResource AllscriptsFontFamilySemiLight}"/>
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="PatientHeaderGridControl_History" TargetType="UserControls:CustomGridControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="UserControls:CustomGridControl">
+                    <Border Name="ControlBorder" Background="{StaticResource AllscriptsHistoryContentHeaderBackgroundBrush}" CornerRadius="3" 
+							Height="60" HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <TextBlock x:Name="PatientFullName" Text="{Binding Patient.FullName}" VerticalAlignment="Center"
+                                       Foreground="Black" FontSize="30" HorizontalAlignment="Center" Margin="20 0 0 0"
+									   FontFamily="{StaticResource AllscriptsFontFamilySemiLight}"/>
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- page title styles -->
+    <Style x:Key="PageTitleStyle_Default" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeExtraMediumLarge}"/>
+        <Setter Property="Margin" Value="{StaticResource AllscriptsHorizontalMargin}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptWhiteBrush}"/>
+    </Style>
+
+    <Style x:Key="PageTitleStyle_Orders" BasedOn="{StaticResource PageTitleStyle_Default}" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsOrdersPivotHeaderBrush}"/>
+    </Style>
+
+    <Style x:Key="PageTitleStyle_Contacts" BasedOn="{StaticResource PageTitleStyle_Default}" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsContactsPivotHeaderBrush}"/>
+    </Style>
+
+    <Style x:Key="PageTitleStyle_History" BasedOn="{StaticResource PageTitleStyle_Default}" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsHistoryPivotHeaderBrush}"/>
+    </Style>
+
+    <Style x:Key="PageTitleStyle_WhiteSmall" BasedOn="{StaticResource PageTitleStyle_Default}" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeExtraSemiLarge}"/>
+    </Style>
+
+    <Style x:Key="PageTitleStyle_GreenSmall" BasedOn="{StaticResource PageTitleStyle_Default}" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsOrdersPivotHeaderBrush}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeExtraSemiLarge}"/>
+    </Style>
+
+    <!-- begin new page header styles -->
+    <Style x:Key="PageHeaderStyle_Orders" TargetType="UserControls:PageHeaderControl">
+        <Setter Property="PatientHeaderStyle" Value="{StaticResource PatientHeaderGridControl_Orders}" />
+        <Setter Property="PageTitleStyle" Value="{StaticResource PageTitleStyle_Orders}" />
+    </Style>
+
+    <Style x:Key="PageHeaderStyle_Contacts" TargetType="UserControls:PageHeaderControl">
+        <Setter Property="PatientHeaderStyle" Value="{StaticResource PatientHeaderGridControl_Contacts}" />
+        <Setter Property="PageTitleStyle" Value="{StaticResource PageTitleStyle_Contacts}" />
+    </Style>
+
+    <Style x:Key="PageHeaderStyle_History" TargetType="UserControls:PageHeaderControl">
+        <Setter Property="PatientHeaderStyle" Value="{StaticResource PatientHeaderGridControl_History}" />
+        <Setter Property="PageTitleStyle" Value="{StaticResource PageTitleStyle_History}" />
+    </Style>
+
+    <Style x:Key="PageHeaderStyle_Default" TargetType="UserControls:PageHeaderControl">
+        <Setter Property="PatientHeaderStyle" Value="{StaticResource PatientHeaderGridControl_Hidden}" />
+        <Setter Property="PageTitleStyle" Value="{StaticResource PageTitleStyle_Default}" />
+    </Style>
+
+    <Style x:Key="PageHeaderStyle_GreenWithoutLogo" TargetType="UserControls:PageHeaderControl">
+        <Setter Property="AllscriptsLogoVisibility" Value="Collapsed" />
+        <Setter Property="PatientHeaderStyle" Value="{StaticResource PatientHeaderGridControl_Orders}" />
+        <Setter Property="PageTitleStyle" Value="{StaticResource PageTitleStyle_Orders}" />
+    </Style>
+
+    <Style x:Key="PageHeaderStyle_GreenWithoutLogo_SmallTitleMargin" TargetType="UserControls:PageHeaderControl" BasedOn="{StaticResource PageHeaderStyle_GreenWithoutLogo}">
+        <Setter Property="AllscriptsTitleMargin" Value="0,-25,0,0" />
+    </Style>
+
+    <Style x:Key="PageHeaderStyle_Green_WithoutPatientbar" TargetType="UserControls:PageHeaderControl">
+        <Setter Property="PatientHeaderVisibility" Value="Collapsed" />
+        <Setter Property="PageTitleStyle" Value="{StaticResource PageTitleStyle_Orders}" />
+        <Setter Property="PageTitle2LevelStyle">
+            <Setter.Value>
+                <Style TargetType="TextBlock">
+                    <Style.Setters>
+                        <Setter Property="Foreground" Value="{StaticResource AllscriptsOrdersPivotHeaderBrush}"/>
+                    </Style.Setters>
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Margin" Value="0, 0, 0,-15" />
+    </Style>
+
+    <Style x:Key="PageHeaderStyle_Blue_WithoutPatientbar" TargetType="UserControls:PageHeaderControl">
+        <Setter Property="PatientHeaderVisibility" Value="Collapsed" />
+        <Setter Property="PageTitleStyle" Value="{StaticResource PageTitleStyle_History}" />
+        <Setter Property="PageTitle2LevelStyle">
+            <Setter.Value>
+                <Style TargetType="TextBlock">
+                    <Style.Setters>
+                        <Setter Property="Foreground" Value="{StaticResource AllscriptsHistoryPivotHeaderBrush}"/>
+                    </Style.Setters>
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Margin" Value="0, 0, 0,-15" />
+    </Style>
+
+    <Style x:Key="PageHeaderStyle_GreenSmall" TargetType="UserControls:PageHeaderControl">
+        <Setter Property="PageTitleStyle" Value="{StaticResource PageTitleStyle_GreenSmall}" />
+        <Setter Property="Margin" Value="0, 0, 0,-15" />
+    </Style>
+
+    <Style x:Key="PageHeaderStyle_GreenSmall_WithoutPatientbar" TargetType="UserControls:PageHeaderControl">
+        <Setter Property="PatientHeaderVisibility" Value="Collapsed" />
+        <Setter Property="PageTitleStyle" Value="{StaticResource PageTitleStyle_GreenSmall}" />
+        <Setter Property="Margin" Value="0, 0, 0,-15" />
+    </Style>
+
+    <Style x:Key="PageHeaderStyle_WhiteSmall_WithoutPatientbar" TargetType="UserControls:PageHeaderControl">
+        <Setter Property="PatientHeaderVisibility" Value="Collapsed" />
+        <Setter Property="PageTitleStyle" Value="{StaticResource PageTitleStyle_WhiteSmall}" />
+        <Setter Property="Margin" Value="0, 0, 0,-15" />
+    </Style>
+
+    <!-- end new page header styles -->
+
+    <!-- begin treatment styles-->
+
+    <Style TargetType="TextBlock" x:Key="DateStampTextStyle">
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeNormal}" />
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsSemiWhiteColor}" />
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}" />
+    </Style>
+
+    <Style x:Key="AllscriptsTreatmentInactiveTextStyle" TargetType="TextBlock" >
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilySemiLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsInactiveTextBrush}"/>
+    </Style>
+
+    <Style x:Key="AllscriptsTreatmentItemTitleStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeSmall}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsSemiGrayBrush}"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Margin" Value="20,0,0,0"/>
+    </Style>
+
+    <Style x:Key="AllscriptsTreatmentItemBorderStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource AllscriptsOrdersContentHeaderBackgroundBrush}"/>
+        <Setter Property="CornerRadius" Value="4"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Height" Value="70"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Margin" Value="0,0,0,0"/>
+    </Style>
+
+    <Style x:Key="AllscriptsTreatmentItemValueTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMediumLarge}"/>
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <SolidColorBrush Color="Black" Opacity="0.6" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Margin" Value="20,0,20,0"/>
+    </Style>
+
+    <Style x:Key="AllscriptsTreatmentGroupTitleStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilySemiLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeLargeMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsGroupTextBrush}"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="Margin" Value="0,0,0,-15"/>
+    </Style>
+
+    <Style x:Key="AllscriptsTreatmentSmallButtonTitleStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeMediumLarge}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsForegroundColor}"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
+    <Style x:Key="AllscriptsSecondLevelTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeNormal}"/>
+        <Setter Property="Foreground" Value="{StaticResource AllscriptGrayBrush}"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Opacity" Value="0.85" />
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+
+    <Style x:Key="AllscriptsTreatmentSetsRepsStyle" TargetType="TextBlock" BasedOn="{StaticResource AllscriptsTreatmentSmallButtonTitleStyle}">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+
+    <Style TargetType="Border" x:Key="ViewSetsRepsBorderStyle">
+        <Setter Property="Width" Value="48"/>
+        <Setter Property="Height" Value="48"/>
+        <Setter Property="CornerRadius" Value="5"/>
+        <Setter Property="Background" Value="{StaticResource AllscriptsDarkGrayColor}"/>
+        <Setter Property="Margin" Value="10,0,0,10"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="TreatmentPopupTextStyle">
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsHighlightPrimaryColor}"/>
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeLarge}"/>
+    </Style>
+
+    <Style TargetType="ListBox" x:Key="ViewItemsListBoxStyle">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="NoTreatmentsCheckBoxStyle">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}" />
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsOrdersContentSecondaryBrush}"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="NoTreatmentsCheckBoxStyleChecked">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}" />
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="NoTreatmentsCheckBoxStyleDisabled">
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyNormal}" />
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsDisabledColor}"/>
+    </Style>
+
+    <Style TargetType="SystemControls:CommandButton" x:Key="TreatmentGroupCommandButtonStyle">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderBrush" Value="{StaticResource AllscriptsDividerSecondaryBrush}" />
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Width" Value="460" />
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Margin" Value="0, -4, 0, -4"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid Background="Transparent">
+                        <Border x:Name="ButtonBackground" BorderBrush="{TemplateBinding BorderBrush}"  
+                                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="0" 
+                                Background="{TemplateBinding Background}" Margin="{StaticResource PhoneTouchTargetOverhang}" >
+                            <Border x:Name="PressedHighlightBackground" Background="Transparent">
+                                <ContentControl x:Name="ContentContainer" Foreground="{TemplateBinding Foreground}" 
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Padding="{TemplateBinding Padding}" 
+                                                Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                            </Border>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <DataTemplate x:Key="TherapyItemDataTemplate">
+        <!--<SystemControls:CommandButton x:Name = "TreatmentButton" Style="{Binding ., Converter={StaticResource TreatmentCommandButtonConverter}}"
+						HorizontalContentAlignment="Stretch" Command="{Binding ClickCommand}" CommandParameter="{Binding .}" Margin="0,-10,0,-5">-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,0,15">
+                    <TextBlock Text="{Binding ButtonText}" Visibility="{Binding ButtonText, Converter={StaticResource VisibilityConverter}}"
+                                          Style="{Binding ., Converter={StaticResource TreatmentItemViewDataButtonTextStyleConverter}}"/>
+
+                    <TextBlock Text="{Binding SecondLevelText}" Visibility="{Binding SecondLevelText, Converter={StaticResource VisibilityConverter}}"
+                                          Style="{StaticResource AllscriptsSecondLevelTextStyle}"/>
+                </StackPanel>
+
+                <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource ViewSetsRepsBorderStyle}" 
+                        Visibility="{Binding Sets, Converter={StaticResource TreatmentsSetsRepsVisibilityConverter}}">
+                    <TextBlock Text="{Binding Sets}" Style="{StaticResource AllscriptsTreatmentSetsRepsStyle}"/>
+                </Border>
+
+                <Border Grid.Row="0" Grid.Column="2" Style="{StaticResource ViewSetsRepsBorderStyle}" 
+                        Visibility="{Binding Reps, Converter={StaticResource TreatmentsSetsRepsVisibilityConverter}}">
+                    <TextBlock Text="{Binding Reps}" Style="{StaticResource AllscriptsTreatmentSetsRepsStyle}"/>
+                </Border>
+
+                <Image Source="{Binding CompletionPercentage, Converter={StaticResource ProblemStatusIconConverter}}"
+                                            Visibility="{Binding ChangedOnMobile, Converter={StaticResource VisibilityConverter}}"
+                                            HorizontalAlignment="Left" VerticalAlignment="Center" Width="32" 
+                                            Grid.Row="0" Grid.Column="3" Margin="15,-10,0,0"/>
+            </Grid>
+        <!--</SystemControls:CommandButton>-->
+    </DataTemplate>
+
+    <Style TargetType="Controls:Pivot" x:Key="TreatmentPivotStyle" BasedOn="{StaticResource BasePivotStyle}">
+        <Setter Property="HeaderTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <TextBlock  Grid.Row="0" Text="{Binding Title}" Style="{StaticResource PivotHeaderText_NotCompleted}"
+                                         Visibility="{Binding IsNotSubmitted, Converter={StaticResource VisibilityConverter}}" />
+                            <TextBlock  Grid.Row="0" Text="{Binding Title}" Style="{StaticResource PivotHeaderText_Completed}"
+                                         Visibility="{Binding IsNotSubmitted, Converter={StaticResource VisibilityInvertedConverter}}" />
+
+                            <StackPanel  Grid.Row="1" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0 -10 0 0" >
+                                <TextBlock Text="{Binding SecondLevelText}"  Style="{StaticResource PivotSubHeaderText_Vitals}"
+                                           Visibility="{Binding IsNotSubmitted, Converter={StaticResource VisibilityConverter}}" />
+                                <TextBlock Text="{Binding SecondLevelText}"  Style="{StaticResource PivotSubHeaderText}"
+                                           Visibility="{Binding IsNotSubmitted, Converter={StaticResource VisibilityInvertedConverter}}" 
+                                           />
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Grid Margin="0,-30,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Row="0" Grid.Column="1" Margin="0,0,5,0"
+                              Visibility="{Binding HasSetsOrReps, Converter={StaticResource VisibilityConverter}}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Name="SetsTitle" Grid.Row="0" Grid.Column ="0" Text="Sets" TextAlignment="Left" Width="48"                                       
+                                       Style="{StaticResource AllscriptsSecondLevelTextStyle}"/>
+
+                            <TextBlock Name="RepsTitle" Grid.Row="0" Grid.Column ="1" Text="Reps" TextAlignment="Left" Width="48" Margin="10,0,0,0"
+                                       Style="{StaticResource AllscriptsSecondLevelTextStyle}"/>
+
+                            <Border Grid.Row="0" Grid.Column ="3" Width="32" Margin="15,0,0,0"
+                                    Visibility="{Binding IsNotSubmitted, Converter={StaticResource VisibilityConverter}}"/>
+                        </Grid>
+
+                        <ListBox Name="TreatemntGroup" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Items}"
+                                     Style="{StaticResource ViewItemsListBoxStyle}"
+                                     Visibility="{Binding Items, Converter={StaticResource ListVisibilityConverter}}"
+                                     ItemTemplate="{StaticResource TherapyItemDataTemplate}" 
+                                 />
+
+                        <Grid Grid.Row="1" Grid.ColumnSpan="2" Visibility="{Binding Items, Converter={StaticResource ListVisibilityInvertedConverter}}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height=".7*" />
+                                <RowDefinition Height=".3*" />
+                            </Grid.RowDefinitions>
+
+                            <Border Grid.Row="0" VerticalAlignment="Stretch">
+                                <TextBlock Text="{Binding NoExercisesStatus}"
+                                        HorizontalAlignment="Center" VerticalAlignment="Center"
+                                        Style="{StaticResource AllscriptsTreatmentInactiveTextStyle}"/>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- end treatment styles -->
+
+    <!--visit note styles-->
+
+    <DataTemplate x:Key="HomeBoundDataTemplate">
+        <Grid Width="440">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="{StaticResource AllscriptsDividerSecondaryBrush}" HorizontalAlignment="Stretch" Margin="0,0,0,13">
+                <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="0,0,0,13">
+                    <TextBlock Text="{Binding ReasonName}" Style="{StaticResource AllscriptsTreatmentSmallButtonTitleStyle}"/>
+                    <TextBlock Text="{Binding UserText}" Visibility="{Binding UserText, Converter={StaticResource VisibilityConverter}}"
+                                          Style="{StaticResource AllscriptsSecondLevelTextStyle}"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </DataTemplate>
+
+    <Style TargetType="Controls:Pivot" x:Key="HomeBoundPivotStyle" BasedOn="{StaticResource BasePivotStyle}">
+        <Setter Property="HeaderTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <TextBlock  Grid.Row="0" Text="{Binding Title}" Style="{StaticResource PivotHeaderText_NotCompleted}"
+                                         Visibility="{Binding IsNotSubmitted, Converter={StaticResource VisibilityConverter}}" />
+                            <TextBlock  Grid.Row="0" Text="{Binding Title}" Style="{StaticResource PivotHeaderText_Completed}"
+                                         Visibility="{Binding IsNotSubmitted, Converter={StaticResource VisibilityInvertedConverter}}" />
+
+                            <StackPanel  Grid.Row="1" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0 -10 0 0" >
+                                <TextBlock Text="{Binding SecondLevelText}"  Style="{StaticResource PivotSubHeaderText_Vitals}"
+                                           Visibility="{Binding IsNotSubmitted, Converter={StaticResource VisibilityConverter}}" />
+                                <TextBlock Text="{Binding SecondLevelText}"  Style="{StaticResource PivotSubHeaderText}"
+                                           Visibility="{Binding IsNotSubmitted, Converter={StaticResource VisibilityInvertedConverter}}" 
+                                           />
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <ScrollViewer>
+                        <Grid Margin="0,-30,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" Margin="0,20,0,15" Visibility="{Binding Item, Converter={StaticResource SimpleVisibilityConverter}}">
+                                <TextBlock Text="Homebound reasons" Style="{StaticResource AllscriptsTreatmentGroupTitleStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" />
+                                <!--<SystemControls:CommandButton x:Name="HomeBoundButton" Style="{StaticResource NoBorderButton}" 
+                                                              Command="{Binding ClickCommand}" CommandParameter="{Binding .}" HorizontalAlignment="Left" Margin="0,0,0,0">-->
+                                    <StackPanel HorizontalAlignment="Left" Margin="0,13,0,0">
+                                        <ListBox Name="reasons" ItemsSource="{Binding Details}" IsHitTestVisible="False"
+                                                    Style="{StaticResource ViewItemsListBoxStyle}" ItemTemplate="{StaticResource HomeBoundDataTemplate}" />
+                                    </StackPanel>
+                                <!--</SystemControls:CommandButton>-->
+                            </StackPanel>
+                            <Grid Grid.Row="1" Grid.Column="0" Visibility="{Binding Item, Converter={StaticResource SimpleInvertedVisibilityConverter}}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height=".7*" />
+                                    <RowDefinition Height=".3*" />
+                                </Grid.RowDefinitions>
+
+                                <Border Grid.Row="0" VerticalAlignment="Stretch">
+                                    <TextBlock Text="{Binding NoDataStatus}"
+                                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                                    Style="{StaticResource AllscriptsTreatmentInactiveTextStyle}"/>
+                                </Border>
+                            </Grid>
+                        </Grid>
+                    </ScrollViewer>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--end visit note styles-->
+
+    <!-- problem charting styles -->
+
+    <Style TargetType="TextBlock" x:Key="PivotHeaderStyle_Charting" BasedOn="{StaticResource PivotHeaderStyle_Orders}">
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <SolidColorBrush Color="#FF87BF18"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- end problem charting styles -->
+
+    <!-- medication search page styles -->
+    <Style x:Key="MedicationSearchListBoxStyle" TargetType="ListBox">
+        <Setter Property="Margin" Value="15,5,10,0" />
+        <!-- ItemTemplate defined in SearchMedication
+         <Setter Property="ItemTemplate">
+             <Setter.Value>
+                <DataTemplate>
+                    <TextBlock Text="{Binding .}" Style="{StaticResource AllscriptsListItemNormalText_Orders_Style}" />
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>-->
+    </Style>
+
+    <Style TargetType="TextBox" x:Key="TextBoxValidationStyle" BasedOn="{StaticResource PhoneTextBox}" >
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <CompositeTransform />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
+        <Setter Property="Tag" Value="Required" />
+    </Style>
+
+    <Style TargetType="UserControls:TreatmentItem" x:Key="TreatmentItemValidationStyle" >
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <CompositeTransform />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
+        <Setter Property="Tag" Value="Required" />
+    </Style>
+
+    <Style TargetType="UserControls:NumericDataEntryBox" x:Key="NumericDataBoxValidationStyle" >
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <CompositeTransform />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
+        <Setter Property="Tag" Value="Required" />
+    </Style>
+
+    <Style TargetType="Grid" x:Key="DurationValidationStyle" >
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <CompositeTransform />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
+        <Setter Property="Tag" Value="Required" />
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="PickerItemStyle">
+        <Setter Property="Margin" Value="{StaticResource AllscriptsTouchTargetOverhang}" />
+        <Setter Property="FontSize" Value="{StaticResource AllscriptsFontSizeExtraLarge}" />
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsOrdersContentPrimaryBrush}" />
+        <Setter Property="FontFamily" Value="{StaticResource AllscriptsFontFamilyLight}" />
+    </Style>
+
+    <Style x:Key="CheckedItemTextStyle" TargetType="TextBlock" BasedOn="{StaticResource PickerItemStyle}">
+        <Setter Property="Foreground" Value="{StaticResource AllscriptWhiteBrush}"/>
+        <Setter Property="LineStackingStrategy" Value="BlockLineHeight"/>
+        <Setter Property="LineHeight" Value="45"/>
+    </Style>
+
+    <Style x:Key="UncheckedItemTextStyle" TargetType="TextBlock" BasedOn="{StaticResource PickerItemStyle}">
+        <Setter Property="Foreground" Value="{StaticResource AllscriptsPickedItemBrush}"/>
+        <Setter Property="LineStackingStrategy" Value="BlockLineHeight"/>
+        <Setter Property="LineHeight" Value="45"/>
+    </Style>
+
+    <DataTemplate x:Key="GenericTemplate">
+        <TextBlock Text="{Binding .}" Style="{StaticResource PickerItemStyle}" TextWrapping="Wrap"/>
+    </DataTemplate>
+
+    <Style x:Key="NoBorderButton" TargetType="Button">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="SystemControls:CommandButton">
+                    <Grid Background="Transparent">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="MouseOver"/>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentContainer">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PhoneDisabledExtBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="ButtonBackground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PhoneDisabledExtBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="ButtonBackground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Transparent"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Border x:Name="ButtonBackground" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="0" Margin="{StaticResource PhoneTouchTargetOverhang}">
+                            <ContentControl x:Name="ContentContainer" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <DataTemplate x:Key="CheckedItemTemplate">
+        <Grid Height="80">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <CheckBox Grid.Column="0" IsChecked="{Binding IsChecked, Mode=TwoWay}" VerticalAlignment="Center" />
+
+            <!--<SystemControls:CommandButton Grid.Column="1" 
+                    Style="{StaticResource NoBorderButton}"
+                    Command="{Binding ClickCommand}" 
+                    CommandParameter="{Binding .}"
+                    VerticalContentAlignment="Center"
+                    >-->
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="-20,-3,0,0">
+                    <TextBlock Text="{Binding Description}" 
+                                                Style="{StaticResource CheckedItemTextStyle}"
+                                                   Visibility="{Binding IsChecked, Converter={StaticResource VisibilityConverter}}"
+                                                   />
+                    <TextBlock Text="{Binding Description}"
+                                                Style="{StaticResource UncheckedItemTextStyle}" 
+                                                   Visibility="{Binding IsChecked, Converter={StaticResource VisibilityInvertedConverter}}"
+                                                   />
+                </StackPanel>
+            <!--</SystemControls:CommandButton>-->
+        </Grid>
+    </DataTemplate>
+
+    <Style TargetType="UserControls:ListPicker">
+        <Setter Property="Background" Value="{StaticResource PhoneTextBoxExtBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource PhoneTextBoxForegroundExtBrush}"/>
+        <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeMediumLarge}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Margin" Value="{StaticResource PhoneTouchTargetOverhang}"/>
+        <Setter Property="ItemCountThreshold" Value="1" />
+        <!-- disable Expanded mode for all ListPickers-->
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <CompositeTransform />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="UserControls:ListPicker">
+                    <StackPanel>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="PickerStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="Expanded">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames
+                                            Storyboard.TargetName="Border"
+                                            Storyboard.TargetProperty="Background"
+                                            Duration="0">
+                                            <DiscreteObjectKeyFrame
+                                                Value="{StaticResource PhoneTextBoxEditBackgroundColor}"
+                                                KeyTime="0"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames
+                                            Storyboard.TargetName="Border"
+                                            Storyboard.TargetProperty="BorderBrush"
+                                            Duration="0">
+                                            <DiscreteObjectKeyFrame
+                                                Value="{StaticResource PhoneTextBoxEditBorderExtBrush}"
+                                                KeyTime="0"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <ContentControl
+                            Content="{TemplateBinding Header}"
+                            ContentTemplate="{TemplateBinding HeaderTemplate}"
+                            Foreground="{StaticResource PhoneSubtleExtBrush}"
+                            FontSize="{StaticResource PhoneFontSizeNormal}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            Margin="0 0 0 8"/>
+                        <Grid>
+                            <Border
+                                x:Name="Border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding Background}"
+                                BorderThickness="2">
+                                <Canvas x:Name="ItemsPresenterHost" MinHeight="46">
+                                    <ItemsPresenter x:Name="ItemsPresenter">
+                                        <ItemsPresenter.RenderTransform>
+                                            <TranslateTransform x:Name="ItemsPresenterTranslateTransform"/>
+                                        </ItemsPresenter.RenderTransform>
+                                    </ItemsPresenter>
+                                </Canvas>
+                            </Border>
+                            <Popup x:Name="FullModePopup" Margin="0">
+                                <!--<Border Background="{StaticResource PhoneChromeExtBrush}"> toolkit version -->
+                                <Border Background="{StaticResource AllscriptsSemiBlackBrush}" >
+                                    <!-- Popup.Child should always be a Border -->
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <!--Foreground="{StaticResource PhoneForegroundExtBrush}" toolkit version -->
+                                        <ContentControl
+                                            Grid.Row="0"
+                                            Content="{TemplateBinding FullModeHeader}"
+                                            Foreground="{StaticResource AllscriptsForegroundBrush}"
+                                            FontFamily="{StaticResource PhoneFontFamilySemiBold}"
+                                            FontSize="{StaticResource PhoneFontSizeMedium}"
+                                            HorizontalAlignment="Left"
+                                            Margin="24 12 0 0"/>
+                                        <ListBox
+                                            x:Name="FullModeSelector"
+                                            Grid.Row="1"
+                                            ItemTemplate="{TemplateBinding ActualFullModeItemTemplate}"
+                                            FontSize="{TemplateBinding FontSize}"
+                                            Margin="{StaticResource PhoneMargin}">
+                                            <ListBox.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel HorizontalAlignment="Stretch"/>
+                                                    <!-- Ensures all containers will be available during the Loaded event -->
+                                                </ItemsPanelTemplate>
+                                            </ListBox.ItemsPanel>
+                                        </ListBox>
+                                    </Grid>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="UserControls:ListPickerItem">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="Padding" Value="8 6"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="UserControls:ListPickerItem">
+                    <Grid Background="{TemplateBinding Background}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="SelectionStates">
+                                <VisualState x:Name="Unselected"/>
+                                <VisualState x:Name="Selected">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames
+                                            Storyboard.TargetName="ContentContainer"
+                                            Storyboard.TargetProperty="Foreground"
+                                            Duration="0">
+                                            <DiscreteObjectKeyFrame
+                                                Value="{StaticResource PhoneAccentBrush}"
+                                                KeyTime="0"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <ContentControl
+                            x:Name="ContentContainer"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Foreground="{TemplateBinding Foreground}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            Margin="{TemplateBinding Padding}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="UserControls:ListPicker" x:Key="ListPickerStyle">
+        <Setter Property="Background" Value="{StaticResource AllscriptsMedicationTextBoxBackgroundBrush}" />
+    </Style>
+
+    <!--<Style TargetType="UserControls:ListPicker" x:Key="PickerStyle">
+        <Setter Property="FullModeItemTemplate" Value="{StaticResource GenericTemplate}"/>
+    </Style>-->
+
+
+
+
+</ResourceDictionary>
