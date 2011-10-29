@@ -2,11 +2,11 @@
 
 namespace WCEmergency.Common
 {
-    public enum Sex
+    public enum Sex:int
     { 
-        Male,
-        Female,
-        Unisex
+        Male = 1,
+        Female = 2 ,
+        Unisex = 3
     }
 
     public class Toilet
@@ -14,7 +14,7 @@ namespace WCEmergency.Common
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public int Rate { get; set; }
+        public int? Rate { get; set; }
         public Coordinate Coordinate { get; set; }
         public byte[] Picture { get; set; }
         public Sex Sex { set; get; }
