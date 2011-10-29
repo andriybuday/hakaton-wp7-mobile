@@ -64,9 +64,7 @@
     <Reference Include="system" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
-    <Reference Include="System.Windows.Browser">
-      <HintPath>C:\Program Files (x86)\Microsoft Silverlight\4.0.60831.0\System.Windows.Browser.dll</HintPath>
-    </Reference>
+    <Reference Include="System.Windows.Browser, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="mscorlib.extensions" />
   </ItemGroup>
