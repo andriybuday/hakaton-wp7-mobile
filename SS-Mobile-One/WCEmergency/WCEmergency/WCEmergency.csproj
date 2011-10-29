@@ -99,6 +99,17 @@
     <Compile Include="PhoneApplicationPageBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControls\BindableApplicationBar.cs" />
+    <Compile Include="Service References\WCServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CustomGridControl.xaml.cs">
+      <DependentUpon>CustomGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PageHeaderControl.xaml.cs">
+      <DependentUpon>PageHeaderControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="ViewModel\MapViewModel.cs" />
     <Compile Include="View\WCStartPage.xaml.cs">
@@ -146,6 +157,20 @@
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
+    <None Include="Service References\WCServiceReference\WCEmergency.WCServiceReference.Toilet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WCServiceReference\WCEmergencyService.wsdl" />
+    <None Include="Service References\WCServiceReference\WCEmergencyService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WCServiceReference\WCEmergencyService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WCServiceReference\WCEmergencyService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Background.png">
@@ -155,8 +180,21 @@
     <Resource Include="Resources\Images\icon_wc.png" />
     <Resource Include="Resources\Images\wc.png" />
     <Resource Include="ApplicationIcon.png" />
+    <None Include="Service References\WCServiceReference\WCEmergencyService.disco" />
+    <None Include="Service References\WCServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\WCServiceReference\configuration.svcinfo" />
+    <None Include="Service References\WCServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WCServiceReference\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
