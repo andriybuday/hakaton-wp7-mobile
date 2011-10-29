@@ -49,7 +49,6 @@
     <Reference Include="mscorlib.extensions" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Hero.cs" />
     <Compile Include="ImageHelper.cs" />
     <Compile Include="MultiplayerGameState.cs" />
