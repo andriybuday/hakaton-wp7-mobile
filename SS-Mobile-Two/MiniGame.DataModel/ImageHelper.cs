@@ -26,9 +26,11 @@ namespace MiniGame.DataModel
             return result;
         }
 
-        public static void FromByteArray(WriteableBitmap bmp, byte[] buffer)
+        public static WriteableBitmap FromByteArray( byte[] buffer)
         {
+            WriteableBitmap bmp = new WriteableBitmap(50,50);
             Buffer.BlockCopy(buffer, 0, bmp.Pixels, 0, buffer.Length);
+            return bmp;
         }
 
     }
