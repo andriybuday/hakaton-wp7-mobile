@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sdkSilverlightXNACS", "sdkSilverlightXNACS\sdkSilverlightXNACS\sdkSilverlightXNACS.csproj", "{8628D95D-D64C-4A01-A8CA-56B69872A15B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sdkSilverlightXNACS", "MiniGame.TakePhotoAndPlay\sdkSilverlightXNACS\sdkSilverlightXNACS\sdkSilverlightXNACS.csproj", "{8628D95D-D64C-4A01-A8CA-56B69872A15B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sdkSilverlightXNACSLib", "sdkSilverlightXNACS\sdkSilverlightXNACSLib\sdkSilverlightXNACSLib.csproj", "{B02D0431-3798-4B33-B7EA-BFB630AD3D92}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sdkSilverlightXNACSLib", "MiniGame.TakePhotoAndPlay\sdkSilverlightXNACS\sdkSilverlightXNACSLib\sdkSilverlightXNACSLib.csproj", "{B02D0431-3798-4B33-B7EA-BFB630AD3D92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sdkSilverlightXNACSLibContent", "sdkSilverlightXNACS\sdkSilverlightXNACSLibContent\sdkSilverlightXNACSLibContent.contentproj", "{C0FD08A2-51EC-44DA-8341-F1486147E80A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sdkSilverlightXNACSLibContent", "MiniGame.TakePhotoAndPlay\sdkSilverlightXNACS\sdkSilverlightXNACSLibContent\sdkSilverlightXNACSLibContent.contentproj", "{C0FD08A2-51EC-44DA-8341-F1486147E80A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiGameService.Service", "..\MiniGame.Service\MiGameService.Service.csproj", "{13CF7C21-230A-4470-B19A-72C8F5C319DE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiGameService.Service", "MiniGame.Service\MiGameService.Service.csproj", "{13CF7C21-230A-4470-B19A-72C8F5C319DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

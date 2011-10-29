@@ -1,0 +1,17 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_IMiniGameService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:58463/MiniGameService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IMiniGameService"
+                contract="MiniGameService.IMiniGameService" name="BasicHttpBinding_IMiniGameService" />
+        </client>
+    </system.serviceModel>
+</configuration>
