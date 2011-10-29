@@ -89,6 +89,14 @@ namespace sdkSilverlightXNACS
             //ctask.Show();
         }
 
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            if (btnCrop.IsEnabled)
+            {
+                NavigationService.Navigate(new Uri("/Crop.xaml", UriKind.Relative));
+                btnCrop.IsEnabled = false;
+            }
+        }
 
         /// <summary>
         /// Click event handler for the help button.
@@ -215,7 +223,7 @@ namespace sdkSilverlightXNACS
 
                 //Once writeable bitmap has been rendered, the crop button
                 //is enabled.
-                NavigationService.Navigate(new Uri("/Crop.xaml", UriKind.Relative));
+                btnCrop.IsEnabled = true;
             }
             else
             {

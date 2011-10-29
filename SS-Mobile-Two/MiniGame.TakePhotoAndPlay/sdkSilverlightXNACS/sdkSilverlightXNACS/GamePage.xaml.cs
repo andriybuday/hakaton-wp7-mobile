@@ -138,15 +138,16 @@ namespace sdkSilverlightXNACS
                     break;
             }
 
-            if (App.Face2 != null)
+            if (faceToUse != null)
             {
-                faceToUse = App.Face2;
-                SetTexture(ref textureFace2, faceToUse);
+                if (App.Face2 != null)
+                {
+                    faceToUse = App.Face2;
+                    SetTexture(ref textureFace2, faceToUse);
+                }
+
+                SetTexture(ref texture, faceToUse);
             }
-
-            
-
-            SetTexture(ref texture,faceToUse);
         }
 
         private void SetTexture(ref Texture2D txtr, WriteableBitmap faceToUse)
