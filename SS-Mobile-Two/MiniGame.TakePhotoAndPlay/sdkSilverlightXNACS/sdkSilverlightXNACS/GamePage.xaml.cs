@@ -25,6 +25,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input.Touch;
+using sdkSilverlightXNACS.Storage;
 using Color = Microsoft.Xna.Framework.Color;
 
 namespace sdkSilverlightXNACS
@@ -147,31 +148,28 @@ namespace sdkSilverlightXNACS
 
         private void SetFaceTexture(Faces faces)
         {
-            WriteableBitmap faceToUse = App.CroppedImage;
+            var teamMembers = GameState.GetInstance().MyTeam;
+
+            WriteableBitmap faceToUse = teamMembers.Count > 0 ? teamMembers[0].MemberPhoto : App.CroppedImage;
 
             switch (faces)
             {
                 case Faces.Face1:
-                    faceToUse = App.CroppedImage;
-                    break;
-                case Faces.Face2:
-                    if (App.Face2 != null)
+
+                    if (teamMembers.Count > 0)
                     {
-                        faceToUse = App.Face2;
+                        faceToUse = teamMembers[0].MemberPhoto;
                         SetTexture(ref textureFace2, faceToUse);
                     }
                     break;
-            }
+                case Faces.Face2:
 
-            if (faceToUse != null)
-            {
-                if (App.Face2 != null)
-                {
-                    faceToUse = App.Face2;
-                    SetTexture(ref textureFace2, faceToUse);
-                }
-
-                SetTexture(ref texture, faceToUse);
+                    if (teamMembers.Count > 1)
+                    {
+                        faceToUse = teamMembers[1].MemberPhoto;
+                        SetTexture(ref textureFace2, faceToUse);
+                    }
+                    break;
             }
         }
 
