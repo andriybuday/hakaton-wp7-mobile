@@ -10,14 +10,13 @@ namespace WCEmergency.DataLayer
     {
         public IList<Common.Toilet> Map(IList<Toilet> list)
         {
-            IList<Common.Toilet> result = new List<Common.Toilet>();
-            foreach (var toilet in list)
-            {
-                result.Add(new Common.Toilet() {Id = toilet.Id, Coordinate = new Coordinate(){X = toilet.CoordinateX, Y = toilet.CoordinateY},
-                    Description = toilet.Description, Name = toilet.Name, Picture = toilet.Picture, Rate = toilet.Rate, Sex = (Sex)toilet.Sex
-                }); 
-            }
-            return result;
+            return list.Select(toilet => new Common.Toilet()
+                                             {
+                                                 Id = toilet.Id, Coordinate = new Coordinate()
+                                                                                  {
+                                                                                      X = toilet.CoordinateX, Y = toilet.CoordinateY
+                                                                                  }, Description = toilet.Description, Name = toilet.Name, Picture = toilet.Picture, Rate = toilet.Rate, Sex = (Sex) toilet.Sex
+                                             }).ToList();
         }
 
     }

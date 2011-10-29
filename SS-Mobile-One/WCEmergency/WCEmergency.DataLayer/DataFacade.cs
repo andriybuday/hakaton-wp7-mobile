@@ -15,7 +15,7 @@ namespace WCEmergency.DataLayer
     {
         public IList<Toilet> GetNearestToiltes(Coordinate currrentPosition, double distance)
         {
-            WCEmergencyEntities emergencyEntities = new WCEmergencyEntities();
+            var emergencyEntities = new WCEmergencyEntities();
             var q = from s in emergencyEntities.Toilets
                     select s;
 
