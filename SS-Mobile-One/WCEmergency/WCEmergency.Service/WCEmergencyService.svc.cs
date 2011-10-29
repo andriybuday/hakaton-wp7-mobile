@@ -8,8 +8,7 @@ using System.Text;
 
 namespace WCEmergency.Service
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
-    public class Service1 : IWCEmergencyService
+    public class WCEmergencyService : IWCEmergencyService
     {
         public string GetData(int value)
         {
