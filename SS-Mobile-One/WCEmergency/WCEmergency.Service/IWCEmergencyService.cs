@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Device.Location;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -13,7 +14,7 @@ namespace WCEmergency.Service
     public interface IWCEmergencyService
     {
         [OperationContract]
-        IList<Common.Toilet> GetNearestToiltes(Coordinate currrentPosition, double distance);
+        IList<Common.Toilet> GetNearestToiltes(GeoCoordinate currrentPosition, double distance);
 
         [OperationContract]
         void AddToilet(Toilet newToilet);

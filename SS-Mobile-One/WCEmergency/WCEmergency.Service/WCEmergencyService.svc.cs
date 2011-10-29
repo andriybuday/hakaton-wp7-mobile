@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Device.Location;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -14,7 +15,7 @@ namespace WCEmergency.Service
     public class WCEmergencyService : IWCEmergencyService
     {
 
-        public IList<Common.Toilet> GetNearestToiltes(Coordinate currrentPosition, double distance)
+        public IList<Common.Toilet> GetNearestToiltes(GeoCoordinate currrentPosition, double distance)
         {
             DataFacade dataFacade = new DataFacade();
             return dataFacade.GetNearestToiltes(currrentPosition, distance);
