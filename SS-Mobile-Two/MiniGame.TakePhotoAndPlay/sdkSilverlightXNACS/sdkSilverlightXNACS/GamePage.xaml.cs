@@ -97,7 +97,7 @@ namespace sdkSilverlightXNACS
                 elementRenderer = new UIElementRenderer(this, (int)ActualWidth, (int)ActualHeight);
             }
         }
-        
+
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -120,12 +120,6 @@ namespace sdkSilverlightXNACS
                 // default, will be overriden
                 texture = greenTexture;
 
-                var myStore = IsolatedStorageFile.GetUserStoreForApplication();
-
-                //Texture2D.FromStream()
-
-                //TODO:  Get Texture2D from image
-
                 SetFaceTexture(Faces.Face1);
             }
 
@@ -135,14 +129,6 @@ namespace sdkSilverlightXNACS
             // Start the timer
             timer.Start();
 
-            //
-            Random random = new Random(DateTime.Now.Millisecond);
-            Color ballColor = new Color(random.Next(255), random.Next(255), random.Next(255));
-            Vector2 velocity = new Vector2((random.NextDouble() > .5 ? -1 : 1) * random.Next(9), (random.NextDouble() > .5 ? -1 : 1) * random.Next(9)) + Vector2.UnitX + Vector2.UnitY;
-            Vector2 center = new Vector2((float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width / 2, (float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height / 2);
-            float radius = 25f * (float)random.NextDouble() + 5f;
-            balls.Add(new Ball(ballColor, ballTexture, center, velocity, radius));
-
             base.OnNavigatedTo(e);
         }
 
@@ -150,35 +136,30 @@ namespace sdkSilverlightXNACS
         {
             var teamMembers = GameState.GetInstance().FriendsTeam;
 
-            WriteableBitmap faceToUse = teamMembers.Count > 0 ? teamMembers[0].MemberPhoto : App.CroppedImage;
-
-            switch (faces)
+            foreach (var teamMember in teamMembers)
             {
-                case Faces.Face1:
+                var newBallTexture = FromBitmapToTexture2D(teamMember.MemberPhoto);
 
-                    if (teamMembers.Count > 0)
-                    {
-                        faceToUse = teamMembers[0].MemberPhoto;
-                        SetTexture(ref texture, faceToUse);
-                    }
-                    break;
-                case Faces.Face2:
+                Random random = new Random(DateTime.Now.Millisecond);
+                //Color ballColor = new Color(random.Next(255), random.Next(255), random.Next(255));
+                Color ballColor = Color.White;
+                Vector2 velocity = new Vector2((random.NextDouble() > .5 ? -1 : 1) * random.Next(9), (random.NextDouble() > .5 ? -1 : 1) * random.Next(9)) + Vector2.UnitX + Vector2.UnitY;
+                Vector2 center = new Vector2((float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width / 2, (float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height / 2);
+                float radius = 5f * (float)random.NextDouble() + 65f;
 
-                    if (teamMembers.Count > 1)
-                    {
-                        faceToUse = teamMembers[1].MemberPhoto;
-                        SetTexture(ref texture, faceToUse);
-                    }
-                    break;
+                balls.Add(new Ball(ballColor, newBallTexture, center, velocity, radius));
             }
         }
 
-        private void SetTexture(ref Texture2D txtr, WriteableBitmap faceToUse)
+        private Texture2D FromBitmapToTexture2D(WriteableBitmap faceToUse)
         {
-            var face1FileStream = new MemoryStream();
-            Extensions.SaveJpeg(faceToUse, face1FileStream, faceToUse.PixelWidth / 5, faceToUse.PixelHeight / 5, 0, 85);
-            txtr = Texture2D.FromStream(SharedGraphicsDeviceManager.Current.GraphicsDevice, face1FileStream);
-            face1FileStream.Close();
+            using (var face1FileStream = new MemoryStream())
+            {
+                Extensions.SaveJpeg(faceToUse, face1FileStream, faceToUse.PixelWidth, faceToUse.PixelHeight, 0, 85);
+                var result = Texture2D.FromStream(SharedGraphicsDeviceManager.Current.GraphicsDevice, face1FileStream);
+                face1FileStream.Close();
+                return result;
+            }
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -202,7 +183,7 @@ namespace sdkSilverlightXNACS
             // Move the sprite around.
             UpdateSprite(e);
             UpdateBalls();
-            HandleTouches();
+            //HandleTouches();
         }
 
         private void UpdateBalls()
@@ -289,7 +270,7 @@ namespace sdkSilverlightXNACS
 
             // Draw the rectangle in its new position
             spriteBatch.Draw(texture, spritePosition, Color.White);
-            
+
             foreach (Ball ball in balls)
             {
                 ball.Draw(spriteBatch);
