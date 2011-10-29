@@ -72,6 +72,8 @@
     <Reference Include="Spritehand.PhysicsBehaviors">
       <HintPath>..\..\Library\Spritehand.PhysicsBehaviors.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
@@ -87,6 +89,11 @@
     <Compile Include="Ball.cs" />
     <Compile Include="ChooseOpponent.xaml.cs">
       <DependentUpon>ChooseOpponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MiniGameService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Team.xaml.cs">
       <DependentUpon>Team.xaml</DependentUpon>
@@ -146,6 +153,14 @@
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
+    <None Include="Service References\MiniGameService\MiniGameService.wsdl" />
+    <None Include="Service References\MiniGameService\MiniGameService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MiniGameService\MiniGameService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ApplicationIcon.png">
@@ -185,6 +200,13 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="sounds\hitPuck.wav" />
+    <None Include="Service References\MiniGameService\MiniGameService.disco" />
+    <None Include="Service References\MiniGameService\configuration91.svcinfo" />
+    <None Include="Service References\MiniGameService\configuration.svcinfo" />
+    <None Include="Service References\MiniGameService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -192,6 +214,12 @@
       <Project>{B02D0431-3798-4B33-B7EA-BFB630AD3D92}</Project>
       <Name>sdkSilverlightXNACSLib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\MiniGameService\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
