@@ -49,10 +49,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Maps.MapControl">
-      <HintPath>C:\Program Files (x86)\Bing Maps Silverlight Control\V1\Libraries\Microsoft.Maps.MapControl.dll</HintPath>
+      <HintPath>..\Tools\Microsoft.Maps.MapControl.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Maps.MapControl.Common">
-      <HintPath>C:\Program Files (x86)\Bing Maps Silverlight Control\V1\Libraries\Microsoft.Maps.MapControl.Common.dll</HintPath>
+      <HintPath>..\Tools\Microsoft.Maps.MapControl.Common.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL" />
