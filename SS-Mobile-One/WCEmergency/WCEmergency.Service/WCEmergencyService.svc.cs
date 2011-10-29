@@ -5,27 +5,19 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using WCEmergency.Common;
+using WCEmergency.DataLayer;
+using Toilet = WCEmergency.Common.Toilet;
 
 namespace WCEmergency.Service
 {
     public class WCEmergencyService : IWCEmergencyService
     {
-        public string GetData(int value)
-        {
-            return string.Format("You entered: {0}", value);
-        }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        public IList<Common.Toilet> GetNearestToiltes(Coordinate currrentPosition, double distance)
         {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
+            DataFacade dataFacade = new DataFacade();
+            return dataFacade.GetNearestToiltes(currrentPosition, distance);
         }
     }
 }

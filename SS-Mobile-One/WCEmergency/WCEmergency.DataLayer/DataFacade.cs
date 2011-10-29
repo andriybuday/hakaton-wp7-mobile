@@ -13,13 +13,13 @@ namespace WCEmergency.DataLayer
 
     public class DataFacade
     {
-        public IList<Toilet> GetNearestToiltes(Coordinate currrentPosition, double distance)
+        public IList<Common.Toilet> GetNearestToiltes(Coordinate currrentPosition, double distance)
         {
             var emergencyEntities = new WCEmergencyEntities();
             var q = from s in emergencyEntities.Toilets
                     select s;
 
-            return new List<Toilet>();
+            return new List<Common.Toilet>();
         }
     }
 }
