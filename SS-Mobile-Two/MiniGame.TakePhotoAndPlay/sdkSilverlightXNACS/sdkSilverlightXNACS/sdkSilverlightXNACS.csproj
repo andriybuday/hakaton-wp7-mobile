@@ -80,6 +80,9 @@
     <Compile Include="ChooseOpponent.xaml.cs">
       <DependentUpon>ChooseOpponent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Team.xaml.cs">
+      <DependentUpon>Team.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Game1.cs" />
     <Compile Include="Models\Hero.cs" />
     <Compile Include="SearchingForOpponent.xaml.cs">
@@ -104,6 +107,10 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="ChooseOpponent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Team.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-
+using System.Windows.Media.Imaging;
 using sdkSilverlightXNACS.Models;
 
 namespace sdkSilverlightXNACS.Storage
@@ -13,7 +13,7 @@ namespace sdkSilverlightXNACS.Storage
 
         public static GameState GetInstance()
         {
-            return _instance ?? (_instance = new GameState());
+            return _instance ?? (_instance = new GameState() { MyTeam = new List<Hero>(), EnemyTeam = new List<Hero>()});
         }
 
         public bool IsGameStarted { get; set; }
@@ -21,5 +21,7 @@ namespace sdkSilverlightXNACS.Storage
         public IList<Hero> MyTeam { get; set; }
 
         public IList<Hero> EnemyTeam { get; set; }
+
+        public WriteableBitmap Background { get; set; }
     }
 }

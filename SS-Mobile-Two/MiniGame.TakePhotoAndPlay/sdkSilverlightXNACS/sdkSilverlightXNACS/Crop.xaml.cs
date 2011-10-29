@@ -73,10 +73,6 @@ namespace sdkPhotosCS
             //Used for rendering the cropping rectangle on the image.
             CompositionTarget.Rendering += new EventHandler(CompositionTarget_Rendering);
 
-
-
-
-
             //Creating an application bar and then setting visibility and menu properties.
             ApplicationBar = new ApplicationBar();
             ApplicationBar.IsVisible = true;
@@ -103,10 +99,10 @@ namespace sdkPhotosCS
 
 
             //This code will create event handlers for buttons.
-            btnCrop.Click += new EventHandler(btnCrop_Click);
-            btnAccept.Click += new EventHandler(btnAccept_Click);
-            btnReject.Click += new EventHandler(btnReject_Click);
-            btnHelp.Click += new EventHandler(btnHelp_Click);
+            btnCrop.Click += btnCrop_Click;
+            btnAccept.Click += btnAccept_Click;
+            btnReject.Click += btnReject_Click;
+            btnHelp.Click += btnHelp_Click;
 
             //Disable buttons so user cannot click until appropriate time.
             btnCrop.IsEnabled = false;
@@ -270,31 +266,6 @@ namespace sdkPhotosCS
             //Make progress bar visible for the event handler as there may be posible latency.
             progressBar2.Visibility = Visibility.Visible;
 
-            //Create filename for JPEG in isolated storage
-            String tempJPEG = "TempJPEG.jpg";
-
-            //Create virtual store and file stream. Check for duplicate tempJPEG files.
-            var myStore = IsolatedStorageFile.GetUserStoreForApplication();
-            if (myStore.FileExists(tempJPEG))
-            {
-                myStore.DeleteFile(tempJPEG);
-            }
-            IsolatedStorageFileStream myFileStream = myStore.CreateFile(tempJPEG);
-
-            //Encode the WriteableBitmap into JPEG stream and place into isolated storage.
-            
-            //Extensions.SaveJpeg(App.CroppedImage, myFileStream, App.CroppedImage.PixelWidth, App.CroppedImage.PixelHeight, 0, 85);
-            Extensions.SaveJpeg(App.CroppedImage, myFileStream, App.CroppedImage.PixelWidth/5, App.CroppedImage.PixelHeight/5, 0, 85);
-            myFileStream.Close();
-
-            //Create a new file stream.
-            myFileStream = myStore.OpenFile(tempJPEG, FileMode.Open, FileAccess.Read);
-
-            //Add the JPEG file to the photos library on the device.
-            MediaLibrary library = new MediaLibrary();
-            Picture pic = library.SavePicture("SavedPicture.jpg", myFileStream);
-            myFileStream.Close();
-
             progressBar2.Visibility = Visibility.Collapsed;
 
             textStatus.Text = "Picture saved to photos library on the device.";
@@ -310,7 +281,7 @@ namespace sdkPhotosCS
                 App.Face2 = App.CroppedImage;
             }
 
-            NavigationService.Navigate(new Uri(string.Format("/GamePage.xaml"), UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Team.xaml", UriKind.Relative));
         }
 
 
