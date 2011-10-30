@@ -29,6 +29,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input.Touch;
 using Spritehand.FarseerHelper;
+using sdkSilverlightXNACS.MiniGameService;
 using sdkSilverlightXNACS.Storage;
 using Color = Microsoft.Xna.Framework.Color;
 using Point = System.Windows.Point;
@@ -125,6 +126,9 @@ namespace sdkSilverlightXNACS
         {
             //TODO: call service to get status...
             //call LoseGame or WinGame accordingly... 
+//            var service = new MiniGameService.MiniGameServiceClient();
+
+//service.GetMyInfoAsync(new GameStateChanges() {});
         }
 
         private void AddBombTwoTheWorld()
@@ -245,8 +249,9 @@ namespace sdkSilverlightXNACS
             {
                 GameState.GetInstance().IsGameStarted = true;
 
-                if (ball.BallIs == BallIs.IsOutsideOfBoard)
+                if (ball.BallIs == BallIs.FriendIsOutsideOfBoard || ball.BallIs == BallIs.EnemyIsOutsideOfBoard)
                 {
+
                     toRemoveBall = ball;
                 }
                 else if (ball.BallIs == BallIs.Friend)
@@ -260,10 +265,30 @@ namespace sdkSilverlightXNACS
                 // UPDATE
                 ball.Update();
             }
+
+
             // REMOVE
             if (toRemoveBall != null)
             {
                 // TODO: add call to the server side...
+                var gameStateChanges = new GameStateChanges() { };
+
+                if (toRemoveBall.BallIs == BallIs.FriendIsOutsideOfBoard)
+                {
+                    gameStateChanges.FriendsRemoved = 1;
+                }
+                else if (toRemoveBall.BallIs == BallIs.EnemyIsOutsideOfBoard)
+                {
+                    gameStateChanges.EnemiesRemoved = 1;
+                }
+                gameStateChanges.FriendsRemoved = 1;
+
+                if (GameState.GetInstance().IsMultiPlayerGame.GetValueOrDefault(false))
+                {
+                    var service = new MiniGameService.MiniGameServiceClient();
+                    service.GetMyInfoAsync(gameStateChanges);
+                }
+
                 balls.Remove(toRemoveBall);
                 _soundPuckHit.Play();
             }
@@ -287,6 +312,12 @@ namespace sdkSilverlightXNACS
         #region Finish game.. .
         private void WinGame()
         {
+            if (GameState.GetInstance().IsMultiPlayerGame.GetValueOrDefault(false))
+            {
+                var service = new MiniGameService.MiniGameServiceClient();
+                var gameStateChanges = new GameStateChanges() {IsGameOver = true, IsWinner = true};
+                service.GetMyInfoAsync(gameStateChanges);
+            }
             // game just finished or not started at all...
             GameState.GetInstance().IsGameOver = true;
             GameState.GetInstance().IsGameStarted = false;
@@ -298,6 +329,12 @@ namespace sdkSilverlightXNACS
 
         private void LoseGame()
         {
+            if (GameState.GetInstance().IsMultiPlayerGame.GetValueOrDefault(false))
+            {
+                var service = new MiniGameService.MiniGameServiceClient();
+                var gameStateChanges = new GameStateChanges() {IsGameOver = true, IsWinner = false};
+                service.GetMyInfoAsync(gameStateChanges);
+            }
             // game just finished or not started at all...
             GameState.GetInstance().IsGameOver = true;
             GameState.GetInstance().IsGameStarted = false;
@@ -309,6 +346,13 @@ namespace sdkSilverlightXNACS
 
         private void FinishGameWithBomb()
         {
+            if (GameState.GetInstance().IsMultiPlayerGame.GetValueOrDefault(false))
+            {
+                var service = new MiniGameService.MiniGameServiceClient();
+                var gameStateChanges = new GameStateChanges() {IsGameOver = true, IsWinner = false};
+                service.GetMyInfoAsync(gameStateChanges);
+            }
+
             balls.Clear();
             GameState.GetInstance().IsGameOver = true;
             GameState.GetInstance().IsGameStarted = false;

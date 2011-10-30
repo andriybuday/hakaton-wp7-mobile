@@ -110,6 +110,7 @@ namespace sdkSilverlightXNACS
                                 MemberPhoto = x.MemberPhoto
                             }).ToList());
                 
+
                 NavigationService.Navigate(new Uri("/WaitingForOpponent.xaml", UriKind.Relative));
             }
             else

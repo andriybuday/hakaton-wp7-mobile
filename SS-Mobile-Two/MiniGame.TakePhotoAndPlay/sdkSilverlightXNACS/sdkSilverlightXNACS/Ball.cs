@@ -13,7 +13,8 @@ namespace BouncingBalls
         Friend,
         Enemy,
         Bomb,
-        IsOutsideOfBoard
+        FriendIsOutsideOfBoard,
+        EnemyIsOutsideOfBoard
     }
 
     class Ball
@@ -114,8 +115,16 @@ namespace BouncingBalls
                     // bombs are not leaving field of battle..
                     if (BallIs != BallIs.Bomb)
                     {
-                        BallIs = BallIs.IsOutsideOfBoard;
+                        if(BallIs == BallIs.Enemy)
+                        {
+                            BallIs = BallIs.EnemyIsOutsideOfBoard;
+                        }
+                        else if(BallIs == BallIs.Friend)
+                        {
+                            BallIs = BallIs.FriendIsOutsideOfBoard;
+                        }
                     }
+                    
                 }
 
                 if (top < 0 || bottom > SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height)
