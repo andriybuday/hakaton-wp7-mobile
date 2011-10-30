@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Microsoft.Phone.Controls;
+using WCEmergency.ViewModel;
+using WCEmergency.WCServiceReference;
 
 namespace WCEmergency.View
 {
@@ -18,6 +11,15 @@ namespace WCEmergency.View
         public MapView()
         {
             InitializeComponent();
+        }
+
+        protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            if (e.Content is ObservableCollection<Toilet>)
+            {
+                (LayoutRoot.DataContext as MapViewModel).Toilets = (ObservableCollection<Toilet>) e.Content;
+            }
         }
     }
 }

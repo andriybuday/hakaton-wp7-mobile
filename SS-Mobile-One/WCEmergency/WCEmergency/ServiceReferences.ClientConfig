@@ -21,7 +21,7 @@
             </basicHttpBinding>
         </bindings>
         <client>
-            <endpoint address="http://192.168.161.187:62086/WCEmergencyService.svc"
+            <endpoint address="http://192.168.161.187:9998/WCEmergency"
                 binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IWCEmergencyService"
                 contract="WCServiceReference.IWCEmergencyService" name="BasicHttpBinding_IWCEmergencyService" />
           <endpoint address="http://dev.virtualearth.net/webservices/v1/geocodeservice/GeocodeService.svc"

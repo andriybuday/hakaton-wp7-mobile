@@ -102,7 +102,7 @@
                 <my:AerialMode ShouldDisplayLabels="True" />
             </my:Map.Mode>
 
-            <my:MapItemsControl ItemsSource="{Binding Toilets}">
+            <my:MapItemsControl ItemsSource="{Binding Toilets, Mode=TwoWay}">
                 <my:MapItemsControl.ItemTemplate>
                     <DataTemplate>
                         <my:Pushpin Location="{Binding Coordinate}" Style="{StaticResource PushpinStyle}" HorizontalAlignment="Center" Background="Green">
