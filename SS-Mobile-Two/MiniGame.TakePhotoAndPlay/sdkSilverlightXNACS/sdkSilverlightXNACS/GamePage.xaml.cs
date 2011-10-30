@@ -28,6 +28,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input.Touch;
+using MiniGame.DataModel;
 using Spritehand.FarseerHelper;
 using sdkSilverlightXNACS.MiniGameService;
 using sdkSilverlightXNACS.Storage;
@@ -174,33 +175,52 @@ namespace sdkSilverlightXNACS
 
         private void ReloadTeams()
         {
+            int multiply = 2;
             // load friends
             var teamMembers = GameState.GetInstance().FriendsTeam;
             foreach (var teamMember in teamMembers)
             {
-                var newBallTexture = FromBitmapToTexture2D(teamMember.MemberPhoto);
-                Color ballColor = Color.White;
-                Vector2 velocity = new Vector2((_random.NextDouble() > .5 ? -1 : 1) * _random.Next(3), (_random.NextDouble() > .5 ? -1 : 1) * _random.Next(3)) + Vector2.UnitX + Vector2.UnitY;
-                Vector2 center = new Vector2((float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width / 2, (float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height / 2);
-
-                var ball = new Ball(ballColor, newBallTexture, center, velocity, 50f);
-                ball.BallIs = BallIs.Friend;
-                balls.Add(ball);
+                for (int i = 0; i < multiply; i++)
+                AddFriendPlayer(teamMember);
             }
 
             // load enemies
             teamMembers = GameState.GetInstance().EnemyTeam;
             foreach (var teamMember in teamMembers)
             {
-                var newBallTexture = FromBitmapToTexture2D(teamMember.MemberPhoto);
-                Color ballColor = Color.White;
-                Vector2 velocity = new Vector2((_random.NextDouble() > .5 ? -1 : 1) * _random.Next(3), (_random.NextDouble() > .5 ? -1 : 1) * _random.Next(3)) + Vector2.UnitX + Vector2.UnitY;
-                Vector2 center = new Vector2((float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width - 100, (float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height - 100);
-
-                var ball = new Ball(ballColor, newBallTexture, center, velocity, 50f);
-                ball.BallIs = BallIs.Enemy;
-                balls.Add(ball);
+                for (int i = 0; i < multiply; i++)
+                AddEnemyPlayer(teamMember);
             }
+        }
+
+        private void AddEnemyPlayer(Hero teamMember)
+        {
+            var newBallTexture = FromBitmapToTexture2D(teamMember.MemberPhoto);
+            Color ballColor = Color.White;
+            Vector2 velocity =
+                new Vector2((_random.NextDouble() > .5 ? -1 : 1)*_random.Next(3),
+                            (_random.NextDouble() > .5 ? -1 : 1)*_random.Next(3)) + Vector2.UnitX + Vector2.UnitY;
+            Vector2 center = new Vector2((float) SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width - 100,
+                                         (float) SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height - 100);
+
+            var ball = new Ball(ballColor, newBallTexture, center, velocity, 50f);
+            ball.BallIs = BallIs.Enemy;
+            balls.Add(ball);
+        }
+
+        private void AddFriendPlayer(Hero teamMember)
+        {
+            var newBallTexture = FromBitmapToTexture2D(teamMember.MemberPhoto);
+            Color ballColor = Color.White;
+            Vector2 velocity =
+                new Vector2((_random.NextDouble() > .5 ? -1 : 1)*_random.Next(3),
+                            (_random.NextDouble() > .5 ? -1 : 1)*_random.Next(3)) + Vector2.UnitX + Vector2.UnitY;
+            Vector2 center = new Vector2((float) SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width/2,
+                                         (float) SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height/2);
+
+            var ball = new Ball(ballColor, newBallTexture, center, velocity, 50f);
+            ball.BallIs = BallIs.Friend;
+            balls.Add(ball);
         }
 
         private Texture2D FromBitmapToTexture2D(byte[] faceToUse)
