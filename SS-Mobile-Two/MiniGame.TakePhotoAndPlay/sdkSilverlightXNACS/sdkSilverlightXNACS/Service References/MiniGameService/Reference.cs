@@ -85,14 +85,14 @@ namespace sdkSilverlightXNACS.MiniGameService {
         string EndRegisterMe(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMiniGameService/SetTeam", ReplyAction="http://tempuri.org/IMiniGameService/SetTeamResponse")]
-        System.IAsyncResult BeginSetTeam(string myName, System.Collections.ObjectModel.ObservableCollection<sdkSilverlightXNACS.MiniGameService.HeroDataContact> myHeros, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginSetTeam(string myName, System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact> myHeros, System.AsyncCallback callback, object asyncState);
         
         bool EndSetTeam(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMiniGameService/GetEnemyTeam", ReplyAction="http://tempuri.org/IMiniGameService/GetEnemyTeamResponse")]
         System.IAsyncResult BeginGetEnemyTeam(string myTeamName, System.AsyncCallback callback, object asyncState);
         
-        System.Collections.ObjectModel.ObservableCollection<sdkSilverlightXNACS.MiniGameService.HeroDataContact> EndGetEnemyTeam(System.IAsyncResult result);
+        System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact> EndGetEnemyTeam(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -148,10 +148,10 @@ namespace sdkSilverlightXNACS.MiniGameService {
             this.results = results;
         }
         
-        public System.Collections.ObjectModel.ObservableCollection<sdkSilverlightXNACS.MiniGameService.HeroDataContact> Result {
+        public System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact> Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<sdkSilverlightXNACS.MiniGameService.HeroDataContact>)(this.results[0]));
+                return ((System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact>)(this.results[0]));
             }
         }
     }
@@ -286,7 +286,7 @@ namespace sdkSilverlightXNACS.MiniGameService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult sdkSilverlightXNACS.MiniGameService.IMiniGameService.BeginSetTeam(string myName, System.Collections.ObjectModel.ObservableCollection<sdkSilverlightXNACS.MiniGameService.HeroDataContact> myHeros, System.AsyncCallback callback, object asyncState) {
+        System.IAsyncResult sdkSilverlightXNACS.MiniGameService.IMiniGameService.BeginSetTeam(string myName, System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact> myHeros, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginSetTeam(myName, myHeros, callback, asyncState);
         }
         
@@ -297,7 +297,7 @@ namespace sdkSilverlightXNACS.MiniGameService {
         
         private System.IAsyncResult OnBeginSetTeam(object[] inValues, System.AsyncCallback callback, object asyncState) {
             string myName = ((string)(inValues[0]));
-            System.Collections.ObjectModel.ObservableCollection<sdkSilverlightXNACS.MiniGameService.HeroDataContact> myHeros = ((System.Collections.ObjectModel.ObservableCollection<sdkSilverlightXNACS.MiniGameService.HeroDataContact>)(inValues[1]));
+            System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact> myHeros = ((System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact>)(inValues[1]));
             return ((sdkSilverlightXNACS.MiniGameService.IMiniGameService)(this)).BeginSetTeam(myName, myHeros, callback, asyncState);
         }
         
@@ -314,11 +314,11 @@ namespace sdkSilverlightXNACS.MiniGameService {
             }
         }
         
-        public void SetTeamAsync(string myName, System.Collections.ObjectModel.ObservableCollection<sdkSilverlightXNACS.MiniGameService.HeroDataContact> myHeros) {
+        public void SetTeamAsync(string myName, System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact> myHeros) {
             this.SetTeamAsync(myName, myHeros, null);
         }
         
-        public void SetTeamAsync(string myName, System.Collections.ObjectModel.ObservableCollection<sdkSilverlightXNACS.MiniGameService.HeroDataContact> myHeros, object userState) {
+        public void SetTeamAsync(string myName, System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact> myHeros, object userState) {
             if ((this.onBeginSetTeamDelegate == null)) {
                 this.onBeginSetTeamDelegate = new BeginOperationDelegate(this.OnBeginSetTeam);
             }
@@ -339,7 +339,7 @@ namespace sdkSilverlightXNACS.MiniGameService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<sdkSilverlightXNACS.MiniGameService.HeroDataContact> sdkSilverlightXNACS.MiniGameService.IMiniGameService.EndGetEnemyTeam(System.IAsyncResult result) {
+        System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact> sdkSilverlightXNACS.MiniGameService.IMiniGameService.EndGetEnemyTeam(System.IAsyncResult result) {
             return base.Channel.EndGetEnemyTeam(result);
         }
         
@@ -349,7 +349,7 @@ namespace sdkSilverlightXNACS.MiniGameService {
         }
         
         private object[] OnEndGetEnemyTeam(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<sdkSilverlightXNACS.MiniGameService.HeroDataContact> retVal = ((sdkSilverlightXNACS.MiniGameService.IMiniGameService)(this)).EndGetEnemyTeam(result);
+            System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact> retVal = ((sdkSilverlightXNACS.MiniGameService.IMiniGameService)(this)).EndGetEnemyTeam(result);
             return new object[] {
                     retVal};
         }
@@ -467,7 +467,7 @@ namespace sdkSilverlightXNACS.MiniGameService {
                 return _result;
             }
             
-            public System.IAsyncResult BeginSetTeam(string myName, System.Collections.ObjectModel.ObservableCollection<sdkSilverlightXNACS.MiniGameService.HeroDataContact> myHeros, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginSetTeam(string myName, System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact> myHeros, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[2];
                 _args[0] = myName;
                 _args[1] = myHeros;
@@ -488,9 +488,9 @@ namespace sdkSilverlightXNACS.MiniGameService {
                 return _result;
             }
             
-            public System.Collections.ObjectModel.ObservableCollection<sdkSilverlightXNACS.MiniGameService.HeroDataContact> EndGetEnemyTeam(System.IAsyncResult result) {
+            public System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact> EndGetEnemyTeam(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<sdkSilverlightXNACS.MiniGameService.HeroDataContact> _result = ((System.Collections.ObjectModel.ObservableCollection<sdkSilverlightXNACS.MiniGameService.HeroDataContact>)(base.EndInvoke("GetEnemyTeam", _args, result)));
+                System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact> _result = ((System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact>)(base.EndInvoke("GetEnemyTeam", _args, result)));
                 return _result;
             }
         }
