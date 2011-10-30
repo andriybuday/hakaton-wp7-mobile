@@ -110,7 +110,7 @@ namespace BouncingBalls
                 bottom = newTopLeft.Y + (radius * 2);
 
 
-                if(top < 50 && left > 100 && left < 280)
+                if(top < 50 && left > 100 && left < 200)
                 {
                     // bombs are not leaving field of battle..
                     if (BallIs != BallIs.Bomb)
