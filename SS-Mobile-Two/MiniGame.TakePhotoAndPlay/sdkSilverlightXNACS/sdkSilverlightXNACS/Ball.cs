@@ -22,6 +22,11 @@ namespace BouncingBalls
         public Vector2 HoldingPosition;
         public bool IsOnHold { get; set; }
         public bool IsOutsideOfBoard { get; set; }
+
+
+        public bool IsInMyTeam { get; set; }
+
+
         Vector2 velocity;
 
         public Vector2 CenterPosition
@@ -70,8 +75,16 @@ namespace BouncingBalls
             if(IsOnHold)
             {
                 var releaseDifference = PressedPosition - HoldingPosition;
+                
 
-                velocity = releaseDifference*0.05f;
+                if(IsInMyTeam)
+                {
+                    velocity = - releaseDifference * 0.05f;    
+                }
+                else
+                {
+                    velocity = releaseDifference * 0.05f;
+                }
 
                 TopLeftPosition = PressedTopLeftPosition - releaseDifference;
             }
@@ -85,12 +98,12 @@ namespace BouncingBalls
                 bottom = newTopLeft.Y + (radius * 2);
 
 
-                if(top < 0)
+                if(top < 0 && left > 150 && right < 280)
                 {
                     IsOutsideOfBoard = true;
                 }
 
-                if (bottom > SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height)
+                if (top < 0 || bottom > SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height)
                 {
                     velocity.Y *= -1;
                 }

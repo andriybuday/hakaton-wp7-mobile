@@ -47,19 +47,10 @@ namespace sdkSilverlightXNACS
         bool touching = false;
         #endregion balls stuff
 
-        List<Texture2D> faces = new List<Texture2D>();
-        List<Vector2> facePositions = new List<Vector2>();
-        List<Vector2> faceSpeeds = new List<Vector2>();
-
         Texture2D texture;
-        Texture2D textureFace2;
-        Vector2 spritePosition;
-        Vector2 spriteSpeed = new Vector2(200.0f, 200.0f);
 
         // A variety of rectangle colors
-        Texture2D redTexture;
         Texture2D greenTexture;
-        Texture2D blueTexture;
 
         // For rendering the XAML onto a texture
         UIElementRenderer elementRenderer;
@@ -116,25 +107,20 @@ namespace sdkSilverlightXNACS
 
 
             ballTexture = contentManager.Load<Texture2D>("Ball");
-            RandomlyGenerateBall();
-            RandomlyGenerateBall();
-            RandomlyGenerateBall();
 
-            // If texture is null, we've never loaded our content.
-            if (null == texture)
+            if (GameState.GetInstance().FriendsTeam.Count < 1 || GameState.GetInstance().EnemyTeam.Count < 1)
             {
-
-                //redTexture = contentManager.Load<Texture2D>("redRect");
-                greenTexture = contentManager.Load<Texture2D>("greenRect");
-                blueTexture = contentManager.Load<Texture2D>("blueRect");
-                // default, will be overriden
-                texture = greenTexture;
-
-                SetFaceTexture(Faces.Face1);
+                for (int i = 0; i < 8; i++)
+                {
+                    RandomlyGenerateBall();
+                }    
+            }
+            else // there are players...
+            {
+                ReloadTeams();
             }
 
-            spritePosition.X = 0;
-            spritePosition.Y = 0;
+            greenTexture = contentManager.Load<Texture2D>("greenRect");
 
             // Start the timer
             timer.Start();
@@ -142,22 +128,34 @@ namespace sdkSilverlightXNACS
             base.OnNavigatedTo(e);
         }
 
-        private void SetFaceTexture(Faces faces)
+        private void ReloadTeams()
         {
+            // load friends
             var teamMembers = GameState.GetInstance().FriendsTeam;
-
             foreach (var teamMember in teamMembers)
             {
                 var newBallTexture = FromBitmapToTexture2D(teamMember.MemberPhoto);
-
-                Random random = new Random(DateTime.Now.Millisecond);
-                //Color ballColor = new Color(random.Next(255), random.Next(255), random.Next(255));
                 Color ballColor = Color.White;
-                Vector2 velocity = new Vector2((random.NextDouble() > .5 ? -1 : 1) * random.Next(3), (random.NextDouble() > .5 ? -1 : 1) * random.Next(3)) + Vector2.UnitX + Vector2.UnitY;
+                Vector2 velocity = new Vector2((_random.NextDouble() > .5 ? -1 : 1) * _random.Next(3), (_random.NextDouble() > .5 ? -1 : 1) * _random.Next(3)) + Vector2.UnitX + Vector2.UnitY;
                 Vector2 center = new Vector2((float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width / 2, (float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height / 2);
-                float radius = 5f * (float)random.NextDouble() + 65f;
 
-                balls.Add(new Ball(ballColor, newBallTexture, center, velocity, radius));
+                var ball = new Ball(ballColor, newBallTexture, center, velocity, 50f);
+                ball.IsInMyTeam = true;
+                balls.Add(ball);
+            }
+
+            // load enemies
+            teamMembers = GameState.GetInstance().EnemyTeam;
+            foreach (var teamMember in teamMembers)
+            {
+                var newBallTexture = FromBitmapToTexture2D(teamMember.MemberPhoto);
+                Color ballColor = Color.White;
+                Vector2 velocity = new Vector2((_random.NextDouble() > .5 ? -1 : 1) * _random.Next(3), (_random.NextDouble() > .5 ? -1 : 1) * _random.Next(3)) + Vector2.UnitX + Vector2.UnitY;
+                Vector2 center = new Vector2((float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width - 100, (float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height - 100);
+
+                var ball = new Ball(ballColor, newBallTexture, center, velocity, 50f);
+                ball.IsInMyTeam = false;
+                balls.Add(ball);
             }
         }
 
@@ -191,7 +189,6 @@ namespace sdkSilverlightXNACS
         private void OnUpdate(object sender, GameTimerEventArgs e)
         {
             // Move the sprite around.
-            UpdateSprite(e);
             UpdateBalls();
             //HandleTouches();
             HandleTouches_HoldAndKickBall();
@@ -208,7 +205,6 @@ namespace sdkSilverlightXNACS
 
                     toRemoveBall = ball;
                 }
-
                 ball.Update();
             }
             if (toRemoveBall != null)
@@ -216,26 +212,6 @@ namespace sdkSilverlightXNACS
                 // TODO: add call to the server side...
                 balls.Remove(toRemoveBall);
                 _soundPuckHit.Play();
-            }
-        }
-
-        private void HandleTouches_GenerateNewBalls()
-        {
-            TouchCollection touches = TouchPanel.GetState();
-            if (!touching && touches.Count > 0)
-            {
-                touching = true;
-
-                Random random = new Random(DateTime.Now.Millisecond);
-                Color ballColor = new Color(random.Next(255), random.Next(255), random.Next(255));
-                Vector2 velocity = new Vector2((random.NextDouble() > .5 ? -1 : 1) * random.Next(9), (random.NextDouble() > .5 ? -1 : 1) * random.Next(9)) + Vector2.UnitX + Vector2.UnitY;
-                Vector2 center = new Vector2((float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width / 2, (float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height / 2);
-                float radius = 5f * (float)random.NextDouble() + 65f;
-                balls.Add(new Ball(ballColor, ballTexture, center, velocity, radius));
-            }
-            else if (touches.Count == 0)
-            {
-                touching = false;
             }
         }
 
@@ -272,19 +248,31 @@ namespace sdkSilverlightXNACS
                 }
             }
         }
-
+        Random _random = new Random(DateTime.Now.Millisecond);
         private void RandomlyGenerateBall()
         {
             // nothing was catched, let's generate void...
-            Random random = new Random(DateTime.Now.Millisecond);
-            Color ballColor = new Color(random.Next(255), random.Next(255), random.Next(255));
+            
             Vector2 velocity =
-                new Vector2((random.NextDouble() > .5 ? -1 : 1) * random.Next(3),
-                            (random.NextDouble() > .5 ? -1 : 1) * random.Next(3)) + Vector2.UnitX + Vector2.UnitY;
-            Vector2 center = new Vector2((float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width / 2,
-                                         (float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height / 2);
-            float radius = 5f * (float)random.NextDouble() + 65f;
-            balls.Add(new Ball(ballColor, ballTexture, center, velocity, radius));
+                new Vector2((_random.NextDouble() > .5 ? -1 : 1) * _random.Next(5),
+                            (_random.NextDouble() > .5 ? -1 : 1) * _random.Next(4)) + Vector2.UnitX + Vector2.UnitY;
+
+            Vector2 center = new Vector2((float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width - 100,
+                                         (float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height - 100);
+            float radius = 50f;
+            
+            var isInMyTeam = _random.Next(20) % 2 == 1;
+
+            Color ballColor = Color.Red;
+            if(isInMyTeam)
+            {
+                ballColor = Color.Blue;
+                center = new Vector2((float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width /2,
+                                         (float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height /2);
+            }
+            var ball = new Ball(ballColor, ballTexture, center, velocity, radius);
+            ball.IsInMyTeam = isInMyTeam;
+            balls.Add(ball);
         }
 
         private Ball GetCatchedBall(Vector2 position)
@@ -294,7 +282,7 @@ namespace sdkSilverlightXNACS
                 var xDiff = Math.Abs(ball.CenterPosition.X - position.X);
                 var yDiff = Math.Abs(ball.CenterPosition.Y - position.Y);
 
-                if (xDiff < 65 && yDiff < 65)
+                if (xDiff < 50 && yDiff < 50)
                 {
                     return ball;
                 }
@@ -305,7 +293,7 @@ namespace sdkSilverlightXNACS
 
         public void DrawLine()
         {
-            if(_catchedOne != null && _catchedOne.IsOnHold)
+            if (_catchedOne != null && _catchedOne.IsOnHold && ! _catchedOne.IsInMyTeam)
             {
                 var r = _catchedOne.radius;
 
@@ -347,47 +335,6 @@ namespace sdkSilverlightXNACS
         }
 
         /// <summary>
-        /// Moves the rectangle around the screen.
-        /// </summary>
-        /// <param name="e"></param>
-        void UpdateSprite(GameTimerEventArgs e)
-        {
-            // Move the sprite by speed, scaled by elapsed time.
-            spritePosition += spriteSpeed * (float)e.ElapsedTime.TotalSeconds;
-
-            int MinX = 0;
-            int MinY = 0;
-            int MaxX = SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width - texture.Width;
-            int MaxY = SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height - texture.Height;
-
-            // Check for bounce.
-            if (spritePosition.X > MaxX)
-            {
-                spriteSpeed.X *= -1;
-                spritePosition.X = MaxX;
-            }
-
-            else if (spritePosition.X < MinX)
-            {
-                spriteSpeed.X *= -1;
-                spritePosition.X = MinX;
-            }
-
-            if (spritePosition.Y > MaxY)
-            {
-                spriteSpeed.Y *= -1;
-                spritePosition.Y = MaxY;
-            }
-            else if (spritePosition.Y < MinY)
-            {
-                spriteSpeed.Y *= -1;
-                spritePosition.Y = MinY;
-            }
-
-        }
-
-
-        /// <summary>
         /// Allows the page to draw itself.
         /// </summary>
         private void OnDraw(object sender, GameTimerEventArgs e)
@@ -400,15 +347,11 @@ namespace sdkSilverlightXNACS
             // Draw the sprite
             spriteBatch.Begin();
 
-            // Draw the rectangle in its new position
-            spriteBatch.Draw(texture, spritePosition, Color.White);
-
+            // Draw all players..
             foreach (Ball ball in balls)
             {
                 ball.Draw(spriteBatch);
             }
-
-            //base.Draw(gameTime);
 
             // Using the texture from the UIElementRenderer, 
             // draw the Silverlight controls to the screen
@@ -447,15 +390,7 @@ namespace sdkSilverlightXNACS
         /// <param name="e"></param>
         private void redButton_Click(object sender, RoutedEventArgs e)
         {
-            //texture = redTexture;
-
-            SetFaceTexture(Faces.Face2);
-        }
-
-        public enum Faces
-        {
-            Face1,
-            Face2
+            ReloadTeams();
         }
 
         /// <summary>
@@ -466,7 +401,7 @@ namespace sdkSilverlightXNACS
         private void greenButton_Click(object sender, RoutedEventArgs e)
         {
             //texture = greenTexture;
-            SetFaceTexture(Faces.Face1);
+            ReloadTeams();
         }
 
 
@@ -477,7 +412,7 @@ namespace sdkSilverlightXNACS
         /// <param name="e"></param>
         private void blueButton_Click(object sender, RoutedEventArgs e)
         {
-            texture = blueTexture;
+
         }
     }
 }
