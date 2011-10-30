@@ -32,7 +32,7 @@
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
             <TextBlock x:Name="ApplicationTitle" Text="YOU ARE READY" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Text="wait for other player to join" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Height="220" TextWrapping="Wrap" />
+            <TextBlock x:Name="PageTitle" Text="wait for other player to join" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Height="220" TextWrapping="Wrap" Foreground="{StaticResource PhoneAccentBrush}" />
         </StackPanel>
         <!--ContentPanel - place additional content here-->
         <Border x:Name="ContentPanel" Grid.Row="2" VerticalAlignment="Top" Margin="0 150 0 0" HorizontalAlignment="Center" Width="200" Height="200" CornerRadius="50" BorderThickness="3">

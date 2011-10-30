@@ -91,6 +91,9 @@
       <DependentUpon>ChooseOpponent.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\WaitIndicator.cs" />
+    <Compile Include="ApplicationHome.xaml.cs">
+      <DependentUpon>ApplicationHome.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Service References\MiniGameService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -125,6 +128,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="ApplicationHome.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Team.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -152,7 +159,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
-    <None Include="Properties\WMAppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\MiniGameService\MiniGameService.wsdl" />
     <None Include="Service References\MiniGameService\MiniGameService.xsd">
       <SubType>Designer</SubType>

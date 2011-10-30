@@ -42,7 +42,7 @@
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,0">
             <TextBlock x:Name="ApplicationTitle" Text="WELCOME TO THE PHOTO BATTLE!" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Text="Choose team" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock x:Name="PageTitle" Text="Choose team" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="{StaticResource PhoneAccentBrush}" />
         </StackPanel>
         <!--ContentPanel - place additional content here-->
         <Controls:Pivot Grid.Row="2" x:Name="TeamsPivot">
@@ -54,7 +54,7 @@
                     </StackPanel>
                 </Controls:PivotItem.Header>
 
-                <ListBox x:Name="ContentPanel" Margin="22,0,12,0" ItemsSource="{Binding TeamMembers}" Style="{StaticResource TeamMembersListBoxStyle}">
+                <ListBox x:Name="ContentPanel" Margin="22,0,12,0" ItemsSource="{Binding TeamMembers}" Style="{StaticResource TeamMembersListBoxStyle}" Background="{StaticResource PhoneDisabledBrush}">
                 </ListBox>
             </Controls:PivotItem>
             <Controls:PivotItem x:Name="Team2PivotItem" Margin="0">
@@ -65,7 +65,7 @@
                     </StackPanel>
                 </Controls:PivotItem.Header>
 
-                <ListBox x:Name="Content2Panel" Margin="12,0,12,0" ItemsSource="{Binding EnemyMembers}" Style="{StaticResource TeamMembersListBoxStyle}">
+                <ListBox x:Name="Content2Panel" Margin="12,0,12,0" Background="#20F6FFF5" ItemsSource="{Binding EnemyMembers}" Style="{StaticResource TeamMembersListBoxStyle}">
                 </ListBox>
             </Controls:PivotItem>
         </Controls:Pivot>                      
