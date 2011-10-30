@@ -58,8 +58,8 @@ namespace WCEmergency.Service
                                    Description = "Good, nice and free toilet for McDonalds visitors",
                                    Coordinate = new GeoCoordinate(){Latitude = 49.81545, Longitude = 24.00187, Altitude = 0},
                                    Sex = Sex.Unisex, 	
-                                   Rate = 10,
-                                   Picture = LoadFromFile(@"D:\_Data\V.png")
+                                   Rate = 10//,
+                                  // Picture = LoadFromFile(@"D:\_Data\V.png")
                                },
                                new Toilet()
                                {
@@ -68,8 +68,8 @@ namespace WCEmergency.Service
                                    Description = "Good, nice and free toilet for McDonalds visitors",
                                    Coordinate = new GeoCoordinate(){Latitude = 49.81179, Longitude = 23.98642, Altitude = 0},
                                    Sex = Sex.Unisex,//	
-                                   Rate = 10,
-                                   Picture = LoadFromFile(@"D:\_Data\V.png")
+                                   Rate = 10//,
+                                  // Picture = LoadFromFile(@"D:\_Data\V.png")
                                },
                                new Toilet()
                                {
@@ -78,9 +78,205 @@ namespace WCEmergency.Service
                                    Description = "Good, nice and free toilet for McDonalds visitors",
                                    Coordinate = new GeoCoordinate(){Latitude = 49.842065, Longitude = 24.028527, Altitude = 0},
                                    Sex = Sex.Unisex,
-                                   Rate = 10,
-                                   Picture = LoadFromFile(@"D:\_Data\V.png")
+                                   Rate = 10//,
+                                 //  Picture = LoadFromFile(@"D:\_Data\V.png")
+                               },
+                                 
+
+                           new Toilet()
+                               {
+                                   Id = 6,
+                                   Name = "Technical building",
+                                   Description = "At the 1-st floor",
+                                   Coordinate = new GeoCoordinate(){Latitude = 49.82968, Longitude = 23.99028, Altitude = 0},
+                                   Sex = Sex.Unisex,
+                                   Rate = 3//,
+                                  // Picture = LoadFromFile(@"D:\_Data\Kultp1.png")
+                               },
+
+                           new Toilet()
+                               {
+                                   Id = 7,
+                                   Name = "Railway station",
+                                   Description = "At the 1-st floor",
+                                   Coordinate = new GeoCoordinate(){Latitude = 49.83956, Longitude = 		23.99508, Altitude = 0},
+                                   Sex = Sex.Unisex,
+                                   Rate = 5,
+                                  // Picture = LoadFromFile(@"D:\_Data\Vokzal.png")
+                               },
+
+                           new Toilet()
+                               {
+                                   Id = 8,
+                                   Name = "Railway station",
+                                   Description = "At the 1-st floor",
+                                   Coordinate = new GeoCoordinate(){Latitude = 49.83956, Longitude = 		23.99508, Altitude = 0},
+                                   Sex = Sex.Unisex,
+                                   Rate = 5,
+                                  // Picture = LoadFromFile(@"D:\_Data\Vokzal.png")
+                               },
+                   new Toilet()
+                               {
+                                   Id = 9,
+                                   Name = "Politechnic University",
+                                   Description = "At the 2-st floor, go to the right",
+                                   Coordinate = new GeoCoordinate(){Latitude = 49.83956, Longitude = 		23.99508, Altitude = 0},
+                                   Sex = Sex.Unisex,
+                                   Rate = 5,
+                                //   Picture = LoadFromFile(@"D:\_Data\Vokzal.png")
+                               },
+                   new Toilet()
+                               {
+                                   Id = 10,
+                                   Name = "Cafe",
+                                   Description = "At the 1-st floor, go to the left",
+                                   Coordinate = new GeoCoordinate(){Latitude = 49.83491, Longitude = 		24.00191, Altitude = 0},
+                                   Sex = Sex.Unisex,
+                                   Rate = 5,
+                                  // Picture = LoadFromFile(@"D:\_Data\Vokzal.png")
+                               },
+                   new Toilet()
+                               {
+                                   Id = 11,
+                                   Name = "Politechnic University",
+                                   Description = "At the 1-st floor, go to the left",
+                                   Coordinate = new GeoCoordinate(){Latitude = 49.83472, Longitude = 		24.01517, Altitude = 0},
+                                   Sex = Sex.Unisex,
+                                   Rate = 5,
+                                  // Picture = LoadFromFile(@"D:\_Data\Polythehnic.png")
+                               },
+
+                                            
+new Toilet()
+                               {
+                                   Id = 1,
+                                   Name = "Cafe",
+                                   Description = "Good, nice and free toilet for McDonalds visitors",
+                                   Coordinate = new GeoCoordinate(){Latitude = 44.71145, Longitude = 21.13487, Altitude = 0},
+                                   Sex = Sex.Unisex, 	
+                                   Rate = 7,
+                                   Picture = null
+                               },              
+             new Toilet()
+                               {
+                                   Id = 1,
+                                   Name = "Cafe",
+                                   Description = "Good, nice and free toilet for McDonalds visitors",
+                                   Coordinate = new GeoCoordinate(){Latitude = 49.71145, Longitude = 24.13187, Altitude = 0},
+                                   Sex = Sex.Unisex, 	
+                                   Rate = 7,
+                                   Picture = null
+                               },              
+             new Toilet()
+                               {
+                                   Id = 1,
+                                   Name = "Cafe",
+                                   Description = "Good, nice and free toilet for McDonalds visitors",
+                                   Coordinate = new GeoCoordinate(){Latitude = 49.81145, Longitude = 24.02187, Altitude = 0},
+                                   Sex = Sex.Unisex, 	
+                                   Rate = 7,
+                                   Picture = null
+                               },
+                         new Toilet()
+                               {
+                                   Id = 1,
+                                   Name = "Cafe",
+                                   Description = "Good, nice and free toilet for McDonalds visitors",
+                                   Coordinate = new GeoCoordinate(){Latitude = 49.81001, Longitude = 23.02187, Altitude = 0},
+                                   Sex = Sex.Unisex, 	
+                                   Rate = 3,
+                                   Picture = null
+                               },
+
+
+                               new Toilet()
+                               {
+                                   Id = 3,
+                                   Name = "Toilet in park",
+                                   Description = "Awful",
+                                   Coordinate = new GeoCoordinate(){Latitude = 41.812065, Longitude = 21.028527, Altitude = 0},
+                                   Sex = Sex.Male,
+                                   Rate = 2,
+                                   Picture = null
+                               },
+
+
+
+                               new Toilet()
+                               {
+                                   Id = 3,
+                                   Name = "cafe",
+                                   Description = "Great",
+                                   Coordinate = new GeoCoordinate(){Latitude = 50.112065, Longitude = 22.028527, Altitude = 0},
+                                   Sex = Sex.Unisex,
+                                   Rate = 2,
+                                   Picture = null
+                               },
+                                 
+
+                           new Toilet()
+                               {
+                                   Id = 6,
+                                   Name = "Technical building",
+                                   Description = "At the 1-st floor",
+                                   Coordinate = new GeoCoordinate(){Latitude = 50.01968, Longitude = 24.00028, Altitude = 0},
+                                   Sex = Sex.Male,
+                                   Rate = 3,
+                                   Picture = null
+                               },
+
+                           new Toilet()
+                               {
+                                   Id = 7,
+                                   Name = "On the street",
+                                   Description = "Ж))",
+                                   Coordinate = new GeoCoordinate(){Latitude = 50.23956, Longitude = 		23.99508, Altitude = 0},
+                                   Sex = Sex.Male,
+                                   Rate = 5,
+                                   Picture = null
+                               },
+
+                           new Toilet()
+                               {
+                                   Id = 8,
+                                   Name = "Cafe",
+                                   Description = "At the 1-st floor",
+                                   Coordinate = new GeoCoordinate(){Latitude = 48.83956, Longitude = 		22.29508, Altitude = 0},
+                                   Sex = Sex.Unisex,
+                                   Rate = 5,
+                                   Picture = null
+                               },
+                   new Toilet()
+                               {
+                                   Id = 9,
+                                   Name = "In University",
+                                   Description = "At the 1-st floor, go to the right",
+                                   Coordinate = new GeoCoordinate(){Latitude = 47.83956, Longitude = 		23.49508, Altitude = 0},
+                                   Sex = Sex.Unisex,
+                                   Rate = 5,
+                                   Picture = null
+                               },
+                   new Toilet()
+                               {
+                                   Id = 10,
+                                   Name = "Petrol station",
+                                   Description = "Man only",
+                                   Coordinate = new GeoCoordinate(){Latitude = 50.82491, Longitude = 		21.00191, Altitude = 0},
+                                   Sex = Sex.Male,
+                                   Rate = 5,
+                                   Picture = null
+                               },
+                   new Toilet()
+                               {
+                                   Id = 11,
+                                   Name = "Politechnic University",
+                                   Description = "At the 1-st floor, go to the left",
+                                   Coordinate = new GeoCoordinate(){Latitude = 49.88872, Longitude = 		25.01517, Altitude = 0},
+                                   Sex = Sex.Unisex,
+                                   Rate = 5,
+                                   Picture = null
                                }
+
                        };
 
         }
