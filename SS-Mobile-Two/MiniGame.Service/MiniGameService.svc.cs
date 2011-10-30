@@ -66,7 +66,7 @@ namespace MiniGame.Service
             {
                 if (_state.BothTeamReady)
                 {
-                    RestartGame(_state.Team1.Name);
+                    //RestartGame(_state.Team1.Name);
                 }
             }
         }
@@ -82,7 +82,8 @@ namespace MiniGame.Service
                 myTeam.EnemyCount -= myTeamInfo.EnemiesRemoved;
                 myTeam.MeCount -= myTeamInfo.FriendsRemoved;
 
-                Team otherTeam = GetEnemyTeam(myTeamInfo.TeamName);
+                //Team otherTeam = GetEnemyTeam(myTeamInfo.TeamName);
+                Team otherTeam = _state.GetOtherTeamByName(myTeamInfo.TeamName);
 
                 otherTeam.BombCount += myTeamInfo.EnemiesRemoved;
                 otherTeam.LatestChanges = new GameStateChanges() {BombsAdded = myTeamInfo.EnemiesRemoved};
@@ -93,14 +94,19 @@ namespace MiniGame.Service
                 if (myTeamInfo.IsGameOver || _state.IsGameOver)
                 {
                     latestChanges.IsGameOver = true;
-                    if (GetEnemyTeam(myTeamInfo.TeamName).IsWinner)
+                    if (_state.GetOtherTeamByName(myTeamInfo.TeamName).IsWinner)
                     {
                         latestChanges.IsWinner = false;
                     }
-                    else
+                    else if (myTeamInfo.IsWinner)
                     {
                         latestChanges.IsWinner = true;
                         myTeam.IsWinner = true;
+                    }
+                    else
+                    {
+                        latestChanges.IsWinner = false;
+                        myTeam.IsWinner = false;
                     }
                 }
             
