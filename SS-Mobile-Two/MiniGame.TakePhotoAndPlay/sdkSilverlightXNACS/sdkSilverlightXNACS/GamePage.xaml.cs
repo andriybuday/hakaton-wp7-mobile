@@ -1,25 +1,11 @@
-/* 
-    Copyright (c) 2011 Microsoft Corporation.  All rights reserved.
-    Use of this sample source code is subject to the terms of the Microsoft license 
-    agreement under which you licensed this sample source code and is provided AS-IS.
-    If you did not accept the terms of the license agreement, you are not authorized 
-    to use this sample source code.  For the terms of the license, please see the 
-    license agreement between you and Microsoft.
-  
-    To see all Code Samples for Windows Phone, visit http://go.microsoft.com/fwlink/?LinkID=219604 
-  
-*/
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.IO.IsolatedStorage;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BouncingBalls;
@@ -60,6 +46,8 @@ namespace sdkSilverlightXNACS
         UIElementRenderer elementRenderer;
         private SoundMain _soundPuckHit;
         private Ball _catchedOne;
+
+        private MiniGameServiceClient _service;
 
         public GamePage()
         {
@@ -102,6 +90,13 @@ namespace sdkSilverlightXNACS
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+
+            if (GameState.GetInstance().IsMultiPlayerGame.GetValueOrDefault(false))
+            {
+                _service = new MiniGameService.MiniGameServiceClient();
+                _service.GetMyInfoCompleted += service_GetMyInfoCompleted;
+            }
+
             // Set the sharing mode of the graphics device to turn on XNA rendering
             SharedGraphicsDeviceManager.Current.GraphicsDevice.SetSharingMode(true);
             _soundPuckHit = new SoundMain(new Canvas(), "sounds/hitPuck.wav", 2, 0);
@@ -118,18 +113,19 @@ namespace sdkSilverlightXNACS
             // Start the timer
             timer.Start();
 
-            _timer = new Timer(PingServiceCallBack,null,0,2500);
+            _timer = new Timer(PingServiceCallBack,null,0,3000);
 
             base.OnNavigatedTo(e);
         }
 
         private void PingServiceCallBack(object state)
         {
-            //TODO: call service to get status...
-            //call LoseGame or WinGame accordingly... 
-//            var service = new MiniGameService.MiniGameServiceClient();
+            //TODO: call _service to get status...
 
-//service.GetMyInfoAsync(new GameStateChanges() {});
+            if(GameState.GetInstance().IsMultiPlayerGame.GetValueOrDefault(false))
+            {
+                _service.GetMyInfoAsync(new GameStateChanges() {TeamName = GameState.GetInstance().TeamName});
+            }
         }
 
         private void AddBombTwoTheWorld()
@@ -305,8 +301,7 @@ namespace sdkSilverlightXNACS
 
                 if (GameState.GetInstance().IsMultiPlayerGame.GetValueOrDefault(false))
                 {
-                    var service = new MiniGameService.MiniGameServiceClient();
-                    service.GetMyInfoAsync(gameStateChanges);
+                    _service.GetMyInfoAsync(gameStateChanges);
                 }
 
                 balls.Remove(toRemoveBall);
@@ -329,14 +324,38 @@ namespace sdkSilverlightXNACS
             }
 
         }
+
+        void service_GetMyInfoCompleted(object sender, GetMyInfoCompletedEventArgs e)
+        {
+            //_service.GetMyInfoCompleted -= service_GetMyInfoCompleted;
+
+            var result = e.Result;
+            if (result != null)
+            {
+                if (result.BombsAdded > 0)
+                {
+                    AddBombTwoTheWorld();
+                }
+                if (result.IsGameOver)
+                {
+                    if (result.IsWinner)
+                    {
+                        WinGame();
+                    }
+                    else
+                    {
+                        LoseGame();
+                    }
+                }
+            }
+        }
         #region Finish game.. .
         private void WinGame()
         {
             if (GameState.GetInstance().IsMultiPlayerGame.GetValueOrDefault(false))
             {
-                var service = new MiniGameService.MiniGameServiceClient();
                 var gameStateChanges = new GameStateChanges() { IsGameOver = true, IsWinner = true, TeamName = GameState.GetInstance().TeamName };
-                service.GetMyInfoAsync(gameStateChanges);
+                _service.GetMyInfoAsync(gameStateChanges);
             }
             // game just finished or not started at all...
             GameState.GetInstance().IsGameOver = true;
@@ -351,9 +370,8 @@ namespace sdkSilverlightXNACS
         {
             if (GameState.GetInstance().IsMultiPlayerGame.GetValueOrDefault(false))
             {
-                var service = new MiniGameService.MiniGameServiceClient();
                 var gameStateChanges = new GameStateChanges() {IsGameOver = true, IsWinner = false, TeamName = GameState.GetInstance().TeamName};
-                service.GetMyInfoAsync(gameStateChanges);
+                _service.GetMyInfoAsync(gameStateChanges);
             }
             // game just finished or not started at all...
             GameState.GetInstance().IsGameOver = true;
@@ -368,9 +386,8 @@ namespace sdkSilverlightXNACS
         {
             if (GameState.GetInstance().IsMultiPlayerGame.GetValueOrDefault(false))
             {
-                var service = new MiniGameService.MiniGameServiceClient();
                 var gameStateChanges = new GameStateChanges() {IsGameOver = true, IsWinner = false, TeamName = GameState.GetInstance().TeamName};
-                service.GetMyInfoAsync(gameStateChanges);
+                _service.GetMyInfoAsync(gameStateChanges);
             }
 
             balls.Clear();
@@ -424,6 +441,8 @@ namespace sdkSilverlightXNACS
 
 
         Random _random = new Random(DateTime.Now.Millisecond);
+        
+
         private void RandomlyGenerateBall(BallIs ballIs)
         {
             // nothing was catched, let's generate void...
