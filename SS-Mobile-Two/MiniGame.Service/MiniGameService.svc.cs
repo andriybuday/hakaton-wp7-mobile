@@ -18,7 +18,15 @@ namespace MiniGame.Service
             lock (_state)
             {
                 if (string.IsNullOrEmpty(_state.Team1.Name))
+                {
                     _state.Team1.Name = new Guid().ToString();
+                    return _state.Team1.Name;
+                }
+                if (string.IsNullOrEmpty(_state.Team2.Name))
+                {
+                    _state.Team2.Name = new Guid().ToString();
+                    return _state.Team2.Name;
+                }
             }
             return _state.Team1.Name;
         }
