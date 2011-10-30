@@ -22,8 +22,12 @@
     </phone:PhoneApplicationPage.Resources>
     
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
-        
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.Background>
+            <ImageBrush  ImageSource="Icons/background_grass.jpg" Stretch="UniformToFill" Opacity="0.4"/>
+        </Grid.Background>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>

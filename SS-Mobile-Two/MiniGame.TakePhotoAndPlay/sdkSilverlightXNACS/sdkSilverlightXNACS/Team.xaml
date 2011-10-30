@@ -39,6 +39,11 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+
+        <Grid.Background>
+            <ImageBrush  ImageSource="Icons/background_grass.jpg" Stretch="UniformToFill" Opacity="0.4"/>
+        </Grid.Background>
+        
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,0">
             <TextBlock x:Name="ApplicationTitle" Text="WELCOME TO THE PHOTO BATTLE!" Style="{StaticResource PhoneTextNormalStyle}"/>
