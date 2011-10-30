@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -17,12 +19,17 @@ namespace FingerTwister
 {
     public partial class MainPage : PhoneApplicationPage
     {
+        private Popup popup;
+        private BackgroundWorker backroungWorker;
         private Timer _playerTimer;
         // Constructor
         public MainPage()
         {
             InitializeComponent();
+            ShowPopup();
         }
+
+        private bool alreadyStarted = false;
 
         private void Image_ImageFailed(object sender, ExceptionRoutedEventArgs e)
         {
@@ -31,7 +38,7 @@ namespace FingerTwister
 
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
         {
-            _playerTimer = new Timer(UpdateImage2, null, 0, 10000);
+            
         }
 
         private void PhoneApplicationPage_Tap(object sender, GestureEventArgs e)
@@ -72,12 +79,7 @@ namespace FingerTwister
 
         }
 
-        private void UpdateImage2(object obj)
-        {
-            Dispatcher.BeginInvoke((Action) UpdateImage, null);
-            
-            
-        }
+    
 
         private void UpdateImage()
         {
@@ -94,6 +96,13 @@ namespace FingerTwister
             TextFinger.Text = GetText(m);
         }
 
+        private void SafeCall(object obj)
+        {
+            Dispatcher.BeginInvoke((Action)UpdateImage, null);
+        }
+
+        
+
         private void Image_Hold(object sender, GestureEventArgs e)
         {
             
@@ -106,7 +115,9 @@ namespace FingerTwister
 
         private void PhoneApplicationPage_Hold(object sender, GestureEventArgs e)
         {
-            
+            if (alreadyStarted) return;
+            alreadyStarted = true;
+            _playerTimer = new Timer(SafeCall, null, 0, 10000);
         }
 
         private void PhoneApplicationPage_GotFocus(object sender, RoutedEventArgs e)
@@ -118,5 +129,42 @@ namespace FingerTwister
         {
             
         }
+
+        #region
+
+        private void ShowPopup()
+        {
+            this.popup = new Popup();
+            this.popup.Child = new PopupSplash();
+            this.popup.IsOpen = true;
+            StartLoadingData();
+        }
+
+        private void StartLoadingData()
+        {
+            backroungWorker = new BackgroundWorker();
+            backroungWorker.DoWork += new DoWorkEventHandler(backroungWorker_DoWork);
+            backroungWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backroungWorker_RunWorkerCompleted);
+            backroungWorker.RunWorkerAsync();
+        }
+
+        void backroungWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.Dispatcher.BeginInvoke(() =>
+            {
+                this.popup.IsOpen = false;
+
+            }
+            );
+        }
+
+        void backroungWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            // Do some data loading on a background
+            // We'll just sleep for the demo
+            Thread.Sleep(5000);
+        }
+
+        #endregion
     }
 }
