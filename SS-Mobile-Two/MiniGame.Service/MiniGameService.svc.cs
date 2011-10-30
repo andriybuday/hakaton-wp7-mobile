@@ -83,6 +83,7 @@ namespace MiniGame.Service
 
                 otherTeam.BombsAdded += myTeamInfo.EnemiesRemoved;
                 otherTeam.LatestChanges = new GameStateChanges() {BombsAdded = myTeamInfo.EnemiesRemoved};
+                myTeamInfo.EnemiesRemoved = 0;
 
                 var latestChanges = new GameStateChanges() { BombsAdded = myTeam.BombsAdded };
 
