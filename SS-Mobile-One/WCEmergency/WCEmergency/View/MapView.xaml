@@ -92,8 +92,9 @@
                      LogoVisibility ="Collapsed"
                      VerticalAlignment="Stretch"
                      HorizontalAlignment="Stretch"
-                     Center="{Binding CurrentPosition, Mode=TwoWay}"
+                     Center="{Binding CurrentView, Mode=TwoWay}"
                      ZoomBarVisibility="Visible"
+                     ScaleVisibility ="Visible"
                      ZoomLevel="10"     
                      AnimationLevel ="Full"
                       

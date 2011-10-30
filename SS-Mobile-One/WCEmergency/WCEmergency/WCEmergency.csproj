@@ -91,6 +91,10 @@
     <Compile Include="Extentions\ApplicationBarBuilder.cs" />
     <Compile Include="Extentions\ExpressionExtensions.cs" />
     <Compile Include="Extentions\VisualTreeExtensions.cs" />
+    <Compile Include="Helpers\RouteCalculationError.cs" />
+    <Compile Include="Helpers\RouteCalculator.cs" />
+    <Compile Include="Helpers\RouteModel.cs" />
+    <Compile Include="Helpers\RoutingState.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

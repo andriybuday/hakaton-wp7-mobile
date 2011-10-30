@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Device.Location;
+using System.Linq;
 using System.Windows.Media;
 using Microsoft.Phone.Controls.Maps;
 using WCEmergency.WCServiceReference;
@@ -13,10 +14,6 @@ namespace WCEmergency.ViewModel
         public MapViewModel()
         {
             InitializeWatcher();
-            //Toilets = new ObservableCollection<Toilet> { new Toilet() { Name = "First toilet", Coordinate = new GeoCoordinate(49.845732, 24.030533) } };
-            //Toilets.Add(new Toilet() { Name = "Second one", Coordinate = new GeoCoordinate(49.828952, 23.990171) });
-            //Toilets.Add(new Toilet() { Name = "Third one", Coordinate = new GeoCoordinate(49.831561, 23.996458) });
-           // WCServiceClient = new WCEmergencyServiceClient();
         }
 
        // private WCEmergencyServiceClient WCServiceClient { get; set; }
@@ -50,7 +47,7 @@ namespace WCEmergency.ViewModel
                
             }
             CurrentPosition = new GeoCoordinate(args.Position.Location.Latitude, args.Position.Location.Longitude, args.Position.Location.Altitude);
-            
+            CurrentView = CurrentPosition;
             //WCServiceClient.GetNearestToiltesCompleted += OnGetNearestToiltesCompleted;
             //WCServiceClient.GetNearestToiltesAsync(args.Position.Location, 0);
         }
@@ -82,6 +79,16 @@ namespace WCEmergency.ViewModel
             set
             {
                 _currentPosition = value;
+            
+                if (CurrentToilet == null)
+                {
+                   CurrentToilet = new ToiletViewItem(new Toilet(){Coordinate = CurrentPosition},null);
+                }
+                else
+                {
+                    CurrentToilet.Coordinate = CurrentPosition;
+                }
+                
                 NotifyPropertyChanged("CurrentPosition");
             }
         }
@@ -93,22 +100,53 @@ namespace WCEmergency.ViewModel
             set
             {
                 _toilets = value;
-                _toilets.Add(new ToiletViewItem(new Toilet(), null)
-                                 {Coordinate = CurrentPosition, Text = "You", Color = "Blue"});
+
                 NotifyPropertyChanged("Toilets");
             }
         }
 
-        private ToiletViewItem _toilet;
-        public ToiletViewItem Toilet
+        private ToiletViewItem _targetToilet;
+        public ToiletViewItem TargetToilet
         {
-            get { return _toilet; }
+            get { return _targetToilet; }
             set
             {
-                _toilet = value;
-                _toilet.Color = "Red";
-                Toilets = _toilet.Items;
-                NotifyPropertyChanged("Toilet");
+                _targetToilet = value;
+                Toilets = _targetToilet.Items;
+                foreach (var toiletViewItem in Toilets)
+                {
+                    toiletViewItem.Color = "Green";
+                }
+            
+                _targetToilet.Color = "Red";
+            }
+        }
+
+        private ToiletViewItem _currentToilet;
+        public ToiletViewItem CurrentToilet
+        {
+            get { return _currentToilet; }
+            set
+            {
+                _currentToilet = value;
+                _currentToilet.Color = "Blue";
+                _currentToilet.Text = "You";
+                Toilets.Add(_currentToilet);
+                NotifyPropertyChanged("Toilets");
+            }
+        }
+
+        private GeoCoordinate _currentView;
+        public GeoCoordinate CurrentView
+        {
+            get
+            {
+                return _currentView;
+            }
+            set
+            {
+                _currentView = value;
+                NotifyPropertyChanged("CurrentView");
             }
         }
 

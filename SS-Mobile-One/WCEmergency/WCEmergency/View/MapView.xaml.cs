@@ -21,7 +21,7 @@ namespace WCEmergency.View
             var viewModel = LayoutRoot.DataContext as MapViewModel;
             if (viewModel != null)
             {
-                viewModel.Toilet = ToiletContext.Instance.Item;
+                viewModel.TargetToilet = ToiletContext.Instance.Item;
             }
         }
     }
