@@ -18,8 +18,9 @@ namespace sdkSilverlightXNACS
 
         private void WaitForOpponent()
         {
+            
             //TODO: call service to know if opponent is on line
-            Player2IsReady();
+            //Player2IsReady();
         }
 
         private void Player2IsReady()

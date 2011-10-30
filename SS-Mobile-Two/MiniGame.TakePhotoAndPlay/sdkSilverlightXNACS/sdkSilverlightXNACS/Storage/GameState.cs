@@ -18,6 +18,8 @@ namespace sdkSilverlightXNACS.Storage
 
         public bool IsGameStarted { get; set; }
 
+        public bool? IsMultiPlayerGame { get; set; }
+
         public bool IsGameOver { get; set; }
 
         public IList<Hero> FriendsTeam { get; set; }

@@ -57,7 +57,7 @@
                 <ListBox x:Name="ContentPanel" Margin="22,0,12,0" ItemsSource="{Binding TeamMembers}" Style="{StaticResource TeamMembersListBoxStyle}" Background="{StaticResource PhoneDisabledBrush}">
                 </ListBox>
             </Controls:PivotItem>
-            <Controls:PivotItem x:Name="Team2PivotItem" Margin="0">
+            <Controls:PivotItem x:Name="Team2PivotItem" Visibility="{Binding EnemyTeamVisibility}" Margin="0">
                 <Controls:PivotItem.Tag>EnemyTeam</Controls:PivotItem.Tag>
                 <Controls:PivotItem.Header>
                     <StackPanel Orientation="Vertical">

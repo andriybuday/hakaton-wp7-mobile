@@ -52,13 +52,33 @@ namespace sdkSilverlightXNACS
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
-            TeamMembers = GameState.GetInstance().FriendsTeam;
-            EnemyMembers = GameState.GetInstance().EnemyTeam;
+            var game = GameState.GetInstance();
+
+            if (!game.IsMultiPlayerGame.HasValue)
+            {
+                if (e.Uri.OriginalString.Contains("mode"))
+                {
+                    game.IsMultiPlayerGame = e.Uri.OriginalString.Contains("MultiPlayer");
+                }
+            }
+
+            if (game.IsMultiPlayerGame.GetValueOrDefault(false) && TeamsPivot.Items.Count > 1)
+            {
+                TeamsPivot.Items.RemoveAt(1);
+            }
+            /*EnemyTeamVisibility = game.IsMultiPlayerGame.GetValueOrDefault(false)
+                                      ? System.Windows.Visibility.Collapsed
+                                      : System.Windows.Visibility.Visible;*/
+
+            TeamMembers = game.FriendsTeam;
+            EnemyMembers = game.EnemyTeam;
  	        base.OnNavigatedTo(e);
         }
 
         public IList<Hero> TeamMembers { get; set; }
         public IList<Hero> EnemyMembers { get; set; }
+
+        public System.Windows.Visibility EnemyTeamVisibility { get; set; }
 
         private void AddNewTeamMember(object sender, EventArgs args)
         {
@@ -72,7 +92,17 @@ namespace sdkSilverlightXNACS
 
         private void StartGame(object sender, EventArgs args)
         {
-            NavigationService.Navigate(new Uri("/GamePage.xaml", UriKind.Relative));
+            bool isMultiPlayer = GameState.GetInstance().IsMultiPlayerGame.GetValueOrDefault(false);
+
+            if (isMultiPlayer)
+            {
+                NavigationService.Navigate(new Uri("/WaitingForOpponent.xaml", UriKind.Relative));
+                //TODO: Call service to mark as ready
+            }
+            else
+            {
+                NavigationService.Navigate(new Uri("/GamePage.xaml?mode=single", UriKind.Relative));
+            }
         }
     }
 }

@@ -55,6 +55,12 @@
                 <RowDefinition Height="300"></RowDefinition>
                 <RowDefinition Height="300"></RowDefinition>
             </Grid.RowDefinitions>
+            <Button Grid.Row="0" Background="{StaticResource PhoneAccentBrush}" Click="NavigateToSinglePlayerMode">
+                <TextBlock Text="Single Player"></TextBlock>
+            </Button>
+            <Button Grid.Row="1" Background="{StaticResource PhoneAccentBrush}" Click="NavigateToMultiPlayerMode">
+                <TextBlock Text="Multiplayer"></TextBlock>
+            </Button>
         </Grid>
     </Grid>
 </phone:PhoneApplicationPage>
