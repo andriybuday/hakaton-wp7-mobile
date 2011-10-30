@@ -83,10 +83,17 @@ namespace sdkPhotosCS
         {
             if (cropping)
             {
-                rect.SetValue(Canvas.LeftProperty, (p1.X < p2.X) ? p1.X : p2.X);
-                rect.SetValue(Canvas.TopProperty, (p1.Y < p2.Y) ? p1.Y : p2.Y);
-                rect.Width = (int)Math.Abs(p2.X - p1.X);
-                rect.Height = (int)Math.Abs(p2.Y - p1.Y);
+                var xCoordinate = (p1.X < p2.X) ? p1.X : p2.X;
+                var yCoordinate = (p1.Y < p2.Y) ? p1.Y : p2.Y;
+
+                rect.SetValue(Canvas.LeftProperty, xCoordinate);
+                rect.SetValue(Canvas.TopProperty, yCoordinate);
+
+                var offsetX = (int) Math.Abs(p2.X - p1.X);
+                var offsetY = (int) Math.Abs(p2.Y - p1.Y);
+
+                rect.Width = offsetX > offsetY ? offsetX : offsetY;
+                rect.Height = rect.Width;
             }
         }
 
@@ -158,7 +165,7 @@ namespace sdkPhotosCS
 
             // Create a new WriteableBitmap. The size of the bitmap is the size of the cropping rectangle
             // drawn by the user, multiplied by the image size ratio.
-            App.CroppedImage = new WriteableBitmap((int)(widthRatio * Math.Abs(p2.X - p1.X)), (int)(heightRatio * Math.Abs(p2.Y - p1.Y)));
+            App.CroppedImage = new WriteableBitmap((int)(widthRatio * Math.Abs(p2.X - p1.X)), (int)(heightRatio * Math.Abs(p2.X - p1.X)));
 
 
             // Calculate the offset of the cropped image. This is the distance, in pixels, to the top left corner
@@ -208,7 +215,9 @@ namespace sdkPhotosCS
                 game.EnemyTeam.Add(new Hero() { IsInYourTeam = false, MemberPhoto = arrayOfBytes, Name = userEnteredName });
             }
 
-            NavigationService.Navigate(new Uri("/Team.xaml", UriKind.Relative));
+            NavigationService.RemoveBackEntry();
+            NavigationService.GoBack();
+            //NavigationService.Navigate(new Uri("/Team.xaml", UriKind.Relative));
         }
     }
 }

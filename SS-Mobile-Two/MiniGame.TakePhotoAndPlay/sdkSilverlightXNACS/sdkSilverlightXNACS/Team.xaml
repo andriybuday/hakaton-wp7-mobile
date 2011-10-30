@@ -23,7 +23,7 @@
             <Setter Property="ItemTemplate">
                 <Setter.Value>
                     <DataTemplate>
-                        <StackPanel Orientation="Vertical" Margin="10 20 0 0" HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Vertical" Margin="10 20 0 0" HorizontalAlignment="Center">
                             <TextBlock Text="{Binding Name}" Height="40"></TextBlock>
                             <Image Source="{Binding MemberPhoto, Converter={StaticResource BytesToImageConverter}}" Height="200"/>
                         </StackPanel>

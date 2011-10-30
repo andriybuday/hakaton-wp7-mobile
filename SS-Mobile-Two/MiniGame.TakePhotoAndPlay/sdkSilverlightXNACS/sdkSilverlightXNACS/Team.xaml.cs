@@ -49,6 +49,17 @@ namespace sdkSilverlightXNACS
             btnAddTeamMember.Click += AddNewTeamMember;
             btnAddBackground.Click += AddBackground;
             btnStart.Click += StartGame;
+            TeamsPivot.SelectionChanged += TeamsPivot_SelectionChanged;
+        }
+
+        void TeamsPivot_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            var game = GameState.GetInstance();
+
+            if (!game.IsMultiPlayerGame.HasValue)
+            {
+                ApplicationBar.IsVisible = TeamsPivot.SelectedIndex == 0;
+            }
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
@@ -61,13 +72,7 @@ namespace sdkSilverlightXNACS
                 {
                     game.IsMultiPlayerGame = e.Uri.OriginalString.Contains("MultiPlayer");
                 }
-            }
-
-            /*if (game.IsMultiPlayerGame.GetValueOrDefault(false) )
-            {
-                //Remove pivot
-            }*/
-            
+            }            
 
             TeamMembers = game.FriendsTeam;
             EnemyMembers = game.EnemyTeam;
