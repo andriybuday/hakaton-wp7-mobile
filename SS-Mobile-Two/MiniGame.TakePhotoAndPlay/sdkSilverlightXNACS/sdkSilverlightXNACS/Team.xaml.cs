@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using MiniGame.DataModel;
@@ -96,13 +97,28 @@ namespace sdkSilverlightXNACS
 
             if (isMultiPlayer)
             {
+                var service = new MiniGameService.MiniGameServiceClient();
+
+                //service.SetTeamCompleted += service_SetTeamCompleted;
+                service.SetTeamAsync(GameState.GetInstance().TeamName, GameState.GetInstance().FriendsTeam.Select
+                    (x =>
+                        new MiniGameService.HeroDataContact()
+                            {
+                                IsInYourTeam = x.IsInYourTeam, Name = x.Name,
+                                MemberPhoto = ImageHelper.ToByteArrayB(x.MemberPhoto)
+                            }).ToList());
+                
                 NavigationService.Navigate(new Uri("/WaitingForOpponent.xaml", UriKind.Relative));
-                //TODO: Call service to mark as ready
             }
             else
             {
                 NavigationService.Navigate(new Uri("/GamePage.xaml?mode=single", UriKind.Relative));
             }
+        }
+
+        void service_SetTeamCompleted(object sender, MiniGameService.SetTeamCompletedEventArgs e)
+        {
+            
         }
     }
 }

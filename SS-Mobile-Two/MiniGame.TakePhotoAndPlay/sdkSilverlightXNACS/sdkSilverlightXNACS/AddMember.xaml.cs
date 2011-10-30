@@ -67,7 +67,7 @@ namespace sdkPhotosCS
             {
                 _queryString = e.Uri.OriginalString;
             }
-            base.OnNavigatedFrom(e);
+            base.OnNavigatedTo(e);
         }
 
         /// <summary>

@@ -1,5 +1,6 @@
 using System;
 using Microsoft.Phone.Controls;
+using sdkSilverlightXNACS.Storage;
 
 namespace sdkPhotosCS
 {
@@ -17,8 +18,19 @@ namespace sdkPhotosCS
 
         private void NavigateToMultiPlayerMode(object sender, System.Windows.RoutedEventArgs e)
         {
-            //TODO: Call service to register there
+            var service = new sdkSilverlightXNACS.MiniGameService.MiniGameServiceClient();
+
+            service.RegisterMeCompleted += ServiceRegisterMeCompleted;
+            service.RegisterMeAsync();
             NavigationService.Navigate(new Uri("/Team.xaml?mode=MultiPlayer", UriKind.Relative));
+        }
+
+        void ServiceRegisterMeCompleted(object sender, sdkSilverlightXNACS.MiniGameService.RegisterMeCompletedEventArgs e)
+        {
+            if (e.Error == null)
+            {
+                GameState.GetInstance().TeamName = e.Result;
+            }
         }
     }
 }

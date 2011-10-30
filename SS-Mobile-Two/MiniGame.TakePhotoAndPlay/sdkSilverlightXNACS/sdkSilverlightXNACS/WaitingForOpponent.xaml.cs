@@ -1,32 +1,54 @@
 using System;
+using System.Linq;
 using System.Threading;
 using System.Windows;
 using Microsoft.Phone.Controls;
+using MiniGame.DataModel;
+using sdkSilverlightXNACS.Storage;
 
 namespace sdkSilverlightXNACS
 {
     public partial class WaitingForOpponent : PhoneApplicationPage
-    {       
+    {
+        private Timer _player2Timer;
         // Constructor
         public WaitingForOpponent()
         {
             InitializeComponent();
             SupportedOrientations = SupportedPageOrientation.Portrait | SupportedPageOrientation.Landscape;
          
-            WaitForOpponent();
+            _player2Timer = new Timer(WaitForOpponent,null, 0, 2000);
         }
 
-        private void WaitForOpponent()
+        private void WaitForOpponent(object sender)
         {
-            
-            //TODO: call service to know if opponent is on line
-            //Player2IsReady();
+            var service = new MiniGameService.MiniGameServiceClient();
+
+            service.GetEnemyTeamCompleted += service_GetEnemyTeamCompleted;
+            service.GetEnemyTeamAsync(GameState.GetInstance().TeamName);
+        }
+
+        void service_GetEnemyTeamCompleted(object sender, MiniGameService.GetEnemyTeamCompletedEventArgs e)
+        {
+            if (e.Error == null)
+            {
+                GameState.GetInstance().EnemyTeam = e.Result.Select(x =>new Hero()
+                            {
+                                IsInYourTeam = false,
+                                Name = x.Name,
+                                MemberPhoto = ImageHelper.FromByteArray(x.MemberPhoto)
+                            }).ToList();
+
+                GameState.GetInstance().IsGameStarted = true;
+                GameState.GetInstance().TimeGameStarted = DateTime.Now;
+                Player2IsReady();
+            }
         }
 
         private void Player2IsReady()
         {
             MessageBox.Show("Other player is ready. Starting game");
-            //NavigationService.Navigate(new Uri("/GamePage.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/GamePage.xaml", UriKind.Relative));
         }
     }
 }

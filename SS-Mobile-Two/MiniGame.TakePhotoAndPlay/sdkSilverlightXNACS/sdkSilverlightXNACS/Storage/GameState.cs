@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Media.Imaging;
 using MiniGame.DataModel;
 
@@ -18,6 +19,8 @@ namespace sdkSilverlightXNACS.Storage
 
         public bool IsGameStarted { get; set; }
 
+        public DateTime TimeGameStarted { get; set; }
+
         public bool? IsMultiPlayerGame { get; set; }
 
         public bool IsGameOver { get; set; }
@@ -27,6 +30,8 @@ namespace sdkSilverlightXNACS.Storage
         public IList<Hero> EnemyTeam { get; set; }
 
         public WriteableBitmap Background { get; set; }
+
+        public string TeamName { get; set; }
 
         public bool AmIReady { get; set; }
 
