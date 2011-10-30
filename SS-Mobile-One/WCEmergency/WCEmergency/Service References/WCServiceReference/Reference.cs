@@ -17,70 +17,10 @@ namespace WCEmergency.WCServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Coordinate", Namespace="http://schemas.datacontract.org/2004/07/WCEmergency.Common")]
-    public partial class Coordinate : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private double XField;
-        
-        private double YField;
-        
-        private double ZField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double X {
-            get {
-                return this.XField;
-            }
-            set {
-                if ((this.XField.Equals(value) != true)) {
-                    this.XField = value;
-                    this.RaisePropertyChanged("X");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Y {
-            get {
-                return this.YField;
-            }
-            set {
-                if ((this.YField.Equals(value) != true)) {
-                    this.YField = value;
-                    this.RaisePropertyChanged("Y");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Z {
-            get {
-                return this.ZField;
-            }
-            set {
-                if ((this.ZField.Equals(value) != true)) {
-                    this.ZField = value;
-                    this.RaisePropertyChanged("Z");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Toilet", Namespace="http://schemas.datacontract.org/2004/07/WCEmergency.Common")]
     public partial class Toilet : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private WCEmergency.WCServiceReference.Coordinate CoordinateField;
+        private System.Device.Location.GeoCoordinate CoordinateField;
         
         private string DescriptionField;
         
@@ -95,7 +35,7 @@ namespace WCEmergency.WCServiceReference {
         private WCEmergency.WCServiceReference.Sex SexField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WCEmergency.WCServiceReference.Coordinate Coordinate {
+        public System.Device.Location.GeoCoordinate Coordinate {
             get {
                 return this.CoordinateField;
             }
@@ -214,7 +154,7 @@ namespace WCEmergency.WCServiceReference {
     public interface IWCEmergencyService {
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IWCEmergencyService/GetNearestToiltes", ReplyAction="http://tempuri.org/IWCEmergencyService/GetNearestToiltesResponse")]
-        System.IAsyncResult BeginGetNearestToiltes(WCEmergency.WCServiceReference.Coordinate currrentPosition, double distance, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginGetNearestToiltes(System.Device.Location.GeoCoordinate currrentPosition, double distance, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<WCEmergency.WCServiceReference.Toilet> EndGetNearestToiltes(System.IAsyncResult result);
         
@@ -325,7 +265,7 @@ namespace WCEmergency.WCServiceReference {
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CloseCompleted;
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult WCEmergency.WCServiceReference.IWCEmergencyService.BeginGetNearestToiltes(WCEmergency.WCServiceReference.Coordinate currrentPosition, double distance, System.AsyncCallback callback, object asyncState) {
+        System.IAsyncResult WCEmergency.WCServiceReference.IWCEmergencyService.BeginGetNearestToiltes(System.Device.Location.GeoCoordinate currrentPosition, double distance, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginGetNearestToiltes(currrentPosition, distance, callback, asyncState);
         }
         
@@ -335,7 +275,7 @@ namespace WCEmergency.WCServiceReference {
         }
         
         private System.IAsyncResult OnBeginGetNearestToiltes(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            WCEmergency.WCServiceReference.Coordinate currrentPosition = ((WCEmergency.WCServiceReference.Coordinate)(inValues[0]));
+            System.Device.Location.GeoCoordinate currrentPosition = ((System.Device.Location.GeoCoordinate)(inValues[0]));
             double distance = ((double)(inValues[1]));
             return ((WCEmergency.WCServiceReference.IWCEmergencyService)(this)).BeginGetNearestToiltes(currrentPosition, distance, callback, asyncState);
         }
@@ -353,11 +293,11 @@ namespace WCEmergency.WCServiceReference {
             }
         }
         
-        public void GetNearestToiltesAsync(WCEmergency.WCServiceReference.Coordinate currrentPosition, double distance) {
+        public void GetNearestToiltesAsync(System.Device.Location.GeoCoordinate currrentPosition, double distance) {
             this.GetNearestToiltesAsync(currrentPosition, distance, null);
         }
         
-        public void GetNearestToiltesAsync(WCEmergency.WCServiceReference.Coordinate currrentPosition, double distance, object userState) {
+        public void GetNearestToiltesAsync(System.Device.Location.GeoCoordinate currrentPosition, double distance, object userState) {
             if ((this.onBeginGetNearestToiltesDelegate == null)) {
                 this.onBeginGetNearestToiltesDelegate = new BeginOperationDelegate(this.OnBeginGetNearestToiltes);
             }
@@ -493,7 +433,7 @@ namespace WCEmergency.WCServiceReference {
                     base(client) {
             }
             
-            public System.IAsyncResult BeginGetNearestToiltes(WCEmergency.WCServiceReference.Coordinate currrentPosition, double distance, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginGetNearestToiltes(System.Device.Location.GeoCoordinate currrentPosition, double distance, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[2];
                 _args[0] = currrentPosition;
                 _args[1] = distance;

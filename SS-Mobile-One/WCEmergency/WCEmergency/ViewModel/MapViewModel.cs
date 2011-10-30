@@ -12,7 +12,9 @@ namespace WCEmergency.ViewModel
         public MapViewModel()
         {
             InitializeWatcher();
-            //Toilets = new ObservableCollection<Toilet> { new Toilet() { Name = "First toilet", Coordinate = new GeoCoordinate(49.845732, 24.030533) } };
+            Toilets = new ObservableCollection<Toilet> { new Toilet() { Name = "First toilet", Coordinate = new GeoCoordinate(49.845732, 24.030533) } };
+            Toilets.Add(new Toilet() { Name = "Second one", Coordinate = new GeoCoordinate(49.828952, 23.990171) });
+            Toilets.Add(new Toilet() { Name = "Third one", Coordinate = new GeoCoordinate(49.831561, 23.996458) });
             WCServiceClient = new WCEmergencyServiceClient();
         }
 
@@ -49,12 +51,13 @@ namespace WCEmergency.ViewModel
             CurrentPosition = new GeoCoordinate(args.Position.Location.Latitude, args.Position.Location.Longitude, args.Position.Location.Altitude);
 
             WCServiceClient.GetNearestToiltesCompleted += OnGetNearestToiltesCompleted;
-            WCServiceClient.GetNearestToiltesAsync(new Coordinate { X = args.Position.Location.Latitude, Y = args.Position.Location.Longitude, Z = args.Position.Location.Altitude }, 0);
+            WCServiceClient.GetNearestToiltesAsync(args.Position.Location, 0);
         }
 
         private void OnGetNearestToiltesCompleted(object sender, GetNearestToiltesCompletedEventArgs e)
         {
-            Toilets= e.Result;
+           // Toilets = e.Result;
+           
             WCServiceClient.GetNearestToiltesCompleted -= OnGetNearestToiltesCompleted;
         }
 

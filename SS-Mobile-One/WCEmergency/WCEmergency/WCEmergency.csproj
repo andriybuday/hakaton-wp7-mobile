@@ -57,7 +57,7 @@
     <Reference Include="Microsoft.Phone.Controls.Maps">
       <HintPath>..\Tools\PhoneMap\Microsoft.Phone.Controls.Maps.dll</HintPath>
     </Reference>
-	<Reference Include="Microsoft.Phone.Controls.dll">
+    <Reference Include="Microsoft.Phone.Controls.dll">
       <HintPath>..\Tools\PhoneMap\Microsoft.Phone.Controls.dll.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
@@ -95,6 +95,21 @@
     <Compile Include="Navigation\BackchainingManager.cs" />
     <Compile Include="PhoneApplicationPageBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\Bing.Geocode\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Bing.Route\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Bing.Search\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\BindableApplicationBar.cs" />
     <Compile Include="Service References\WCServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -161,6 +176,66 @@
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
+    <None Include="Service References\Bing.Geocode\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Bing.Geocode\common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Bing.Geocode\contracts.wsdl" />
+    <None Include="Service References\Bing.Geocode\contracts.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Bing.Geocode\geocode.wsdl" />
+    <None Include="Service References\Bing.Geocode\geocode.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Bing.Geocode\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Bing.Geocode\WCEmergency.Bing.Geocode.GeocodeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Bing.Route\common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Bing.Route\contracts.wsdl" />
+    <None Include="Service References\Bing.Route\contracts.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Bing.Route\route.wsdl" />
+    <None Include="Service References\Bing.Route\route.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Bing.Route\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Bing.Route\WCEmergency.Bing.Route.MajorRoutesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Bing.Route\WCEmergency.Bing.Route.RouteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Bing.Search\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Bing.Search\common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Bing.Search\contracts.wsdl" />
+    <None Include="Service References\Bing.Search\contracts.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Bing.Search\search.wsdl" />
+    <None Include="Service References\Bing.Search\search.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Bing.Search\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Bing.Search\WCEmergency.Bing.Search.SearchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\WCServiceReference\WCEmergency.WCServiceReference.Toilet.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -177,7 +252,30 @@
     <Content Include="Resources\Images\AppBarSave.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="ServiceReferences.ClientConfig" />
+    <None Include="Service References\Bing.Geocode\configuration91.svcinfo" />
+    <None Include="Service References\Bing.Geocode\configuration.svcinfo" />
+    <None Include="Service References\Bing.Geocode\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\Bing.Route\configuration91.svcinfo" />
+    <None Include="Service References\Bing.Route\configuration.svcinfo" />
+    <None Include="Service References\Bing.Route\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\Bing.Search\configuration91.svcinfo" />
+    <None Include="Service References\Bing.Search\configuration.svcinfo" />
+    <None Include="Service References\Bing.Search\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="ServiceReferences.ClientConfig">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Service References\WCServiceReference\WCEmergencyService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Background.png">
@@ -206,6 +304,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Bing.Geocode\" />
+    <WCFMetadataStorage Include="Service References\Bing.Route\" />
+    <WCFMetadataStorage Include="Service References\Bing.Search\" />
     <WCFMetadataStorage Include="Service References\WCServiceReference\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />

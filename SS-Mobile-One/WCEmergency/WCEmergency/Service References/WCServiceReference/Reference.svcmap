@@ -23,9 +23,10 @@
     <MetadataSource Address="http://localhost:49282/WCEmergencyService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
+    <MetadataFile FileName="WCEmergencyService3.xsd" MetadataType="Schema" ID="73a9a034-31ae-4ff0-9f5d-9ad95103ce9d" SourceId="1" SourceUrl="http://localhost:49282/WCEmergencyService.svc?xsd=xsd3" />
     <MetadataFile FileName="WCEmergencyService.xsd" MetadataType="Schema" ID="5bc38b31-2068-45dd-819b-a41b78a7344d" SourceId="1" SourceUrl="http://localhost:49282/WCEmergencyService.svc?xsd=xsd2" />
-    <MetadataFile FileName="WCEmergencyService1.xsd" MetadataType="Schema" ID="c7f16cdf-d68b-45b1-8223-d21b3553d1c9" SourceId="1" SourceUrl="http://localhost:49282/WCEmergencyService.svc?xsd=xsd0" />
     <MetadataFile FileName="WCEmergencyService2.xsd" MetadataType="Schema" ID="1773b407-83e3-40f7-815d-5de49d22431b" SourceId="1" SourceUrl="http://localhost:49282/WCEmergencyService.svc?xsd=xsd1" />
+    <MetadataFile FileName="WCEmergencyService1.xsd" MetadataType="Schema" ID="c7f16cdf-d68b-45b1-8223-d21b3553d1c9" SourceId="1" SourceUrl="http://localhost:49282/WCEmergencyService.svc?xsd=xsd0" />
     <MetadataFile FileName="WCEmergencyService.wsdl" MetadataType="Wsdl" ID="1dfccda4-50d5-4d35-b070-a2a1f2866d7e" SourceId="1" SourceUrl="http://localhost:49282/WCEmergencyService.svc?wsdl" />
     <MetadataFile FileName="WCEmergencyService.disco" MetadataType="Disco" ID="efbf8715-253f-4156-986e-7b94aabe83b3" SourceId="1" SourceUrl="http://localhost:49282/WCEmergencyService.svc?disco" />
   </Metadata>
