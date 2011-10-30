@@ -2,6 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sdkSilverlightXNACS", "MiniGame.TakePhotoAndPlay\sdkSilverlightXNACS\sdkSilverlightXNACS\sdkSilverlightXNACS.csproj", "{8628D95D-D64C-4A01-A8CA-56B69872A15B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{13CF7C21-230A-4470-B19A-72C8F5C319DE} = {13CF7C21-230A-4470-B19A-72C8F5C319DE}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sdkSilverlightXNACSLib", "MiniGame.TakePhotoAndPlay\sdkSilverlightXNACS\sdkSilverlightXNACSLib\sdkSilverlightXNACSLib.csproj", "{B02D0431-3798-4B33-B7EA-BFB630AD3D92}"
 EndProject

@@ -1,30 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="GetState">
+  <xs:import schemaLocation="http://localhost:60207/MiniGameService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MiniGame.DataContractsShared" />
+  <xs:element name="RegisterMe">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterMeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="currrentPosition" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RegisterMeResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetStateResponse">
+  <xs:element name="SetTeam">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetStateResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="myName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MiniGame.DataContractsShared" minOccurs="0" name="myHeros" nillable="true" type="q1:ArrayOfHeroDataContact" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Start">
+  <xs:element name="SetTeamResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="player" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SetTeamResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="StartResponse">
+  <xs:element name="GetEnemyTeam">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="StartResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="myTeamName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEnemyTeamResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MiniGame.DataContractsShared" minOccurs="0" name="GetEnemyTeamResult" nillable="true" type="q2:ArrayOfHeroDataContact" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

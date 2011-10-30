@@ -162,6 +162,17 @@
     <None Include="Properties\WMAppManifest.xml">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Icons\Bomb-icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Service References\MiniGameService\MiniGameService.disco" />
+    <None Include="Service References\MiniGameService\configuration91.svcinfo" />
+    <None Include="Service References\MiniGameService\configuration.svcinfo" />
+    <None Include="Service References\MiniGameService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="ServiceReferences.ClientConfig" />
     <None Include="Service References\MiniGameService\MiniGameService.wsdl" />
     <None Include="Service References\MiniGameService\MiniGameService.xsd">
       <SubType>Designer</SubType>
@@ -169,10 +180,12 @@
     <None Include="Service References\MiniGameService\MiniGameService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Icons\Bomb-icon.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ServiceReferences.ClientConfig" />
+    <None Include="Service References\MiniGameService\MiniGameService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MiniGameService\sdkSilverlightXNACS.MiniGameService.HeroDataContact.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="ApplicationIcon.png">
@@ -212,13 +225,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="sounds\hitPuck.wav" />
-    <None Include="Service References\MiniGameService\MiniGameService.disco" />
-    <None Include="Service References\MiniGameService\configuration91.svcinfo" />
-    <None Include="Service References\MiniGameService\configuration.svcinfo" />
-    <None Include="Service References\MiniGameService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1b9885f6-9961-4f7e-a1d4-6c3d362de7f6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="97b35df3-cf30-4110-867e-61a6fcf04f58" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -20,13 +20,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:58463/MiniGameService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:60207/MiniGameService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="MiniGameService.disco" MetadataType="Disco" ID="562ce20f-63fc-452e-89fe-c819b0fa05d3" SourceId="1" SourceUrl="http://localhost:58463/MiniGameService.svc?disco" />
-    <MetadataFile FileName="MiniGameService.xsd" MetadataType="Schema" ID="a8851225-a181-4b4a-8fbe-2ceeb84e40ad" SourceId="1" SourceUrl="http://localhost:58463/MiniGameService.svc?xsd=xsd1" />
-    <MetadataFile FileName="MiniGameService.wsdl" MetadataType="Wsdl" ID="d7b1168c-7036-4fa5-84b9-73bc2ef32006" SourceId="1" SourceUrl="http://localhost:58463/MiniGameService.svc?wsdl" />
-    <MetadataFile FileName="MiniGameService1.xsd" MetadataType="Schema" ID="ec78eea1-22ff-4210-b67e-e22f9946acc9" SourceId="1" SourceUrl="http://localhost:58463/MiniGameService.svc?xsd=xsd0" />
+    <MetadataFile FileName="MiniGameService.xsd" MetadataType="Schema" ID="a31085cd-57a7-428d-9659-a7113af958f6" SourceId="1" SourceUrl="http://localhost:60207/MiniGameService.svc?xsd=xsd2" />
+    <MetadataFile FileName="MiniGameService1.xsd" MetadataType="Schema" ID="c72c7cbd-777b-4a0e-8c5b-29d33dee12de" SourceId="1" SourceUrl="http://localhost:60207/MiniGameService.svc?xsd=xsd0" />
+    <MetadataFile FileName="MiniGameService.disco" MetadataType="Disco" ID="6483ef4d-bd53-4fc7-a527-f2ee84459282" SourceId="1" SourceUrl="http://localhost:60207/MiniGameService.svc?disco" />
+    <MetadataFile FileName="MiniGameService2.xsd" MetadataType="Schema" ID="91afb0ca-1501-404d-99e4-1db8936221f5" SourceId="1" SourceUrl="http://localhost:60207/MiniGameService.svc?xsd=xsd1" />
+    <MetadataFile FileName="MiniGameService.wsdl" MetadataType="Wsdl" ID="88a3a480-22c0-441f-ba8d-65400bb64b38" SourceId="1" SourceUrl="http://localhost:60207/MiniGameService.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

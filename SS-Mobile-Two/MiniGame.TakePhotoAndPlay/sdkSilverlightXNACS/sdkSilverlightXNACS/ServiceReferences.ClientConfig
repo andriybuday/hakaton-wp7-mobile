@@ -9,7 +9,7 @@
             </basicHttpBinding>
         </bindings>
         <client>
-            <endpoint address="http://localhost:58463/MiniGameService.svc"
+            <endpoint address="http://192.168.161.152:9991/MiniGameService"
                 binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IMiniGameService"
                 contract="MiniGameService.IMiniGameService" name="BasicHttpBinding_IMiniGameService" />
         </client>
