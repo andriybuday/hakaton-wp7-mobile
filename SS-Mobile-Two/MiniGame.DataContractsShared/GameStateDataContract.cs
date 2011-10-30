@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 
 namespace MiniGame.DataContractsShared
 {
@@ -6,16 +7,27 @@ namespace MiniGame.DataContractsShared
     public class GameStateDataContact
     {
         [DataMember]
+        public int Seconds { get; set; }
+
+        [DataMember]
+        public DateTime GameStartTime { get; set; }
+
+        [DataMember]
         public bool IsVinner {get; set; }
 
         [DataMember]
-        public bool GameStarted { get; set; }
+        public bool IsGameOver { get; set; }
 
         [DataMember]
-        public bool GameOver { get; set; }
+        public int BombCount { get; set;}
 
         [DataMember]
-        public bool BombCount { get; set; }
+        public int MeCount { get; set; }
 
+        [DataMember]
+        public int EnemyCount { get; set; }
+
+        [DataMember]
+        public string TeamName { get; set; }
     }
 }

@@ -22,5 +22,8 @@ namespace MiniGame.Service
         [OperationContract]
         IList<HeroDataContact> GetEnemyTeam(string myTeamName);
 
+        [OperationContract]
+        GameStateDataContact GetMyInfo(GameStateDataContact myInfo);
+
     }
 }

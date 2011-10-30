@@ -14,14 +14,5 @@ namespace MiniGame.DataContractsShared
         [DataMember]
         public string Name { get; set; }
 
-        /*public Hero ToHero()
-        {
-            return new Hero()
-                       {
-                           IsInYourTeam = IsInYourTeam,
-                           Name = Name,
-                           MemberPhoto = ImageHelper.FromByteArray(MemberPhoto)
-                       };
-        }*/
     }
 }

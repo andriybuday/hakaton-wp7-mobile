@@ -48,11 +48,39 @@ namespace MiniGame.Service
             lock (_state)
             {
                 if (myTeamName == _state.Team1.Name)
+                {
+                    _state.Team1Ready = true;
+                    SetStartTime();
                     return _state.Team2.Heros;
+                }
+                
                 if (myTeamName == _state.Team2.Name)
+                {
+                    _state.Team2Ready = true;
+                    SetStartTime();
                     return _state.Team1.Heros;
+                }
+
                 return null;
             }            
+        }
+
+        private void SetStartTime()
+        {
+            if (_state.BothTeamReady)
+                _state.StartTime = DateTime.Now;
+        }
+
+
+        public GameStateDataContact GetMyInfo(GameStateDataContact myTeamInfo)
+        {
+            Team myTeam = _state.GetTeamByName(myTeamInfo.TeamName);
+
+            myTeam.BombCount = myTeamInfo.BombCount;
+            myTeam.EnemyCount = myTeamInfo.EnemyCount;
+            myTeam.MeCount= myTeamInfo.MeCount;
+
+            
         }
     }
 }

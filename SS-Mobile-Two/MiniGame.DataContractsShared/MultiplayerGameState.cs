@@ -1,4 +1,6 @@
-﻿namespace MiniGame.DataContractsShared
+﻿using System;
+
+namespace MiniGame.DataContractsShared
 {
     public class MultiplayerGameState
     {
@@ -20,6 +22,17 @@
 
         public Team Team2 { get; set; }
 
+        public DateTime StartTime { get; set; }
+
+        public bool Team1Ready { get; set; }
+
+        public bool Team2Ready { get; set; }
+
+        public bool BothTeamReady
+        {
+            get { return Team1Ready && Team2Ready; }
+        }
+
         public Team GetTeamByName(string name)
         {
             if (Team1.Name == name)
@@ -33,13 +46,5 @@
 
         public bool IsGameOver { get; set; }
 
-        public bool IsReadyToStart
-        {
-            get
-            {
-                return !IsGameStarted && Team1 != null && Team2 != null && Team1.IsConfirmedStart &&
-                       Team2.IsConfirmedStart;
-            }
-        }
     }
 }
