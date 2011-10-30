@@ -15,13 +15,23 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:ShuffleBoard"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480"
     shell:SystemTray.IsVisible="False">
+
+    <phone:PhoneApplicationPage.Resources>
+        <Storyboard x:Name="sbRotateTable">
+            <DoubleAnimation Duration="0:0:1" To="-40" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="cnvTable" d:IsOptimized="True"/>
+        </Storyboard>
+        <Storyboard x:Name="ucPlayerUp">
+            <!--<DoubleAnimation Duration="0:0:1" To="-40" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="cnvTable" d:IsOptimized="True"/>-->
+        </Storyboard>
+    </phone:PhoneApplicationPage.Resources>
+
 
     <!-- LayoutRoot is the root grid where all page content is placed -->
     <Grid x:Name="LayoutRoot">
@@ -32,9 +42,13 @@
         </Grid.RowDefinitions>
 
         <!-- Toggles the visibility of the ColorPanel -->
+        
         <Button x:Name="ButtonPlayAgain" Grid.Row="2" Click="PlayAgain_Click" Margin="1,0,-1,0">Play again</Button>
 
         <Canvas x:Name="ContentPanelCanvas" Grid.Row="1" Background="Transparent" Margin="12,0,12,0">
+            <local:ucScoreBoard x:Name="ucScoreBoard1" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+            <local:ucPlayerUp x:Name="ControlGameStatus" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Top="200" Visibility="Collapsed" />
+            
             <Line X1="100" Y1="50" X2="380" Y2="50" Stroke="Green" StrokeThickness="10"/>
             <Line X1="100" Y1="80" X2="100" Y2="50" Stroke="Green" StrokeThickness="5"/>
             <Line X1="380" Y1="80" X2="380" Y2="50" Stroke="Green" StrokeThickness="5"/>

@@ -19,26 +19,29 @@ namespace ShuffleBoard
             InitializeComponent();
         }
 
-        bool _isBlueTurn = true;
+        bool _isVictory = true;
 
-        public bool IsBlueTurn
+        public bool IsVictory
         {
-            get
-            {
-                return _isBlueTurn;
-            }
+            get { return _isVictory; }
             set
             {
-                _isBlueTurn = value;
-                if (_isBlueTurn)
+                _isVictory = value;
+                if (_isVictory)
                 {
-                    tbBluePlayer.Visibility = Visibility.Visible;
-                    tbRedPlayer.Visibility = Visibility.Collapsed;
+                    RectangleBackground.Fill = new SolidColorBrush(Colors.Green);
+                    TextBlockWon.Visibility = Visibility.Visible;
+                    TextBlockWonCaption.Visibility = Visibility.Visible;
+                    TextBlockLoose.Visibility = Visibility.Collapsed;
+                    TextBlockLooseCaption.Visibility = Visibility.Collapsed;
                 }
                 else
                 {
-                    tbBluePlayer.Visibility = Visibility.Collapsed;
-                    tbRedPlayer.Visibility = Visibility.Visible;
+                    RectangleBackground.Fill = new SolidColorBrush(Colors.Orange);
+                    TextBlockWon.Visibility = Visibility.Collapsed;
+                    TextBlockWonCaption.Visibility = Visibility.Collapsed;
+                    TextBlockLoose.Visibility = Visibility.Visible;
+                    TextBlockLooseCaption.Visibility = Visibility.Visible;
                 }
             }
         }

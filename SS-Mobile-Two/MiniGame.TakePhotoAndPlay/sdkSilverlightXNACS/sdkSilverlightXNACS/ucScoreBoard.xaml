@@ -5,17 +5,17 @@
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	mc:Ignorable="d"
 	x:Class="ShuffleBoard.ucScoreBoard"
-	d:DesignWidth="640" d:DesignHeight="480" Width="150" Height="80">
+	d:DesignWidth="640" d:DesignHeight="480" Width="130" Height="70">
 
-	<Canvas x:Name="LayoutRoot" Height="80" Width="150" Opacity="0.7" >
-		<Rectangle Fill="#FF50352C" RadiusY="6" RadiusX="6" Height="80" Width="150"/>
-		<StackPanel Height="70" Width="140" Orientation="Horizontal" Canvas.Left="5" Canvas.Top="5">
-			<Rectangle Fill="#FF07258B" Width="70" Height="80"/>
-			<Rectangle Fill="#FF952F1F" Width="70" Height="80"/>
+	<Canvas x:Name="LayoutRoot" Height="70" Width="130" Opacity="0.7" >
+		<Rectangle Fill="#FF50352C" RadiusY="6" RadiusX="6" Height="70" Width="130"/>
+		<StackPanel Height="60" Width="120" Orientation="Horizontal" Canvas.Left="5" Canvas.Top="5">
+			<Rectangle Fill="#FF07258B" Width="60" Height="60"/>
+			<Rectangle Fill="#FF952F1F" Width="60" Height="60"/>
 		</StackPanel>
-		<TextBlock Height="19" TextWrapping="Wrap" Text="BLUE" Width="73" Foreground="White" Canvas.Left="5" Canvas.Top="6" TextAlignment="Center" FontSize="13.333"/>
-		<TextBlock Height="19" TextWrapping="Wrap" Text="RED" Width="60" Foreground="White" Canvas.Left="82" Canvas.Top="6" TextAlignment="Center" FontSize="13.333"/>
-		<TextBlock x:Name="tbBlueScore" TextWrapping="Wrap" Text="0" Width="70" Height="44" Canvas.Left="8" Canvas.Top="31" Foreground="White" TextAlignment="Center" FontSize="32"/>
-		<TextBlock x:Name="tbRedScore" TextWrapping="Wrap" Text="0" Width="60" Height="44" Canvas.Left="82" Canvas.Top="31" Foreground="White" TextAlignment="Center" FontSize="32"/>
+		<TextBlock Height="19" TextWrapping="Wrap" Text="Friends" Width="63" Foreground="White" Canvas.Left="5" Canvas.Top="6" TextAlignment="Center" FontSize="13.333"/>
+		<TextBlock Height="19" TextWrapping="Wrap" Text="Enemy" Width="60" Foreground="White" Canvas.Left="62" Canvas.Top="6" TextAlignment="Center" FontSize="13.333"/>
+		<TextBlock x:Name="tbBlueScore" TextWrapping="Wrap" Text="0" Width="50" Height="34" Canvas.Left="8" Canvas.Top="21" Foreground="White" TextAlignment="Center" FontSize="32"/>
+		<TextBlock x:Name="tbRedScore" TextWrapping="Wrap" Text="0" Width="50" Height="34" Canvas.Left="72" Canvas.Top="21" Foreground="White" TextAlignment="Center" FontSize="32"/>
 	</Canvas>
 </UserControl>

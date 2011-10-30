@@ -20,10 +20,11 @@
 	</UserControl.Resources>
     
     <Grid x:Name="LayoutRoot">
-    	<Rectangle Fill="#FF50352C" RadiusY="14" RadiusX="14"/>
+        <Rectangle x:Name="RectangleBackground" Fill="DarkGreen" RadiusY="14" RadiusX="14"/>
     	<Rectangle Fill="#FFC4C4C4" Height="38" Margin="8,8,8,0" RadiusY="14" RadiusX="14" VerticalAlignment="Top"/>
-    	<TextBlock Margin="20,50,20,20" TextWrapping="Wrap" Text="It's your turn. Grab your puck, and good luck!" FontSize="24" Foreground="White" Height="85" VerticalAlignment="Top"/>
-    	<TextBlock x:Name="tbBluePlayer" Height="38" Margin="0,8,0,0" TextWrapping="Wrap" Text="BLUE PLAYER" VerticalAlignment="Top" Foreground="#FF151085" FontWeight="Bold" FontSize="29" TextAlignment="Center"/>
-    	<TextBlock x:Name="tbRedPlayer" Height="34" Margin="0,8,0,0" TextWrapping="Wrap" Text="RED PLAYER" VerticalAlignment="Top" Foreground="#FFBC1616" FontWeight="Bold" FontSize="29" TextAlignment="Center" Visibility="Collapsed"/>
+        <TextBlock x:Name="TextBlockWon" Margin="20,50,20,20" TextWrapping="Wrap" Text="You won!" FontSize="44" Foreground="White" Height="85" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <TextBlock x:Name="TextBlockLoose" Margin="20,50,20,20" TextWrapping="Wrap" Text="You lose!" FontSize="44" Foreground="White" Height="85" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+    	<TextBlock x:Name="TextBlockWonCaption" Height="38" Margin="0,8,0,0" TextWrapping="Wrap" Text="Congratulations" VerticalAlignment="Top" Foreground="#FF151085" FontWeight="Bold" FontSize="29" TextAlignment="Center"/>
+        <TextBlock x:Name="TextBlockLooseCaption" Height="34" Margin="0,8,0,0" TextWrapping="Wrap" Text="Play better next time!" VerticalAlignment="Top" Foreground="#FFBC1616" FontWeight="Bold" FontSize="29" TextAlignment="Center" Visibility="Collapsed"/>
     </Grid>
 </UserControl>

@@ -104,6 +104,12 @@
       <DependentUpon>Team.xaml</DependentUpon>
     </Compile>
     <Compile Include="Game1.cs" />
+    <Compile Include="ucPlayerUp.xaml.cs">
+      <DependentUpon>ucPlayerUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ucScoreBoard.xaml.cs">
+      <DependentUpon>ucScoreBoard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WaitingForOpponent.xaml.cs">
       <DependentUpon>WaitingForOpponent.xaml</DependentUpon>
     </Compile>
@@ -134,6 +140,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Team.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ucPlayerUp.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ucScoreBoard.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -108,7 +108,7 @@ namespace sdkSilverlightXNACS
 
             ballTexture = contentManager.Load<Texture2D>("Ball");
 
-            
+
             LoadGameWorld();
 
             greenTexture = contentManager.Load<Texture2D>("greenRect");
@@ -121,11 +121,20 @@ namespace sdkSilverlightXNACS
 
         private void LoadGameWorld()
         {
+            // remove all players
+            balls.Clear();
+            // no status about game here... yet
+            ControlGameStatus.Visibility = Visibility.Collapsed;
+
             if (GameState.GetInstance().FriendsTeam.Count < 1 || GameState.GetInstance().EnemyTeam.Count < 1)
             {
-                for (int i = 0; i < 8; i++)
+                for (int i = 0; i < 4; i++)
                 {
-                    RandomlyGenerateBall();
+                    RandomlyGenerateBall(true);
+                }
+                for (int i = 0; i < 4; i++)
+                {
+                    RandomlyGenerateBall(false);
                 }
             }
             else // there are players...
@@ -178,7 +187,7 @@ namespace sdkSilverlightXNACS
         {
             using (var face1FileStream = new MemoryStream())
             {
-                face1FileStream.Write(faceToUse, 0 , faceToUse.Count());
+                face1FileStream.Write(faceToUse, 0, faceToUse.Count());
                 face1FileStream.Flush();
                 var result = Texture2D.FromStream(SharedGraphicsDeviceManager.Current.GraphicsDevice, face1FileStream);
                 face1FileStream.Close();
@@ -213,22 +222,67 @@ namespace sdkSilverlightXNACS
 
         private void UpdateBalls()
         {
+            int enemyCounter = 0;
+            int friendsCounter = 0;
+
             Ball toRemoveBall = null;
             foreach (Ball ball in balls)
             {
+                GameState.GetInstance().IsGameStarted = true;
+
                 if (ball.IsOutsideOfBoard)
                 {
-
                     toRemoveBall = ball;
                 }
+                else
+                {
+                    if (ball.IsInMyTeam)
+                    {
+                        friendsCounter++;
+                    }
+                    else
+                    {
+                        enemyCounter++;
+                    }
+                }
+                // UPDATE
                 ball.Update();
             }
+            // REMOVE
             if (toRemoveBall != null)
             {
                 // TODO: add call to the server side...
                 balls.Remove(toRemoveBall);
                 _soundPuckHit.Play();
             }
+
+            ucScoreBoard1.BlueScore = friendsCounter;
+            ucScoreBoard1.RedScore = enemyCounter;
+
+            if (GameState.GetInstance().IsGameStarted)
+            {
+                if (enemyCounter == 0)
+                {
+                    // game just finished or not started at all...
+                    GameState.GetInstance().IsGameOver = true;
+                    GameState.GetInstance().IsGameStarted = false;
+
+                    ControlGameStatus.IsVictory = true;
+                    ControlGameStatus.Visibility = Visibility.Visible;
+                    balls.Clear();
+                }
+                else if (friendsCounter == 0)
+                {
+                    // game just finished or not started at all...
+                    GameState.GetInstance().IsGameOver = false;
+                    GameState.GetInstance().IsGameStarted = true;
+
+                    ControlGameStatus.IsVictory = false;
+                    ControlGameStatus.Visibility = Visibility.Visible;
+                    balls.Clear();
+                }
+            }
+
         }
 
         private void HandleTouches_HoldAndKickBall()
@@ -265,10 +319,10 @@ namespace sdkSilverlightXNACS
             }
         }
         Random _random = new Random(DateTime.Now.Millisecond);
-        private void RandomlyGenerateBall()
+        private void RandomlyGenerateBall(bool isInMyTeam)
         {
             // nothing was catched, let's generate void...
-            
+
             Vector2 velocity =
                 new Vector2((_random.NextDouble() > .5 ? -1 : 1) * _random.Next(5),
                             (_random.NextDouble() > .5 ? -1 : 1) * _random.Next(4)) + Vector2.UnitX + Vector2.UnitY;
@@ -276,15 +330,14 @@ namespace sdkSilverlightXNACS
             Vector2 center = new Vector2((float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width - 100,
                                          (float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height - 100);
             float radius = 50f;
-            
-            var isInMyTeam = _random.Next(20) % 2 == 1;
+
 
             Color ballColor = Color.Red;
-            if(isInMyTeam)
+            if (isInMyTeam)
             {
                 ballColor = Color.Blue;
-                center = new Vector2((float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width /2,
-                                         (float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height /2);
+                center = new Vector2((float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width / 2,
+                                         (float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height / 2);
             }
             var ball = new Ball(ballColor, ballTexture, center, velocity, radius);
             ball.IsInMyTeam = isInMyTeam;
@@ -309,7 +362,7 @@ namespace sdkSilverlightXNACS
 
         public void DrawLine()
         {
-            if (_catchedOne != null && _catchedOne.IsOnHold && ! _catchedOne.IsInMyTeam)
+            if (_catchedOne != null && _catchedOne.IsOnHold && !_catchedOne.IsInMyTeam)
             {
                 var r = _catchedOne.radius;
 
@@ -335,7 +388,7 @@ namespace sdkSilverlightXNACS
                 line.X2 = point2.X;
                 line.Y2 = point2.Y;
 
-                if(ContentPanelCanvas.Children.Count > 3)
+                if (ContentPanelCanvas.Children.Count > 3)
                 {
                     this.ContentPanelCanvas.Children.RemoveAt(ContentPanelCanvas.Children.Count - 1);
                 }
@@ -388,7 +441,7 @@ namespace sdkSilverlightXNACS
         /// <param name="e"></param>
         private void PlayAgain_Click(object sender, RoutedEventArgs e)
         {
-
+            
             LoadGameWorld();
             /*
             if (System.Windows.Visibility.Visible == ColorPanel.Visibility)
