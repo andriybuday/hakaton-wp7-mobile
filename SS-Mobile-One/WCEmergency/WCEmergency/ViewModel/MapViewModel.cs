@@ -89,7 +89,7 @@ namespace WCEmergency.ViewModel
             
                 if (CurrentToilet == null)
                 {
-                   CurrentToilet = new ToiletViewItem(new Toilet(){Coordinate = CurrentPosition},null);
+                   CurrentToilet = new ToiletViewItem(new Toilet(){Coordinate = CurrentPosition},null, _currentPosition);
                 }
                 else
                 {

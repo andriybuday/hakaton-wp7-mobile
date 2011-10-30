@@ -25,9 +25,6 @@ namespace WCEmergency.View
         {
             InitializeComponent();
             CreateAppBar();
-
-            hourSelector = new TimeSpanLoopingSelector();
-            minuteSelector = new TimeSpanLoopingSelector();
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
