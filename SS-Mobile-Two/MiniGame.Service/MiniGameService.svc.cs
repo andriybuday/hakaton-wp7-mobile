@@ -62,64 +62,73 @@ namespace MiniGame.Service
 
         private void SetStartTime()
         {
-            if (_state.BothTeamReady)
-            {               
-                RestartGame(_state.Team1.Name);
+            lock (_state)
+            {
+                if (_state.BothTeamReady)
+                {
+                    RestartGame(_state.Team1.Name);
+                }
             }
         }
 
 
         public GameStateChanges GetMyInfo(GameStateChanges myTeamInfo)
         {
-            Team myTeam = _state.GetTeamByName(myTeamInfo.TeamName);
-
-            myTeam.BombCount -= myTeamInfo.BombsRemoved;
-            myTeam.EnemyCount -= myTeamInfo.EnemiesRemoved;
-            myTeam.MeCount -= myTeamInfo.FriendsRemoved;
-
-            Team otherTeam = GetEnemyTeam(myTeamInfo.TeamName);
-
-            otherTeam.BombCount += myTeamInfo.EnemiesRemoved;
-            otherTeam.LatestChanges = new GameStateChanges() { BombsAdded = myTeamInfo.EnemiesRemoved };
-
-            var latestChanges = myTeam.LatestChanges;
-            myTeam.LatestChanges = new GameStateChanges();
-
-            if (myTeamInfo.IsGameOver || _state.IsGameOver)
+            lock (_state)
             {
-                latestChanges.IsGameOver = true;
-                if (GetEnemyTeam(myTeamInfo.TeamName).IsWinner)
+                Team myTeam = _state.GetTeamByName(myTeamInfo.TeamName);
+
+                myTeam.BombCount -= myTeamInfo.BombsRemoved;
+                myTeam.EnemyCount -= myTeamInfo.EnemiesRemoved;
+                myTeam.MeCount -= myTeamInfo.FriendsRemoved;
+
+                Team otherTeam = GetEnemyTeam(myTeamInfo.TeamName);
+
+                otherTeam.BombCount += myTeamInfo.EnemiesRemoved;
+                otherTeam.LatestChanges = new GameStateChanges() {BombsAdded = myTeamInfo.EnemiesRemoved};
+
+                var latestChanges = myTeam.LatestChanges;
+                myTeam.LatestChanges = new GameStateChanges();
+
+                if (myTeamInfo.IsGameOver || _state.IsGameOver)
                 {
-                    latestChanges.IsWinner = false;
+                    latestChanges.IsGameOver = true;
+                    if (GetEnemyTeam(myTeamInfo.TeamName).IsWinner)
+                    {
+                        latestChanges.IsWinner = false;
+                    }
+                    else
+                    {
+                        latestChanges.IsWinner = true;
+                        myTeam.IsWinner = true;
+                    }
                 }
-                else
-                {
-                    latestChanges.IsWinner = true;
-                    myTeam.IsWinner = true;
-                }
+            
+                return latestChanges;
             }
-            return latestChanges;
         }
 
         public void RestartGame(string myName)
         {
+            lock (_state)
+            {
+                Team myTeam = _state.GetTeamByName(myName);
+                Team otherTeam = GetEnemyTeam(myName);
 
-            Team myTeam = _state.GetTeamByName(myName);
-            Team otherTeam = GetEnemyTeam(myName);
+                myTeam.IsWinner = false;
+                myTeam.BombCount = 1;
+                myTeam.EnemyCount = otherTeam.Heros.Count;
+                myTeam.MeCount = myTeam.Heros.Count;
+                myTeam.LatestChanges = new GameStateChanges();
 
-            myTeam.IsWinner = false;
-            myTeam.BombCount = 1;
-            myTeam.EnemyCount = otherTeam.Heros.Count;
-            myTeam.MeCount = myTeam.Heros.Count;
-            myTeam.LatestChanges = new GameStateChanges();
+                otherTeam.IsWinner = false;
+                otherTeam.BombCount = 1;
+                otherTeam.EnemyCount = myTeam.Heros.Count;
+                otherTeam.MeCount = otherTeam.Heros.Count;
+                otherTeam.LatestChanges = new GameStateChanges();
 
-            otherTeam.IsWinner = false;
-            otherTeam.BombCount = 1;
-            otherTeam.EnemyCount = myTeam.Heros.Count;
-            otherTeam.MeCount = otherTeam.Heros.Count;
-            otherTeam.LatestChanges = new GameStateChanges();
-
-            _state.StartTime = DateTime.Now;
+                _state.StartTime = DateTime.Now;
+            }
         }
     }
 }
