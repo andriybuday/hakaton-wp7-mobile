@@ -56,8 +56,8 @@ namespace WCEmergency.Service
                                    Id = 1,
                                    Name = "McDonalds, st. V.Velukogo, 24а.",
                                    Description = "Good, nice and free toilet for McDonalds visitors",
-                                   Coordinate = new GeoCoordinate(){Latitude = 49.839683, Longitude = 24.029717, Altitude = 0},
-                                   Sex = Sex.Unisex,
+                                   Coordinate = new GeoCoordinate(){Latitude = 49.81545, Longitude = 24.00187, Altitude = 0},
+                                   Sex = Sex.Unisex, 	
                                    Rate = 10,
                                    Picture = LoadFromFile(@"D:\_Data\V.png")
                                },
@@ -66,8 +66,8 @@ namespace WCEmergency.Service
                                    Id = 2,
                                    Name = "McDonalds, st. V.Velukogo, 24а.",
                                    Description = "Good, nice and free toilet for McDonalds visitors",
-                                   Coordinate = new GeoCoordinate(){Latitude = 49.839683, Longitude = 24.029717, Altitude = 0},
-                                   Sex = Sex.Unisex,
+                                   Coordinate = new GeoCoordinate(){Latitude = 49.81179, Longitude = 23.98642, Altitude = 0},
+                                   Sex = Sex.Unisex,//	
                                    Rate = 10,
                                    Picture = LoadFromFile(@"D:\_Data\V.png")
                                },
