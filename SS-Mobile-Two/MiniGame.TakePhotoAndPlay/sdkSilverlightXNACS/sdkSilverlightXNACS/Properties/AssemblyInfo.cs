@@ -20,9 +20,9 @@ using System.Resources;
 [assembly: AssemblyTitle("sdkSilverlightXNACS")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("sdkSilverlightXNACS")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2011")]
+[assembly: AssemblyCompany("Hakaton SS-Mobile-Two")]
+[assembly: AssemblyProduct("Face2Face")]
+[assembly: AssemblyCopyright("Copyright © SS-Mobile-Two 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
