@@ -14,27 +14,35 @@ namespace MiniGame.DataModel
         {
             return _instance ?? (_instance = new MultiplayerGameState()
                                                  {
-                                                     FriendsTeam = new List<Hero>(), 
-                                                     EnemyTeam = new List<Hero>()
+                                                     Team1 = new Team(),
+                                                     Team2 = new Team()
                                                  });
+        }
+
+        public Team Team1 { get; set; }
+
+        public Team Team2 { get; set; }
+
+        public Team GetTeamByName(string name)
+        {
+            if (Team1.Name == name)
+                return Team1;
+            if (Team2.Name == name)
+                return Team2;
+            return null;
         }
 
         public bool IsGameStarted { get; set; }
 
         public bool IsGameOver { get; set; }
 
-        public IList<Hero> FriendsTeam { get; set; }
-
-        public IList<Hero> EnemyTeam { get; set; }
-
-        public WriteableBitmap Background { get; set; }
-
-        public bool AmIReady { get; set; }
-
-        public bool IsEnemyReady { get; set; }
-
-        public int Player1WonInSeconds { get; set; }
-
-        public int Player2WonInSeconds { get; set; }
+        public bool IsReadyToStart
+        {
+            get
+            {
+                return !IsGameStarted && Team1 != null && Team2 != null && Team1.IsConfirmedStart &&
+                       Team2.IsConfirmedStart;
+            }
+        }
     }
 }

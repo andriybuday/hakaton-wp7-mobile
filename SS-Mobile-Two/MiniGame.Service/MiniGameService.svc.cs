@@ -5,20 +5,40 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using MiniGame.DataModel;
 
 namespace MiniGame.Service
 {
     public class MiniGameService : IMiniGameService
     {
+        private MultiplayerGameState _state = MultiplayerGameState.GetInstance();
 
-        public string GetState(string currrentPosition)
+        public string RegisterMe()
         {
-            return "OK";
+            lock (_state)
+            {
+                if (string.IsNullOrEmpty(_state.Team1.Name))
+                    _state.Team1.Name = new Guid().ToString();
+            }
+            return _state.Team1.Name;
         }
 
-        public bool Start(string player)
+        public bool SetTeam(string myName, IList<HeroDataContact> myHeros)
         {
+            foreach(HeroDataContact hero in myHeros)
+            {
+                _state.GetTeamByName(myName).Heros.Add(hero);
+            }
             return true;
+        }
+
+        public IList<HeroDataContact> GetEnemyTeam(string myTeamName)
+        {
+            if (myTeamName == _state.Team1.Name)
+                return _state.Team2.Heros;
+            if (myTeamName == _state.Team2.Name)
+                return _state.Team1.Heros;
+            return null;
         }
     }
 }

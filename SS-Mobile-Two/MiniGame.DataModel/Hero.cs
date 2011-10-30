@@ -16,7 +16,7 @@ namespace MiniGame.DataModel
                        {
                            IsInYourTeam = IsInYourTeam,
                            Name = Name,
-                           MemberPhoto = ImageHelper.ToByteArrayA(MemberPhoto)
+                           MemberPhoto = ImageHelper.ToByteArrayB(MemberPhoto)
                        };
         }
     }

@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using MiniGame.DataModel;
 
 
 namespace MiniGame.Service
@@ -13,10 +14,13 @@ namespace MiniGame.Service
     public interface IMiniGameService
     {
         [OperationContract]
-        string GetState(string currrentPosition);
+        string RegisterMe();
 
         [OperationContract]
-        bool Start(string player);
+        bool SetTeam(string myName, IList<HeroDataContact> myHeros);
+
+        [OperationContract]
+        IList<HeroDataContact> GetEnemyTeam(string myTeamName);
     }
 
 }
