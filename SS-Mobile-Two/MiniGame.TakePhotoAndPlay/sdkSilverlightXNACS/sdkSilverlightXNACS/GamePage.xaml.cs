@@ -135,7 +135,10 @@ namespace sdkSilverlightXNACS
 
         private void LoadGameWorld()
         {
-
+            if (_timer != null)
+            {
+                _timer.Change(0, 3000);
+            }
             // remove all players
             balls.Clear();
             // no status about game here... yet
@@ -337,6 +340,8 @@ namespace sdkSilverlightXNACS
                 }
                 if (result.IsGameOver)
                 {
+                    _timer.Change(10000, 10000);
+
                     if (result.IsWinner)
                     {
                         WinGame();
@@ -363,6 +368,7 @@ namespace sdkSilverlightXNACS
             ControlGameStatus.IsVictory = true;
             ControlGameStatus.Visibility = Visibility.Visible;
             balls.Clear();
+            _timer.Change(10000, 10000);
         }
 
         private void LoseGame()
@@ -379,6 +385,7 @@ namespace sdkSilverlightXNACS
             ControlGameStatus.IsVictory = false;
             ControlGameStatus.Visibility = Visibility.Visible;
             balls.Clear();
+            _timer.Change(10000, 10000);
         }
 
         private void FinishGameWithBomb()
@@ -395,6 +402,7 @@ namespace sdkSilverlightXNACS
             ImageFinishedWithBomb.Visibility = Visibility.Visible;
             ControlGameStatus.IsVictory = false;
             ControlGameStatus.Visibility = Visibility.Visible;
+            _timer.Change(10000, 10000);
         }
         #endregion Finish game.. .
 
