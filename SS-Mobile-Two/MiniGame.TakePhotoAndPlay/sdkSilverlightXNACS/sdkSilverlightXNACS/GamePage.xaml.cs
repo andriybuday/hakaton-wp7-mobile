@@ -20,6 +20,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
+using System.Windows.Shapes;
 using BouncingBalls;
 using Microsoft.Phone.Controls;
 using Microsoft.Xna.Framework;
@@ -29,6 +30,7 @@ using Microsoft.Xna.Framework.Input.Touch;
 using Spritehand.FarseerHelper;
 using sdkSilverlightXNACS.Storage;
 using Color = Microsoft.Xna.Framework.Color;
+using Point = System.Windows.Point;
 
 namespace sdkSilverlightXNACS
 {
@@ -201,15 +203,15 @@ namespace sdkSilverlightXNACS
             Ball toRemoveBall = null;
             foreach (Ball ball in balls)
             {
-                if(ball.IsOutsideOfBoard)
+                if (ball.IsOutsideOfBoard)
                 {
-                    
+
                     toRemoveBall = ball;
                 }
 
                 ball.Update();
             }
-            if(toRemoveBall != null)
+            if (toRemoveBall != null)
             {
                 // TODO: add call to the server side...
                 balls.Remove(toRemoveBall);
@@ -245,7 +247,7 @@ namespace sdkSilverlightXNACS
                 if (tl.State == TouchLocationState.Pressed)
                 {
                     _catchedOne = GetCatchedBall(tl.Position);
-                    if(_catchedOne != null)
+                    if (_catchedOne != null)
                     {
                         _catchedOne.IsOnHold = true;
                         _catchedOne.PressedTopLeftPosition = _catchedOne.TopLeftPosition;
@@ -255,7 +257,7 @@ namespace sdkSilverlightXNACS
                 }
                 else if (tl.State == TouchLocationState.Moved)
                 {
-                    if(_catchedOne != null)
+                    if (_catchedOne != null)
                     {
                         _catchedOne.HoldingPosition = tl.Position;
                     }
@@ -266,22 +268,22 @@ namespace sdkSilverlightXNACS
                     {
 
                         _catchedOne.IsOnHold = false;
-                    }                    
+                    }
                 }
             }
         }
 
         private void RandomlyGenerateBall()
         {
-// nothing was catched, let's generate void...
+            // nothing was catched, let's generate void...
             Random random = new Random(DateTime.Now.Millisecond);
             Color ballColor = new Color(random.Next(255), random.Next(255), random.Next(255));
             Vector2 velocity =
-                new Vector2((random.NextDouble() > .5 ? -1 : 1)*random.Next(3),
-                            (random.NextDouble() > .5 ? -1 : 1)*random.Next(3)) + Vector2.UnitX + Vector2.UnitY;
-            Vector2 center = new Vector2((float) SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width/2,
-                                         (float) SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height/2);
-            float radius = 5f*(float) random.NextDouble() + 65f;
+                new Vector2((random.NextDouble() > .5 ? -1 : 1) * random.Next(3),
+                            (random.NextDouble() > .5 ? -1 : 1) * random.Next(3)) + Vector2.UnitX + Vector2.UnitY;
+            Vector2 center = new Vector2((float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width / 2,
+                                         (float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height / 2);
+            float radius = 5f * (float)random.NextDouble() + 65f;
             balls.Add(new Ball(ballColor, ballTexture, center, velocity, radius));
         }
 
@@ -292,12 +294,56 @@ namespace sdkSilverlightXNACS
                 var xDiff = Math.Abs(ball.CenterPosition.X - position.X);
                 var yDiff = Math.Abs(ball.CenterPosition.Y - position.Y);
 
-                if(xDiff < 65 && yDiff < 65)
+                if (xDiff < 65 && yDiff < 65)
                 {
                     return ball;
                 }
             }
             return null;
+        }
+
+
+        public void DrawLine()
+        {
+            if(_catchedOne != null && _catchedOne.IsOnHold)
+            {
+                var r = _catchedOne.radius;
+
+                Line line = new Line();
+                line.Stroke = new SolidColorBrush(Colors.White);
+                line.StrokeThickness = 5;
+
+                Point point1 = new Point();
+                //var prevCenter = _catchedOne.GetCenterLocation(_catchedOne.PressedTopLeftPosition);
+                var prevCenter = _catchedOne.PressedTopLeftPosition;
+                //var center = _catchedOne.GetCenterLocation(_catchedOne.TopLeftPosition);
+                var center = _catchedOne.TopLeftPosition;
+
+                point1.X = prevCenter.X + r;
+                point1.Y = prevCenter.Y;
+
+                Point point2 = new Point();
+                point2.X = center.X + r;
+                point2.Y = center.Y;
+
+                line.X1 = point1.X;
+                line.Y1 = point1.Y;
+                line.X2 = point2.X;
+                line.Y2 = point2.Y;
+
+                if(ContentPanelCanvas.Children.Count > 3)
+                {
+                    this.ContentPanelCanvas.Children.RemoveAt(ContentPanelCanvas.Children.Count - 1);
+                }
+                this.ContentPanelCanvas.Children.Add(line);
+            }
+            else
+            {
+                if (ContentPanelCanvas.Children.Count > 3)
+                {
+                    this.ContentPanelCanvas.Children.RemoveAt(ContentPanelCanvas.Children.Count - 1);
+                }
+            }
         }
 
         /// <summary>
@@ -369,6 +415,10 @@ namespace sdkSilverlightXNACS
             spriteBatch.Draw(elementRenderer.Texture, Vector2.Zero, Color.White);
 
             spriteBatch.End();
+
+            // Drawing Silverlight
+
+            DrawLine();
         }
 
 

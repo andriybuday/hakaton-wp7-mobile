@@ -28,11 +28,16 @@ namespace BouncingBalls
         {
             get
             {
-                return new Vector2(TopLeftPosition.X + radius, TopLeftPosition.Y + radius);
+                return GetCenterLocation(TopLeftPosition);
             }
         }
-        
-        float radius;
+
+        public Vector2 GetCenterLocation(Vector2 topLeftPosition)
+        {
+            return new Vector2(topLeftPosition.X + radius, topLeftPosition.Y + radius);
+        }
+
+        public float radius;
         float scale;
 
         public Ball(Color color, Texture2D texture, Vector2 center, Vector2 velocity, float radius)

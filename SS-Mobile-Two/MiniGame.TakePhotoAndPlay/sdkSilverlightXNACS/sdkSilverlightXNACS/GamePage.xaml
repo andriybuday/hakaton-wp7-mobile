@@ -32,7 +32,13 @@
         </Grid.RowDefinitions>
 
         <!-- Toggles the visibility of the ColorPanel -->
-        <Button Grid.Row="0" Click="ColorPanelToggleButton_Click" Margin="1,0,-1,0">Toggle Color Panel</Button>
+        <!--<Button Grid.Row="0" Click="ColorPanelToggleButton_Click" Margin="1,0,-1,0">Toggle Color Panel</Button>-->
+
+        <Canvas x:Name="ContentPanelCanvas" Grid.Row="1" Background="Transparent" Margin="12,0,12,0">
+            <Line X1="100" Y1="50" X2="380" Y2="50" Stroke="Green" StrokeThickness="10"/>
+            <Line X1="100" Y1="80" X2="100" Y2="50" Stroke="Green" StrokeThickness="5"/>
+            <Line X1="380" Y1="80" X2="380" Y2="50" Stroke="Green" StrokeThickness="5"/>
+        </Canvas>
 
         <!-- Arrange buttons in a horizontal line by using StackPanel -->
         <StackPanel x:Name="ColorPanel" Grid.Row="2"  Height="100" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="Visible">
