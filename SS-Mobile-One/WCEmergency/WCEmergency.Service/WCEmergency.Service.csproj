@@ -80,10 +80,6 @@
       <Project>{49DD4065-7EF4-4899-BE5A-4EF3DE131D00}</Project>
       <Name>WCEmergency.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WCEmergency.DataLayer\WCEmergency.DataLayer.csproj">
-      <Project>{2FADA92F-DFCB-4900-9154-CB11AE7BAD6C}</Project>
-      <Name>WCEmergency.DataLayer</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
