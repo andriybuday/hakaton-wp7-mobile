@@ -297,7 +297,6 @@ namespace sdkSilverlightXNACS
                 {
                     gameStateChanges.EnemiesRemoved = 1;
                 }
-                gameStateChanges.FriendsRemoved = 1;
 
                 if (GameState.GetInstance().IsMultiPlayerGame.GetValueOrDefault(false))
                 {
