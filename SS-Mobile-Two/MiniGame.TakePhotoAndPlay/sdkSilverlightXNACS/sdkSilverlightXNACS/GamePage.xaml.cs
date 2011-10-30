@@ -15,6 +15,7 @@ using System.IO;
 using System.IO.IsolatedStorage;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -51,6 +52,7 @@ namespace sdkSilverlightXNACS
 
         // A variety of rectangle colors
         Texture2D bombTexture;
+        private Timer _timer;
 
         // For rendering the XAML onto a texture
         UIElementRenderer elementRenderer;
@@ -114,7 +116,15 @@ namespace sdkSilverlightXNACS
             // Start the timer
             timer.Start();
 
+            _timer = new Timer(PingServiceCallBack,null,0,2500);
+
             base.OnNavigatedTo(e);
+        }
+
+        private void PingServiceCallBack(object state)
+        {
+            //TODO: call service to get status...
+            //call LoseGame or WinGame accordingly... 
         }
 
         private void AddBombTwoTheWorld()
@@ -124,13 +134,12 @@ namespace sdkSilverlightXNACS
 
         private void LoadGameWorld()
         {
-            
 
             // remove all players
             balls.Clear();
             // no status about game here... yet
             ControlGameStatus.Visibility = Visibility.Collapsed;
-
+            ImageFinishedWithBomb.Visibility = Visibility.Collapsed;
             AddBombTwoTheWorld();
 
             if (GameState.GetInstance().FriendsTeam.Count < 1 || GameState.GetInstance().EnemyTeam.Count < 1)
@@ -213,7 +222,6 @@ namespace sdkSilverlightXNACS
             base.OnNavigatedFrom(e);
         }
 
-
         /// <summary>
         /// Allows the page to run logic such as updating the world,
         /// checking for collisions, gathering input, and playing audio.
@@ -237,20 +245,17 @@ namespace sdkSilverlightXNACS
             {
                 GameState.GetInstance().IsGameStarted = true;
 
-                if (ball.IsOutsideOfBoard)
+                if (ball.BallIs == BallIs.IsOutsideOfBoard)
                 {
                     toRemoveBall = ball;
                 }
-                else
+                else if (ball.BallIs == BallIs.Friend)
                 {
-                    if (ball.BallIs == BallIs.Friend)
-                    {
-                        friendsCounter++;
-                    }
-                    else if (ball.BallIs == BallIs.Enemy)
-                    {
-                        enemyCounter++;
-                    }
+                    friendsCounter++;
+                }
+                else if (ball.BallIs == BallIs.Enemy)
+                {
+                    enemyCounter++;
                 }
                 // UPDATE
                 ball.Update();
@@ -270,27 +275,48 @@ namespace sdkSilverlightXNACS
             {
                 if (enemyCounter == 0 && friendsCounter > 0)
                 {
-                    // game just finished or not started at all...
-                    GameState.GetInstance().IsGameOver = true;
-                    GameState.GetInstance().IsGameStarted = false;
-
-                    ControlGameStatus.IsVictory = true;
-                    ControlGameStatus.Visibility = Visibility.Visible;
-                    balls.Clear();
+                    WinGame();
                 }
                 else if (friendsCounter == 0 && enemyCounter > 0)
                 {
-                    // game just finished or not started at all...
-                    GameState.GetInstance().IsGameOver = true;
-                    GameState.GetInstance().IsGameStarted = false;
-
-                    ControlGameStatus.IsVictory = false;
-                    ControlGameStatus.Visibility = Visibility.Visible;
-                    balls.Clear();
+                    LoseGame();
                 }
             }
 
         }
+        #region Finish game.. .
+        private void WinGame()
+        {
+            // game just finished or not started at all...
+            GameState.GetInstance().IsGameOver = true;
+            GameState.GetInstance().IsGameStarted = false;
+
+            ControlGameStatus.IsVictory = true;
+            ControlGameStatus.Visibility = Visibility.Visible;
+            balls.Clear();
+        }
+
+        private void LoseGame()
+        {
+            // game just finished or not started at all...
+            GameState.GetInstance().IsGameOver = true;
+            GameState.GetInstance().IsGameStarted = false;
+
+            ControlGameStatus.IsVictory = false;
+            ControlGameStatus.Visibility = Visibility.Visible;
+            balls.Clear();
+        }
+
+        private void FinishGameWithBomb()
+        {
+            balls.Clear();
+            GameState.GetInstance().IsGameOver = true;
+            GameState.GetInstance().IsGameStarted = false;
+            ImageFinishedWithBomb.Visibility = Visibility.Visible;
+            ControlGameStatus.IsVictory = false;
+            ControlGameStatus.Visibility = Visibility.Visible;
+        }
+        #endregion Finish game.. .
 
         private void HandleTouches_HoldAndKickBall()
         {
@@ -302,6 +328,11 @@ namespace sdkSilverlightXNACS
                     _catchedOne = GetCatchedBall(tl.Position);
                     if (_catchedOne != null)
                     {
+                        if(_catchedOne.BallIs == BallIs.Bomb)
+                        {
+                            FinishGameWithBomb();
+                        }
+
                         _catchedOne.IsOnHold = true;
                         _catchedOne.PressedTopLeftPosition = _catchedOne.TopLeftPosition;
                         _catchedOne.PressedPosition = tl.Position;
@@ -325,6 +356,9 @@ namespace sdkSilverlightXNACS
                 }
             }
         }
+
+
+
         Random _random = new Random(DateTime.Now.Millisecond);
         private void RandomlyGenerateBall(BallIs ballIs)
         {
@@ -347,7 +381,7 @@ namespace sdkSilverlightXNACS
                                          (float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height / 2);
             }
             var texture = ballTexture;
-            if(ballIs == BallIs.Bomb)
+            if (ballIs == BallIs.Bomb)
             {
                 texture = bombTexture;
                 ballColor = Color.White;
@@ -402,7 +436,7 @@ namespace sdkSilverlightXNACS
                 line.X2 = point2.X;
                 line.Y2 = point2.Y;
 
-                if (ContentPanelCanvas.Children.Count > 3)
+                if (ContentPanelCanvas.Children.Count > 4)
                 {
                     this.ContentPanelCanvas.Children.RemoveAt(ContentPanelCanvas.Children.Count - 1);
                 }
@@ -410,7 +444,7 @@ namespace sdkSilverlightXNACS
             }
             else
             {
-                if (ContentPanelCanvas.Children.Count > 3)
+                if (ContentPanelCanvas.Children.Count > 4)
                 {
                     this.ContentPanelCanvas.Children.RemoveAt(ContentPanelCanvas.Children.Count - 1);
                 }
@@ -448,58 +482,9 @@ namespace sdkSilverlightXNACS
         }
 
 
-        /// <summary>
-        /// Toggle the visibility of the StackPanel named "ColorPanel"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void PlayAgain_Click(object sender, RoutedEventArgs e)
         {
-            
             LoadGameWorld();
-            /*
-            if (System.Windows.Visibility.Visible == ColorPanel.Visibility)
-            {
-                ColorPanel.Visibility = System.Windows.Visibility.Collapsed;
-            }
-            else
-            {
-                ColorPanel.Visibility = System.Windows.Visibility.Visible;
-            }
-            */
-        }
-
-
-        /// <summary>
-        /// Switches to the red rectangle
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void redButton_Click(object sender, RoutedEventArgs e)
-        {
-            ReloadTeams();
-        }
-
-        /// <summary>
-        /// Switches to the green rectangle
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void greenButton_Click(object sender, RoutedEventArgs e)
-        {
-            //texture = bombTexture;
-            ReloadTeams();
-        }
-
-
-        /// <summary>
-        /// Switches to the blue rectangle 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void blueButton_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

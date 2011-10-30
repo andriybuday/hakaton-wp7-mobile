@@ -12,7 +12,8 @@ namespace BouncingBalls
     {
         Friend,
         Enemy,
-        Bomb
+        Bomb,
+        IsOutsideOfBoard
     }
 
     class Ball
@@ -28,7 +29,6 @@ namespace BouncingBalls
         public Vector2 PressedPosition;
         public Vector2 HoldingPosition;
         public bool IsOnHold { get; set; }
-        public bool IsOutsideOfBoard { get; set; }
 
 
         public BallIs BallIs { get; set; }
@@ -109,12 +109,12 @@ namespace BouncingBalls
                 bottom = newTopLeft.Y + (radius * 2);
 
 
-                if(top < 50 && left > 100 && right < 280)
+                if(top < 50 && left > 100 && left < 280)
                 {
                     // bombs are not leaving field of battle..
                     if (BallIs != BallIs.Bomb)
                     {
-                        IsOutsideOfBoard = true;
+                        BallIs = BallIs.IsOutsideOfBoard;
                     }
                 }
 
