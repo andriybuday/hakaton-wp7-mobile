@@ -94,6 +94,7 @@
     <Compile Include="ApplicationHome.xaml.cs">
       <DependentUpon>ApplicationHome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\BytesToImageConverter.cs" />
     <Compile Include="Service References\MiniGameService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

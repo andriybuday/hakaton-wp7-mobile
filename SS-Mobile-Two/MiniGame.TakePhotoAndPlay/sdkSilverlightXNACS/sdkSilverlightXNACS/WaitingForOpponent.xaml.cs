@@ -51,8 +51,7 @@ namespace sdkSilverlightXNACS
 
         private void Player2IsReady()
         {
-            //MessageBox.Show("Other player is ready. Starting game");
-            NavigationService.Navigate(new Uri("/GamePage.xaml", UriKind.Relative));
+            this.Dispatcher.BeginInvoke(() => NavigationService.Navigate(new Uri("/GamePage.xaml", UriKind.Relative)));
         }
     }
 }

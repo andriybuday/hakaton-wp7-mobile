@@ -6,8 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:Controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
-    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
+    xmlns:Controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls" xmlns:Converters="clr-namespace:sdkSilverlightXNACS.Converters" mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -15,6 +14,8 @@
     shell:SystemTray.IsVisible="False">
 
     <phone:PhoneApplicationPage.Resources>
+        <Converters:BytesToImageConverter x:Key="BytesToImageConverter" />
+
         <Style TargetType="ListBox" x:Key="TeamMembersListBoxStyle">
             <Setter Property="Padding" Value="0" />
             <Setter Property="Margin" Value="0" />
@@ -24,7 +25,7 @@
                     <DataTemplate>
                         <StackPanel Orientation="Vertical" Margin="10 20 0 0" HorizontalAlignment="Stretch">
                             <TextBlock Text="{Binding Name}" Height="40"></TextBlock>
-                            <Image Source="{Binding MemberPhoto}" Height="200"/>
+                            <Image Source="{Binding MemberPhoto, Converter={StaticResource BytesToImageConverter}}" Height="200"/>
                         </StackPanel>
                     </DataTemplate>
                 </Setter.Value>
