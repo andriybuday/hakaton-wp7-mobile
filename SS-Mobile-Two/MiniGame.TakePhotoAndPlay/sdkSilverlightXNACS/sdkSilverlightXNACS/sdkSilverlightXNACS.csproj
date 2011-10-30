@@ -169,6 +169,9 @@
     <None Include="Service References\MiniGameService\MiniGameService1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Icons\Bomb-icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
