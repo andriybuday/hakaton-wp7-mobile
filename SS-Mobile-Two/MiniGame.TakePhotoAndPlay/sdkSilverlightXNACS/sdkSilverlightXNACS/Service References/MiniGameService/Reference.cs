@@ -75,6 +75,261 @@ namespace sdkSilverlightXNACS.MiniGameService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Team", Namespace="http://schemas.datacontract.org/2004/07/MiniGame.DataContractsShared")]
+    public partial class Team : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int BombCountField;
+        
+        private int EnemyCountField;
+        
+        private System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact> HerosField;
+        
+        private bool IsConfirmedStartField;
+        
+        private bool IsWinnerField;
+        
+        private sdkSilverlightXNACS.MiniGameService.GameStateChanges LatestChangesField;
+        
+        private int MeCountField;
+        
+        private string NameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int BombCount {
+            get {
+                return this.BombCountField;
+            }
+            set {
+                if ((this.BombCountField.Equals(value) != true)) {
+                    this.BombCountField = value;
+                    this.RaisePropertyChanged("BombCount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int EnemyCount {
+            get {
+                return this.EnemyCountField;
+            }
+            set {
+                if ((this.EnemyCountField.Equals(value) != true)) {
+                    this.EnemyCountField = value;
+                    this.RaisePropertyChanged("EnemyCount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact> Heros {
+            get {
+                return this.HerosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.HerosField, value) != true)) {
+                    this.HerosField = value;
+                    this.RaisePropertyChanged("Heros");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsConfirmedStart {
+            get {
+                return this.IsConfirmedStartField;
+            }
+            set {
+                if ((this.IsConfirmedStartField.Equals(value) != true)) {
+                    this.IsConfirmedStartField = value;
+                    this.RaisePropertyChanged("IsConfirmedStart");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsWinner {
+            get {
+                return this.IsWinnerField;
+            }
+            set {
+                if ((this.IsWinnerField.Equals(value) != true)) {
+                    this.IsWinnerField = value;
+                    this.RaisePropertyChanged("IsWinner");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public sdkSilverlightXNACS.MiniGameService.GameStateChanges LatestChanges {
+            get {
+                return this.LatestChangesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LatestChangesField, value) != true)) {
+                    this.LatestChangesField = value;
+                    this.RaisePropertyChanged("LatestChanges");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MeCount {
+            get {
+                return this.MeCountField;
+            }
+            set {
+                if ((this.MeCountField.Equals(value) != true)) {
+                    this.MeCountField = value;
+                    this.RaisePropertyChanged("MeCount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GameStateChanges", Namespace="http://schemas.datacontract.org/2004/07/MiniGame.DataContractsShared")]
+    public partial class GameStateChanges : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int BombsAddedField;
+        
+        private int BombsRemovedField;
+        
+        private int EnemiesRemovedField;
+        
+        private int FriendsRemovedField;
+        
+        private bool IsGameOverField;
+        
+        private bool IsWinnerField;
+        
+        private string TeamNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int BombsAdded {
+            get {
+                return this.BombsAddedField;
+            }
+            set {
+                if ((this.BombsAddedField.Equals(value) != true)) {
+                    this.BombsAddedField = value;
+                    this.RaisePropertyChanged("BombsAdded");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int BombsRemoved {
+            get {
+                return this.BombsRemovedField;
+            }
+            set {
+                if ((this.BombsRemovedField.Equals(value) != true)) {
+                    this.BombsRemovedField = value;
+                    this.RaisePropertyChanged("BombsRemoved");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int EnemiesRemoved {
+            get {
+                return this.EnemiesRemovedField;
+            }
+            set {
+                if ((this.EnemiesRemovedField.Equals(value) != true)) {
+                    this.EnemiesRemovedField = value;
+                    this.RaisePropertyChanged("EnemiesRemoved");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FriendsRemoved {
+            get {
+                return this.FriendsRemovedField;
+            }
+            set {
+                if ((this.FriendsRemovedField.Equals(value) != true)) {
+                    this.FriendsRemovedField = value;
+                    this.RaisePropertyChanged("FriendsRemoved");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsGameOver {
+            get {
+                return this.IsGameOverField;
+            }
+            set {
+                if ((this.IsGameOverField.Equals(value) != true)) {
+                    this.IsGameOverField = value;
+                    this.RaisePropertyChanged("IsGameOver");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsWinner {
+            get {
+                return this.IsWinnerField;
+            }
+            set {
+                if ((this.IsWinnerField.Equals(value) != true)) {
+                    this.IsWinnerField = value;
+                    this.RaisePropertyChanged("IsWinner");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TeamName {
+            get {
+                return this.TeamNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TeamNameField, value) != true)) {
+                    this.TeamNameField = value;
+                    this.RaisePropertyChanged("TeamName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MiniGameService.IMiniGameService")]
     public interface IMiniGameService {
@@ -92,7 +347,12 @@ namespace sdkSilverlightXNACS.MiniGameService {
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMiniGameService/GetEnemyTeam", ReplyAction="http://tempuri.org/IMiniGameService/GetEnemyTeamResponse")]
         System.IAsyncResult BeginGetEnemyTeam(string myTeamName, System.AsyncCallback callback, object asyncState);
         
-        System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact> EndGetEnemyTeam(System.IAsyncResult result);
+        sdkSilverlightXNACS.MiniGameService.Team EndGetEnemyTeam(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMiniGameService/GetMyInfo", ReplyAction="http://tempuri.org/IMiniGameService/GetMyInfoResponse")]
+        System.IAsyncResult BeginGetMyInfo(sdkSilverlightXNACS.MiniGameService.GameStateChanges myInfo, System.AsyncCallback callback, object asyncState);
+        
+        sdkSilverlightXNACS.MiniGameService.GameStateChanges EndGetMyInfo(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -148,10 +408,29 @@ namespace sdkSilverlightXNACS.MiniGameService {
             this.results = results;
         }
         
-        public System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact> Result {
+        public sdkSilverlightXNACS.MiniGameService.Team Result {
             get {
                 base.RaiseExceptionIfNecessary();
-                return ((System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact>)(this.results[0]));
+                return ((sdkSilverlightXNACS.MiniGameService.Team)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetMyInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetMyInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public sdkSilverlightXNACS.MiniGameService.GameStateChanges Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((sdkSilverlightXNACS.MiniGameService.GameStateChanges)(this.results[0]));
             }
         }
     }
@@ -177,6 +456,12 @@ namespace sdkSilverlightXNACS.MiniGameService {
         private EndOperationDelegate onEndGetEnemyTeamDelegate;
         
         private System.Threading.SendOrPostCallback onGetEnemyTeamCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetMyInfoDelegate;
+        
+        private EndOperationDelegate onEndGetMyInfoDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetMyInfoCompletedDelegate;
         
         private BeginOperationDelegate onBeginOpenDelegate;
         
@@ -236,6 +521,8 @@ namespace sdkSilverlightXNACS.MiniGameService {
         public event System.EventHandler<SetTeamCompletedEventArgs> SetTeamCompleted;
         
         public event System.EventHandler<GetEnemyTeamCompletedEventArgs> GetEnemyTeamCompleted;
+        
+        public event System.EventHandler<GetMyInfoCompletedEventArgs> GetMyInfoCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
@@ -339,7 +626,7 @@ namespace sdkSilverlightXNACS.MiniGameService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact> sdkSilverlightXNACS.MiniGameService.IMiniGameService.EndGetEnemyTeam(System.IAsyncResult result) {
+        sdkSilverlightXNACS.MiniGameService.Team sdkSilverlightXNACS.MiniGameService.IMiniGameService.EndGetEnemyTeam(System.IAsyncResult result) {
             return base.Channel.EndGetEnemyTeam(result);
         }
         
@@ -349,7 +636,7 @@ namespace sdkSilverlightXNACS.MiniGameService {
         }
         
         private object[] OnEndGetEnemyTeam(System.IAsyncResult result) {
-            System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact> retVal = ((sdkSilverlightXNACS.MiniGameService.IMiniGameService)(this)).EndGetEnemyTeam(result);
+            sdkSilverlightXNACS.MiniGameService.Team retVal = ((sdkSilverlightXNACS.MiniGameService.IMiniGameService)(this)).EndGetEnemyTeam(result);
             return new object[] {
                     retVal};
         }
@@ -377,6 +664,52 @@ namespace sdkSilverlightXNACS.MiniGameService {
             }
             base.InvokeAsync(this.onBeginGetEnemyTeamDelegate, new object[] {
                         myTeamName}, this.onEndGetEnemyTeamDelegate, this.onGetEnemyTeamCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult sdkSilverlightXNACS.MiniGameService.IMiniGameService.BeginGetMyInfo(sdkSilverlightXNACS.MiniGameService.GameStateChanges myInfo, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetMyInfo(myInfo, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        sdkSilverlightXNACS.MiniGameService.GameStateChanges sdkSilverlightXNACS.MiniGameService.IMiniGameService.EndGetMyInfo(System.IAsyncResult result) {
+            return base.Channel.EndGetMyInfo(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetMyInfo(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            sdkSilverlightXNACS.MiniGameService.GameStateChanges myInfo = ((sdkSilverlightXNACS.MiniGameService.GameStateChanges)(inValues[0]));
+            return ((sdkSilverlightXNACS.MiniGameService.IMiniGameService)(this)).BeginGetMyInfo(myInfo, callback, asyncState);
+        }
+        
+        private object[] OnEndGetMyInfo(System.IAsyncResult result) {
+            sdkSilverlightXNACS.MiniGameService.GameStateChanges retVal = ((sdkSilverlightXNACS.MiniGameService.IMiniGameService)(this)).EndGetMyInfo(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetMyInfoCompleted(object state) {
+            if ((this.GetMyInfoCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetMyInfoCompleted(this, new GetMyInfoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetMyInfoAsync(sdkSilverlightXNACS.MiniGameService.GameStateChanges myInfo) {
+            this.GetMyInfoAsync(myInfo, null);
+        }
+        
+        public void GetMyInfoAsync(sdkSilverlightXNACS.MiniGameService.GameStateChanges myInfo, object userState) {
+            if ((this.onBeginGetMyInfoDelegate == null)) {
+                this.onBeginGetMyInfoDelegate = new BeginOperationDelegate(this.OnBeginGetMyInfo);
+            }
+            if ((this.onEndGetMyInfoDelegate == null)) {
+                this.onEndGetMyInfoDelegate = new EndOperationDelegate(this.OnEndGetMyInfo);
+            }
+            if ((this.onGetMyInfoCompletedDelegate == null)) {
+                this.onGetMyInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetMyInfoCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetMyInfoDelegate, new object[] {
+                        myInfo}, this.onEndGetMyInfoDelegate, this.onGetMyInfoCompletedDelegate, userState);
         }
         
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
@@ -488,9 +821,22 @@ namespace sdkSilverlightXNACS.MiniGameService {
                 return _result;
             }
             
-            public System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact> EndGetEnemyTeam(System.IAsyncResult result) {
+            public sdkSilverlightXNACS.MiniGameService.Team EndGetEnemyTeam(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact> _result = ((System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact>)(base.EndInvoke("GetEnemyTeam", _args, result)));
+                sdkSilverlightXNACS.MiniGameService.Team _result = ((sdkSilverlightXNACS.MiniGameService.Team)(base.EndInvoke("GetEnemyTeam", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetMyInfo(sdkSilverlightXNACS.MiniGameService.GameStateChanges myInfo, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = myInfo;
+                System.IAsyncResult _result = base.BeginInvoke("GetMyInfo", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public sdkSilverlightXNACS.MiniGameService.GameStateChanges EndGetMyInfo(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                sdkSilverlightXNACS.MiniGameService.GameStateChanges _result = ((sdkSilverlightXNACS.MiniGameService.GameStateChanges)(base.EndInvoke("GetMyInfo", _args, result)));
                 return _result;
             }
         }

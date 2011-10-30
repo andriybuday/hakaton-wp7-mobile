@@ -1,45 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:60207/MiniGameService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MiniGame.DataContractsShared" />
-  <xs:element name="RegisterMe">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RegisterMeResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="RegisterMeResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SetTeam">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="myName" nillable="true" type="xs:string" />
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MiniGame.DataContractsShared" minOccurs="0" name="myHeros" nillable="true" type="q1:ArrayOfHeroDataContact" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SetTeamResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="SetTeamResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetEnemyTeam">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="myTeamName" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetEnemyTeamResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MiniGame.DataContractsShared" minOccurs="0" name="GetEnemyTeamResult" nillable="true" type="q2:ArrayOfHeroDataContact" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MiniGame.DataContractsShared" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MiniGame.DataContractsShared" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfHeroDataContact">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HeroDataContact" nillable="true" type="tns:HeroDataContact" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHeroDataContact" nillable="true" type="tns:ArrayOfHeroDataContact" />
+  <xs:complexType name="HeroDataContact">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsInYourTeam" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MemberPhoto" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HeroDataContact" nillable="true" type="tns:HeroDataContact" />
+  <xs:complexType name="Team">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BombCount" type="xs:int" />
+      <xs:element minOccurs="0" name="EnemyCount" type="xs:int" />
+      <xs:element minOccurs="0" name="Heros" nillable="true" type="tns:ArrayOfHeroDataContact" />
+      <xs:element minOccurs="0" name="IsConfirmedStart" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsWinner" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LatestChanges" nillable="true" type="tns:GameStateChanges" />
+      <xs:element minOccurs="0" name="MeCount" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Team" nillable="true" type="tns:Team" />
+  <xs:complexType name="GameStateChanges">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BombsAdded" type="xs:int" />
+      <xs:element minOccurs="0" name="BombsRemoved" type="xs:int" />
+      <xs:element minOccurs="0" name="EnemiesRemoved" type="xs:int" />
+      <xs:element minOccurs="0" name="FriendsRemoved" type="xs:int" />
+      <xs:element minOccurs="0" name="IsGameOver" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsWinner" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TeamName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GameStateChanges" nillable="true" type="tns:GameStateChanges" />
 </xs:schema>
