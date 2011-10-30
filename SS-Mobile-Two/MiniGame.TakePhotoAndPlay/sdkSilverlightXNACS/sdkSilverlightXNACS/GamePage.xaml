@@ -32,7 +32,7 @@
         </Grid.RowDefinitions>
 
         <!-- Toggles the visibility of the ColorPanel -->
-        <!--<Button Grid.Row="0" Click="ColorPanelToggleButton_Click" Margin="1,0,-1,0">Toggle Color Panel</Button>-->
+        <Button x:Name="ButtonPlayAgain" Grid.Row="2" Click="PlayAgain_Click" Margin="1,0,-1,0">Play again</Button>
 
         <Canvas x:Name="ContentPanelCanvas" Grid.Row="1" Background="Transparent" Margin="12,0,12,0">
             <Line X1="100" Y1="50" X2="380" Y2="50" Stroke="Green" StrokeThickness="10"/>
@@ -41,12 +41,13 @@
         </Canvas>
 
         <!-- Arrange buttons in a horizontal line by using StackPanel -->
+        <!--
         <StackPanel x:Name="ColorPanel" Grid.Row="2"  Height="100" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="Visible">
-            <!-- Buttons to set the rectangle to specific colors -->
+            
             <Button Click="redButton_Click" HorizontalAlignment="Center" Height="75" VerticalAlignment="Center" BorderThickness="3" Background="Firebrick" Width="75" />
             <Button Click="greenButton_Click" HorizontalAlignment="Center" Height="75" VerticalAlignment="Center" BorderThickness="3" Background="Lime" Width="75" />
             <Button Click="blueButton_Click" HorizontalAlignment="Center" Height="75" VerticalAlignment="Center" BorderThickness="3" Background="Blue" Width="75" />
-        </StackPanel>
+        </StackPanel>-->
     </Grid>
 
 </phone:PhoneApplicationPage>

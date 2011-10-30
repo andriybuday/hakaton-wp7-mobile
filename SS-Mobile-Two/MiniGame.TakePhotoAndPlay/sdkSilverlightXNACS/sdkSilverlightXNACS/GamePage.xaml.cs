@@ -108,17 +108,8 @@ namespace sdkSilverlightXNACS
 
             ballTexture = contentManager.Load<Texture2D>("Ball");
 
-            if (GameState.GetInstance().FriendsTeam.Count < 1 || GameState.GetInstance().EnemyTeam.Count < 1)
-            {
-                for (int i = 0; i < 8; i++)
-                {
-                    RandomlyGenerateBall();
-                }    
-            }
-            else // there are players...
-            {
-                ReloadTeams();
-            }
+            
+            LoadGameWorld();
 
             greenTexture = contentManager.Load<Texture2D>("greenRect");
 
@@ -126,6 +117,30 @@ namespace sdkSilverlightXNACS
             timer.Start();
 
             base.OnNavigatedTo(e);
+        }
+
+        private void LoadGameWorld()
+        {
+            if (GameState.GetInstance().FriendsTeam.Count < 1 || GameState.GetInstance().EnemyTeam.Count < 1)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    RandomlyGenerateBall();
+                }
+            }
+            else // there are players...
+            {
+                ReloadTeams();
+            }
+
+            if (GameState.GetInstance().IsMultiPlayerGame.HasValue && GameState.GetInstance().IsMultiPlayerGame.Value)
+            {
+                ButtonPlayAgain.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                ButtonPlayAgain.Visibility = Visibility.Visible;
+            }
         }
 
         private void ReloadTeams()
@@ -370,8 +385,11 @@ namespace sdkSilverlightXNACS
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ColorPanelToggleButton_Click(object sender, RoutedEventArgs e)
+        private void PlayAgain_Click(object sender, RoutedEventArgs e)
         {
+
+            LoadGameWorld();
+            /*
             if (System.Windows.Visibility.Visible == ColorPanel.Visibility)
             {
                 ColorPanel.Visibility = System.Windows.Visibility.Collapsed;
@@ -380,6 +398,7 @@ namespace sdkSilverlightXNACS
             {
                 ColorPanel.Visibility = System.Windows.Visibility.Visible;
             }
+            */
         }
 
 

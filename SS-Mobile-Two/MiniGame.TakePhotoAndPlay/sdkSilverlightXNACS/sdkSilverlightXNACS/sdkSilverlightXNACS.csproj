@@ -162,6 +162,9 @@
     <None Include="Properties\WMAppManifest.xml">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Icons\background_grass.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Icons\Bomb-icon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
