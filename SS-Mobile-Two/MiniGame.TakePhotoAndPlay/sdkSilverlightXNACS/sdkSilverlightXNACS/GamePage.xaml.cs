@@ -50,7 +50,7 @@ namespace sdkSilverlightXNACS
         Texture2D texture;
 
         // A variety of rectangle colors
-        Texture2D greenTexture;
+        Texture2D bombTexture;
 
         // For rendering the XAML onto a texture
         UIElementRenderer elementRenderer;
@@ -107,11 +107,9 @@ namespace sdkSilverlightXNACS
 
 
             ballTexture = contentManager.Load<Texture2D>("Ball");
-
+            bombTexture = contentManager.Load<Texture2D>("Bomb");
 
             LoadGameWorld();
-
-            greenTexture = contentManager.Load<Texture2D>("greenRect");
 
             // Start the timer
             timer.Start();
@@ -119,22 +117,31 @@ namespace sdkSilverlightXNACS
             base.OnNavigatedTo(e);
         }
 
+        private void AddBombTwoTheWorld()
+        {
+            RandomlyGenerateBall(BallIs.Bomb);
+        }
+
         private void LoadGameWorld()
         {
+            
+
             // remove all players
             balls.Clear();
             // no status about game here... yet
             ControlGameStatus.Visibility = Visibility.Collapsed;
 
+            AddBombTwoTheWorld();
+
             if (GameState.GetInstance().FriendsTeam.Count < 1 || GameState.GetInstance().EnemyTeam.Count < 1)
             {
                 for (int i = 0; i < 4; i++)
                 {
-                    RandomlyGenerateBall(true);
+                    RandomlyGenerateBall(BallIs.Friend);
                 }
                 for (int i = 0; i < 4; i++)
                 {
-                    RandomlyGenerateBall(false);
+                    RandomlyGenerateBall(BallIs.Enemy);
                 }
             }
             else // there are players...
@@ -164,7 +171,7 @@ namespace sdkSilverlightXNACS
                 Vector2 center = new Vector2((float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width / 2, (float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height / 2);
 
                 var ball = new Ball(ballColor, newBallTexture, center, velocity, 50f);
-                ball.IsInMyTeam = true;
+                ball.BallIs = BallIs.Friend;
                 balls.Add(ball);
             }
 
@@ -178,7 +185,7 @@ namespace sdkSilverlightXNACS
                 Vector2 center = new Vector2((float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width - 100, (float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height - 100);
 
                 var ball = new Ball(ballColor, newBallTexture, center, velocity, 50f);
-                ball.IsInMyTeam = false;
+                ball.BallIs = BallIs.Enemy;
                 balls.Add(ball);
             }
         }
@@ -236,11 +243,11 @@ namespace sdkSilverlightXNACS
                 }
                 else
                 {
-                    if (ball.IsInMyTeam)
+                    if (ball.BallIs == BallIs.Friend)
                     {
                         friendsCounter++;
                     }
-                    else
+                    else if (ball.BallIs == BallIs.Enemy)
                     {
                         enemyCounter++;
                     }
@@ -319,7 +326,7 @@ namespace sdkSilverlightXNACS
             }
         }
         Random _random = new Random(DateTime.Now.Millisecond);
-        private void RandomlyGenerateBall(bool isInMyTeam)
+        private void RandomlyGenerateBall(BallIs ballIs)
         {
             // nothing was catched, let's generate void...
 
@@ -333,14 +340,21 @@ namespace sdkSilverlightXNACS
 
 
             Color ballColor = Color.Red;
-            if (isInMyTeam)
+            if (ballIs == BallIs.Friend)
             {
                 ballColor = Color.Blue;
                 center = new Vector2((float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width / 2,
                                          (float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height / 2);
             }
-            var ball = new Ball(ballColor, ballTexture, center, velocity, radius);
-            ball.IsInMyTeam = isInMyTeam;
+            var texture = ballTexture;
+            if(ballIs == BallIs.Bomb)
+            {
+                texture = bombTexture;
+                ballColor = Color.White;
+            }
+            var ball = new Ball(ballColor, texture, center, velocity, radius);
+
+            ball.BallIs = ballIs;
             balls.Add(ball);
         }
 
@@ -362,7 +376,7 @@ namespace sdkSilverlightXNACS
 
         public void DrawLine()
         {
-            if (_catchedOne != null && _catchedOne.IsOnHold && !_catchedOne.IsInMyTeam)
+            if (_catchedOne != null && _catchedOne.IsOnHold && _catchedOne.BallIs == BallIs.Enemy)
             {
                 var r = _catchedOne.radius;
 
@@ -473,7 +487,7 @@ namespace sdkSilverlightXNACS
         /// <param name="e"></param>
         private void greenButton_Click(object sender, RoutedEventArgs e)
         {
-            //texture = greenTexture;
+            //texture = bombTexture;
             ReloadTeams();
         }
 

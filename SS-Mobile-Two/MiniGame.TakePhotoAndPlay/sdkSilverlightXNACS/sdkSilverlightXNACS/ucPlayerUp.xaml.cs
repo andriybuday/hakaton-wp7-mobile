@@ -37,7 +37,7 @@ namespace ShuffleBoard
                 }
                 else
                 {
-                    RectangleBackground.Fill = new SolidColorBrush(Colors.Orange);
+                    RectangleBackground.Fill = new SolidColorBrush(Colors.Brown);
                     TextBlockWon.Visibility = Visibility.Collapsed;
                     TextBlockWonCaption.Visibility = Visibility.Collapsed;
                     TextBlockLoose.Visibility = Visibility.Visible;

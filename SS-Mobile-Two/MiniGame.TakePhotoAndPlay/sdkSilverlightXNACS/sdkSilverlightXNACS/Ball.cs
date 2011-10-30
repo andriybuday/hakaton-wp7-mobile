@@ -8,6 +8,13 @@ using Microsoft.Xna.Framework.Input.Touch;
 
 namespace BouncingBalls
 {
+    enum BallIs
+    {
+        Friend,
+        Enemy,
+        Bomb
+    }
+
     class Ball
     {
         public static int ballCounter = 0;
@@ -24,7 +31,7 @@ namespace BouncingBalls
         public bool IsOutsideOfBoard { get; set; }
 
 
-        public bool IsInMyTeam { get; set; }
+        public BallIs BallIs { get; set; }
 
 
         Vector2 velocity;
@@ -75,15 +82,19 @@ namespace BouncingBalls
             if(IsOnHold)
             {
                 var releaseDifference = PressedPosition - HoldingPosition;
-                
 
-                if(IsInMyTeam)
+
+                if (BallIs == BallIs.Friend)
                 {
                     velocity = - releaseDifference * 0.05f;    
                 }
-                else
+                else if (BallIs == BallIs.Enemy)
                 {
                     velocity = releaseDifference * 0.05f;
+                }
+                else if (BallIs == BallIs.Bomb)
+                {
+                    velocity = releaseDifference * 0.5f;
                 }
 
                 TopLeftPosition = PressedTopLeftPosition - releaseDifference;
@@ -100,7 +111,11 @@ namespace BouncingBalls
 
                 if(top < 50 && left > 100 && right < 280)
                 {
-                    IsOutsideOfBoard = true;
+                    // bombs are not leaving field of battle..
+                    if (BallIs != BallIs.Bomb)
+                    {
+                        IsOutsideOfBoard = true;
+                    }
                 }
 
                 if (top < 0 || bottom > SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height)
