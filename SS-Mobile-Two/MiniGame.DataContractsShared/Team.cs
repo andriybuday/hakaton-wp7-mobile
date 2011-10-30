@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace MiniGame.DataContractsShared
 {
@@ -20,5 +21,9 @@ namespace MiniGame.DataContractsShared
         public int MeCount { get; set; }
 
         public int EnemyCount { get; set; }
+
+        public bool IsWinner { get; set; }
+
+        public GameStateChanges LatestChanges { get; set; }
     }
 }
