@@ -24,5 +24,7 @@ namespace WCEmergency.View
                 viewModel.TargetToilet = ToiletContext.Instance.Item;
             }
         }
+
+
     }
 }

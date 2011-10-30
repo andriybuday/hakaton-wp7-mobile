@@ -1,10 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Device.Location;
 using System.Linq;
-using System.Windows.Media;
+using System.Windows;
+using System.Windows.Threading;
 using Microsoft.Phone.Controls.Maps;
+using Microsoft.Phone.Controls.Maps.Platform;
+using WCEmergency.Bing.Route;
+using WCEmergency.Helpers;
+using WCEmergency.Models;
 using WCEmergency.WCServiceReference;
 
 namespace WCEmergency.ViewModel
@@ -48,6 +54,7 @@ namespace WCEmergency.ViewModel
             }
             CurrentPosition = new GeoCoordinate(args.Position.Location.Latitude, args.Position.Location.Longitude, args.Position.Location.Altitude);
             CurrentView = CurrentPosition;
+            RequestRoute();
             //WCServiceClient.GetNearestToiltesCompleted += OnGetNearestToiltesCompleted;
             //WCServiceClient.GetNearestToiltesAsync(args.Position.Location, 0);
         }
@@ -147,6 +154,59 @@ namespace WCEmergency.ViewModel
             {
                 _currentView = value;
                 NotifyPropertyChanged("CurrentView");
+            }
+        }
+
+
+        //-----------------------------------------------
+        private void RequestRoute()
+        {
+            var routeRequest = new RouteRequest();
+            routeRequest.Credentials = new Credentials();
+            routeRequest.Credentials.ApplicationId = Id;
+            routeRequest.Waypoints = new ObservableCollection<Waypoint>();
+            routeRequest.Waypoints.Add(new Waypoint(){Location = new Location(){ Altitude = CurrentPosition.Altitude, Latitude = CurrentPosition.Latitude, Longitude = CurrentPosition.Longitude}});
+            routeRequest.Waypoints.Add(new Waypoint() { Location = new Location() { Altitude = TargetToilet.Coordinate.Altitude, Latitude = TargetToilet.Coordinate.Latitude, Longitude = CurrentPosition.Longitude} });
+            routeRequest.Options = new RouteOptions();
+            routeRequest.Options.RoutePathType = RoutePathType.Points;
+            routeRequest.UserProfile = new UserProfile();
+            routeRequest.UserProfile.DistanceUnit = DistanceUnit.Kilometer;
+
+            // Execute the request. 
+            var routeClient = new RouteServiceClient("BasicHttpBinding_IRouteService");
+            routeClient.CalculateRouteCompleted += OnRouteComplete;
+            routeClient.CalculateRouteAsync(routeRequest);
+        }
+
+        private void OnRouteComplete(object sender, CalculateRouteCompletedEventArgs e)
+        {
+            if (e.Result != null && e.Result.Result != null && e.Result.Result.Legs != null & e.Result.Result.Legs.Any())
+            {
+                var result = e.Result.Result;
+                var legs = result.Legs.FirstOrDefault();
+
+                //StartPoint = legs.ActualStart;
+                //EndPoint = legs.ActualEnd;
+                var locations = result.RoutePath.Points;
+                var coordinates = new LocationCollection();
+                foreach (var location in locations)
+                {
+                    coordinates.Add(new GeoCoordinate(){Altitude = location.Altitude, Latitude = location.Latitude, Longitude = location.Longitude});
+                }
+                RoutePoints = coordinates;
+                
+               // Itinerary = legs.Itinerary;
+            }
+        }
+
+        private LocationCollection _routePoints;
+        public LocationCollection RoutePoints
+        {
+            get { return _routePoints; }
+            set 
+            { 
+                _routePoints = value;
+                NotifyPropertyChanged("RoutePoints");
             }
         }
 
