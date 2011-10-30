@@ -113,7 +113,7 @@ namespace MiniGame.Service
             lock (_state)
             {
                 Team myTeam = _state.GetTeamByName(myName);
-                Team otherTeam = GetEnemyTeam(myName);
+                Team otherTeam = _state.GetOtherTeamByName(myName);
 
                 myTeam.IsWinner = false;
                 myTeam.BombCount = 1;

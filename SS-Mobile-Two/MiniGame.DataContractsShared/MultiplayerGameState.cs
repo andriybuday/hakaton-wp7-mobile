@@ -42,6 +42,15 @@ namespace MiniGame.DataContractsShared
             return null;
         }
 
+        public Team GetOtherTeamByName(string name)
+        {
+            if (Team1.Name == name)
+                return Team2;
+            if (Team2.Name == name)
+                return Team1;
+            return null;
+        }
+
         public bool IsGameStarted { get; set; }
 
         public bool IsGameOver { get; set; }
