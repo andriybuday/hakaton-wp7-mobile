@@ -7,10 +7,11 @@ namespace MiniGame.Service
     public class MiniGameService : IMiniGameService
     {
         private MultiplayerGameState _state = MultiplayerGameState.GetInstance();
+        private object _lockObject = new object();
 
         public string RegisterMe()
         {
-            lock (_state)
+            lock (_lockObject)
             {
                 if (string.IsNullOrEmpty(_state.Team1.Name))
                 {
@@ -28,7 +29,7 @@ namespace MiniGame.Service
 
         public bool SetTeam(string myName, IList<HeroDataContact> myHeros)
         {
-            lock (_state)
+            lock (_lockObject)
             {
                 foreach (HeroDataContact hero in myHeros)
                 {
@@ -40,19 +41,19 @@ namespace MiniGame.Service
 
         public Team GetEnemyTeam(string myTeamName)
         {
-            lock (_state)
+            lock (_lockObject)
             {
                 if (myTeamName == _state.Team1.Name)
                 {
                     _state.Team1Ready = true;
-                    SetStartTime();
+                    //SetStartTime();
                     return _state.Team2;
                 }
                 
                 if (myTeamName == _state.Team2.Name)
                 {
                     _state.Team2Ready = true;
-                    SetStartTime();
+                    //SetStartTime();
                     return _state.Team1;
                 }
 
@@ -74,22 +75,16 @@ namespace MiniGame.Service
 
         public GameStateChanges GetMyInfo(GameStateChanges myTeamInfo)
         {
-            lock (_state)
+            lock (_lockObject)
             {
                 Team myTeam = _state.GetTeamByName(myTeamInfo.TeamName);
 
-                myTeam.BombCount -= myTeamInfo.BombsRemoved;
-                myTeam.EnemyCount -= myTeamInfo.EnemiesRemoved;
-                myTeam.MeCount -= myTeamInfo.FriendsRemoved;
-
-                //Team otherTeam = GetEnemyTeam(myTeamInfo.TeamName);
                 Team otherTeam = _state.GetOtherTeamByName(myTeamInfo.TeamName);
 
-                otherTeam.BombCount += myTeamInfo.EnemiesRemoved;
+                otherTeam.BombsAdded += myTeamInfo.EnemiesRemoved;
                 otherTeam.LatestChanges = new GameStateChanges() {BombsAdded = myTeamInfo.EnemiesRemoved};
 
-                var latestChanges = myTeam.LatestChanges;
-                myTeam.LatestChanges = new GameStateChanges();
+                var latestChanges = new GameStateChanges() { BombsAdded = myTeam.BombsAdded };
 
                 if (myTeamInfo.IsGameOver || _state.IsGameOver)
                 {
@@ -116,22 +111,16 @@ namespace MiniGame.Service
 
         public void RestartGame(string myName)
         {
-            lock (_state)
+            lock (_lockObject)
             {
                 Team myTeam = _state.GetTeamByName(myName);
                 Team otherTeam = _state.GetOtherTeamByName(myName);
 
                 myTeam.IsWinner = false;
-                myTeam.BombCount = 1;
-                myTeam.EnemyCount = otherTeam.Heros.Count;
-                myTeam.MeCount = myTeam.Heros.Count;
-                myTeam.LatestChanges = new GameStateChanges();
+                myTeam.BombsAdded = 0;
 
                 otherTeam.IsWinner = false;
-                otherTeam.BombCount = 1;
-                otherTeam.EnemyCount = myTeam.Heros.Count;
-                otherTeam.MeCount = otherTeam.Heros.Count;
-                otherTeam.LatestChanges = new GameStateChanges();
+                otherTeam.BombsAdded = 0;
 
                 _state.StartTime = DateTime.Now;
             }

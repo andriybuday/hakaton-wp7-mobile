@@ -24,6 +24,8 @@ namespace MiniGame.DataContractsShared
 
         public bool IsWinner { get; set; }
 
+        public int BombsAdded { get; set; }
+
         public GameStateChanges LatestChanges { get; set; }
     }
 }
