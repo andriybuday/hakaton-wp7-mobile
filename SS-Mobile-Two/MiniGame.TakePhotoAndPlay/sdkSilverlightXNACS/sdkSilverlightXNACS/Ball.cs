@@ -98,7 +98,7 @@ namespace BouncingBalls
                 bottom = newTopLeft.Y + (radius * 2);
 
 
-                if(top < 0 && left > 150 && right < 280)
+                if(top < 50 && left > 100 && right < 280)
                 {
                     IsOutsideOfBoard = true;
                 }

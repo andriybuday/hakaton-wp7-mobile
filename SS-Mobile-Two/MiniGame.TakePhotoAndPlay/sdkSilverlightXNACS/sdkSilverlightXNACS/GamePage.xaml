@@ -49,9 +49,9 @@
             <local:ucScoreBoard x:Name="ucScoreBoard1" HorizontalAlignment="Left" Margin="5,5,0,0"/>
             <local:ucPlayerUp x:Name="ControlGameStatus" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Top="200" Visibility="Collapsed" />
             
-            <Line X1="100" Y1="50" X2="380" Y2="50" Stroke="Green" StrokeThickness="10"/>
-            <Line X1="100" Y1="80" X2="100" Y2="50" Stroke="Green" StrokeThickness="5"/>
-            <Line X1="380" Y1="80" X2="380" Y2="50" Stroke="Green" StrokeThickness="5"/>
+            <Line X1="130" Y1="50" X2="350" Y2="50" Stroke="White" StrokeThickness="10"/>
+            <!--<Line X1="100" Y1="80" X2="100" Y2="50" Stroke="Green" StrokeThickness="5"/>
+            <Line X1="380" Y1="80" X2="380" Y2="50" Stroke="Green" StrokeThickness="5"/>-->
         </Canvas>
 
         <!-- Arrange buttons in a horizontal line by using StackPanel -->

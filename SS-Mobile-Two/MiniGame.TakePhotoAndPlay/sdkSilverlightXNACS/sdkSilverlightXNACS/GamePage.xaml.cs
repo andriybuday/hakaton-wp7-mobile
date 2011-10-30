@@ -261,7 +261,7 @@ namespace sdkSilverlightXNACS
 
             if (GameState.GetInstance().IsGameStarted)
             {
-                if (enemyCounter == 0)
+                if (enemyCounter == 0 && friendsCounter > 0)
                 {
                     // game just finished or not started at all...
                     GameState.GetInstance().IsGameOver = true;
@@ -271,11 +271,11 @@ namespace sdkSilverlightXNACS
                     ControlGameStatus.Visibility = Visibility.Visible;
                     balls.Clear();
                 }
-                else if (friendsCounter == 0)
+                else if (friendsCounter == 0 && enemyCounter > 0)
                 {
                     // game just finished or not started at all...
-                    GameState.GetInstance().IsGameOver = false;
-                    GameState.GetInstance().IsGameStarted = true;
+                    GameState.GetInstance().IsGameOver = true;
+                    GameState.GetInstance().IsGameStarted = false;
 
                     ControlGameStatus.IsVictory = false;
                     ControlGameStatus.Visibility = Visibility.Visible;
