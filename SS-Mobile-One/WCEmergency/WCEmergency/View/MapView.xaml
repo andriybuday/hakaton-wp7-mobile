@@ -105,8 +105,8 @@
             <my:MapItemsControl ItemsSource="{Binding Toilets, Mode=TwoWay}">
                 <my:MapItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <my:Pushpin Location="{Binding Coordinate}" Style="{StaticResource PushpinStyle}" HorizontalAlignment="Center" Background="Green">
-                            <TextBlock Text="WC" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <my:Pushpin Location="{Binding Coordinate}" Style="{StaticResource PushpinStyle}" HorizontalAlignment="Center" Background="{Binding  Color}">
+                            <TextBlock Text="{Binding Text}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </my:Pushpin>
                     </DataTemplate>
                 </my:MapItemsControl.ItemTemplate>

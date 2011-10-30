@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Device.Location;
+using System.Windows.Media;
 using Microsoft.Phone.Controls.Maps;
 using WCEmergency.WCServiceReference;
 
@@ -85,18 +86,31 @@ namespace WCEmergency.ViewModel
             }
         }
 
-        private ObservableCollection<Toilet> _toilets;
-        public ObservableCollection<Toilet> Toilets
+        private ObservableCollection<ToiletViewItem> _toilets;
+        public ObservableCollection<ToiletViewItem> Toilets
         {
             get { return _toilets; }
             set
             {
                 _toilets = value;
-                _toilets.Add(new Toilet() {Coordinate = CurrentPosition, Name =  "You"});
+                _toilets.Add(new ToiletViewItem(new Toilet(), null)
+                                 {Coordinate = CurrentPosition, Text = "You", Color = "Blue"});
                 NotifyPropertyChanged("Toilets");
             }
         }
 
-       // public string Icon { get; set; }
+        private ToiletViewItem _toilet;
+        public ToiletViewItem Toilet
+        {
+            get { return _toilet; }
+            set
+            {
+                _toilet = value;
+                _toilet.Color = "Red";
+                Toilets = _toilet.Items;
+                NotifyPropertyChanged("Toilet");
+            }
+        }
+
     }
 }

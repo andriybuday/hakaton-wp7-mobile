@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Microsoft.Phone.Controls;
+using WCEmergency.Common;
 using WCEmergency.ViewModel;
 using WCEmergency.WCServiceReference;
 
@@ -13,12 +14,14 @@ namespace WCEmergency.View
             InitializeComponent();
         }
 
-        protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
-            base.OnNavigatedFrom(e);
-            if (e.Content is ObservableCollection<Toilet>)
+            base.OnNavigatedTo(e);
+
+            var viewModel = LayoutRoot.DataContext as MapViewModel;
+            if (viewModel != null)
             {
-                (LayoutRoot.DataContext as MapViewModel).Toilets = (ObservableCollection<Toilet>) e.Content;
+                viewModel.Toilet = ToiletContext.Instance.Item;
             }
         }
     }

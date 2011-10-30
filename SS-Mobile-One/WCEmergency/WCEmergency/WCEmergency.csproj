@@ -83,6 +83,7 @@
     <Compile Include="Common\ThreadDispatcher.cs" />
     <Compile Include="Common\TimeSpanPickerControl\TimeSpanDataSource.cs" />
     <Compile Include="Common\TimeSpanPickerControl\TimeSpanLoopingSelector.cs" />
+    <Compile Include="Common\ToiletContext.cs" />
     <Compile Include="Common\UserContext.cs" />
     <Compile Include="Converter\SexIconConverter.cs" />
     <Compile Include="Enums.cs" />
