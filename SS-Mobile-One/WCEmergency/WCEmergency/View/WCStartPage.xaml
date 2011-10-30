@@ -22,11 +22,15 @@
     </Controls:PhoneApplicationPage.Resources>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent" DataContext="{StaticResource ViewModel}">
+    <Grid x:Name="LayoutRoot" DataContext="{StaticResource ViewModel}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="../Resources/Images/PageBackground_Solid.png" Stretch="None" />
+        </Grid.Background>
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel>

@@ -84,6 +84,7 @@
     <Compile Include="Common\TimeSpanPickerControl\TimeSpanDataSource.cs" />
     <Compile Include="Common\TimeSpanPickerControl\TimeSpanLoopingSelector.cs" />
     <Compile Include="Common\UserContext.cs" />
+    <Compile Include="Converter\SexIconConverter.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="EventArgs\NavigateToEventArgs.cs" />
     <Compile Include="Extentions\ApplicationBarBuilder.cs" />
@@ -116,9 +117,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\CommandButton.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="ViewModel\MapViewModel.cs" />
     <Compile Include="ViewModel\SpeedViewModel.cs" />
+    <Compile Include="ViewModel\ToiletViewItem.cs" />
     <Compile Include="ViewModel\ToiletViewModel.cs" />
     <Compile Include="ViewModel\WcStartPageViewModel.cs" />
     <Compile Include="View\SpeedView.xaml.cs">
@@ -252,6 +255,17 @@
     <Content Include="Resources\Images\AppBarSave.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\Images\Female.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\Male.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\Images\PageBackground_Solid.png" />
+    <Content Include="Resources\Images\Unisex.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ServiceReferences.ClientConfig" />
     <None Include="Service References\Bing.Geocode\configuration91.svcinfo" />
     <None Include="Service References\Bing.Geocode\configuration.svcinfo" />
     <None Include="Service References\Bing.Geocode\Reference.svcmap">
