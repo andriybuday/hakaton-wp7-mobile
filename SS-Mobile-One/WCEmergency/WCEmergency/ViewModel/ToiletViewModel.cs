@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Device.Location;
+using System.Linq;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
@@ -65,6 +66,7 @@ namespace WCEmergency.ViewModel
             Watcher.Stop();
         }
 
+
         private ObservableCollection<ToiletViewItem> _items = new ObservableCollection<ToiletViewItem>();
         public ObservableCollection<ToiletViewItem> Items
         {
@@ -82,6 +84,13 @@ namespace WCEmergency.ViewModel
         {
             if (ToiletChoosen != null)
             {
+                var emptyItems = ((ToiletViewItem)navigationEventArgs.Content).Items.Where(x => string.IsNullOrEmpty(x.Name)).ToList<ToiletViewItem>();
+
+                foreach (ToiletViewItem item in emptyItems)
+                {
+                    Items.Remove(item);
+                }
+
                 ToiletChoosen(this, navigationEventArgs);
             }
         }

@@ -64,7 +64,7 @@
             <TextBlock Name="RepsTitle" Grid.Row="0" Grid.Column ="2" Text="Dist(km)" TextAlignment="Left" Margin="10,0,0,0" Style="{StaticResource AllscriptsSecondLevelTextStyle}"/>
         </Grid>
         
-        <ListBox Name="ToiletGroup" Grid.Row="2" Margin="12,10,0,0" VerticalAlignment="Top" ItemsSource="{Binding Items}" Style="{StaticResource ViewItemsListBoxStyle}" ItemTemplate="{StaticResource TherapyItemDataTemplate}"/>
+        <ListBox Name="ToiletGroup" Grid.Row="2" Margin="12,10,0,10" VerticalAlignment="Top" ItemsSource="{Binding Items}" Style="{StaticResource ViewItemsListBoxStyle}" ItemTemplate="{StaticResource TherapyItemDataTemplate}"/>
         
     </Grid>
 

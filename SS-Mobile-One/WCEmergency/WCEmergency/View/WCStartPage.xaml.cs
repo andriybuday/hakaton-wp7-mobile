@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using Allscripts.Homecare.Mobile.Device.WinPhone7UI.Controls;
 using Microsoft.Phone.Controls;
 using WCEmergency.Common;
 using WCEmergency.Extentions;
@@ -24,17 +25,27 @@ namespace WCEmergency.View
         {
             InitializeComponent();
             CreateAppBar();
+
+            hourSelector = new TimeSpanLoopingSelector();
+            minuteSelector = new TimeSpanLoopingSelector();
         }
-        
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
+            //InitializeComponent();
+            /*hourSelector = null;
+            minuteSelector = null;
+            */
+            /*
             var viewModel = LayoutRoot.DataContext as WcStartPageViewModel;
             if (viewModel != null)
             {
                 viewModel.Hours = CurrentUserContext.Instance.CanWait.Hours;
                 viewModel.Minutes = CurrentUserContext.Instance.CanWait.Minutes;
             }
+
+            // hourSelector.IsExpanded = false;
+            // minuteSelector.IsExpanded = false;*/
         }
 
         private void OnMapClicked(object sender, RoutedEventArgs e)

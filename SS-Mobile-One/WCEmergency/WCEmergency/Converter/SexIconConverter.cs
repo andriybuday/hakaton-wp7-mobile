@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using WCEmergency.ViewModel;
 using WCEmergency.WCServiceReference;
 
 namespace WCEmergency.Converter
@@ -45,4 +46,20 @@ namespace WCEmergency.Converter
             throw new NotImplementedException();
         }
     }
+
+    public class ToiletVisibilityConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            var item = (ToiletViewItem)value;
+
+            return item != null && !string.IsNullOrEmpty(item.Name) ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+    
 }

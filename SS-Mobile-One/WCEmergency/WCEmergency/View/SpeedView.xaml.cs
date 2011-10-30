@@ -43,6 +43,15 @@ namespace WCEmergency.View
             ApplicationBar = completedBar;
         }
 
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            var viewModel = LayoutRoot.DataContext as WcStartPageViewModel;
+            if (viewModel != null)
+            {
+                viewModel.Hours = CurrentUserContext.Instance.Speed;
+            }
+        }
+
         private void OnAccept(object arg1, System.EventArgs arg2)
         {
             var viewModel = LayoutRoot.DataContext as SpeedViewModel;

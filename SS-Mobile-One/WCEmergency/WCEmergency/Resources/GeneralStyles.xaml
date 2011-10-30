@@ -13,7 +13,8 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Converters:SexIconConverter x:Key="SexIconConverter"/>
-
+    <Converters:ToiletVisibilityConverter x:Key="ToiletVisibilityConverter"/>
+    
     <!--<Converters:WeakCommandBindingConverter x:Key="WeakCommandBindingConverter" />
     <Converters:StringFormatConverter x:Key="StringFormatConverter" />
     <Converters:StringFormatConverter x:Key="ShowStringConverter" />
@@ -1330,7 +1331,8 @@
 
     <DataTemplate x:Key="TherapyItemDataTemplate">
         <UserControls:CommandButton x:Name = "TreatmentButton" HorizontalContentAlignment="Stretch" Margin="10,0,-10,0" Padding="0"
-              Style="{StaticResource TreatmentGroupCommandButtonStyle}" Command="{Binding ClickCommand}" CommandParameter="{Binding .}">
+              Style="{StaticResource TreatmentGroupCommandButtonStyle}" Command="{Binding ClickCommand}" CommandParameter="{Binding .}"
+                                    Visibility="{Binding ., Converter={StaticResource ToiletVisibilityConverter}}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"></RowDefinition>
