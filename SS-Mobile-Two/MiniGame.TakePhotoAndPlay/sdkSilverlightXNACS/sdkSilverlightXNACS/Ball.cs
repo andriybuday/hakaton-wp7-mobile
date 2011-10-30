@@ -17,6 +17,11 @@ namespace BouncingBalls
         IList<Ball> balls = new List<Ball>();
         Texture2D texture;
         public Vector2 TopLeftPosition;
+        public Vector2 PressedTopLeftPosition;
+        public Vector2 PressedPosition;
+        public Vector2 HoldingPosition;
+        public bool IsOnHold { get; set; }
+        public bool IsOutsideOfBoard { get; set; }
         Vector2 velocity;
 
         public Vector2 CenterPosition
@@ -52,26 +57,45 @@ namespace BouncingBalls
         {
             BounceBall();
 
-            TopLeftPosition += velocity;
+            
         }
 
         private void BounceBall()
         {
-            Vector2 newTopLeft = TopLeftPosition + velocity;
-            float left, right, top, bottom;
-            left = newTopLeft.X;
-            right = newTopLeft.X + (radius * 2);
-            top = newTopLeft.Y;
-            bottom = newTopLeft.Y + (radius * 2);
-
-            if (top < 0 || bottom > SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height)
+            if(IsOnHold)
             {
-                velocity.Y *= -1;
+                var releaseDifference = PressedPosition - HoldingPosition;
+
+                velocity = releaseDifference*0.05f;
+
+                TopLeftPosition = PressedTopLeftPosition - releaseDifference;
             }
-
-            if (left < 0 || right > SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width)
+            else
             {
-                velocity.X *= -1;
+                Vector2 newTopLeft = TopLeftPosition + velocity;
+                float left, right, top, bottom;
+                left = newTopLeft.X;
+                right = newTopLeft.X + (radius * 2);
+                top = newTopLeft.Y;
+                bottom = newTopLeft.Y + (radius * 2);
+
+
+                if(top < 0)
+                {
+                    IsOutsideOfBoard = true;
+                }
+
+                if (bottom > SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height)
+                {
+                    velocity.Y *= -1;
+                }
+
+                if (left < 0 || right > SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width)
+                {
+                    velocity.X *= -1;
+                }
+
+                TopLeftPosition += velocity;
             }
         }
 

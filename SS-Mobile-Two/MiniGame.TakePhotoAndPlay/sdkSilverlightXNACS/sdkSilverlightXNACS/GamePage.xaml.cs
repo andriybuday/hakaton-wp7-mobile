@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.IsolatedStorage;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
@@ -61,6 +62,7 @@ namespace sdkSilverlightXNACS
         // For rendering the XAML onto a texture
         UIElementRenderer elementRenderer;
         private SoundMain _soundPuckHit;
+        private Ball _catchedOne;
 
         public GamePage()
         {
@@ -112,6 +114,9 @@ namespace sdkSilverlightXNACS
 
 
             ballTexture = contentManager.Load<Texture2D>("Ball");
+            RandomlyGenerateBall();
+            RandomlyGenerateBall();
+            RandomlyGenerateBall();
 
             // If texture is null, we've never loaded our content.
             if (null == texture)
@@ -188,13 +193,27 @@ namespace sdkSilverlightXNACS
             UpdateBalls();
             //HandleTouches();
             HandleTouches_HoldAndKickBall();
+            //HandleForRemove();
         }
 
         private void UpdateBalls()
         {
+            Ball toRemoveBall = null;
             foreach (Ball ball in balls)
             {
+                if(ball.IsOutsideOfBoard)
+                {
+                    
+                    toRemoveBall = ball;
+                }
+
                 ball.Update();
+            }
+            if(toRemoveBall != null)
+            {
+                // TODO: add call to the server side...
+                balls.Remove(toRemoveBall);
+                _soundPuckHit.Play();
             }
         }
 
@@ -223,39 +242,47 @@ namespace sdkSilverlightXNACS
             TouchCollection touchCollection = TouchPanel.GetState();
             foreach (TouchLocation tl in touchCollection)
             {
-                if (tl.State == TouchLocationState.Released)
+                if (tl.State == TouchLocationState.Pressed)
                 {
-                    Ball catchedOne = GetCatchedBall(tl.Position);
-
-                    if(catchedOne == null)
+                    _catchedOne = GetCatchedBall(tl.Position);
+                    if(_catchedOne != null)
                     {
-                        // nothing was catched, let's generate void...
-                            Random random = new Random(DateTime.Now.Millisecond);
-                            Color ballColor = new Color(random.Next(255), random.Next(255), random.Next(255));
-                            Vector2 velocity = new Vector2((random.NextDouble() > .5 ? -1 : 1) * random.Next(1), (random.NextDouble() > .5 ? -1 : 1) * random.Next(1)) + Vector2.UnitX + Vector2.UnitY;
-                            Vector2 center = new Vector2((float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width / 2, (float)SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height / 2);
-                            float radius = 5f * (float)random.NextDouble() + 65f;
-                            balls.Add(new Ball(ballColor, ballTexture, center, velocity, radius));
+                        _catchedOne.IsOnHold = true;
+                        _catchedOne.PressedTopLeftPosition = _catchedOne.TopLeftPosition;
+                        _catchedOne.PressedPosition = tl.Position;
+                        _catchedOne.HoldingPosition = tl.Position;
                     }
-                    else
+                }
+                else if (tl.State == TouchLocationState.Moved)
+                {
+                    if(_catchedOne != null)
                     {
-                      //                        float xCannonPos = Math.Abs(catchedOne.CenterPosition.X);
-                      //float xTouchPos = Math.Abs(tl.Position.X);
-                      //float xVal = -((xCannonPos – xTouchPos) * 0.005f);
-
-                      //float yCannonPos = Math.Abs(catchedOne.CenterPosition.Y);
-                      //float yTouchPos = Math.Abs(tl.Position.Y);
-                      //float yVal = (yCannonPos – yTouchPos) * 1.75f;
-
-                      //catchedOne.Angle = xVal;
-                      //catchedOne.Power = yVal;
-
-                        balls.Remove(catchedOne);
-                        _soundPuckHit.Play();
+                        _catchedOne.HoldingPosition = tl.Position;
                     }
+                }
+                else if (tl.State == TouchLocationState.Released)
+                {
+                    if (_catchedOne != null)
+                    {
 
+                        _catchedOne.IsOnHold = false;
+                    }                    
                 }
             }
+        }
+
+        private void RandomlyGenerateBall()
+        {
+// nothing was catched, let's generate void...
+            Random random = new Random(DateTime.Now.Millisecond);
+            Color ballColor = new Color(random.Next(255), random.Next(255), random.Next(255));
+            Vector2 velocity =
+                new Vector2((random.NextDouble() > .5 ? -1 : 1)*random.Next(3),
+                            (random.NextDouble() > .5 ? -1 : 1)*random.Next(3)) + Vector2.UnitX + Vector2.UnitY;
+            Vector2 center = new Vector2((float) SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Width/2,
+                                         (float) SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Height/2);
+            float radius = 5f*(float) random.NextDouble() + 65f;
+            balls.Add(new Ball(ballColor, ballTexture, center, velocity, radius));
         }
 
         private Ball GetCatchedBall(Vector2 position)
