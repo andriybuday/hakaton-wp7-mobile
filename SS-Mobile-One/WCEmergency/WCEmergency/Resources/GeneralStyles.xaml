@@ -1349,6 +1349,8 @@
                     <Image Source="{Binding Sex, Converter={StaticResource SexIconConverter}}" Stretch="Fill" Width="32" Height="32"/>
                 </Border>
 
+                <TextBlock Text="{Binding Distance}" Grid.Row="0" Grid.Column="2" Style="{StaticResource AllscriptsTreatmentSetsRepsStyle}"/>
+
                 <!--AllscriptsSecondLevelTextStyle <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource ViewSetsRepsBorderStyle}" 
                         Visibility="{Binding Sets, Converter={StaticResource TreatmentsSetsRepsVisibilityConverter}}">
                     <TextBlock Text="{Binding Sets}" Style="{StaticResource AllscriptsTreatmentSetsRepsStyle}"/>
