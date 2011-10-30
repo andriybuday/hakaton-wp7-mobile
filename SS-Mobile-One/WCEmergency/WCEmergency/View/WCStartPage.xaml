@@ -103,7 +103,7 @@
                 </Controls1:TimeSpanLoopingSelector>
 
                 <!-- Minutes selector -->
-                <Controls1:TimeSpanLoopingSelector
+            <Controls1:TimeSpanLoopingSelector
                 x:Name ="minuteSelector"
                 Grid.Column="1"
                 Grid.Row="1"

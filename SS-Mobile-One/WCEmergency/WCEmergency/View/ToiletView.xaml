@@ -56,12 +56,12 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="48"/>
-                <ColumnDefinition Width="84"/>
+                <ColumnDefinition Width="124"/>
             </Grid.ColumnDefinitions>
 
             <TextBlock Name="SexTitle" Grid.Row="0" Grid.Column ="1" Text="Sex" TextAlignment="Left" Style="{StaticResource AllscriptsSecondLevelTextStyle}"/>
 
-            <TextBlock Name="RepsTitle" Grid.Row="0" Grid.Column ="2" Text="Dist(km)" TextAlignment="Left" Margin="10,0,0,0" Style="{StaticResource AllscriptsSecondLevelTextStyle}"/>
+            <TextBlock Name="RepsTitle" Grid.Row="0" Grid.Column ="2" Text="Dist(m)" TextAlignment="Left" Margin="10,0,0,0" Style="{StaticResource AllscriptsSecondLevelTextStyle}"/>
         </Grid>
         
         <ListBox Name="ToiletGroup" Grid.Row="2" Margin="12,10,0,10" VerticalAlignment="Top" ItemsSource="{Binding Items}" Style="{StaticResource ViewItemsListBoxStyle}" ItemTemplate="{StaticResource TherapyItemDataTemplate}"/>

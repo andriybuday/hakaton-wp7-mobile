@@ -40,8 +40,8 @@ namespace WCEmergency.ViewModel
        {
            if (args != null || !args.Position.Location.IsUnknown)
            {
-               var currentPosition = new GeoCoordinate(args.Position.Location.Latitude, args.Position.Location.Longitude,
-                                                       args.Position.Location.Altitude);
+               _currentPosition = new GeoCoordinate(args.Position.Location.Latitude, args.Position.Location.Longitude,
+                                                    args.Position.Location.Altitude);
 
                WCServiceClient.GetNearestToiltesCompleted += OnGetNearestToiltesCompleted;
                WCServiceClient.GetNearestToiltesAsync(args.Position.Location, 0);
@@ -56,9 +56,12 @@ namespace WCEmergency.ViewModel
             {
                 foreach (var toilet in list)
                 {
-                    var toiletView = new ToiletViewItem(toilet, Items);
-                    toiletView.ClickEvent += OnToiletChoosen;
-                    Items.Add(toiletView);
+                    var toiletView = new ToiletViewItem(toilet, Items, _currentPosition);
+                    if (IsInScope(toiletView))
+                    {
+                        toiletView.ClickEvent += OnToiletChoosen;
+                        Items.Add(toiletView);
+                    }
                 }
             }
 
@@ -66,8 +69,14 @@ namespace WCEmergency.ViewModel
             Watcher.Stop();
         }
 
+        private static bool IsInScope(ToiletViewItem toiletView)
+        {
+            return CurrentUserContext.Instance.Distance - Math.Round(toiletView.Distance, 0) >= 0d;
+        }
 
         private ObservableCollection<ToiletViewItem> _items = new ObservableCollection<ToiletViewItem>();
+        private GeoCoordinate _currentPosition;
+
         public ObservableCollection<ToiletViewItem> Items
         {
             get { return _items; }

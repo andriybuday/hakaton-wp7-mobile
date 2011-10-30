@@ -31,7 +31,7 @@ namespace WCEmergency.ViewModel
 
         public string Text { get; set; }
 
-        public ToiletViewItem(Toilet toilet, ObservableCollection<ToiletViewItem> items)
+        public ToiletViewItem(Toilet toilet, ObservableCollection<ToiletViewItem> items, GeoCoordinate currentPosition)
         {
             Id = toilet.Id;
             Name = toilet.Name;
@@ -41,15 +41,16 @@ namespace WCEmergency.ViewModel
             Picture = toilet.Picture;
             Sex = toilet.Sex;
             ClickCommand = new RelayCommand<object>(HandleClick);
-            Distance = CalculateDistance(Coordinate);
+            Distance = CalculateDistance(Coordinate, currentPosition);
             Items = items;
             Text = "WC";
             Color = "Green";
         }
 
-        private double CalculateDistance(GeoCoordinate coordinate)
+        private double CalculateDistance(GeoCoordinate coordinate, GeoCoordinate currentPosition)
         {
-            return 5;
+            if (coordinate == null) return 0;
+            return Math.Round(currentPosition.GetDistanceTo(coordinate), 0);
         }
 
         private void HandleClick(object param)

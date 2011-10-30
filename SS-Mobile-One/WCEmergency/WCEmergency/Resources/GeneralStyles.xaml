@@ -1341,7 +1341,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="48"/>
-                    <ColumnDefinition Width="84"/>
+                    <ColumnDefinition Width="124"/>
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Text="{Binding Name}" Grid.Row="0" Style="{StaticResource AllscriptsTreatmentGroupTitleStyle}" Margin="0,0,0,0"/>

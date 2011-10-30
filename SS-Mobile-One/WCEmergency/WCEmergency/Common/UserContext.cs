@@ -22,5 +22,10 @@ namespace WCEmergency.Common
 
         public TimeSpan CanWait { get; set; }
         public int Speed { get; set; }
+
+        public double Distance
+        {
+            get { return Speed * CanWait.TotalHours * 1000; }
+        }
     }
 }
