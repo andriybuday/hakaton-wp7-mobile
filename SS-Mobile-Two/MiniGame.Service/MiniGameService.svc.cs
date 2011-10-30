@@ -19,12 +19,12 @@ namespace MiniGame.Service
             {
                 if (string.IsNullOrEmpty(_state.Team1.Name))
                 {
-                    _state.Team1.Name = new Guid().ToString();
+                    _state.Team1.Name = Guid.NewGuid().ToString();
                     return _state.Team1.Name;
                 }
                 if (string.IsNullOrEmpty(_state.Team2.Name))
                 {
-                    _state.Team2.Name = new Guid().ToString();
+                    _state.Team2.Name = Guid.NewGuid().ToString();
                     return _state.Team2.Name;
                 }
             }
