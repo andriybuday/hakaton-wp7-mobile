@@ -271,7 +271,7 @@ namespace sdkSilverlightXNACS
             if (toRemoveBall != null)
             {
                 // TODO: add call to the server side...
-                var gameStateChanges = new GameStateChanges() { };
+                var gameStateChanges = new GameStateChanges() { TeamName = GameState.GetInstance().TeamName };
 
                 if (toRemoveBall.BallIs == BallIs.FriendIsOutsideOfBoard)
                 {
@@ -315,7 +315,7 @@ namespace sdkSilverlightXNACS
             if (GameState.GetInstance().IsMultiPlayerGame.GetValueOrDefault(false))
             {
                 var service = new MiniGameService.MiniGameServiceClient();
-                var gameStateChanges = new GameStateChanges() {IsGameOver = true, IsWinner = true};
+                var gameStateChanges = new GameStateChanges() { IsGameOver = true, IsWinner = true, TeamName = GameState.GetInstance().TeamName };
                 service.GetMyInfoAsync(gameStateChanges);
             }
             // game just finished or not started at all...
@@ -332,7 +332,7 @@ namespace sdkSilverlightXNACS
             if (GameState.GetInstance().IsMultiPlayerGame.GetValueOrDefault(false))
             {
                 var service = new MiniGameService.MiniGameServiceClient();
-                var gameStateChanges = new GameStateChanges() {IsGameOver = true, IsWinner = false};
+                var gameStateChanges = new GameStateChanges() {IsGameOver = true, IsWinner = false, TeamName = GameState.GetInstance().TeamName};
                 service.GetMyInfoAsync(gameStateChanges);
             }
             // game just finished or not started at all...
@@ -349,7 +349,7 @@ namespace sdkSilverlightXNACS
             if (GameState.GetInstance().IsMultiPlayerGame.GetValueOrDefault(false))
             {
                 var service = new MiniGameService.MiniGameServiceClient();
-                var gameStateChanges = new GameStateChanges() {IsGameOver = true, IsWinner = false};
+                var gameStateChanges = new GameStateChanges() {IsGameOver = true, IsWinner = false, TeamName = GameState.GetInstance().TeamName};
                 service.GetMyInfoAsync(gameStateChanges);
             }
 
