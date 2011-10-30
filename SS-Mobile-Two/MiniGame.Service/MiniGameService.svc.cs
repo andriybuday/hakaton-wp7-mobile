@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 using MiniGame.DataContractsShared;
 
 namespace MiniGame.Service
@@ -43,7 +38,7 @@ namespace MiniGame.Service
             }
         }
 
-        public IList<HeroDataContact> GetEnemyTeam(string myTeamName)
+        public Team GetEnemyTeam(string myTeamName)
         {
             lock (_state)
             {
@@ -51,14 +46,14 @@ namespace MiniGame.Service
                 {
                     _state.Team1Ready = true;
                     SetStartTime();
-                    return _state.Team2.Heros;
+                    return _state.Team2;
                 }
                 
                 if (myTeamName == _state.Team2.Name)
                 {
                     _state.Team2Ready = true;
                     SetStartTime();
-                    return _state.Team1.Heros;
+                    return _state.Team1;
                 }
 
                 return null;
@@ -68,19 +63,63 @@ namespace MiniGame.Service
         private void SetStartTime()
         {
             if (_state.BothTeamReady)
-                _state.StartTime = DateTime.Now;
+            {               
+                RestartGame(_state.Team1.Name);
+            }
         }
 
 
-        public GameStateDataContact GetMyInfo(GameStateDataContact myTeamInfo)
+        public GameStateChanges GetMyInfo(GameStateChanges myTeamInfo)
         {
             Team myTeam = _state.GetTeamByName(myTeamInfo.TeamName);
 
-            myTeam.BombCount = myTeamInfo.BombCount;
-            myTeam.EnemyCount = myTeamInfo.EnemyCount;
-            myTeam.MeCount= myTeamInfo.MeCount;
+            myTeam.BombCount -= myTeamInfo.BombsRemoved;
+            myTeam.EnemyCount -= myTeamInfo.EnemiesRemoved;
+            myTeam.MeCount -= myTeamInfo.FriendsRemoved;
 
-            
+            Team otherTeam = GetEnemyTeam(myTeamInfo.TeamName);
+
+            otherTeam.BombCount += myTeamInfo.EnemiesRemoved;
+            otherTeam.LatestChanges = new GameStateChanges() { BombsAdded = myTeamInfo.EnemiesRemoved };
+
+            var latestChanges = myTeam.LatestChanges;
+            myTeam.LatestChanges = new GameStateChanges();
+
+            if (myTeamInfo.IsGameOver || _state.IsGameOver)
+            {
+                latestChanges.IsGameOver = true;
+                if (GetEnemyTeam(myTeamInfo.TeamName).IsWinner)
+                {
+                    latestChanges.IsWinner = false;
+                }
+                else
+                {
+                    latestChanges.IsWinner = true;
+                    myTeam.IsWinner = true;
+                }
+            }
+            return latestChanges;
+        }
+
+        public void RestartGame(string myName)
+        {
+
+            Team myTeam = _state.GetTeamByName(myName);
+            Team otherTeam = GetEnemyTeam(myName);
+
+            myTeam.IsWinner = false;
+            myTeam.BombCount = 1;
+            myTeam.EnemyCount = otherTeam.Heros.Count;
+            myTeam.MeCount = myTeam.Heros.Count;
+            myTeam.LatestChanges = new GameStateChanges();
+
+            otherTeam.IsWinner = false;
+            otherTeam.BombCount = 1;
+            otherTeam.EnemyCount = myTeam.Heros.Count;
+            otherTeam.MeCount = otherTeam.Heros.Count;
+            otherTeam.LatestChanges = new GameStateChanges();
+
+            _state.StartTime = DateTime.Now;
         }
     }
 }

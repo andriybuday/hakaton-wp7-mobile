@@ -20,10 +20,10 @@ namespace MiniGame.Service
         bool SetTeam(string myName, IList<HeroDataContact> myHeros);
 
         [OperationContract]
-        IList<HeroDataContact> GetEnemyTeam(string myTeamName);
+        Team GetEnemyTeam(string myTeamName);
 
         [OperationContract]
-        GameStateDataContact GetMyInfo(GameStateDataContact myInfo);
+        GameStateChanges GetMyInfo(GameStateChanges myInfo);
 
     }
 }
