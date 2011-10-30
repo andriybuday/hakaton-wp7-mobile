@@ -1,5 +1,4 @@
-﻿using System.Runtime.Serialization;
-using System.Windows.Media.Imaging;
+﻿using System.Windows.Media.Imaging;
 
 namespace MiniGame.DataModel
 {
@@ -10,7 +9,7 @@ namespace MiniGame.DataModel
         public WriteableBitmap MemberPhoto { get; set; }
         public string Name { get; set; }
 
-        public HeroDataContact ToHeroDataContract()
+        /*public HeroDataContact ToHeroDataContract()
         {
             return new HeroDataContact()
                        {
@@ -18,29 +17,6 @@ namespace MiniGame.DataModel
                            Name = Name,
                            MemberPhoto = ImageHelper.ToByteArrayB(MemberPhoto)
                        };
-        }
-    }
-
-    [DataContract]
-    public class HeroDataContact
-    {
-        [DataMember]
-        public bool IsInYourTeam { get; set; }
-
-        [DataMember]
-        public byte[] MemberPhoto { get; set; }
-
-        [DataMember]
-        public string Name { get; set; }
-
-        public Hero ToHero()
-        {
-            return new Hero()
-                       {
-                           IsInYourTeam = IsInYourTeam,
-                           Name = Name,
-                           MemberPhoto = ImageHelper.FromByteArray(MemberPhoto)
-                       };
-        }
+        }*/
     }
 }

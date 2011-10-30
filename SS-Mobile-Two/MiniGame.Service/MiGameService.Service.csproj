@@ -75,9 +75,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MiniGame.DataModel\MiniGame.DataModel.csproj">
-      <Project>{9C23B59D-D750-40A6-99BA-0C7E7B122854}</Project>
-      <Name>MiniGame.DataModel</Name>
+    <ProjectReference Include="..\MiniGame.DataContractsShared\MiniGame.DataContractsShared.csproj">
+      <Project>{DB0227FC-BB6F-4155-9824-24BB6D775B7A}</Project>
+      <Name>MiniGame.DataContractsShared</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
