@@ -32,7 +32,7 @@ namespace sdkSilverlightXNACS
         {
             if (e.Error == null)
             {
-                GameState.GetInstance().EnemyTeam = e.Result.Select(x =>new Hero()
+                GameState.GetInstance().EnemyTeam = e.Result.Heros.Select(x =>new Hero()
                             {
                                 IsInYourTeam = false,
                                 Name = x.Name,

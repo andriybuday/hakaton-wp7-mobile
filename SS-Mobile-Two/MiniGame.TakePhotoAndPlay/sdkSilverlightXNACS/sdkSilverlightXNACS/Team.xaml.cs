@@ -102,7 +102,6 @@ namespace sdkSilverlightXNACS
             {
                 var service = new MiniGameService.MiniGameServiceClient();
 
-                //service.SetTeamCompleted += service_SetTeamCompleted;
                 service.SetTeamAsync(GameState.GetInstance().TeamName, GameState.GetInstance().FriendsTeam.Select
                     (x =>
                         new MiniGameService.HeroDataContact()
