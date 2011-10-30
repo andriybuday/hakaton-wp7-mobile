@@ -33,20 +33,26 @@ namespace MiniGame.Service
 
         public bool SetTeam(string myName, IList<HeroDataContact> myHeros)
         {
-            foreach(HeroDataContact hero in myHeros)
+            lock (_state)
             {
-                _state.GetTeamByName(myName).Heros.Add(hero);
+                foreach (HeroDataContact hero in myHeros)
+                {
+                    _state.GetTeamByName(myName).Heros.Add(hero);
+                }
+                return true;
             }
-            return true;
         }
 
         public IList<HeroDataContact> GetEnemyTeam(string myTeamName)
         {
-            if (myTeamName == _state.Team1.Name)
-                return _state.Team2.Heros;
-            if (myTeamName == _state.Team2.Name)
-                return _state.Team1.Heros;
-            return null;
+            lock (_state)
+            {
+                if (myTeamName == _state.Team1.Name)
+                    return _state.Team2.Heros;
+                if (myTeamName == _state.Team2.Name)
+                    return _state.Team1.Heros;
+                return null;
+            }            
         }
     }
 }

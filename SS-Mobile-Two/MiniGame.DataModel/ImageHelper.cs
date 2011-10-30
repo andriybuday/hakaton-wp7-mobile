@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Media.Imaging;
 
 namespace MiniGame.DataModel
@@ -28,6 +29,17 @@ namespace MiniGame.DataModel
             WriteableBitmap bmp = new WriteableBitmap(50,50);
             Buffer.BlockCopy(buffer, 0, bmp.Pixels, 0, buffer.Length);
             return bmp;
+        }
+
+        public static byte[] ToCompressedByteArray(WriteableBitmap bmp)
+        {
+            byte[] arrayOfBytes;
+            using (var face1FileStream = new MemoryStream())
+            {
+                Extensions.SaveJpeg(bmp, face1FileStream, 150, 150, 0, 85);
+                arrayOfBytes = face1FileStream.GetBuffer();
+            }
+            return arrayOfBytes;
         }
 
     }

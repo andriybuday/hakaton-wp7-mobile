@@ -29,7 +29,7 @@ namespace sdkSilverlightXNACS.Storage
 
         public IList<Hero> EnemyTeam { get; set; }
 
-        public WriteableBitmap Background { get; set; }
+        public byte[] Background { get; set; }
 
         public string TeamName { get; set; }
 

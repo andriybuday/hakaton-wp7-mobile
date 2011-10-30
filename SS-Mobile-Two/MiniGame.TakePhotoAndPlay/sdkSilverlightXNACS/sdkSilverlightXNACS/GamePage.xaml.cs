@@ -174,11 +174,12 @@ namespace sdkSilverlightXNACS
             }
         }
 
-        private Texture2D FromBitmapToTexture2D(WriteableBitmap faceToUse)
+        private Texture2D FromBitmapToTexture2D(byte[] faceToUse)
         {
             using (var face1FileStream = new MemoryStream())
             {
-                Extensions.SaveJpeg(faceToUse, face1FileStream, faceToUse.PixelWidth, faceToUse.PixelHeight, 0, 85);
+                face1FileStream.Write(faceToUse, 0 , faceToUse.Count());
+                face1FileStream.Flush();
                 var result = Texture2D.FromStream(SharedGraphicsDeviceManager.Current.GraphicsDevice, face1FileStream);
                 face1FileStream.Close();
                 return result;

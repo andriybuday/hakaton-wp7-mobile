@@ -17,7 +17,7 @@ namespace sdkSilverlightXNACS
             InitializeComponent();
             SupportedOrientations = SupportedPageOrientation.Portrait | SupportedPageOrientation.Landscape;
          
-            _player2Timer = new Timer(WaitForOpponent,null, 0, 2000);
+            _player2Timer = new Timer(WaitForOpponent,null, 10000, 2000);
         }
 
         private void WaitForOpponent(object sender)
@@ -36,18 +36,22 @@ namespace sdkSilverlightXNACS
                             {
                                 IsInYourTeam = false,
                                 Name = x.Name,
-                                MemberPhoto = ImageHelper.FromByteArray(x.MemberPhoto)
+                                MemberPhoto = x.MemberPhoto
                             }).ToList();
 
-                GameState.GetInstance().IsGameStarted = true;
-                GameState.GetInstance().TimeGameStarted = DateTime.Now;
-                Player2IsReady();
+                if (GameState.GetInstance().EnemyTeam.Count > 0)
+                {
+
+                    GameState.GetInstance().IsGameStarted = true;
+                    GameState.GetInstance().TimeGameStarted = DateTime.Now;
+                    Player2IsReady();
+                }
             }
         }
 
         private void Player2IsReady()
         {
-            MessageBox.Show("Other player is ready. Starting game");
+            //MessageBox.Show("Other player is ready. Starting game");
             NavigationService.Navigate(new Uri("/GamePage.xaml", UriKind.Relative));
         }
     }

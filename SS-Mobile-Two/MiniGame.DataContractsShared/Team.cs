@@ -14,5 +14,6 @@ namespace MiniGame.DataContractsShared
         public string Name { get; set; }
 
         public bool IsConfirmedStart { get; set; }
+
     }
 }

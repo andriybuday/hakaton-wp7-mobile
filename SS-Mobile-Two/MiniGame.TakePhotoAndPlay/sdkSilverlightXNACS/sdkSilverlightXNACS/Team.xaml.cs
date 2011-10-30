@@ -63,13 +63,11 @@ namespace sdkSilverlightXNACS
                 }
             }
 
-            if (game.IsMultiPlayerGame.GetValueOrDefault(false) && TeamsPivot.Items.Count > 1)
+            /*if (game.IsMultiPlayerGame.GetValueOrDefault(false) )
             {
-                TeamsPivot.Items.RemoveAt(1);
-            }
-            /*EnemyTeamVisibility = game.IsMultiPlayerGame.GetValueOrDefault(false)
-                                      ? System.Windows.Visibility.Collapsed
-                                      : System.Windows.Visibility.Visible;*/
+                //Remove pivot
+            }*/
+            
 
             TeamMembers = game.FriendsTeam;
             EnemyMembers = game.EnemyTeam;
@@ -105,7 +103,7 @@ namespace sdkSilverlightXNACS
                         new MiniGameService.HeroDataContact()
                             {
                                 IsInYourTeam = x.IsInYourTeam, Name = x.Name,
-                                MemberPhoto = ImageHelper.ToByteArrayB(x.MemberPhoto)
+                                MemberPhoto = x.MemberPhoto
                             }).ToList());
                 
                 NavigationService.Navigate(new Uri("/WaitingForOpponent.xaml", UriKind.Relative));

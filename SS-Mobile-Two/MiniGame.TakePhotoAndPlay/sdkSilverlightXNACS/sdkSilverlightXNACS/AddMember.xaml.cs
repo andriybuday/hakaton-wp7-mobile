@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -6,9 +7,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using MiniGame.DataModel;
 using sdkSilverlightXNACS;
 using sdkSilverlightXNACS.Storage;
+using Point = System.Windows.Point;
 
 namespace sdkPhotosCS
 {
@@ -188,18 +192,20 @@ namespace sdkPhotosCS
                 teamNumber = int.Parse(_queryString[teamNumberIndex].ToString());
             }
 
+            byte[] arrayOfBytes = ImageHelper.ToCompressedByteArray(App.CroppedImage);
+
             if (_queryString.Contains(QUERY_PARAMETER_CAPTURE_TYPE) && _queryString.Contains(QUERY_PARAMETER_CAPTURE_TYPE_BACKGROUND))
             {
-                game.Background = App.CroppedImage;
+                game.Background = arrayOfBytes;
             }
 
             if (teamNumber == 0)
             {
-                game.FriendsTeam.Add(new Hero(){IsInYourTeam = true, MemberPhoto = App.CroppedImage, Name = userEnteredName});
+                game.FriendsTeam.Add(new Hero() { IsInYourTeam = true, MemberPhoto = arrayOfBytes, Name = userEnteredName });
             }
             else
             {
-                game.EnemyTeam.Add(new Hero() { IsInYourTeam = false, MemberPhoto = App.CroppedImage, Name = userEnteredName });
+                game.EnemyTeam.Add(new Hero() { IsInYourTeam = false, MemberPhoto = arrayOfBytes, Name = userEnteredName });
             }
 
             NavigationService.Navigate(new Uri("/Team.xaml", UriKind.Relative));

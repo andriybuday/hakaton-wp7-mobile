@@ -175,7 +175,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="ServiceReferences.ClientConfig" />
+    <Content Include="ServiceReferences.ClientConfig">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Service References\MiniGameService\MiniGameService.wsdl" />
     <None Include="Service References\MiniGameService\MiniGameService.xsd">
       <SubType>Designer</SubType>
