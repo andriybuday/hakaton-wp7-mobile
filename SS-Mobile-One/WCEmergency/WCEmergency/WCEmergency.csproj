@@ -64,6 +64,7 @@
       <HintPath>..\Tools\Toolkit\Aug11\Bin\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Interop" />
     <Reference Include="System.Device" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -100,6 +101,9 @@
     </Compile>
     <Compile Include="Navigation\BackchainingManager.cs" />
     <Compile Include="PhoneApplicationPageBase.cs" />
+    <Compile Include="PopupSplash.xaml.cs">
+      <DependentUpon>PopupSplash.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\Bing.Geocode\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -149,6 +153,10 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PopupSplash.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

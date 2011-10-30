@@ -2,13 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCEmergency", "WCEmergency\WCEmergency.csproj", "{E3E4390C-C0DE-410D-B890-99E045172ABC}"
-	ProjectSection(ProjectDependencies) = postProject
-		{13CF7C21-230A-4470-B19A-72C8F5C319DE} = {13CF7C21-230A-4470-B19A-72C8F5C319DE}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCEmergency.Common", "WCEmergency.Common\WCEmergency.Common.csproj", "{49DD4065-7EF4-4899-BE5A-4EF3DE131D00}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCEmergency.Service", "WCEmergency.Service\WCEmergency.Service.csproj", "{13CF7C21-230A-4470-B19A-72C8F5C319DE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCEmergency.DataLayer", "WCEmergency.DataLayer\WCEmergency.DataLayer.csproj", "{2FADA92F-DFCB-4900-9154-CB11AE7BAD6C}"
 EndProject
@@ -48,16 +43,6 @@ Global
 		{49DD4065-7EF4-4899-BE5A-4EF3DE131D00}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{49DD4065-7EF4-4899-BE5A-4EF3DE131D00}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{49DD4065-7EF4-4899-BE5A-4EF3DE131D00}.Release|x86.ActiveCfg = Release|Any CPU
-		{13CF7C21-230A-4470-B19A-72C8F5C319DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{13CF7C21-230A-4470-B19A-72C8F5C319DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{13CF7C21-230A-4470-B19A-72C8F5C319DE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{13CF7C21-230A-4470-B19A-72C8F5C319DE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{13CF7C21-230A-4470-B19A-72C8F5C319DE}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{13CF7C21-230A-4470-B19A-72C8F5C319DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{13CF7C21-230A-4470-B19A-72C8F5C319DE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{13CF7C21-230A-4470-B19A-72C8F5C319DE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{13CF7C21-230A-4470-B19A-72C8F5C319DE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{13CF7C21-230A-4470-B19A-72C8F5C319DE}.Release|x86.ActiveCfg = Release|Any CPU
 		{2FADA92F-DFCB-4900-9154-CB11AE7BAD6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2FADA92F-DFCB-4900-9154-CB11AE7BAD6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FADA92F-DFCB-4900-9154-CB11AE7BAD6C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
