@@ -90,6 +90,7 @@
     <Compile Include="ChooseOpponent.xaml.cs">
       <DependentUpon>ChooseOpponent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\WaitIndicator.cs" />
     <Compile Include="Service References\MiniGameService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -99,8 +100,8 @@
       <DependentUpon>Team.xaml</DependentUpon>
     </Compile>
     <Compile Include="Game1.cs" />
-    <Compile Include="SearchingForOpponent.xaml.cs">
-      <DependentUpon>SearchingForOpponent.xaml</DependentUpon>
+    <Compile Include="WaitingForOpponent.xaml.cs">
+      <DependentUpon>WaitingForOpponent.xaml</DependentUpon>
     </Compile>
     <Compile Include="AddMember.xaml.cs">
       <DependentUpon>AddMember.xaml</DependentUpon>
@@ -128,7 +129,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="SearchingForOpponent.xaml">
+    <Page Include="WaitingForOpponent.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

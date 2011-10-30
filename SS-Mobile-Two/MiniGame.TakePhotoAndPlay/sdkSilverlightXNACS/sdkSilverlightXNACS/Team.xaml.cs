@@ -72,8 +72,7 @@ namespace sdkSilverlightXNACS
 
         private void StartGame(object sender, EventArgs args)
         {
-
-            NavigationService.Navigate(new Uri("/GamePage.xaml?capture=Background", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/GamePage.xaml", UriKind.Relative));
         }
     }
 }
