@@ -94,7 +94,7 @@ namespace sdkSilverlightXNACS
             if (GameState.GetInstance().IsMultiPlayerGame.GetValueOrDefault(false))
             {
                 _service = new MiniGameService.MiniGameServiceClient();
-                _service.GetMyInfoCompleted += service_GetMyInfoCompleted;
+                _service.RetrieveChangesCompleted += service_RetrieveChangesCompleted;
             }
 
             // Set the sharing mode of the graphics device to turn on XNA rendering
@@ -124,7 +124,7 @@ namespace sdkSilverlightXNACS
 
             if(GameState.GetInstance().IsMultiPlayerGame.GetValueOrDefault(false))
             {
-                _service.GetMyInfoAsync(new GameStateChanges() {TeamName = GameState.GetInstance().TeamName});
+                _service.RetrieveChangesAsync(GameState.GetInstance().TeamName);
             }
         }
 
@@ -289,21 +289,9 @@ namespace sdkSilverlightXNACS
             // REMOVE
             if (toRemoveBall != null)
             {
-                // TODO: add call to the server side...
-                var gameStateChanges = new GameStateChanges() { TeamName = GameState.GetInstance().TeamName };
-
-                if (toRemoveBall.BallIs == BallIs.FriendIsOutsideOfBoard)
+                if (toRemoveBall.BallIs == BallIs.EnemyIsOutsideOfBoard && GameState.GetInstance().IsMultiPlayerGame.GetValueOrDefault(false))
                 {
-                    gameStateChanges.FriendsRemoved = 1;
-                }
-                else if (toRemoveBall.BallIs == BallIs.EnemyIsOutsideOfBoard)
-                {
-                    gameStateChanges.EnemiesRemoved = 1;
-                }
-
-                if (GameState.GetInstance().IsMultiPlayerGame.GetValueOrDefault(false))
-                {
-                    _service.GetMyInfoAsync(gameStateChanges);
+                    _service.AddBombToEnemyAsync(1, GameState.GetInstance().TeamName);
                 }
 
                 balls.Remove(toRemoveBall);
@@ -327,7 +315,7 @@ namespace sdkSilverlightXNACS
 
         }
 
-        void service_GetMyInfoCompleted(object sender, GetMyInfoCompletedEventArgs e)
+        void service_RetrieveChangesCompleted(object sender, RetrieveChangesCompletedEventArgs e)
         {
             //_service.GetMyInfoCompleted -= service_GetMyInfoCompleted;
 
@@ -338,18 +326,15 @@ namespace sdkSilverlightXNACS
                 {
                     AddBombTwoTheWorld();
                 }
-                if (result.IsGameOver)
+                if (result.IsWinner)
                 {
                     _timer.Change(10000, 10000);
-
-                    if (result.IsWinner)
-                    {
-                        WinGame();
-                    }
-                    else
-                    {
-                        LoseGame();
-                    }
+                    WinGame();
+                }
+                else
+                {
+                    _timer.Change(10000, 10000);
+                    LoseGame();
                 }
             }
         }
@@ -358,13 +343,13 @@ namespace sdkSilverlightXNACS
         {
             if (GameState.GetInstance().IsMultiPlayerGame.GetValueOrDefault(false))
             {
-                var gameStateChanges = new GameStateChanges() { IsGameOver = true, IsWinner = true, TeamName = GameState.GetInstance().TeamName };
-                _service.GetMyInfoAsync(gameStateChanges);
+                _service.InformAboutWinAsync(GameState.GetInstance().TeamName);
             }
             // game just finished or not started at all...
             GameState.GetInstance().IsGameOver = true;
             GameState.GetInstance().IsGameStarted = false;
 
+            //TODO : Get response from server, maybe you lose?
             ControlGameStatus.IsVictory = true;
             ControlGameStatus.Visibility = Visibility.Visible;
             balls.Clear();
@@ -375,9 +360,11 @@ namespace sdkSilverlightXNACS
         {
             if (GameState.GetInstance().IsMultiPlayerGame.GetValueOrDefault(false))
             {
-                var gameStateChanges = new GameStateChanges() {IsGameOver = true, IsWinner = false, TeamName = GameState.GetInstance().TeamName};
-                _service.GetMyInfoAsync(gameStateChanges);
+                _service.InformAboutLoseAsync(GameState.GetInstance().TeamName);
             }
+
+            //TODO : Get response from server, maybe you lose?
+
             // game just finished or not started at all...
             GameState.GetInstance().IsGameOver = true;
             GameState.GetInstance().IsGameStarted = false;
@@ -392,9 +379,10 @@ namespace sdkSilverlightXNACS
         {
             if (GameState.GetInstance().IsMultiPlayerGame.GetValueOrDefault(false))
             {
-                var gameStateChanges = new GameStateChanges() {IsGameOver = true, IsWinner = false, TeamName = GameState.GetInstance().TeamName};
-                _service.GetMyInfoAsync(gameStateChanges);
+                _service.InformAboutLoseAsync(GameState.GetInstance().TeamName);
             }
+
+            //TODO : Get response from server, maybe you lose?
 
             balls.Clear();
             GameState.GetInstance().IsGameOver = true;

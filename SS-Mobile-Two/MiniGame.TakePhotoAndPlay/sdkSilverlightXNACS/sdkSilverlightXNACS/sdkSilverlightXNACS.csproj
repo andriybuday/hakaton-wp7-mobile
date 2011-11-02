@@ -190,10 +190,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Resource Include="Icons\bomb_expl.jpg" />
-    <Content Include="ServiceReferences.ClientConfig">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="ServiceReferences.ClientConfig" />
     <None Include="Service References\MiniGameService\MiniGameService.wsdl" />
     <None Include="Service References\MiniGameService\MiniGameService.xsd">
       <SubType>Designer</SubType>
@@ -204,9 +201,13 @@
     <None Include="Service References\MiniGameService\MiniGameService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MiniGameService\sdkSilverlightXNACS.MiniGameService.HeroDataContact.datasource">
+    <None Include="Service References\MiniGameService\sdkSilverlightXNACS.MiniGameService.GameStateChanges.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\MiniGameService\sdkSilverlightXNACS.MiniGameService.Team.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Resource Include="Icons\bomb_expl.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ApplicationIcon.png">

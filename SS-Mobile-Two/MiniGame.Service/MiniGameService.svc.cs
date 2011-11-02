@@ -46,14 +46,12 @@ namespace MiniGame.Service
                 if (myTeamName == _state.Team1.Name)
                 {
                     _state.Team1Ready = true;
-                    //SetStartTime();
                     return _state.Team2;
                 }
                 
                 if (myTeamName == _state.Team2.Name)
                 {
                     _state.Team2Ready = true;
-                    //SetStartTime();
                     return _state.Team1;
                 }
 
@@ -61,70 +59,93 @@ namespace MiniGame.Service
             }            
         }
 
-        private void SetStartTime()
+        public void ClearGame()
         {
-            lock (_state)
+            lock (_lockObject)
             {
-                if (_state.BothTeamReady)
-                {
-                    //RestartGame(_state.Team1.Name);
-                }
+                Team team1 = _state.Team1;
+                Team team2 = _state.Team2;
+
+                team1.IsWinner = false;
+                team1.IsLoser = false;
+                team1.BombsAdded = 0;
+
+                team2.IsWinner = false;
+                team2.IsLoser = false;
+                team2.BombsAdded = 0;
             }
         }
 
 
-        public GameStateChanges GetMyInfo(GameStateChanges myTeamInfo)
+        public GameStateChanges AddBombToEnemy(int count, string myTeamName)
         {
             lock (_lockObject)
             {
-                Team myTeam = _state.GetTeamByName(myTeamInfo.TeamName);
+                Team otherTeam = _state.GetOtherTeamByName(myTeamName);
+                otherTeam.BombsAdded += count;
 
-                Team otherTeam = _state.GetOtherTeamByName(myTeamInfo.TeamName);
-
-                otherTeam.BombsAdded += myTeamInfo.EnemiesRemoved;
-                otherTeam.LatestChanges = new GameStateChanges() {BombsAdded = myTeamInfo.EnemiesRemoved};
-                myTeamInfo.EnemiesRemoved = 0;
-
-                var latestChanges = new GameStateChanges() { BombsAdded = myTeam.BombsAdded };
-
-                if (myTeamInfo.IsGameOver || _state.IsGameOver)
-                {
-                    latestChanges.IsGameOver = true;
-                    if (_state.GetOtherTeamByName(myTeamInfo.TeamName).IsWinner)
-                    {
-                        latestChanges.IsWinner = false;
-                    }
-                    else if (myTeamInfo.IsWinner)
-                    {
-                        latestChanges.IsWinner = true;
-                        myTeam.IsWinner = true;
-                    }
-                    else
-                    {
-                        latestChanges.IsWinner = false;
-                        myTeam.IsWinner = false;
-                    }
-                }
-            
-                return latestChanges;
+                return ReturnCurrentState(myTeamName);
             }
         }
 
-        public void RestartGame(string myName)
+        private GameStateChanges ReturnCurrentState(string teamName)
+        {
+            Team myTeam = _state.GetTeamByName(teamName);
+
+            var changesToReturn = new GameStateChanges()
+            {
+                BombsAdded = myTeam.BombsAdded,
+                IsLoser = myTeam.IsLoser,
+                IsWinner = myTeam.IsWinner
+            };
+
+            myTeam.BombsAdded = 0;
+            if (myTeam.IsLoser || myTeam.IsWinner)
+            {
+                ClearGame();
+            }
+            return changesToReturn;
+        }
+
+
+        public GameStateChanges InformAboutWin(string myTeamName)
         {
             lock (_lockObject)
             {
-                Team myTeam = _state.GetTeamByName(myName);
-                Team otherTeam = _state.GetOtherTeamByName(myName);
+                Team myTeam = _state.GetTeamByName(myTeamName);
+                Team otherTeam = _state.GetOtherTeamByName(myTeamName);
 
-                myTeam.IsWinner = false;
-                myTeam.BombsAdded = 0;
+                if (!myTeam.IsWinner && !myTeam.IsLoser)
+                {
+                    myTeam.IsWinner = true;
+                    otherTeam.IsLoser = true;
+                }
 
-                otherTeam.IsWinner = false;
-                otherTeam.BombsAdded = 0;
-
-                _state.StartTime = DateTime.Now;
+                return ReturnCurrentState(myTeamName);
             }
+        }
+
+        public GameStateChanges InformAboutLose(string myTeamName)
+        {
+            lock (_lockObject)
+            {
+                Team myTeam = _state.GetTeamByName(myTeamName);
+                Team otherTeam = _state.GetOtherTeamByName(myTeamName);
+
+                if (!myTeam.IsWinner && !myTeam.IsLoser)
+                {
+                    myTeam.IsLoser = true;
+                    otherTeam.IsWinner = true;
+                }
+
+                return ReturnCurrentState(myTeamName);
+            }
+        }
+
+
+        public GameStateChanges RetrieveChanges(string myTeamName)
+        {
+            return ReturnCurrentState(myTeamName);
         }
     }
 }

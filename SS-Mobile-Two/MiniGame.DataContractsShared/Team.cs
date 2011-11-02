@@ -16,16 +16,11 @@ namespace MiniGame.DataContractsShared
 
         public bool IsConfirmedStart { get; set; }
 
-        public int BombCount { get; set; }
-
-        public int MeCount { get; set; }
-
-        public int EnemyCount { get; set; }
 
         public bool IsWinner { get; set; }
 
-        public int BombsAdded { get; set; }
+        public bool IsLoser { get; set; }
 
-        public GameStateChanges LatestChanges { get; set; }
+        public int BombsAdded { get; set; }
     }
 }

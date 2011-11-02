@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
 using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 using MiniGame.DataContractsShared;
 
 
@@ -23,7 +18,16 @@ namespace MiniGame.Service
         Team GetEnemyTeam(string myTeamName);
 
         [OperationContract]
-        GameStateChanges GetMyInfo(GameStateChanges myInfo);
+        GameStateChanges AddBombToEnemy(int count, string myTeamName);
+
+        [OperationContract]
+        GameStateChanges InformAboutWin(string myTeamName);
+
+        [OperationContract]
+        GameStateChanges InformAboutLose(string myTeamName);
+
+        [OperationContract]
+        GameStateChanges RetrieveChanges(string myTeamName);
 
     }
 }
