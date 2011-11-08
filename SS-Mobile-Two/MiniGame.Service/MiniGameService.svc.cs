@@ -145,7 +145,10 @@ namespace MiniGame.Service
 
         public GameStateChanges RetrieveChanges(string myTeamName)
         {
-            return ReturnCurrentState(myTeamName);
+            lock (_lockObject)
+            {
+                return ReturnCurrentState(myTeamName);
+            }
         }
     }
 }
