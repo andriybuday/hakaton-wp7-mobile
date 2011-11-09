@@ -25,11 +25,29 @@
   <wsdl:message name="IMiniGameService_GetEnemyTeam_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetEnemyTeamResponse" />
   </wsdl:message>
-  <wsdl:message name="IMiniGameService_GetMyInfo_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetMyInfo" />
+  <wsdl:message name="IMiniGameService_AddBombToEnemy_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddBombToEnemy" />
   </wsdl:message>
-  <wsdl:message name="IMiniGameService_GetMyInfo_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetMyInfoResponse" />
+  <wsdl:message name="IMiniGameService_AddBombToEnemy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddBombToEnemyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMiniGameService_InformAboutWin_InputMessage">
+    <wsdl:part name="parameters" element="tns:InformAboutWin" />
+  </wsdl:message>
+  <wsdl:message name="IMiniGameService_InformAboutWin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InformAboutWinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMiniGameService_InformAboutLose_InputMessage">
+    <wsdl:part name="parameters" element="tns:InformAboutLose" />
+  </wsdl:message>
+  <wsdl:message name="IMiniGameService_InformAboutLose_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InformAboutLoseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMiniGameService_RetrieveChanges_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveChanges" />
+  </wsdl:message>
+  <wsdl:message name="IMiniGameService_RetrieveChanges_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveChangesResponse" />
   </wsdl:message>
   <wsdl:portType name="IMiniGameService">
     <wsdl:operation name="RegisterMe">
@@ -44,9 +62,21 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IMiniGameService/GetEnemyTeam" message="tns:IMiniGameService_GetEnemyTeam_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMiniGameService/GetEnemyTeamResponse" message="tns:IMiniGameService_GetEnemyTeam_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetMyInfo">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMiniGameService/GetMyInfo" message="tns:IMiniGameService_GetMyInfo_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMiniGameService/GetMyInfoResponse" message="tns:IMiniGameService_GetMyInfo_OutputMessage" />
+    <wsdl:operation name="AddBombToEnemy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMiniGameService/AddBombToEnemy" message="tns:IMiniGameService_AddBombToEnemy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMiniGameService/AddBombToEnemyResponse" message="tns:IMiniGameService_AddBombToEnemy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InformAboutWin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMiniGameService/InformAboutWin" message="tns:IMiniGameService_InformAboutWin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMiniGameService/InformAboutWinResponse" message="tns:IMiniGameService_InformAboutWin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InformAboutLose">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMiniGameService/InformAboutLose" message="tns:IMiniGameService_InformAboutLose_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMiniGameService/InformAboutLoseResponse" message="tns:IMiniGameService_InformAboutLose_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveChanges">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMiniGameService/RetrieveChanges" message="tns:IMiniGameService_RetrieveChanges_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMiniGameService/RetrieveChangesResponse" message="tns:IMiniGameService_RetrieveChanges_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IMiniGameService" type="tns:IMiniGameService">
@@ -78,8 +108,35 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetMyInfo">
-      <soap:operation soapAction="http://tempuri.org/IMiniGameService/GetMyInfo" style="document" />
+    <wsdl:operation name="AddBombToEnemy">
+      <soap:operation soapAction="http://tempuri.org/IMiniGameService/AddBombToEnemy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InformAboutWin">
+      <soap:operation soapAction="http://tempuri.org/IMiniGameService/InformAboutWin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InformAboutLose">
+      <soap:operation soapAction="http://tempuri.org/IMiniGameService/InformAboutLose" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveChanges">
+      <soap:operation soapAction="http://tempuri.org/IMiniGameService/RetrieveChanges" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

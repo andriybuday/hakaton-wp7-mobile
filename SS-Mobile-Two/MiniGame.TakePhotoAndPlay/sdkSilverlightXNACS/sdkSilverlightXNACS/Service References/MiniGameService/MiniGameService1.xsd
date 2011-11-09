@@ -16,13 +16,11 @@
   <xs:element name="HeroDataContact" nillable="true" type="tns:HeroDataContact" />
   <xs:complexType name="Team">
     <xs:sequence>
-      <xs:element minOccurs="0" name="BombCount" type="xs:int" />
-      <xs:element minOccurs="0" name="EnemyCount" type="xs:int" />
+      <xs:element minOccurs="0" name="BombsAdded" type="xs:int" />
       <xs:element minOccurs="0" name="Heros" nillable="true" type="tns:ArrayOfHeroDataContact" />
       <xs:element minOccurs="0" name="IsConfirmedStart" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsLoser" type="xs:boolean" />
       <xs:element minOccurs="0" name="IsWinner" type="xs:boolean" />
-      <xs:element minOccurs="0" name="LatestChanges" nillable="true" type="tns:GameStateChanges" />
-      <xs:element minOccurs="0" name="MeCount" type="xs:int" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -30,12 +28,8 @@
   <xs:complexType name="GameStateChanges">
     <xs:sequence>
       <xs:element minOccurs="0" name="BombsAdded" type="xs:int" />
-      <xs:element minOccurs="0" name="BombsRemoved" type="xs:int" />
-      <xs:element minOccurs="0" name="EnemiesRemoved" type="xs:int" />
-      <xs:element minOccurs="0" name="FriendsRemoved" type="xs:int" />
-      <xs:element minOccurs="0" name="IsGameOver" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsLoser" type="xs:boolean" />
       <xs:element minOccurs="0" name="IsWinner" type="xs:boolean" />
-      <xs:element minOccurs="0" name="TeamName" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="GameStateChanges" nillable="true" type="tns:GameStateChanges" />

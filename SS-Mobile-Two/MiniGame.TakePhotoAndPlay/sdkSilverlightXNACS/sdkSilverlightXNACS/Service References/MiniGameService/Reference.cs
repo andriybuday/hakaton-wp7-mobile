@@ -80,44 +80,27 @@ namespace sdkSilverlightXNACS.MiniGameService {
     [System.Runtime.Serialization.DataContractAttribute(Name="Team", Namespace="http://schemas.datacontract.org/2004/07/MiniGame.DataContractsShared")]
     public partial class Team : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private int BombCountField;
-        
-        private int EnemyCountField;
+        private int BombsAddedField;
         
         private System.Collections.Generic.List<sdkSilverlightXNACS.MiniGameService.HeroDataContact> HerosField;
         
         private bool IsConfirmedStartField;
         
+        private bool IsLoserField;
+        
         private bool IsWinnerField;
-        
-        private sdkSilverlightXNACS.MiniGameService.GameStateChanges LatestChangesField;
-        
-        private int MeCountField;
         
         private string NameField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int BombCount {
+        public int BombsAdded {
             get {
-                return this.BombCountField;
+                return this.BombsAddedField;
             }
             set {
-                if ((this.BombCountField.Equals(value) != true)) {
-                    this.BombCountField = value;
-                    this.RaisePropertyChanged("BombCount");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int EnemyCount {
-            get {
-                return this.EnemyCountField;
-            }
-            set {
-                if ((this.EnemyCountField.Equals(value) != true)) {
-                    this.EnemyCountField = value;
-                    this.RaisePropertyChanged("EnemyCount");
+                if ((this.BombsAddedField.Equals(value) != true)) {
+                    this.BombsAddedField = value;
+                    this.RaisePropertyChanged("BombsAdded");
                 }
             }
         }
@@ -149,6 +132,19 @@ namespace sdkSilverlightXNACS.MiniGameService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsLoser {
+            get {
+                return this.IsLoserField;
+            }
+            set {
+                if ((this.IsLoserField.Equals(value) != true)) {
+                    this.IsLoserField = value;
+                    this.RaisePropertyChanged("IsLoser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public bool IsWinner {
             get {
                 return this.IsWinnerField;
@@ -157,32 +153,6 @@ namespace sdkSilverlightXNACS.MiniGameService {
                 if ((this.IsWinnerField.Equals(value) != true)) {
                     this.IsWinnerField = value;
                     this.RaisePropertyChanged("IsWinner");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public sdkSilverlightXNACS.MiniGameService.GameStateChanges LatestChanges {
-            get {
-                return this.LatestChangesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LatestChangesField, value) != true)) {
-                    this.LatestChangesField = value;
-                    this.RaisePropertyChanged("LatestChanges");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int MeCount {
-            get {
-                return this.MeCountField;
-            }
-            set {
-                if ((this.MeCountField.Equals(value) != true)) {
-                    this.MeCountField = value;
-                    this.RaisePropertyChanged("MeCount");
                 }
             }
         }
@@ -217,17 +187,9 @@ namespace sdkSilverlightXNACS.MiniGameService {
         
         private int BombsAddedField;
         
-        private int BombsRemovedField;
-        
-        private int EnemiesRemovedField;
-        
-        private int FriendsRemovedField;
-        
-        private bool IsGameOverField;
+        private bool IsLoserField;
         
         private bool IsWinnerField;
-        
-        private string TeamNameField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int BombsAdded {
@@ -243,53 +205,14 @@ namespace sdkSilverlightXNACS.MiniGameService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int BombsRemoved {
+        public bool IsLoser {
             get {
-                return this.BombsRemovedField;
+                return this.IsLoserField;
             }
             set {
-                if ((this.BombsRemovedField.Equals(value) != true)) {
-                    this.BombsRemovedField = value;
-                    this.RaisePropertyChanged("BombsRemoved");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int EnemiesRemoved {
-            get {
-                return this.EnemiesRemovedField;
-            }
-            set {
-                if ((this.EnemiesRemovedField.Equals(value) != true)) {
-                    this.EnemiesRemovedField = value;
-                    this.RaisePropertyChanged("EnemiesRemoved");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int FriendsRemoved {
-            get {
-                return this.FriendsRemovedField;
-            }
-            set {
-                if ((this.FriendsRemovedField.Equals(value) != true)) {
-                    this.FriendsRemovedField = value;
-                    this.RaisePropertyChanged("FriendsRemoved");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsGameOver {
-            get {
-                return this.IsGameOverField;
-            }
-            set {
-                if ((this.IsGameOverField.Equals(value) != true)) {
-                    this.IsGameOverField = value;
-                    this.RaisePropertyChanged("IsGameOver");
+                if ((this.IsLoserField.Equals(value) != true)) {
+                    this.IsLoserField = value;
+                    this.RaisePropertyChanged("IsLoser");
                 }
             }
         }
@@ -303,19 +226,6 @@ namespace sdkSilverlightXNACS.MiniGameService {
                 if ((this.IsWinnerField.Equals(value) != true)) {
                     this.IsWinnerField = value;
                     this.RaisePropertyChanged("IsWinner");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string TeamName {
-            get {
-                return this.TeamNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TeamNameField, value) != true)) {
-                    this.TeamNameField = value;
-                    this.RaisePropertyChanged("TeamName");
                 }
             }
         }
@@ -349,10 +259,25 @@ namespace sdkSilverlightXNACS.MiniGameService {
         
         sdkSilverlightXNACS.MiniGameService.Team EndGetEnemyTeam(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMiniGameService/GetMyInfo", ReplyAction="http://tempuri.org/IMiniGameService/GetMyInfoResponse")]
-        System.IAsyncResult BeginGetMyInfo(sdkSilverlightXNACS.MiniGameService.GameStateChanges myInfo, System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMiniGameService/AddBombToEnemy", ReplyAction="http://tempuri.org/IMiniGameService/AddBombToEnemyResponse")]
+        System.IAsyncResult BeginAddBombToEnemy(int count, string myTeamName, System.AsyncCallback callback, object asyncState);
         
-        sdkSilverlightXNACS.MiniGameService.GameStateChanges EndGetMyInfo(System.IAsyncResult result);
+        sdkSilverlightXNACS.MiniGameService.GameStateChanges EndAddBombToEnemy(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMiniGameService/InformAboutWin", ReplyAction="http://tempuri.org/IMiniGameService/InformAboutWinResponse")]
+        System.IAsyncResult BeginInformAboutWin(string myTeamName, System.AsyncCallback callback, object asyncState);
+        
+        sdkSilverlightXNACS.MiniGameService.GameStateChanges EndInformAboutWin(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMiniGameService/InformAboutLose", ReplyAction="http://tempuri.org/IMiniGameService/InformAboutLoseResponse")]
+        System.IAsyncResult BeginInformAboutLose(string myTeamName, System.AsyncCallback callback, object asyncState);
+        
+        sdkSilverlightXNACS.MiniGameService.GameStateChanges EndInformAboutLose(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IMiniGameService/RetrieveChanges", ReplyAction="http://tempuri.org/IMiniGameService/RetrieveChangesResponse")]
+        System.IAsyncResult BeginRetrieveChanges(string myTeamName, System.AsyncCallback callback, object asyncState);
+        
+        sdkSilverlightXNACS.MiniGameService.GameStateChanges EndRetrieveChanges(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -418,11 +343,68 @@ namespace sdkSilverlightXNACS.MiniGameService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetMyInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class AddBombToEnemyCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        public GetMyInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        public AddBombToEnemyCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public sdkSilverlightXNACS.MiniGameService.GameStateChanges Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((sdkSilverlightXNACS.MiniGameService.GameStateChanges)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class InformAboutWinCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public InformAboutWinCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public sdkSilverlightXNACS.MiniGameService.GameStateChanges Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((sdkSilverlightXNACS.MiniGameService.GameStateChanges)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class InformAboutLoseCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public InformAboutLoseCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public sdkSilverlightXNACS.MiniGameService.GameStateChanges Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((sdkSilverlightXNACS.MiniGameService.GameStateChanges)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class RetrieveChangesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public RetrieveChangesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -457,11 +439,29 @@ namespace sdkSilverlightXNACS.MiniGameService {
         
         private System.Threading.SendOrPostCallback onGetEnemyTeamCompletedDelegate;
         
-        private BeginOperationDelegate onBeginGetMyInfoDelegate;
+        private BeginOperationDelegate onBeginAddBombToEnemyDelegate;
         
-        private EndOperationDelegate onEndGetMyInfoDelegate;
+        private EndOperationDelegate onEndAddBombToEnemyDelegate;
         
-        private System.Threading.SendOrPostCallback onGetMyInfoCompletedDelegate;
+        private System.Threading.SendOrPostCallback onAddBombToEnemyCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginInformAboutWinDelegate;
+        
+        private EndOperationDelegate onEndInformAboutWinDelegate;
+        
+        private System.Threading.SendOrPostCallback onInformAboutWinCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginInformAboutLoseDelegate;
+        
+        private EndOperationDelegate onEndInformAboutLoseDelegate;
+        
+        private System.Threading.SendOrPostCallback onInformAboutLoseCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginRetrieveChangesDelegate;
+        
+        private EndOperationDelegate onEndRetrieveChangesDelegate;
+        
+        private System.Threading.SendOrPostCallback onRetrieveChangesCompletedDelegate;
         
         private BeginOperationDelegate onBeginOpenDelegate;
         
@@ -522,7 +522,13 @@ namespace sdkSilverlightXNACS.MiniGameService {
         
         public event System.EventHandler<GetEnemyTeamCompletedEventArgs> GetEnemyTeamCompleted;
         
-        public event System.EventHandler<GetMyInfoCompletedEventArgs> GetMyInfoCompleted;
+        public event System.EventHandler<AddBombToEnemyCompletedEventArgs> AddBombToEnemyCompleted;
+        
+        public event System.EventHandler<InformAboutWinCompletedEventArgs> InformAboutWinCompleted;
+        
+        public event System.EventHandler<InformAboutLoseCompletedEventArgs> InformAboutLoseCompleted;
+        
+        public event System.EventHandler<RetrieveChangesCompletedEventArgs> RetrieveChangesCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
@@ -667,49 +673,189 @@ namespace sdkSilverlightXNACS.MiniGameService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult sdkSilverlightXNACS.MiniGameService.IMiniGameService.BeginGetMyInfo(sdkSilverlightXNACS.MiniGameService.GameStateChanges myInfo, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetMyInfo(myInfo, callback, asyncState);
+        System.IAsyncResult sdkSilverlightXNACS.MiniGameService.IMiniGameService.BeginAddBombToEnemy(int count, string myTeamName, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginAddBombToEnemy(count, myTeamName, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        sdkSilverlightXNACS.MiniGameService.GameStateChanges sdkSilverlightXNACS.MiniGameService.IMiniGameService.EndGetMyInfo(System.IAsyncResult result) {
-            return base.Channel.EndGetMyInfo(result);
+        sdkSilverlightXNACS.MiniGameService.GameStateChanges sdkSilverlightXNACS.MiniGameService.IMiniGameService.EndAddBombToEnemy(System.IAsyncResult result) {
+            return base.Channel.EndAddBombToEnemy(result);
         }
         
-        private System.IAsyncResult OnBeginGetMyInfo(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            sdkSilverlightXNACS.MiniGameService.GameStateChanges myInfo = ((sdkSilverlightXNACS.MiniGameService.GameStateChanges)(inValues[0]));
-            return ((sdkSilverlightXNACS.MiniGameService.IMiniGameService)(this)).BeginGetMyInfo(myInfo, callback, asyncState);
+        private System.IAsyncResult OnBeginAddBombToEnemy(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int count = ((int)(inValues[0]));
+            string myTeamName = ((string)(inValues[1]));
+            return ((sdkSilverlightXNACS.MiniGameService.IMiniGameService)(this)).BeginAddBombToEnemy(count, myTeamName, callback, asyncState);
         }
         
-        private object[] OnEndGetMyInfo(System.IAsyncResult result) {
-            sdkSilverlightXNACS.MiniGameService.GameStateChanges retVal = ((sdkSilverlightXNACS.MiniGameService.IMiniGameService)(this)).EndGetMyInfo(result);
+        private object[] OnEndAddBombToEnemy(System.IAsyncResult result) {
+            sdkSilverlightXNACS.MiniGameService.GameStateChanges retVal = ((sdkSilverlightXNACS.MiniGameService.IMiniGameService)(this)).EndAddBombToEnemy(result);
             return new object[] {
                     retVal};
         }
         
-        private void OnGetMyInfoCompleted(object state) {
-            if ((this.GetMyInfoCompleted != null)) {
+        private void OnAddBombToEnemyCompleted(object state) {
+            if ((this.AddBombToEnemyCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetMyInfoCompleted(this, new GetMyInfoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+                this.AddBombToEnemyCompleted(this, new AddBombToEnemyCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
             }
         }
         
-        public void GetMyInfoAsync(sdkSilverlightXNACS.MiniGameService.GameStateChanges myInfo) {
-            this.GetMyInfoAsync(myInfo, null);
+        public void AddBombToEnemyAsync(int count, string myTeamName) {
+            this.AddBombToEnemyAsync(count, myTeamName, null);
         }
         
-        public void GetMyInfoAsync(sdkSilverlightXNACS.MiniGameService.GameStateChanges myInfo, object userState) {
-            if ((this.onBeginGetMyInfoDelegate == null)) {
-                this.onBeginGetMyInfoDelegate = new BeginOperationDelegate(this.OnBeginGetMyInfo);
+        public void AddBombToEnemyAsync(int count, string myTeamName, object userState) {
+            if ((this.onBeginAddBombToEnemyDelegate == null)) {
+                this.onBeginAddBombToEnemyDelegate = new BeginOperationDelegate(this.OnBeginAddBombToEnemy);
             }
-            if ((this.onEndGetMyInfoDelegate == null)) {
-                this.onEndGetMyInfoDelegate = new EndOperationDelegate(this.OnEndGetMyInfo);
+            if ((this.onEndAddBombToEnemyDelegate == null)) {
+                this.onEndAddBombToEnemyDelegate = new EndOperationDelegate(this.OnEndAddBombToEnemy);
             }
-            if ((this.onGetMyInfoCompletedDelegate == null)) {
-                this.onGetMyInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetMyInfoCompleted);
+            if ((this.onAddBombToEnemyCompletedDelegate == null)) {
+                this.onAddBombToEnemyCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAddBombToEnemyCompleted);
             }
-            base.InvokeAsync(this.onBeginGetMyInfoDelegate, new object[] {
-                        myInfo}, this.onEndGetMyInfoDelegate, this.onGetMyInfoCompletedDelegate, userState);
+            base.InvokeAsync(this.onBeginAddBombToEnemyDelegate, new object[] {
+                        count,
+                        myTeamName}, this.onEndAddBombToEnemyDelegate, this.onAddBombToEnemyCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult sdkSilverlightXNACS.MiniGameService.IMiniGameService.BeginInformAboutWin(string myTeamName, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginInformAboutWin(myTeamName, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        sdkSilverlightXNACS.MiniGameService.GameStateChanges sdkSilverlightXNACS.MiniGameService.IMiniGameService.EndInformAboutWin(System.IAsyncResult result) {
+            return base.Channel.EndInformAboutWin(result);
+        }
+        
+        private System.IAsyncResult OnBeginInformAboutWin(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string myTeamName = ((string)(inValues[0]));
+            return ((sdkSilverlightXNACS.MiniGameService.IMiniGameService)(this)).BeginInformAboutWin(myTeamName, callback, asyncState);
+        }
+        
+        private object[] OnEndInformAboutWin(System.IAsyncResult result) {
+            sdkSilverlightXNACS.MiniGameService.GameStateChanges retVal = ((sdkSilverlightXNACS.MiniGameService.IMiniGameService)(this)).EndInformAboutWin(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnInformAboutWinCompleted(object state) {
+            if ((this.InformAboutWinCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.InformAboutWinCompleted(this, new InformAboutWinCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void InformAboutWinAsync(string myTeamName) {
+            this.InformAboutWinAsync(myTeamName, null);
+        }
+        
+        public void InformAboutWinAsync(string myTeamName, object userState) {
+            if ((this.onBeginInformAboutWinDelegate == null)) {
+                this.onBeginInformAboutWinDelegate = new BeginOperationDelegate(this.OnBeginInformAboutWin);
+            }
+            if ((this.onEndInformAboutWinDelegate == null)) {
+                this.onEndInformAboutWinDelegate = new EndOperationDelegate(this.OnEndInformAboutWin);
+            }
+            if ((this.onInformAboutWinCompletedDelegate == null)) {
+                this.onInformAboutWinCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnInformAboutWinCompleted);
+            }
+            base.InvokeAsync(this.onBeginInformAboutWinDelegate, new object[] {
+                        myTeamName}, this.onEndInformAboutWinDelegate, this.onInformAboutWinCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult sdkSilverlightXNACS.MiniGameService.IMiniGameService.BeginInformAboutLose(string myTeamName, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginInformAboutLose(myTeamName, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        sdkSilverlightXNACS.MiniGameService.GameStateChanges sdkSilverlightXNACS.MiniGameService.IMiniGameService.EndInformAboutLose(System.IAsyncResult result) {
+            return base.Channel.EndInformAboutLose(result);
+        }
+        
+        private System.IAsyncResult OnBeginInformAboutLose(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string myTeamName = ((string)(inValues[0]));
+            return ((sdkSilverlightXNACS.MiniGameService.IMiniGameService)(this)).BeginInformAboutLose(myTeamName, callback, asyncState);
+        }
+        
+        private object[] OnEndInformAboutLose(System.IAsyncResult result) {
+            sdkSilverlightXNACS.MiniGameService.GameStateChanges retVal = ((sdkSilverlightXNACS.MiniGameService.IMiniGameService)(this)).EndInformAboutLose(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnInformAboutLoseCompleted(object state) {
+            if ((this.InformAboutLoseCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.InformAboutLoseCompleted(this, new InformAboutLoseCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void InformAboutLoseAsync(string myTeamName) {
+            this.InformAboutLoseAsync(myTeamName, null);
+        }
+        
+        public void InformAboutLoseAsync(string myTeamName, object userState) {
+            if ((this.onBeginInformAboutLoseDelegate == null)) {
+                this.onBeginInformAboutLoseDelegate = new BeginOperationDelegate(this.OnBeginInformAboutLose);
+            }
+            if ((this.onEndInformAboutLoseDelegate == null)) {
+                this.onEndInformAboutLoseDelegate = new EndOperationDelegate(this.OnEndInformAboutLose);
+            }
+            if ((this.onInformAboutLoseCompletedDelegate == null)) {
+                this.onInformAboutLoseCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnInformAboutLoseCompleted);
+            }
+            base.InvokeAsync(this.onBeginInformAboutLoseDelegate, new object[] {
+                        myTeamName}, this.onEndInformAboutLoseDelegate, this.onInformAboutLoseCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult sdkSilverlightXNACS.MiniGameService.IMiniGameService.BeginRetrieveChanges(string myTeamName, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginRetrieveChanges(myTeamName, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        sdkSilverlightXNACS.MiniGameService.GameStateChanges sdkSilverlightXNACS.MiniGameService.IMiniGameService.EndRetrieveChanges(System.IAsyncResult result) {
+            return base.Channel.EndRetrieveChanges(result);
+        }
+        
+        private System.IAsyncResult OnBeginRetrieveChanges(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string myTeamName = ((string)(inValues[0]));
+            return ((sdkSilverlightXNACS.MiniGameService.IMiniGameService)(this)).BeginRetrieveChanges(myTeamName, callback, asyncState);
+        }
+        
+        private object[] OnEndRetrieveChanges(System.IAsyncResult result) {
+            sdkSilverlightXNACS.MiniGameService.GameStateChanges retVal = ((sdkSilverlightXNACS.MiniGameService.IMiniGameService)(this)).EndRetrieveChanges(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnRetrieveChangesCompleted(object state) {
+            if ((this.RetrieveChangesCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.RetrieveChangesCompleted(this, new RetrieveChangesCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void RetrieveChangesAsync(string myTeamName) {
+            this.RetrieveChangesAsync(myTeamName, null);
+        }
+        
+        public void RetrieveChangesAsync(string myTeamName, object userState) {
+            if ((this.onBeginRetrieveChangesDelegate == null)) {
+                this.onBeginRetrieveChangesDelegate = new BeginOperationDelegate(this.OnBeginRetrieveChanges);
+            }
+            if ((this.onEndRetrieveChangesDelegate == null)) {
+                this.onEndRetrieveChangesDelegate = new EndOperationDelegate(this.OnEndRetrieveChanges);
+            }
+            if ((this.onRetrieveChangesCompletedDelegate == null)) {
+                this.onRetrieveChangesCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnRetrieveChangesCompleted);
+            }
+            base.InvokeAsync(this.onBeginRetrieveChangesDelegate, new object[] {
+                        myTeamName}, this.onEndRetrieveChangesDelegate, this.onRetrieveChangesCompletedDelegate, userState);
         }
         
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
@@ -827,16 +973,56 @@ namespace sdkSilverlightXNACS.MiniGameService {
                 return _result;
             }
             
-            public System.IAsyncResult BeginGetMyInfo(sdkSilverlightXNACS.MiniGameService.GameStateChanges myInfo, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = myInfo;
-                System.IAsyncResult _result = base.BeginInvoke("GetMyInfo", _args, callback, asyncState);
+            public System.IAsyncResult BeginAddBombToEnemy(int count, string myTeamName, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
+                _args[0] = count;
+                _args[1] = myTeamName;
+                System.IAsyncResult _result = base.BeginInvoke("AddBombToEnemy", _args, callback, asyncState);
                 return _result;
             }
             
-            public sdkSilverlightXNACS.MiniGameService.GameStateChanges EndGetMyInfo(System.IAsyncResult result) {
+            public sdkSilverlightXNACS.MiniGameService.GameStateChanges EndAddBombToEnemy(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                sdkSilverlightXNACS.MiniGameService.GameStateChanges _result = ((sdkSilverlightXNACS.MiniGameService.GameStateChanges)(base.EndInvoke("GetMyInfo", _args, result)));
+                sdkSilverlightXNACS.MiniGameService.GameStateChanges _result = ((sdkSilverlightXNACS.MiniGameService.GameStateChanges)(base.EndInvoke("AddBombToEnemy", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginInformAboutWin(string myTeamName, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = myTeamName;
+                System.IAsyncResult _result = base.BeginInvoke("InformAboutWin", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public sdkSilverlightXNACS.MiniGameService.GameStateChanges EndInformAboutWin(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                sdkSilverlightXNACS.MiniGameService.GameStateChanges _result = ((sdkSilverlightXNACS.MiniGameService.GameStateChanges)(base.EndInvoke("InformAboutWin", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginInformAboutLose(string myTeamName, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = myTeamName;
+                System.IAsyncResult _result = base.BeginInvoke("InformAboutLose", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public sdkSilverlightXNACS.MiniGameService.GameStateChanges EndInformAboutLose(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                sdkSilverlightXNACS.MiniGameService.GameStateChanges _result = ((sdkSilverlightXNACS.MiniGameService.GameStateChanges)(base.EndInvoke("InformAboutLose", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginRetrieveChanges(string myTeamName, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = myTeamName;
+                System.IAsyncResult _result = base.BeginInvoke("RetrieveChanges", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public sdkSilverlightXNACS.MiniGameService.GameStateChanges EndRetrieveChanges(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                sdkSilverlightXNACS.MiniGameService.GameStateChanges _result = ((sdkSilverlightXNACS.MiniGameService.GameStateChanges)(base.EndInvoke("RetrieveChanges", _args, result)));
                 return _result;
             }
         }

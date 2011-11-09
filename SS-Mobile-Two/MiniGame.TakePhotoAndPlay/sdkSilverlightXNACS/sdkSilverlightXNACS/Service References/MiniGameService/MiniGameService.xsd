@@ -42,17 +42,60 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetMyInfo">
+  <xs:element name="AddBombToEnemy">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MiniGame.DataContractsShared" minOccurs="0" name="myInfo" nillable="true" type="q3:GameStateChanges" />
+        <xs:element minOccurs="0" name="count" type="xs:int" />
+        <xs:element minOccurs="0" name="myTeamName" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetMyInfoResponse">
+  <xs:element name="AddBombToEnemyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MiniGame.DataContractsShared" minOccurs="0" name="GetMyInfoResult" nillable="true" type="q4:GameStateChanges" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MiniGame.DataContractsShared" minOccurs="0" name="AddBombToEnemyResult" nillable="true" type="q3:GameStateChanges" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InformAboutWin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="myTeamName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InformAboutWinResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MiniGame.DataContractsShared" minOccurs="0" name="InformAboutWinResult" nillable="true" type="q4:GameStateChanges" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InformAboutLose">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="myTeamName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InformAboutLoseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MiniGame.DataContractsShared" minOccurs="0" name="InformAboutLoseResult" nillable="true" type="q5:GameStateChanges" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveChanges">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="myTeamName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveChangesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MiniGame.DataContractsShared" minOccurs="0" name="RetrieveChangesResult" nillable="true" type="q6:GameStateChanges" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
