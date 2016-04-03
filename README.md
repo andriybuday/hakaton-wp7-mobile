@@ -1,6 +1,7 @@
 # WP7 Hackathon Lviv October 2011
 
-This is a source code of super intense 24 hours of work during Windows Phone 7 Hackathon that took place in Lviv, Ukraine on 29th-30th of October, 2011.
+This is a source code of two teams that took part in Windows Phone 7 Hackathon in Lviv, Ukraine on 29-30th of October 2011.
+During the night we had 125 commits to the source-control (4:59PM first commit and 11:22AM last commit)!
 
 **My team won!**
 
